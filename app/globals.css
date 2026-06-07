@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Nạp plugin làm đẹp Typography trực tiếp bằng CSS theo chuẩn Tailwind v4 */
+@plugin "@tailwindcss/typography";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
