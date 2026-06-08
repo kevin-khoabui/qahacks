@@ -1,4 +1,3 @@
-Implementing a risk based testing framework for legacy system migrations without documentation
 Orchestrating test data management across parallel test teams to eliminate data state corruption
 Establishing quality KPIs and metric dashboards for tracking manual test lead efficiency in sprint cycles
 Transitioning a traditional manual testing team into automation engineers utilizing a structured upskilling matrix

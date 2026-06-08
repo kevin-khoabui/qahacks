@@ -1,3 +1,4 @@
 Managing cross functional agile testing teams distributed across multiple geographic time zones
 Designing an enterprise test strategy for microservices architecture with decoupled release cycles
 Handling stakeholder communication when critical regression bugs are discovered right before production launch
+Implementing a risk based testing framework for legacy system migrations without documentation
