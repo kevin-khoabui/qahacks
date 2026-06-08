@@ -1,13 +1,14 @@
 {
   "name": "qahacks",
-  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gen:single": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/generate.ts",
+    "gen:top": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/aggregate.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -30,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

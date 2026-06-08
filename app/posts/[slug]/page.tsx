@@ -18,6 +18,9 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  // Kiểm tra xem bài viết này có phải là Bộ đề tổng hợp (Top 10, 20...) hay không
+  const isCompilation = post.question_type === "Compilation";
+
   return (
     // Bọc toàn bộ trang bằng nền tối tối ưu cho mắt lập trình viên
     <main className="min-h-screen bg-slate-950 text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -25,8 +28,12 @@ export default async function PostPage({ params }: Props) {
         
         {/* Phần hiển thị các thẻ phân loại dữ liệu */}
         <div className="flex flex-wrap gap-2 items-center text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-4">
-          <span className="bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-800/60">
-            {post.category} / {post.sub_category}
+          <span className={`px-3 py-1 rounded-full border ${
+            isCompilation 
+              ? "text-amber-400 bg-amber-950/80 border-amber-800/60" 
+              : "text-emerald-400 bg-emerald-950/80 border-emerald-800/60"
+          }`}>
+            {isCompilation ? "⭐ MEGA COMPILATION" : `${post.category} / ${post.sub_category}`}
           </span>
           <span className={`px-3 py-1 rounded-full border ${
             post.difficulty === "Advanced" ? "bg-amber-950/80 border-amber-800/60 text-amber-400" : "bg-sky-950/80 border-sky-800/60 text-sky-400"
@@ -45,18 +52,32 @@ export default async function PostPage({ params }: Props) {
           {post.title}
         </h1>
 
-        <div className="border-b border-slate-800 mb-8 pb-4">
-          <p className="text-sm text-slate-400">Target Role: <span className="text-slate-200 font-medium">{post.target_role}</span></p>
+        <div className="border-b border-slate-800 mb-8 pb-4 flex justify-between items-center text-sm text-slate-400">
+          <p>Target Role: <span className="text-slate-200 font-medium">{post.target_role?.replace(/_/g, " ")}</span></p>
+          {isCompilation && <span className="text-xs text-amber-400 font-mono bg-amber-950/30 px-2 py-0.5 rounded border border-amber-900/30">All-in-one Guide</span>}
         </div>
 
-        {/* THẦN CHÚ: Sử dụng duy nhất cụm class chuẩn để kích hoạt tự động làm đẹp văn bản và code block */}
+        {/* HIỂN THỊ NỘI DUNG MỘT CÁCH CHUYÊN NGHIỆP */}
         <article className="prose prose-slate prose-invert max-w-none">
-          <ReactMarkdown 
-            remarkPlugins={[remarkGfm]} 
-            rehypePlugins={[rehypeHighlight]}
-          >
-            {post.content}
-          </ReactMarkdown>
+          {isCompilation ? (
+            // Layout nâng cấp dành riêng cho bài viết Top bộ đề
+            <div className="space-y-4 dynamic-compilation">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]} 
+                rehypePlugins={[rehypeHighlight]}
+              >
+                {post.content}
+              </ReactMarkdown>
+            </div>
+          ) : (
+            // Layout chuẩn gốc dành cho bài viết một câu hỏi đơn lẻ
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]} 
+              rehypePlugins={[rehypeHighlight]}
+            >
+              {post.content}
+            </ReactMarkdown>
+          )}
         </article>
 
       </div>

@@ -1,39 +1,109 @@
 import * as dotenv from "dotenv";
 import * as path from "path";
+import * as fs from "fs";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // 1. Nạp cấu hình bảo mật .env.local
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import * as fs from "fs";
+// 2. DANH SÁCH BỂ CHỨA API KEY (Tự động bốc từ .env.local)
+const API_KEYS_POOL = [
+  process.env.GEMINI_API_KEY_1 || "",
+  process.env.GEMINI_API_KEY_2 || "",
+  process.env.GEMINI_API_KEY_3 || "",
+  process.env.GEMINI_API_KEY_4 || "",
+  process.env.GEMINI_API_KEY_5 || "",
+  process.env.GEMINI_API_KEY_6 || "",
+  process.env.GEMINI_API_KEY_7 || "",
+  process.env.GEMINI_API_KEY_8 || "",
+  process.env.GEMINI_API_KEY_9 || "",
+  process.env.GEMINI_API_KEY_10 || "",
+  process.env.GEMINI_API_KEY_11 || "",
+  process.env.GEMINI_API_KEY_12 || "",
+  process.env.GEMINI_API_KEY_13 || "",
+  process.env.GEMINI_API_KEY_14 || "",
+  process.env.GEMINI_API_KEY_15 || "",
+  process.env.GEMINI_API_KEY_16 || "",
+  process.env.GEMINI_API_KEY_17 || "",
+  process.env.GEMINI_API_KEY_18 || "",
+  process.env.GEMINI_API_KEY_19 || "",
+  process.env.GEMINI_API_KEY_20 || "",
+  process.env.GEMINI_API_KEY_21 || "",
+  process.env.GEMINI_API_KEY_22 || "",
+  process.env.GEMINI_API_KEY_23 || "",
+  process.env.GEMINI_API_KEY_24 || "",
+];
 
-const apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey) {
-  console.error("❌ Lỗi: Chưa cấu hình GEMINI_API_KEY trong file .env.local");
-  process.exit(1);
+// Hàm lấy API Key theo vòng tua và tự động tăng index lưu vào pointer.json
+function getRotatedApiKey(): string {
+  const activeKeys = API_KEYS_POOL.filter(key => key.length > 0);
+
+  if (activeKeys.length === 0) {
+    // Phương án dự phòng nếu bạn chưa kịp điền Key số vào .env.local
+    return process.env.GEMINI_API_KEY || "";
+  }
+
+  const pointerPath = path.join(process.cwd(), "pointer.json");
+  let currentIndex = 0;
+
+  if (fs.existsSync(pointerPath)) {
+    try {
+      const data = JSON.parse(fs.readFileSync(pointerPath, "utf-8"));
+      currentIndex = data.currentIndex || 0;
+    } catch (e) {
+      currentIndex = 0;
+    }
+  }
+
+  // Bốc Key của lượt này ra
+  const selectedKey = activeKeys[currentIndex % activeKeys.length];
+
+  // CHỐT CHẶN: Dù thành công hay thất bại, pointer VẪN PHẢI TĂNG để lượt sau đổi Key khác
+  const nextIndex = (currentIndex + 1) % activeKeys.length;
+  fs.writeFileSync(pointerPath, JSON.stringify({ currentIndex: nextIndex }), "utf-8");
+
+  console.log(`🔑 [Hệ thống xoay vòng] Đang sử dụng API Key vị trí số: [${currentIndex + 1}/${activeKeys.length}]`);
+  return selectedKey;
 }
-const genAI = new GoogleGenerativeAI(apiKey);
-// Sử dụng mô hình gemini-2.5-flash để vừa thông minh vừa tối ưu chi phí và tốc độ
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function generateInterviewQuestion(topic: string) {
-  // BẢN PROMPT SIÊU CẤP: Ép AI làm cả nhiệm vụ phân tích cấu trúc Taxonomy Guideline của hệ thống
+  const apiKey = getRotatedApiKey();
+  if (!apiKey) {
+    console.error("❌ Lỗi: Không tìm thấy bất kỳ API Key hợp lệ nào!");
+    return false;
+  }
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+  // const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+  const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
+
+  // Prompt tối ưu hóa: Bắt buộc áp dụng cấu hình Signposting chuyên nghiệp vào Speaking Blueprint
   const prompt = `
-    You are an expert Software Testing Specialist, a Technical Interviewer, and an SEO expert.
-    Generate an in-depth interview Q&A post (consisting of exactly one interview question and a highly detailed comprehensive answer) regarding this topic: "${topic}".
+    You are an expert Technical Interviewer and a Principal QA Engineer.
+    Generate a high-yield, straight-to-the-point interview Q&A post regarding this topic: "${topic}".
     
-    CRITICAL REQUIREMENT 1 (AUTOMATIC TAXONOMY MAPPING):
-    You must dynamically analyze the given topic and determine the correct metadata values based on our strict system architecture guidelines:
+    CRITICAL REQUIREMENT 1 (STRICT LENGTH & STYLE LIMITS):
+    - The "Interview Question" must be a concise, direct, one-to-two sentence question (Strictly under 200 characters).
+    - The "Expert Answer" must be concise, structured, and strictly under 2500 characters. Focus on high-level strategy (Problem-solving, Impact, Resolution) using clean markdown formatting (bolding, short lists) but NO massive code blocks.
+    - You MUST include a "Speaking Blueprint (3-Minute Verbal Response)" section. This section must be a word-for-word spoken script in professional English.
+
+    CRITICAL REQUIREMENT 2 (SPEAKING STRUCTURE & SIGNPOSTING):
+    The Speaking Blueprint MUST strictly follow this conversational structure without using mechanical bullet points:
+    1. [The Hook]: Start with a powerful, direct statement or viewpoint about the topic to grab attention immediately.
+    2. [The Core Execution]: Transition smoothly into the core solution. You MUST use natural signposting techniques (e.g., "First, the way I look at this...", "This directly drives us to the next point...", "Now, to make this actionable...", "We actually ran into a similar scenario where...").
+    3. [The Punchline]: Conclude with a strong, high-level engineering philosophy or the direct business value this strategy delivers to the enterprise.
+
+    CRITICAL REQUIREMENT 3 (AUTOMATIC TAXONOMY MAPPING):
+    Determine the correct metadata values based on our strict system architecture guidelines:
     - "category": Must be one of ['Technical', 'Foundations', 'Analytical_Behavioral'].
     - "sub_category": Must map logically (e.g., 'Automation', 'API', 'Database', 'Performance', 'Security', 'Manual', 'Methodology', 'Strategy', 'Behavioral').
-    - "difficulty": Set 'Basic', 'Intermediate', or 'Advanced' based on the technical depth required.
-    - "target_role": Determine the realistic industry role (e.g., 'Junior_QA_Engineer', 'QA_Engineer', 'Senior_Automation', 'QA_Lead', 'QA_Data_Analyst').
-    - "tool_stack": Identify the main tool used (e.g., 'Playwright', 'Cypress', 'JMeter', 'Postman', 'SQL', or 'None' if it is a manual/behavioral topic).
+    - "difficulty": Set 'Basic', 'Intermediate', or 'Advanced'.
+    - "target_role": Determine the realistic industry role (e.g., 'Junior_QA_Engineer', 'QA_Engineer', 'Senior_Automation', 'QA_Lead', 'QA_Manager', 'QA_Data_Analyst').
+    - "tool_stack": Identify the main tool used ('Playwright', 'Cypress', 'JMeter', 'Postman', 'SQL', or 'None').
 
-    CRITICAL REQUIREMENT 2 (OUTPUT FORMAT):
-    The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in code blocks like \`\`\`markdown. Output only the raw text starting with the dashes.
+    CRITICAL REQUIREMENT 4 (OUTPUT FORMAT):
+    The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in code blocks.
 
     ---
     title: 'A concise, catchy, and SEO-optimized title tailored for the post'
@@ -41,32 +111,35 @@ async function generateInterviewQuestion(topic: string) {
     target_role: '[Insert Dynamic Value]'
     category: '[Insert Dynamic Value]'
     sub_category: '[Insert Dynamic Value]'
-    question_type: 'Code-challenge' (or 'Conceptual', 'Scenario-based', 'Behavioral' depending on the content)
-    core_testing_type: 'Functional' (or 'Non-Functional')
+    question_type: 'Code-challenge'
+    core_testing_type: 'Functional'
     domain: 'E-commerce'
     platform: 'Web'
     tool_stack: '[Insert Dynamic Value]'
-    tags: ['testing', 'interview-prep', 'automatically-generated-tag']
+    tags: ['testing', 'interview-prep', 'qa-interview']
     ---
     
+    ## Overview
+    [Provide a very brief 2-sentence introduction about the core challenge of this topic]
+    
     ### Interview Question:
-    [Provide the clear, professional interview question tailored for the dynamically chosen target_role and difficulty]
+    [Insert the short question here, under 200 characters]
     
     ### Expert Answer:
-    [Provide a thorough technical answer explaining the core concept, the "why" behind the solution, and handle edge cases. If code or queries are relevant for the tool_stack, write clean, production-ready, and well-commented code inside standard markdown code blocks]
+    [Insert the structured, punchy written answer here. Focus on problem-solving, impact, and concrete real-world logic]
+
+    ### Speaking Blueprint (3-Minute Verbal Response):
+    [Insert the conversational speech sample here, using clear markers for [The Hook], [The Core Execution], and [The Punchline] inside the text flow]
   `;
 
   try {
-    console.log(`🤖 Đang yêu cầu Gemini tự động phân tích và sinh bài viết cho chủ đề: "${topic}"...`);
+    console.log(`🤖 [Băng chuyền Thực Chiến] Đang gửi chủ đề lên Gemini: "${topic}"...`);
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
 
-    // Làm sạch dữ liệu trả về phòng trường hợp AI tự ý bọc thẻ markdown thô ngoài rìa
     const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
-    
-    // Tạo tên file chuẩn hóa (Slug) từ chủ đề đầu vào
     const fileName = `${topic.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.md`;
-    
+
     const outputDir = path.join(process.cwd(), "content", "posts");
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
@@ -74,61 +147,60 @@ async function generateInterviewQuestion(topic: string) {
 
     const outputPath = path.join(outputDir, fileName);
     fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
-    console.log(`✅ Tự động phân loại và xuất file thành công: /content/posts/${fileName}`);
+    console.log(`✅ Xuất file thực chiến thành công: /content/posts/${fileName}`);
+    return true;
   } catch (error) {
     console.error(`❌ Gặp lỗi xử lý API tại chủ đề [${topic}]:`, error);
+    return false;
   }
 }
 
-// 3. TIẾN TRÌNH ĐIỀU PHỐI ĐỌC FILE TỰ ĐỘNG
 async function main() {
   const argumentTopic = process.argv[2];
 
   if (argumentTopic) {
-    // Chạy bài lẻ
+    // Kịch bản chạy bài lẻ qua CLI
     await generateInterviewQuestion(argumentTopic);
   } else {
-    // Chạy hàng loạt từ file topics.txt
+    // Kịch bản chạy gặm dần từ topics.txt
     const filePath = path.join(process.cwd(), "topics.txt");
+    const doneFilePath = path.join(process.cwd(), "done_topics.txt");
 
     if (!fs.existsSync(filePath)) {
       console.error("❌ Lỗi: Không tìm thấy file topics.txt ở thư mục gốc!");
       process.exit(1);
     }
 
-    const bulkTopics = fs
-      .readFileSync(filePath, "utf-8")
-      .split("\n")
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0);
+    const lines = fs.readFileSync(filePath, "utf-8").split("\n").map(line => line.trim());
+    const validTopics = lines.filter(line => line.length > 0);
 
-    if (bulkTopics.length === 0) {
-      console.log("ℹ️ File topics.txt đang trống.");
+    if (validTopics.length === 0) {
+      console.log("🎉 Hết bài rồi! File topics.txt đang trống rỗng.");
       return;
     }
 
-    console.log(`🚀 Khởi động hệ thống thông minh. Phát hiện ${bulkTopics.length} chủ đề cần xử lý...`);
+    // Bốc duy nhất 1 dòng đầu tiên lên để xử lý
+    const currentTopic = validTopics[0];
 
-    for (let i = 0; i < bulkTopics.length; i++) {
-      const topic = bulkTopics[i];
-      const fileName = `${topic.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.md`;
-      const outputPath = path.join(process.cwd(), "content", "posts", fileName);
+    // Gọi API xử lý
+    const success = await generateInterviewQuestion(currentTopic);
 
-      // Chống trùng file để tiết kiệm tài nguyên
-      if (fs.existsSync(outputPath)) {
-        console.log(`⏩ [${i + 1}/${bulkTopics.length}] Đã có sẵn, bỏ qua: ${fileName}`);
-        continue;
+    if (success) {
+      // NẾU THÀNH CÔNG: Đưa vào kho lưu trữ done_topics.txt
+      fs.appendFileSync(doneFilePath, `${currentTopic}\n`, "utf-8");
+
+      // Cắt dòng đó ra khỏi file topics.txt
+      const targetIndex = lines.findIndex(l => l.trim() === currentTopic);
+      if (targetIndex !== -1) {
+        lines.splice(targetIndex, 1);
       }
 
-      await generateInterviewQuestion(topic);
-
-      // Nghỉ giải lao bọc chốt chặn an toàn 6 giây chống lỗi Rate Limit 429
-      if (i < bulkTopics.length - 1) {
-        console.log(`⏱️ Đang nghỉ 6 giây trước khi chuyển sang bài tiếp theo...`);
-        await delay(6000);
-      }
+      fs.writeFileSync(filePath, lines.join("\n"), "utf-8");
+      console.log(`✂️ Đã cắt dòng ra khỏi file topics.txt. Còn lại: ${validTopics.length - 1} chủ đề.`);
+    } else {
+      // NẾU THẤT BẠI: Bỏ qua lượt, giữ nguyên câu hỏi ở dòng đầu tiên để chờ tiếng sau chạy tiếp bằng Key mới
+      console.log("⚠️ Lượt này chạy thất bại. Giữ nguyên câu hỏi đầu dòng để chờ Key sau gánh ở khung giờ tiếp theo.");
     }
-    console.log("🎉 TỰ ĐỘNG CẬP NHẬT TOÀN BỘ KHO DỮ LIỆU HOÀN TẤT VÀ CHUẨN XÁC VỚI TAXONOMY!");
   }
 }
 

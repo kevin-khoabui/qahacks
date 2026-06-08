@@ -1,0 +1,39 @@
+name: 🤖 Auto Generate QA Posts
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Chạy tự động vào phút thứ 0 của mỗi giờ (1 tiếng/lần)
+  workflow_dispatch: # Cho phép bạn bấm nút chạy thử bằng tay trên web
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Cấp quyền cho bot tự động ghi và push file mới vào repo
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Hoặc '20' tùy phiên bản bạn dùng
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🔑 Create .env.local from GitHub Secrets
+        run: |
+          echo "${{ secrets.ENV_LOCAL }}" > .env.local
+
+      - name: 🚀 Run generation script
+        run: npm run gen:single
+
+      - name: 💾 Commit and Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "🤖 Auto-generated new QA post & updated pointer" || echo "No changes to commit"
+          git push
