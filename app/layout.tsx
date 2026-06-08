@@ -3,6 +3,12 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
+// 1. IMPORT CÁC THÀNH PHẦN TÌM KIẾM
+import { getAllPosts } from "@/lib/posts";
+import CommandPalette from "@/components/CommandPalette";
+import NavbarSearchButton from "@/components/NavbarSearchButton"; // <-- THÊM DÒNG NÀY
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,6 +21,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // 2. LẤY DỮ LIỆU TÌM KIẾM RÚT GỌN (Giúp hệ thống load cực nhanh)
+  const allPosts = getAllPosts();
+  const searchData = allPosts.map(post => ({
+    slug: post.slug,
+    title: post.title,
+    category: post.category || "General",
+    tool: (post as any).tool_stack || "None"
+  }));
+
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased`}>
@@ -100,6 +115,33 @@ export default function RootLayout({
                 </div>
               </div>
 
+              {/* DROPDOWN MENU 3: TOOLS & FRAMEWORKS */}
+              <div className="relative group py-2">
+                <button className="hover:text-emerald-400 transition-colors flex items-center gap-1 cursor-pointer">
+                  Tools
+                  <svg className="w-3 h-3 text-slate-500 group-hover:text-emerald-400 transition-transform group-hover:rotate-180 duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
+                  <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
+                    <Link href="/?tool=Playwright" className="block px-3 py-2 text-xs font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors flex items-center justify-between">
+                      Playwright
+                    </Link>
+                    <Link href="/?tool=Cypress" className="block px-3 py-2 text-xs font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors flex items-center justify-between">
+                      Cypress
+                    </Link>
+                    <Link href="/?tool=Selenium" className="block px-3 py-2 text-xs font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors flex items-center justify-between">
+                      Selenium
+                    </Link>
+                    <div className="h-px bg-slate-800 my-1 mx-2"></div> {/* Đường kẻ phân cách nhỏ */}
+                    <Link href="/?tool=Postman" className="block px-3 py-2 text-xs font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors flex items-center justify-between">
+                      Postman
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
               <Link href="/?category=Analytical_Behavioral" className="hover:text-emerald-400 transition-colors">
                 Behavioral Scenario
               </Link>
@@ -118,9 +160,28 @@ export default function RootLayout({
                 </svg>
               </a>
             </div>
+            <div className="flex items-center gap-3 sm:gap-4">
+              
+              {/* NÚT SEARCH TRÊN MENU VỪA TẠO */}
+              <NavbarSearchButton />
+
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                </svg>
+              </a>
+            </div>
 
           </div>
         </header>
+
+        {/* 3. NHÚNG COMMAND PALETTE VÀO ĐÂY (Nằm ngoài cùng để phủ lên trên mọi thứ) */}
+        <CommandPalette posts={searchData} />
 
         {/* VÙNG CHỨA NỘI DUNG CHÍNH ĐỘNG CỦA CÁC TRANG (PAGE CHILDREN) */}
         {children}

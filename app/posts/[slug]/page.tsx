@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import Link from "next/link";
 // Nạp theme màu sắc hiển thị code chuẩn Github Dark
-import "highlight.js/styles/github-dark.css"; 
+import "highlight.js/styles/github-dark.css";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -22,13 +22,13 @@ export default async function PostPage({ params }: Props) {
   // Lấy 2 bài viết liên quan (Cùng Category hoặc Tool)
   // Lưu ý: Bạn cần định nghĩa hàm getRelatedPosts trong lib/posts.ts
   const relatedPosts = await getRelatedPosts(resolvedParams.slug, post.category, 2);
-  
+
   const isCompilation = post.question_type === "Compilation";
   const displayRole = post.target_role?.replace(/_/g, " ");
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-12 px-4 sm:px-6 lg:px-8 relative">
-      
+
       {/* Nút Back về Dashboard tinh tế ở góc */}
       <div className="max-w-4xl mx-auto mb-6">
         <Link href="/" className="inline-flex items-center text-sm font-medium text-slate-400 hover:text-teal-400 transition-colors">
@@ -40,23 +40,21 @@ export default async function PostPage({ params }: Props) {
       </div>
 
       <div className="max-w-4xl mx-auto bg-[#0B1121] p-6 sm:p-12 rounded-2xl border border-slate-800 shadow-2xl relative overflow-hidden">
-        
+
         {/* Hiệu ứng Glow nền phía sau Header cho bớt đơn điệu */}
         <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/20 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10">
           {/* Tags */}
           <div className="flex flex-wrap gap-2 items-center text-xs font-semibold uppercase tracking-wider mb-6">
-            <span className={`px-3 py-1.5 rounded-md border ${
-              isCompilation 
-                ? "text-amber-400 bg-amber-500/10 border-amber-500/20" 
+            <span className={`px-3 py-1.5 rounded-md border ${isCompilation
+                ? "text-amber-400 bg-amber-500/10 border-amber-500/20"
                 : "text-teal-400 bg-teal-500/10 border-teal-500/20"
-            }`}>
+              }`}>
               {isCompilation ? "⭐ MEGA COMPILATION" : `${post.category} / ${post.sub_category}`}
             </span>
-            <span className={`px-3 py-1.5 rounded-md border ${
-              post.difficulty === "Advanced" ? "text-rose-400 bg-rose-500/10 border-rose-500/20" : "text-sky-400 bg-sky-500/10 border-sky-500/20"
-            }`}>
+            <span className={`px-3 py-1.5 rounded-md border ${post.difficulty === "Advanced" ? "text-rose-400 bg-rose-500/10 border-rose-500/20" : "text-sky-400 bg-sky-500/10 border-sky-500/20"
+              }`}>
               {post.difficulty}
             </span>
             {post.tool_stack !== "None" && (
@@ -81,8 +79,8 @@ export default async function PostPage({ params }: Props) {
 
           {/* NỘI DUNG MARKDOWN */}
           <article className="prose prose-slate prose-invert max-w-none prose-headings:text-slate-100 prose-a:text-teal-400 hover:prose-a:text-teal-300 prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-slate-800">
-            <ReactMarkdown 
-              remarkPlugins={[remarkGfm]} 
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
             >
               {post.content}
@@ -105,12 +103,12 @@ export default async function PostPage({ params }: Props) {
                 Up Next: Related Challenges
               </h3>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {relatedPosts.map((rp) => (
-                <Link 
-                  href={`/guides/${rp.slug}`} 
-                  key={rp.slug} 
+                <Link
+                  href={`/posts/${rp.slug}`} // Đường dẫn đúng chuẩn của bạn
+                  key={rp.slug}
                   className="group block p-5 rounded-xl border border-slate-800 bg-[#111827] hover:bg-slate-800/50 hover:border-teal-500/40 transition-all duration-300"
                 >
                   <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">

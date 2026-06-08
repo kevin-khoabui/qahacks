@@ -2,7 +2,6 @@
   "name": "qahacks",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,13 +12,13 @@
     "gen:all": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/run-all-keys.ts",
     "auto": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/auto-run.ts"
   },
-
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@tailwindcss/typography": "^0.5.19",
     "dotenv": "^17.4.2",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
+    "lucide-react": "^1.17.0",
     "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4",
