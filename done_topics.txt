@@ -23,3 +23,18 @@ Designing a user acceptance testing coordination workflow across business stakeh
 Managing end to end integration testing strategies for complex distributed event driven architectures
 Handling historical test case debt and deprecating obsolete test cases without reducing functional coverage
 Establishing a continuous feedback loop between customer support ticket trends and manual test case creation
+Managing compliance and regulatory audit testing documentation requirements for medical or financial software
+Optimizing the bug lifecycle management workflow to reduce duplicate reports and invalid defect triaging time
+Designing matrix based cross browser and multi OS testing plans for consumer facing web applications
+Handling missing acceptance criteria in user stories using proactive behavioral driven exploration techniques
+Establishing a mentoring and career development framework for junior manual QA engineers in remote environments
+Managing production hotfix validation processes under aggressive time constraints without skipping critical regressions
+Coordinating test environment sync schedules and database refreshes across isolated regional testing squads
+Designing data privacy and mask enforcement strategies for manual verification using real production datasets
+Handling performance and load testing oversight from a manual test lead perspective prior to major scale events
+Implementing pairwise and boundary value analysis techniques to condense massive product configurations into lean suites
+Managing multi language localization test sign offs with localized dialect variants and cultural compliance
+Handling shifting engineering timelines and compressed QA windows without compromising core quality gates
+Designing security awareness smoke tests for manual leads to verify basic authorization and authentication leaks
+Establishing a central knowledge base and test case repository strategy across disparate engineering tools
+Managing the balance between scripted execution and unstructured session based exploratory testing time allocations
