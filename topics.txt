@@ -1,26 +1,3 @@
-Establishing a risk-based testing approach and traceability matrix using Postman for a Senior Manual QA minimizing manual overhead during major releases.
-How a Manual Test Leader manages conflict with developers regarding release blockers and defect severity in Agile during a major UI redesign phase.
-How a Test Manager trains and mentors junior testers on writing effective bug reports in Postman in a multi-tenant SaaS ecosystem.
-How a Manual Test Leader manages conflict with developers regarding release blockers and defect severity in Agile under extreme time constraints.
-Leading defect triage meetings and prioritizing critical production bugs in Confluence as a Manual Test Leader.
-Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a Test Strategy Lead in a fast-paced Agile deployment model with an understaffed QA team.
-Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with TestRail for a Manual Test Leader in a multi-tenant SaaS ecosystem ensuring strict data privacy and compliance standards.
-Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a QA Lead within a highly-regulated fintech application ensuring strict data privacy and compliance standards.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader for a high-traffic media streaming service with limited documentation and changing requirements.
-Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a Senior Manual QA handling sensitive user data compliance with an understaffed QA team.
-Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with SQL for a Manual Test Leader in a multi-tenant SaaS ecosystem during a major UI redesign phase.
-How a Manual Test Leader balances structured test case execution in Jira with time-boxed exploratory sessions with limited documentation and changing requirements.
-Negotiating testing scope and production deployment readiness with Product Owners using reports from Confluence as a QA Lead to ensure smooth third-party API integrations.
-Establishing a risk-based testing approach and traceability matrix using SQL for a Senior Manual QA for a cloud-native microservices architecture.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Test Manager in a multi-tenant SaaS ecosystem ensuring strict data privacy and compliance standards.
-Handling resistance from team members when transitioning to a new test management workflow in TestRail for a Test Manager within a highly-regulated fintech application under extreme time constraints.
-Negotiating testing scope and production deployment readiness with Product Owners using reports from Confluence as a Manual Test Leader to ensure smooth third-party API integrations.
-How a Senior Manual QA manages conflict with developers regarding release blockers and defect severity in Agile for a legacy migration project minimizing manual overhead during major releases.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader for an enterprise e-commerce platform.
-Auditing legacy test cases and optimizing regression test suites in Xray as a QA Lead for a legacy migration project.
-Negotiating testing scope and production deployment readiness with Product Owners using reports from SQL as a Senior Manual QA for a high-traffic media streaming service with an understaffed QA team.
-Handling resistance from team members when transitioning to a new test management workflow in Postman for a Manual Test Leader in a multi-tenant SaaS ecosystem while onboarding new offshore QA resources.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a QA Lead for a legacy migration project.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Chrome DevTools as a QA Lead in a fast-paced Agile deployment model with limited documentation and changing requirements.
 Establishing a risk-based testing approach and traceability matrix using Postman for a Manual Test Leader minimizing manual overhead during major releases.
 Establishing a risk-based testing approach and traceability matrix using Postman for a Test Manager for a cloud-native microservices architecture with an understaffed QA team.
