@@ -4,3 +4,22 @@ Handling stakeholder communication when critical regression bugs are discovered 
 Implementing a risk based testing framework for legacy system migrations without documentation
 Orchestrating test data management across parallel test teams to eliminate data state corruption
 Establishing quality KPIs and metric dashboards for tracking manual test lead efficiency in sprint cycles
+Transitioning a traditional manual testing team into automation engineers utilizing a structured upskilling matrix
+Managing testing scope creep when product requirements change mid sprint during regression execution
+Handling conflicts between software development leads and QA leads regarding bug severity and priority definition
+Designing an exploratory testing charter strategy for complex multi tenant enterprise SaaS applications
+Conducting a root cause analysis after a major production incident due to missed edge case requirements
+Optimizing resource allocation across concurrent product feature streams with limited testing headcounts
+Establishing a standardized definition of ready and definition of done for quality assurance in agile teams
+Managing the quality gate verification process for third party vendor API integrations and dependencies
+Designing a high coverage manual regression test suite that executes within tight timeboxed release windows
+Handling testing team burnout during high pressure delivery cycles and extended crunch periods
+Implementing a shift left testing strategy to involve manual test leads in early requirement refinement sessions
+Managing non functional testing requirements gathering for accessibility compliance and localization workflows
+Evaluating and selecting external crowdsourced testing vendors for global multi device compatibility coverage
+Conducting comprehensive post release retrospectives to isolate and fix leaks in the quality assurance pipeline
+Mitigating team delivery delays when staging environments are highly unstable or suffer from frequent downtime
+Designing a user acceptance testing coordination workflow across business stakeholders and product managers
+Managing end to end integration testing strategies for complex distributed event driven architectures
+Handling historical test case debt and deprecating obsolete test cases without reducing functional coverage
+Establishing a continuous feedback loop between customer support ticket trends and manual test case creation
