@@ -2,14 +2,18 @@ name: 🤖 Auto Generate QA Posts
 
 on:
   schedule:
-    - cron: '0 * * * *' # Chạy tự động vào phút thứ 0 của mỗi giờ (1 tiếng/lần)
-  workflow_dispatch: # Cho phép bạn bấm nút chạy thử bằng tay trên web
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+# THÊM KHỐI NÀY VÀO ĐỂ TẮT CẢNH BÁO NODE 20
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Cấp quyền cho bot tự động ghi và push file mới vào repo
+      contents: write
 
     steps:
       - name: 📥 Checkout repository
@@ -18,7 +22,7 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # Hoặc '20' tùy phiên bản bạn dùng
+          node-version: '20' # Bạn có thể giữ nguyên '18' hoặc '20', dòng env ở trên sẽ tự xử lý ngầm
 
       - name: 📦 Install dependencies
         run: npm install
