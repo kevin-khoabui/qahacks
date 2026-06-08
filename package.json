@@ -2,14 +2,18 @@
   "name": "qahacks",
   "version": "0.1.0",
   "private": true,
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "next lint",
     "gen:single": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/generate.ts",
-    "gen:top": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/aggregate.ts"
+    "gen:batch": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/batch.ts",
+    "gen:all": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/run-all-keys.ts",
+    "auto": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" scripts/auto-run.ts"
   },
+
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@tailwindcss/typography": "^0.5.19",

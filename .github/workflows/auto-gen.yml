@@ -5,7 +5,6 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch:
 
-# THÊM KHỐI NÀY VÀO ĐỂ TẮT CẢNH BÁO NODE 20
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -22,7 +21,7 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Bạn có thể giữ nguyên '18' hoặc '20', dòng env ở trên sẽ tự xử lý ngầm
+          node-version: '20'
 
       - name: 📦 Install dependencies
         run: npm install
@@ -31,13 +30,13 @@ jobs:
         run: |
           echo "${{ secrets.ENV_LOCAL }}" > .env.local
 
-      - name: 🚀 Run generation script
-        run: npm run gen:single
+      - name: 🚀 Run generation script (Run ALL Keys)
+        run: npm run gen:all
 
       - name: 💾 Commit and Push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          git commit -m "🤖 Auto-generated new QA post & updated pointer" || echo "No changes to commit"
+          git commit -m "🤖 Auto-generated a batch of new QA posts" || echo "No changes to commit"
           git push

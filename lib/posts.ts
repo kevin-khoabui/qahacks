@@ -59,3 +59,36 @@ export function getAllPosts() {
 
   return allPostsData;
 }
+
+export async function getRelatedPosts(currentSlug: string, currentCategory: string, limit: number = 2) {
+  // Lấy đường dẫn tới thư mục chứa bài viết
+  const postsDirectory = path.join(process.cwd(), "content", "posts");
+  
+  // Đọc toàn bộ file trong thư mục
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  const allPosts = fileNames.map((fileName) => {
+    const slug = fileName.replace(/\.md$/, "");
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+
+    return {
+      slug,
+      ...(matterResult.data as { 
+        title: string; 
+        category: string; 
+        difficulty: string; 
+        tool_stack: string 
+      }),
+    };
+  });
+
+  // Lọc ra các bài có cùng Category nhưng KHÔNG trùng với bài đang đọc
+  const related = allPosts.filter(
+    (post) => post.category === currentCategory && post.slug !== currentSlug
+  );
+
+  // Lấy số lượng bài giới hạn (Mặc định là 2 bài)
+  return related.slice(0, limit);
+}
