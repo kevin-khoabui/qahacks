@@ -3,3 +3,4 @@ Designing an enterprise test strategy for microservices architecture with decoup
 Handling stakeholder communication when critical regression bugs are discovered right before production launch
 Implementing a risk based testing framework for legacy system migrations without documentation
 Orchestrating test data management across parallel test teams to eliminate data state corruption
+Establishing quality KPIs and metric dashboards for tracking manual test lead efficiency in sprint cycles
