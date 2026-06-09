@@ -1,3 +1,6 @@
+// ÉP NEXT.JS BIÊN DỊCH FILE SITEMAP THÀNH FILE TĨNH ĐỂ KHÔNG BỊ BẮT LỖI KHI BUILD
+export const dynamic = "force-static";
+
 import { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/posts'; // Hàm quét tất cả bài viết hiện có của bạn
 
