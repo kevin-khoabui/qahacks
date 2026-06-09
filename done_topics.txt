@@ -128,3 +128,4 @@ Behavioral scenario: Explaining testing delays and resource constraints to stake
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Jira as a Test Strategy Lead in a fast-paced Agile deployment model under extreme time constraints.
 Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a QA Lead with an understaffed QA team.
 Establishing a risk-based testing approach and traceability matrix using Confluence for a QA Lead with an understaffed QA team.
+Troubleshooting frontend rendering issues and analyzing network requests using TestRail as a Senior Manual QA for a high-traffic media streaming service.

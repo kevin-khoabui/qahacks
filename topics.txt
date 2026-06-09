@@ -1,4 +1,3 @@
-Troubleshooting frontend rendering issues and analyzing network requests using TestRail as a Senior Manual QA for a high-traffic media streaming service.
 Establishing a risk-based testing approach and traceability matrix using Xray for a Manual Test Leader to ensure smooth third-party API integrations dealing with highly unstable staging environments.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Postman as a QA Lead for a cloud-native microservices architecture ensuring strict data privacy and compliance standards.
 Troubleshooting frontend rendering issues and analyzing network requests using Zephyr as a Test Manager across distributed cross-functional teams while onboarding new offshore QA resources.
