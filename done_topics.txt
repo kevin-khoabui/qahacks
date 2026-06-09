@@ -84,3 +84,26 @@ Leading defect triage meetings and prioritizing critical production bugs in SQL 
 Auditing legacy test cases and optimizing regression test suites in Jira as a Test Manager for a high-traffic media streaming service while onboarding new offshore QA resources.
 Auditing legacy test cases and optimizing regression test suites in Zephyr as a Test Manager with an understaffed QA team.
 How a QA Lead trains and mentors junior testers on writing effective bug reports in Chrome DevTools in a fast-paced Agile deployment model under extreme time constraints.
+Leading defect triage meetings and prioritizing critical production bugs in SQL as a Test Strategy Lead while onboarding new offshore QA resources.
+Auditing legacy test cases and optimizing regression test suites in Postman as a Test Manager in a multi-tenant SaaS ecosystem.
+How a Test Manager manages conflict with developers regarding release blockers and defect severity in Agile to ensure smooth third-party API integrations with an understaffed QA team.
+Auditing legacy test cases and optimizing regression test suites in Xray as a Manual Test Leader to ensure smooth third-party API integrations with limited documentation and changing requirements.
+Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Test Strategy Lead to ensure smooth third-party API integrations under extreme time constraints.
+Designing a comprehensive manual exploratory testing strategy using SQL for a Senior Manual QA under extreme time constraints.
+Validating complex backend data integrity manually using Jira for a QA Lead in a fast-paced Agile deployment model.
+Leading defect triage meetings and prioritizing critical production bugs in Xray as a Senior Manual QA minimizing manual overhead during major releases.
+Leading defect triage meetings and prioritizing critical production bugs in Chrome DevTools as a Test Manager to ensure smooth third-party API integrations.
+Troubleshooting frontend rendering issues and analyzing network requests using Zephyr as a QA Lead with an understaffed QA team.
+Handling resistance from team members when transitioning to a new test management workflow in Jira for a Senior Manual QA in a multi-tenant SaaS ecosystem.
+How a Senior Manual QA manages conflict with developers regarding release blockers and defect severity in Agile.
+Leading defect triage meetings and prioritizing critical production bugs in Zephyr as a QA Lead to ensure smooth third-party API integrations during a major UI redesign phase.
+Validating complex backend data integrity manually using Xray for a Manual Test Leader during a major UI redesign phase.
+Negotiating testing scope and production deployment readiness with Product Owners using reports from Postman as a Test Manager while onboarding new offshore QA resources.
+Designing a comprehensive manual exploratory testing strategy using Confluence for a Test Strategy Lead handling sensitive user data compliance with limited documentation and changing requirements.
+Handling resistance from team members when transitioning to a new test management workflow in Confluence for a Senior Manual QA within a highly-regulated fintech application while onboarding new offshore QA resources.
+Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Postman for a Senior Manual QA within a highly-regulated fintech application with an understaffed QA team.
+How a Test Strategy Lead trains and mentors junior testers on writing effective bug reports in Zephyr in a multi-tenant SaaS ecosystem.
+Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader.
+How a Manual Test Leader manages conflict with developers regarding release blockers and defect severity in Agile to ensure smooth third-party API integrations.
+How a Manual Test Leader balances structured test case execution in Jira with time-boxed exploratory sessions handling sensitive user data compliance.
+Handling resistance from team members when transitioning to a new test management workflow in Confluence for a Manual Test Leader.
