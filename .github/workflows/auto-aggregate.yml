@@ -1,52 +1,48 @@
-name: 📦 Auto Aggregate Milestones (Top 10-50 Daily)
+name: Auto Aggregate Daily Mega Posts
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Đúng 00:00 nửa đêm UTC hằng ngày hệ thống tự thức dậy cày 1 bài Top
-  workflow_dispatch: # Cho phép sếp bấm chạy bằng tay bất cứ lúc nào trên GitHub
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    # Chạy tự động vào lúc 00:00 UTC hằng ngày (khoảng 07:00 sáng giờ Việt Nam)
+    - cron: '0 0 * * *'
+  # Cho phép bấm nút chạy bằng tay trên giao diện GitHub Actions bất cứ lúc nào
+  workflow_dispatch:
 
 jobs:
-  aggregate:
+  aggregate-and-commit:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - name: 📥 Checkout repository
+      # 1. Lấy toàn bộ mã nguồn mới nhất từ repo về máy ảo
+      - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: ⚙️ Setup Node.js
+      # 2. Cài đặt môi trường NodeJS (ĐÃ VÁ LỖI CÚ PHÁP CACHE)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20' # Chỉ định rõ Node phiên bản LTS ổn định
+          cache: 'npm'       # Sửa chuẩn cú pháp để tối ưu tốc độ build bài hằng ngày
 
-      - name: 📦 Install dependencies
-        run: npm install
+      # 3. Cài đặt các thư viện (dependencies) của dự án
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: 🔑 Create .env.local from GitHub Secrets
-        env:
-          ENV_CONTENT: ${{ secrets.ENV_LOCAL }}
-        run: |
-          echo "$ENV_CONTENT" > .env.local
+      # 4. Kích nổ cỗ máy gộp bài cơ khí (Nhặt bài lẻ, tự đánh số, tạo file .md mới)
+      - name: Run Aggregate Script
+        run: npx tsx scripts/aggregate.ts
 
-      - name: 🚀 Run aggregation script
-        run: |
-          # 1. Quét dữ liệu cũ để đồng bộ file JSON trước
-          node scripts/generate-posts.mjs
-          
-          # 2. Gọi cỗ máy gộp bài Collection Daily bốc đạn từ topics_top.txt
-          npx tsx scripts/aggregate.ts
-          
-          # 3. Nén lại file JSON đầu ra lần cuối để cập nhật giao diện tìm kiếm trên web
-          node scripts/generate-posts.mjs
+      # 5. Chạy đồng bộ nén lại kho dữ liệu JSON tĩnh công cộng cho Next.js
+      - name: Generate Static Posts JSON
+        run: node scripts/generate-posts.mjs
 
-      - name: 💾 Commit and Push changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "🤖 Auto-aggregated a new Top Collection post [skip ci]" || echo "No changes to commit"
-          git push
+      # 6. ĐỘT PHÁ: Dùng Bot chuyên dụng để tự động kiểm tra, commit và push sạch sẽ
+      # Nếu file topics_top.txt trống -> Không có file nào thay đổi -> Bot tự động bỏ qua êm đẹp
+      - name: Auto Commit & Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-aggregate daily mega post [skip ci]"
+          file_pattern: 'content/posts/*.md public/content/posts.generated.json topics_top.txt done_topics_top.txt'
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"

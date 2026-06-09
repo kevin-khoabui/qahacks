@@ -13,9 +13,6 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// ============================================================================
-// 1. GENERATE DYNAMIC METADATA (SEO PRO-GRADE)
-// ============================================================================
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const post = await getPostData(resolvedParams.slug);
@@ -27,8 +24,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // Tự động bóc tách text sạch từ Markdown content để làm Description nếu cần thiết
-  // Tuy nhiên cấu trúc speaking blueprint của bạn hiện tại đã rất tối ưu
   const cleanTitle = `${post.title} | QA Hacks`;
   const cleanDescription = `Master the QA Interview: ${post.title}. Professional solution and speaking blueprint for ${post.target_role?.replace(/_/g, " ")} positions.`;
 
@@ -58,10 +53,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Hàm phân tách cấu trúc Markdown nội dung để sinh Schema tự động
 function parseContentForSchema(content: string) {
-  const questionMatch = content.match(/### Interview Question:\s*([\s\S]*?)(?=### Expert Answer:|$)/);
-  const answerMatch = content.match(/### Expert Answer:\s*([\s\S]*)/);
+  const questionMatch = content.match(/### Interview Question(?:\s+\d+)?:\s*([\s\S]*?)(?=### Expert Answer|$)/i);
+  const answerMatch = content.match(/### Expert Answer(?:\s+\d+)?:\s*([\s\S]*)/i);
 
   return {
     questionText: questionMatch ? questionMatch[1].trim() : "",
@@ -69,9 +63,6 @@ function parseContentForSchema(content: string) {
   };
 }
 
-// ============================================================================
-// 2. MAIN COMPONENT (XỬ LÝ PARAMS PROMISE THEO CHUẨN NEXT.JS)
-// ============================================================================
 export default async function PostPage({ params }: Props) {
   const resolvedParams = await params;
   const post = await getPostData(resolvedParams.slug);
@@ -80,15 +71,12 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  // Khối "Continue Learning" lấy 3 bài liên quan để tăng tối đa Pageviews
-  const relatedPosts = await getRelatedPosts(resolvedParams.slug, post.category, 3);
-  const isCompilation = post.question_type === "Compilation";
-  const displayRole = post.target_role?.replace(/_/g, " ");
+  const relatedPosts = await getRelatedPosts(resolvedParams.slug, post.category || "Technical", 3);
+  const displayRole = post.target_role?.replace(/_/g, " ") || "QA Engineer";
 
   const { questionText, answerText = "" } = parseContentForSchema(post.content || "");
   const schemaQuestionTitle = questionText.split("\n")[0] || post.title;
 
-  // STRUCTURED DATA (Schema QAPage - Giúp Google hiển thị box Hỏi-Đáp trực tiếp)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
@@ -99,7 +87,7 @@ export default async function PostPage({ params }: Props) {
       "answerCount": 1,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": answerText.slice(0, 5000), // Giới hạn ký tự an toàn cho cấu trúc Schema
+        "text": answerText.slice(0, 5000),
         "upvoteCount": 150,
       },
     },
@@ -107,16 +95,12 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
-      {/* Khai báo Schema Structured Data cho công cụ tìm kiếm */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <main className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           
-          {/* [SEO PRIORITIES #1]: BREADCRUMB NAVIGATION */}
+          {/* BREADCRUMB */}
           <nav className="flex items-center space-x-2 text-xs font-medium text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
             <span className="text-slate-600">/</span>
@@ -127,64 +111,71 @@ export default async function PostPage({ params }: Props) {
             <span className="text-slate-200 font-semibold line-clamp-1">{post.title}</span>
           </nav>
 
-          {/* GRID ARCHITECTURE: 2 COLUMNS ON DESKTOP */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* MAIN GRID STRUCT */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
             
-            {/* COLUMN 1: MAIN CONTENT AREA (70%) */}
+            {/* MAIN ARTICLE BLOCK */}
             <article className="lg:col-span-8 bg-[#0B1121] p-6 sm:p-10 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden h-fit">
               <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
 
               <div className="relative z-10">
-                {/* Meta Labels */}
+                {/* Meta Tags */}
                 <div className="flex flex-wrap gap-2 items-center text-[11px] font-bold uppercase tracking-wider mb-5">
-                  <span className={`px-2.5 py-1 rounded border ${isCompilation ? "text-amber-400 bg-amber-500/10 border-amber-500/20" : "text-teal-400 bg-teal-500/10 border-teal-500/20"}`}>
-                    {isCompilation ? "⭐ MEGA COMPILATION" : `${post.category} / ${post.sub_category}`}
+                  <span className="px-2.5 py-1 rounded border text-teal-400 bg-teal-500/10 border-teal-500/20">
+                    {post.category} / {post.sub_category}
                   </span>
-                  <span className={`px-2.5 py-1 rounded border ${post.difficulty === "Advanced" ? "text-rose-400 bg-rose-500/10 border-rose-500/20" : "text-sky-400 bg-sky-500/10 border-sky-500/20"}`}>
+                  <span className="px-2.5 py-1 rounded border text-rose-400 bg-rose-500/10 border-rose-500/20">
                     {post.difficulty}
                   </span>
                 </div>
 
+                {/* Title */}
                 <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-6 leading-tight">
                   {post.title}
                 </h1>
 
-                {/* Markdown Renderer Area */}
-                <div className="prose prose-slate prose-invert max-w-none prose-headings:text-slate-100 prose-a:text-teal-400 hover:prose-a:text-teal-300 prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-slate-800">
+                {/* MOBILE ONLY COMPONENT LAYOUT */}
+                <div className="block lg:hidden space-y-4 mb-8">
+                  {/* MOBILE INTERVIEW CONTEXT */}
+                  <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800/60 space-y-2.5">
+                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-800/80 pb-2">
+                      📋 Interview Context
+                    </h3>
+                    <div className="flex justify-between items-center text-xs">
+                      <span className="text-slate-400">Target Role:</span>
+                      <span className="text-slate-200 font-semibold truncate max-w-[200px]">{displayRole}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-xs">
+                      <span className="text-slate-400">Tool Stack:</span>
+                      <span className="text-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20">
+                        {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* MOBILE TABLE OF CONTENTS */}
+                  <TableOfContents />
+                </div>
+
+                {/* Content body */}
+                <div className="prose prose-slate prose-invert max-w-none prose-headings:text-slate-100 prose-a:text-teal-400 hover:prose-a:text-teal-300">
                   <ReactMarkdown 
                     remarkPlugins={[remarkGfm]} 
                     rehypePlugins={[rehypeHighlight, rehypeSlug]}
                     components={{
-                      h2: ({ node, ...props }) => {
-                        const text = props.children?.toString().toLowerCase() || "";
-                        let customId = props.id;
-                        
-                        if (text.includes("overview")) customId = "overview";
-
-                        return (
-                          <h2 
-                            {...props} 
-                            id={customId} 
-                            className="scroll-mt-24 transition-all duration-300" 
-                          />
-                        );
-                      },
-                      
                       h3: ({ node, ...props }) => {
-                        const text = props.children?.toString().toLowerCase() || "";
+                        const text = props.children?.toString() || "";
+                        const textLower = text.toLowerCase();
                         let customId = props.id;
-                        
-                        if (text.includes("interview question")) customId = "interview-question";
-                        if (text.includes("expert answer")) customId = "expert-answer";
-                        if (text.includes("speaking blueprint")) customId = "speaking-blueprint";
 
-                        return (
-                          <h3 
-                            {...props} 
-                            id={customId} 
-                            className="scroll-mt-24 transition-all duration-300" 
-                          />
-                        );
+                        const numMatch = text.match(/\b(\d+)\b/);
+                        const suffix = numMatch ? `-${numMatch[1]}` : "";
+
+                        if (textLower.includes("interview question")) customId = `interview-question${suffix}`;
+                        if (textLower.includes("expert answer")) customId = `expert-answer${suffix}`;
+                        if (textLower.includes("speaking blueprint")) customId = `speaking-blueprint${suffix}`;
+
+                        return <h3 {...props} id={customId} className="scroll-mt-24 transition-all duration-300" />;
                       }
                     }}
                   >
@@ -194,11 +185,9 @@ export default async function PostPage({ params }: Props) {
               </div>
             </article>
 
-            {/* COLUMN 2: CONTEXT PANEL (SIDEBAR 30%) */}
-            <aside className="lg:col-span-4 space-y-6">
-              <div className="bg-[#0B1121] p-6 rounded-2xl border border-slate-800 shadow-lg lg:sticky lg:top-6 space-y-5">
-                
-                {/* Technical Metadata Stack */}
+            {/* SIDEBAR CONTAINER (DESKTOP ONLY) */}
+            <aside className="lg:col-span-4 h-full">
+              <div className="hidden lg:block bg-[#0B1121] p-6 rounded-2xl border border-slate-800 shadow-lg lg:sticky lg:top-6 space-y-5">
                 <div>
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">📋 Interview Context</h3>
                   <div className="space-y-2.5">
@@ -214,18 +203,13 @@ export default async function PostPage({ params }: Props) {
                     </div>
                   </div>
                 </div>
-
                 <hr className="border-slate-800" />
-
-                {/* Table of Contents Integration */}
                 <TableOfContents />
-
               </div>
             </aside>
-
           </div>
 
-          {/* FOOTER FLOW: CONTINUE LEARNING (Up Next Carousel) */}
+          {/* RELATED POSTS (ĐÃ ĐƯA RA NGOÀI GRID HOÀN TOÀN ĐỂ TRIỆT TIÊU BOX TRỐNG) */}
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="mt-12 pt-10 border-t border-slate-800/60 max-w-none">
               <h2 className="text-xl font-bold text-white flex items-center gap-2 mb-6">
@@ -236,7 +220,6 @@ export default async function PostPage({ params }: Props) {
                 </span>
                 Continue Learning: Up Next
               </h2>
-
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {relatedPosts.map((rp) => (
                   <Link

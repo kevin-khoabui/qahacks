@@ -1,80 +1,115 @@
 import * as dotenv from "dotenv";
 import * as path from "path";
 import * as fs from "fs";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import matter from "gray-matter";
 
 // 1. Nạp cấu hình bảo mật .env.local
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
-// 2. CHỈ ĐỊNH ĐÍCH DANH ĐẶC VỤ KEY 25 CHẠY RIÊNG LÚC 00:00 UTC
-const SINGLE_AGGREGATE_KEY = process.env.GEMINI_API_KEY_25 || process.env.GEMINI_API_KEY || "";
+async function combineExistingPostsToCollection(topicLine: string): Promise<boolean> {
+  const milestoneMatch = topicLine.match(/\b(10|20|30|40|50)\b/);
+  const totalNeeded = milestoneMatch ? parseInt(milestoneMatch[1], 10) : 10;
 
-async function generateTopCollection(topicLine: string) {
-  if (!SINGLE_AGGREGATE_KEY) {
-    console.error("❌ Lỗi: Không tìm thấy cấu hình biến môi trường GEMINI_API_KEY_25!");
+  // Nhận diện target_role thông minh từ tiêu đề
+  let rawRole = "QA Engineer";
+  const roleMatchWithFor = topicLine.match(/for\s+(.+)$/i);
+  
+  if (roleMatchWithFor) {
+    rawRole = roleMatchWithFor[1].trim();
+  } else {
+    const roleMatchBetween = topicLine.match(/Top\s+\d+\s+(.+?)\s+Interview/i);
+    if (roleMatchBetween) {
+      rawRole = roleMatchBetween[1].replace(/&/g, "").replace(/\s+/g, " ").trim();
+    }
+  }
+
+  const targetRoleSlug = rawRole.replace(/\s+/g, "_");
+
+  console.log(`\n🔍 [Vá Lỗi Giao Diện] Tiến hành gộp bài cho chủ đề: "${topicLine}"`);
+  console.log(`🎯 Mục tiêu: Gom đúng các bài lẻ có target_role là [${targetRoleSlug}]`);
+
+  if (!fs.existsSync(postsDirectory)) {
+    console.error("❌ Lỗi: Không tìm thấy thư mục content/posts!");
     return false;
   }
 
-  // Tự động bốc con số mốc chẵn nằm trong dòng tiêu đề (Ví dụ: 10, 20, 30...)
-  const milestoneMatch = topicLine.match(/\b(10|20|30|40|50)\b/);
-  const milestone = milestoneMatch ? milestoneMatch[1] : "10";
+  const allFiles = fs.readdirSync(postsDirectory).filter(file => file.endsWith(".md"));
+  const poolOfValidContent: string[] = [];
 
-  // Tự động bốc vai trò công việc ở cuối câu để AI biết đường nghiên cứu đúng đối tượng
-  const roleMatch = topicLine.match(/for\s+(.+)$/i);
-  const rawRole = roleMatch ? roleMatch[1].trim() : "QA Engineer";
+  for (const file of allFiles) {
+    const fullPath = path.join(postsDirectory, file);
+    const fileContents = fs.readFileSync(fullPath, "utf-8");
+    const { data, content } = matter(fileContents);
 
-  const genAI = new GoogleGenerativeAI(SINGLE_AGGREGATE_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
+    // Lọc đạn chuẩn xác từ kho bài lẻ
+    if (data.target_role === targetRoleSlug && data.question_type !== "Compilation") {
+      // Xóa sạch các tiêu đề H1 trùng lặp bám trong nội dung bài lẻ nếu có
+      const cleanContent = content.replace(/^#\s+.*$/m, "").trim();
+      poolOfValidContent.push(cleanContent);
+    }
+  }
 
-  // PROMPT ĐÃ ĐƯỢC NÂNG CẤP BỘ NÃO NGHIÊN CỨU SÂU (RESEARCH-BASED)
-  const prompt = `
-    You are an elite Tech Headhunter, a Principal QA Consultant, and a world-class career coach.
-    Your task is to generate a high-yield, straight-to-the-point interview compilation guide titled exact: "${topicLine}".
+  console.log(`📦 Kho đạn: Nhặt được ${poolOfValidContent.length} bài lẻ tương thích.`);
+
+  const finalPostsToCombine = poolOfValidContent.slice(0, totalNeeded);
+  const actualCount = finalPostsToCombine.length;
+
+  if (actualCount === 0) {
+    console.error(`❌ THẤT BẠI: Không có bài lẻ nào mang target_role: "${targetRoleSlug}" để gộp!`);
+    return false;
+  }
+
+  // LẮP GHÉP CƠ KHÍ & ÉP SỐ THỨ TỰ ĐỘNG
+  let masterContentBody = "";
+  
+  finalPostsToCombine.forEach((rawPostContent, index) => {
+    const qNum = index + 1;
     
-    CRITICAL MANDATE (INTERVIEW SOURCE RESEARCH):
-    Do not just invent generic questions. You must simulate a deep-dive research into real-world interview data from sources like Glassdoor, LinkedIn Interview Insights, LeetCode discussion boards, Tech-company engineering blogs, and senior QA community repos.
-    Select exactly the ${milestone} MOST FREQUENTLY ASKED, high-probability, and battle-tested interview questions specifically targeted for a "${rawRole}". Every single question must represent a realistic scenario that candidates actually face in mid-to-high tier technical interviews (e.g., FAANG, Tier-1 Tech Hubs, Fintech, Enterprise SaaS).
+    // Ép con số vòng lặp vào sau chữ Question/Answer để bẻ gãy ID trùng lặp
+    let processedContent = rawPostContent
+      .replace(/###\s+Interview\s+Question:/i, `### Interview Question ${qNum}:`)
+      .replace(/###\s+Expert\s+Answer:/i, `### Expert Answer ${qNum}:`)
+      .replace(/###\s+Speaking\s+Blueprint\s*\(3-Minute\s+Verbal\s+Response\):/i, `### Speaking Blueprint ${qNum} (3-Minute Verbal Response):`);
 
-    STRICT FORMAT REQUIREMENT:
-    The entire output MUST be in raw Markdown format. Do not wrap the whole response in code blocks like \`\`\`markdown.
-    The structure MUST strictly follow this exact template below:
+    masterContentBody += `\n## Question ${qNum}\n${processedContent}\n\n---\n`;
+  });
 
-    # ${topicLine}
+  // ĐÃ SỬA: Xóa bỏ thẻ h1 rác trùng lặp ở đây, chỉ để Overview và Body
+  const finalFileContent = `---
+title: '${topicLine}'
+difficulty: 'Advanced'
+target_role: '${targetRoleSlug}'
+category: 'Technical'
+sub_category: 'Strategy'
+question_type: 'Compilation'
+core_testing_type: 'Functional'
+domain: 'E-commerce'
+platform: 'Web'
+tool_stack: 'None'
+tags: ['testing', 'interview-prep', '${rawRole.toLowerCase().replace(/[^a-z0-9]+/g, "-")}', 'compilation', 'top-${actualCount}']
+---
 
-    ## Overview
-    [Provide a concise 2-sentence introduction about the core challenge of this role and what this guide covers]
+## Overview
+This master compilation guide aggregates elite, high-probability interview questions and battle-tested solutions tailored specifically for ${rawRole} candidates.
 
-    ## Purpose
-    [Provide a 2-sentence explanation of the strategic purpose of this compilation and how it prepares candidates for success]
+## Purpose
+The purpose of this guide is to provide candidates with fully articulated speaking blueprints to confidently navigate high-stakes technical evaluation panels.
 
-    [Generate exactly ${milestone} curated real-world questions and answers sequentially using the exact format below. Do not add any extra sections like Frontmatter, Speaking Blueprints, or Metadata tags]
-
-    ### Question 1: [Insert the curated high-frequency question here - STRICTLY UNDER 200 characters]
-    **Answer:** [Insert a cohesive, structured answer written entirely in conversational, professional spoken English (Văn nói). The candidate must be able to use this exact text to speak fluently for about 3 minutes during an interview. It must sound natural, confident, and packed with industry metrics/frameworks (e.g., STAR technique, Risk-Based matrices, DoR/DoD alignment). Focus on high-level strategy, real problem-solving, and engineering impact. STRICT LENGTH LIMIT: Between 1500 and 2000 characters.]
-
-    ### Question 2: [Insert the next curated high-frequency question here - STRICTLY UNDER 200 characters]
-    **Answer:** [Insert answer here following the exact same guidelines, between 1500 and 2000 characters in spoken English.]
-  `;
+## Compilation Questions
+${masterContentBody}
+`;
 
   try {
-    console.log(`🤖 [Key 25 Nghiên Cứu Sâu] Đang phân tích nguồn phỏng vấn thực tế và gộp bài cho chủ đề: "${topicLine}"...`);
-    const result = await model.generateContent(prompt);
-    const responseText = result.response.text();
-
-    // Làm sạch Markdown đầu ra
-    const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
     const fileName = `${topicLine.toLowerCase().replace(/[^a-z0-9]+/g, "-")}.md`;
-
-    if (!fs.existsSync(postsDirectory)) fs.mkdirSync(postsDirectory, { recursive: true });
-
     const outputPath = path.join(postsDirectory, fileName);
-    fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
-    console.log(`✅ [SUCCESS] Đã xuất bản thành công Bộ Đề Tinh Hoa Cực VIP: /content/posts/${fileName}`);
+    
+    fs.writeFileSync(outputPath, finalFileContent, "utf-8");
+    console.log(`✅ [SUCCESS] Xử lý rác thành công! File mới đã ghi đè tại: /content/posts/${fileName}`);
     return true;
   } catch (error) {
-    console.error(`❌ Gặp lỗi xử lý API tại chủ đề bài Top [${topicLine}]:`, error);
+    console.error("❌ Lỗi ghi file gộp bài:", error);
     return false;
   }
 }
@@ -84,7 +119,7 @@ async function main() {
   const doneFilePath = path.join(process.cwd(), "done_topics_top.txt");
 
   if (!fs.existsSync(filePath)) {
-    console.error("❌ Lỗi hệ thống: Không tìm thấy file danh sách bài Top topics_top.txt!");
+    console.error("❌ Không tìm thấy file topics_top.txt!");
     process.exit(1);
   }
 
@@ -92,26 +127,19 @@ async function main() {
   const validTopics = lines.filter(line => line.length > 0);
 
   if (validTopics.length === 0) {
-    console.log("🎉 Hết bài gộp rồi sếp ơi! File topics_top.txt hiện đang trống.");
+    console.log("🎉 File topics_top.txt hiện tại đang trống.");
     return;
   }
 
-  // Bốc chính xác dòng đầu tiên của topics_top.txt mang đi đóng hộp
   const currentTopic = validTopics[0];
-  const success = await generateTopCollection(currentTopic);
+  const success = await combineExistingPostsToCollection(currentTopic);
 
   if (success) {
-    // Đẩy dòng đã hoàn thành vào file done_topics_top.txt
     fs.appendFileSync(doneFilePath, `${currentTopic}\n`, "utf-8");
-    
-    // Cắt dòng đó khỏi file topics_top.txt gốc
     const targetIndex = lines.findIndex(l => l.trim() === currentTopic);
     if (targetIndex !== -1) lines.splice(targetIndex, 1);
     fs.writeFileSync(filePath, lines.join("\n"), "utf-8");
-    
-    console.log(`✂️ Đã cắt dòng. Kho topics_top.txt còn lại: ${validTopics.length - 1} chủ đề.`);
-  } else {
-    console.log("⚠️ Thất bại, giữ nguyên đầu dòng cho ngày hôm sau thử lại.");
+    console.log(`✂️ Kho topics_top.txt còn lại: ${validTopics.length - 1} chủ đề.`);
   }
 }
 
