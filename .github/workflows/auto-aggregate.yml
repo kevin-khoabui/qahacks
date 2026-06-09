@@ -32,13 +32,14 @@ jobs:
         run: |
           echo "$ENV_CONTENT" > .env.local
 
+      # ĐÃ SỬA: Thay thế npx ts-node bằng npx tsx để loại bỏ lỗi ERR_UNKNOWN_FILE_EXTENSION
       - name: 🚀 Run aggregation script
         run: |
           # 1. Quét cập nhật kho dữ liệu trước
           node scripts/generate-posts.mjs
           
-          # 2. Chạy file kiểm tra mốc chẵn để gộp bài Compilation tổng hợp
-          npx ts-node scripts/aggregate.ts
+          # 2. Sử dụng tsx để gộp bài số chẵn nửa đêm một cách mượt mà
+          npx tsx scripts/aggregate.ts
           
           # 3. Đồng bộ lại file JSON đầu ra lần cuối
           node scripts/generate-posts.mjs

@@ -32,13 +32,14 @@ jobs:
         run: |
           echo "$ENV_CONTENT" > .env.local
 
+      # ĐÃ SỬA: Thay thế npx ts-node bằng npx tsx để xử lý triệt để lỗi ERR_UNKNOWN_FILE_EXTENSION
       - name: 🚀 Run smart generation script pipeline
         run: |
           # 1. Quét dữ liệu cũ để cập nhật file JSON trước
           node scripts/generate-posts.mjs
           
-          # 2. Gọi cỗ máy cày bài lẻ hàng giờ (sử dụng full 24 keys xoay vòng)
-          npx ts-node scripts/generate.ts
+          # 2. Sử dụng tsx để thực thi file TypeScript trực tiếp trong môi trường Node ESM mượt mà
+          npx tsx scripts/generate.ts
           
           # 3. Nén lại file JSON để cập nhật thanh tìm kiếm trên giao diện web
           node scripts/generate-posts.mjs
