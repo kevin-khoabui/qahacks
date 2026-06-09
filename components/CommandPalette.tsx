@@ -66,14 +66,22 @@ export default function CommandPalette({ posts }: { posts: SearchPost[] }) {
   return (
     <div className="relative z-[100]">
       {/* Lớp nền đen mờ (Backdrop Blur) */}
-      <div 
-        className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"
-        onClick={() => setIsOpen(false)}
-      ></div>
+      <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"></div>
 
-      {/* Khung Command Palette */}
-      <div className="fixed inset-0 z-[101] overflow-y-auto p-4 sm:p-6 md:p-20 pt-[10vh]">
-        <div className="mx-auto max-w-2xl transform divide-y divide-slate-800 overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-800/50 transition-all">
+      {/* SỬA TẠI ĐÂY: Thêm onClick vào container fixed bao ngoài. 
+        Bất kỳ cú click nào trượt ra khỏi khung nội dung xám sẽ tóm vào đây và ĐÓNG MODAL.
+      */}
+      <div 
+        className="fixed inset-0 z-[101] overflow-y-auto p-4 sm:p-6 md:p-20 pt-[10vh]"
+        onClick={() => setIsOpen(false)}
+      >
+        {/* SỬA TẠI ĐÂY: Thêm e.stopPropagation() vào khung nội dung màu xám.
+          Mục đích: Khi click chọn bài viết hoặc gõ chữ bên trong khung này, modal sẽ KHÔNG bị đóng nhầm.
+        */}
+        <div 
+          className="mx-auto max-w-2xl transform divide-y divide-slate-800 overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-800/50 transition-all"
+          onClick={(e) => e.stopPropagation()}
+        >
           
           {/* Ô nhập liệu */}
           <div className="relative">

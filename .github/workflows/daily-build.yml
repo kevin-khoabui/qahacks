@@ -1,0 +1,17 @@
+name: 🚀 Daily Cloudflare Build Trigger
+
+on:
+  schedule:
+    # Đúng 00:00 nửa đêm theo giờ UTC (khoảng 7 giờ sáng giờ Việt Nam) mỗi ngày
+    - cron: '0 0 * * *'
+  # Giúp bạn có thể chủ động bấm nút kích hoạt build thủ công trên giao diện GitHub Actions bất kỳ lúc nào
+  workflow_dispatch: 
+
+jobs:
+  trigger-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔗 Call Cloudflare Deploy Hook
+        run: |
+          # DÙNG LỆNH CURL ĐỂ BÁO THỨC CLOUDFLARE
+          curl -X POST "https://api.cloudflare.com/client/v4/workers/builds/deploy_hooks/1f18ced9-a75b-4cf4-ac83-9dc83df99502"

@@ -10,7 +10,8 @@ export default function NavbarSearchButton() {
   return (
     <button
       onClick={openCommandPalette}
-      className="group flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-slate-400 bg-slate-900/50 border border-slate-800 rounded-lg hover:text-emerald-400 hover:border-emerald-500/50 hover:bg-slate-900 transition-all"
+      // ĐÃ THÊM: `cursor-pointer` để ép hiện bàn tay click và `select-none` để chống bôi đen chữ
+      className="group flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-slate-400 bg-slate-900/50 border border-slate-800 rounded-lg hover:text-emerald-400 hover:border-emerald-500/50 hover:bg-slate-900 transition-all cursor-pointer select-none"
       aria-label="Search"
     >
       <Search className="w-4 h-4 group-hover:animate-pulse" />

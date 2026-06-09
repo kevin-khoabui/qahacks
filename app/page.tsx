@@ -2,6 +2,7 @@ import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import Pagination from "@/components/Pagination";
 import HeroBanner from "@/components/HeroBanner";
+import { Metadata } from "next";
 
 interface Props {
   searchParams: Promise<{ category?: string; sub?: string; type?: string; tool?: string; page?: string; q?: string }>;
@@ -9,6 +10,65 @@ interface Props {
 
 const ITEMS_PER_PAGE = 12;
 
+// ==========================================
+// 1. DYNAMIC METADATA FOR HOMEPAGE & FILTERS
+// ==========================================
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const params = await searchParams;
+  const filterCategory = params.category;
+  const filterSub = params.sub;
+  const filterType = params.type; 
+  const filterTool = params.tool; 
+  const searchQuery = params.q;
+
+  let title = "QA Hacks | Enterprise QA Interview Preparation Hub";
+  let description = "Master your next Software Testing interview with production-grade QA solutions, real-world microservices scenarios, and executive speaking blueprints.";
+
+  // Điều chỉnh Meta theo hành vi bộ lọc của User hoặc Bot Google
+  if (searchQuery) {
+    title = `Search Results for "${searchQuery}" | QA Hacks`;
+    description = `Browse the latest tech interview questions and professional answers containing the keyword "${searchQuery}".`;
+  } else if (filterType === "Compilation") {
+    title = "⭐ Mega Interview Compilations | QA Hacks";
+    description = "Curated high-volume QA engineering preparation guides containing Top 10, 20, and 30 questions and expert solutions.";
+  } else if (filterTool) {
+    title = `${filterTool} Framework Interview Guides | QA Hacks`;
+    description = `Production-ready automation testing interview challenges, advanced scripting scenarios, and verbal architectures tailored specifically for ${filterTool}.`;
+  } else if (filterSub) {
+    const cleanSub = filterSub.replace(/_/g, " ");
+    title = `${cleanSub} Advanced Questions & Answers | QA Hacks`;
+    description = `Deep-dive technical case studies, problem-solving breakdowns, and mock interview answers for ${cleanSub}.`;
+  } else if (filterCategory) {
+    const cleanCat = filterCategory.replace(/_/g, " ");
+    title = `${cleanCat} Strategic QA Guides | QA Hacks`;
+    description = `Comprehensive strategy roadmaps, behavioral scenarios, and architecture review responses for ${cleanCat} roles.`;
+  }
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: "https://qahacks.com",
+      siteName: "QA Hacks Hub",
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: "https://qahacks.com",
+    },
+  };
+}
+
+// ==========================================
+// 2. MAIN HOMEPAGE COMPONENT
+// ==========================================
 export default async function HomePage({ searchParams }: Props) {
   const allPosts = getAllPosts();
   
@@ -17,28 +77,24 @@ export default async function HomePage({ searchParams }: Props) {
   const filterSub = params.sub;
   const filterType = params.type; 
   const filterTool = params.tool; 
-  const searchQuery = params.q?.toLowerCase(); // Lấy từ khóa trên URL
+  const searchQuery = params.q?.toLowerCase(); 
   
   const currentPage = Number(params.page) || 1;
 
-  // LỌC DỮ LIỆU CHÍNH
+  // LỌC DỮ LIỆU CHÍNH (Giữ nguyên logic chính xác của bạn)
   const filteredPosts = allPosts.filter((post) => {
     const qType = (post as any).question_type;
     const postTool = (post as any).tool_stack;
     const postTitle = post.title?.toLowerCase() || "";
     const postRole = (post as any).target_role?.toLowerCase() || "";
 
-    // NẾU CÓ TỪ KHÓA TÌM KIẾM
     if (searchQuery) {
       const matchTitle = postTitle.includes(searchQuery);
       const matchTool = postTool?.toLowerCase().includes(searchQuery);
       const matchRole = postRole.includes(searchQuery);
-      
-      // Bắt buộc phải có chữ giống tiêu đề, tool hoặc role thì mới hiển thị
       if (!matchTitle && !matchTool && !matchRole) return false;
     }
 
-    // Các bộ lọc Menu (Chỉ áp dụng nếu không gõ Search)
     if (filterType === "Compilation") return qType === "Compilation";
     if (filterTool) {
       if (qType === "Compilation") return false;
@@ -59,7 +115,7 @@ export default async function HomePage({ searchParams }: Props) {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
 
-  // TẠO TIÊU ĐỀ ĐỘNG
+  // TẠO TIÊU ĐỀ ĐỘNG TRÊN UI
   let pageTitle = "All Interview Guides";
   let pageDesc = "Deep-dive technical questions and production-grade solutions for QA Professionals.";
 
@@ -80,31 +136,29 @@ export default async function HomePage({ searchParams }: Props) {
     pageDesc = `Comprehensive guides and technical scenarios for ${filterCategory.replace(/_/g, " ")}.`;
   }
 
-  // ĐIỀU KIỆN HIỂN THỊ BANNER (Thêm điều kiện !searchQuery để khi tìm kiếm thì ẩn banner đi)
   const isDefaultHome = !filterCategory && !filterSub && !filterType && !filterTool && !searchQuery && currentPage === 1;
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
       
-      {/* 1. HIỂN THỊ HERO BANNER NẾU LÀ TRANG CHỦ MẶC ĐỊNH */}
+      {/* HIỂN THỊ HERO BANNER NẾU LÀ TRANG CHỦ MẶC ĐỊNH */}
       {isDefaultHome && <HeroBanner />}
 
-      {/* 2. KHU VỰC DANH SÁCH BÀI VIẾT */}
-      <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      {/* Cấu trúc Semantic HTML: Chuyển khối bọc danh sách sang thẻ <section> */}
+      <section className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         
         {/* Phần header động */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-900 pb-6 mb-8 gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-white flex items-center gap-2">
               <span className="inline-block w-2.5 h-6 bg-emerald-400 rounded-full"></span>
               {pageTitle} <span className="text-slate-500 font-normal">({filteredPosts.length} total)</span>
-            </h2>
+            </h1>
             <p className="text-xs text-slate-400 mt-1">
               {pageDesc}
             </p>
           </div>
 
-          {/* Nút Clear Filter sẽ hiện ra khi có kết quả tìm kiếm */}
           {(filterCategory || filterSub || filterType || filterTool || searchQuery) && (
             <Link href="/" className="text-xs text-emerald-400 hover:text-emerald-300 border border-slate-800 bg-slate-900/30 px-3 py-1.5 rounded-lg transition-colors">
               Clear Filter ✕
@@ -152,9 +206,10 @@ export default async function HomePage({ searchParams }: Props) {
                           )}
                         </div>
 
-                        <h3 className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors line-clamp-3 leading-snug">
+                        {/* Thẻ h2 cho tiêu đề bài viết lẻ ở trang danh sách để giữ đúng sơ đồ phân cấp HTML */}
+                        <h2 className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors line-clamp-3 leading-snug">
                           {post.title}
-                        </h3>
+                        </h2>
                       </div>
 
                       <div className="mt-5 flex items-center text-xs font-semibold text-slate-500 group-hover:text-emerald-400 transition-colors pt-2 border-t border-slate-900/40">
@@ -169,12 +224,11 @@ export default async function HomePage({ searchParams }: Props) {
               })}
             </div>
 
-            {/* PHÂN TRANG */}
             <Pagination totalPages={totalPages} currentPage={currentPage} />
           </>
         )}
 
-      </div>
+      </section>
     </main>
   );
 }

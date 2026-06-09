@@ -2,8 +2,8 @@ name: 🤖 Auto Generate QA Posts
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *' # Cứ mỗi 1 tiếng hệ thống sẽ tự động thức dậy chạy 1 lần
+  workflow_dispatch: # Cho phép bạn chủ động bấm chạy bằng tay trên giao diện GitHub
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -26,17 +26,21 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
+      # Chuẩn hóa bảo mật: Truyền biến môi trường an toàn, chống lỗi ký tự đặc biệt của các Key
       - name: 🔑 Create .env.local from GitHub Secrets
+        env:
+          ENV_CONTENT: ${{ secrets.ENV_LOCAL }}
         run: |
-          echo "${{ secrets.ENV_LOCAL }}" > .env.local
+          echo "$ENV_CONTENT" > .env.local
 
       - name: 🚀 Run generation script (Run ALL Keys)
         run: npm run gen:all
 
+      # Ép đuôi [skip ci] để Cloudflare Pages ngó lơ các commit hàng tiếng này, không lo tốn lượt build bậy
       - name: 💾 Commit and Push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          git commit -m "🤖 Auto-generated a batch of new QA posts" || echo "No changes to commit"
+          git commit -m "🤖 Auto-generated a batch of new QA posts [skip ci]" || echo "No changes to commit"
           git push
