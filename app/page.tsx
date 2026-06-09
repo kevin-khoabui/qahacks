@@ -1,3 +1,7 @@
+// ÉP TRANG CHỦ CHẠY ĐỘNG ĐỂ XỬ LÝ SEARCHPARAMS TRÊN CLOUDFLARE WORKERS RUNTME
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import Pagination from "@/components/Pagination";
@@ -5,7 +9,14 @@ import HeroBanner from "@/components/HeroBanner";
 import { Metadata } from "next";
 
 interface Props {
-  searchParams: Promise<{ category?: string; sub?: string; type?: string; tool?: string; page?: string; q?: string }>;
+  searchParams: Promise<{ 
+    category?: string; 
+    sub?: string; 
+    type?: string; 
+    tool?: string; 
+    page?: string; 
+    q?: string 
+  }>;
 }
 
 const ITEMS_PER_PAGE = 12;

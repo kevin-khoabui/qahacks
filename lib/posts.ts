@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), "content/posts");
+// DÙNG path.resolve ĐỂ ĐẢM BẢO TÌM ĐÚNG THƯ MỤC GỐC TRÊN CLOUDFLARE WORKERS RUNTIME
+const postsDirectory = path.resolve(process.cwd(), "content/posts");
 
 // Định nghĩa một cấu trúc dữ liệu chuẩn (Interface) dùng chung cho toàn bộ hệ thống
 export interface PostData {
@@ -40,7 +41,11 @@ export async function getPostData(slug: string) {
 
 // Hàm lấy danh sách tất cả bài viết để hiển thị ngoài trang chủ
 export function getAllPosts() {
-  if (!fs.existsSync(postsDirectory)) return [];
+  // Kiểm tra xem thư mục có tồn tại không để tránh sập app trên Worker
+  if (!fs.existsSync(postsDirectory)) {
+    console.warn(`⚠️ Warning: Thư mục bài viết không tìm thấy tại: ${postsDirectory}`);
+    return [];
+  }
   
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
@@ -53,36 +58,41 @@ export function getAllPosts() {
 
       return {
         slug,
-        ...(data as Omit<PostData, "slug" | "content">), // ◄ Dùng Omit để tự động kế thừa tất cả các trường metadata (bao gồm cả question_type) mà không cần gõ tay lại
+        ...(data as Omit<PostData, "slug" | "content">), // ◄ Dùng Omit để tự động kế thừa tất cả các trường metadata
       };
     });
 
   return allPostsData;
 }
 
+// Hàm lấy các bài viết liên quan
 export async function getRelatedPosts(currentSlug: string, currentCategory: string, limit: number = 2) {
-  // Lấy đường dẫn tới thư mục chứa bài viết
-  const postsDirectory = path.join(process.cwd(), "content", "posts");
+  // Đồng bộ đường dẫn tuyệt đối bằng path.resolve tương tự như trên
+  const targetDirectory = path.resolve(process.cwd(), "content/posts");
   
+  if (!fs.existsSync(targetDirectory)) return [];
+
   // Đọc toàn bộ file trong thư mục
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs.readdirSync(targetDirectory);
 
-  const allPosts = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
+  const allPosts = fileNames
+    .filter((fileName) => fileName.endsWith(".md"))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(targetDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const matterResult = matter(fileContents);
 
-    return {
-      slug,
-      ...(matterResult.data as { 
-        title: string; 
-        category: string; 
-        difficulty: string; 
-        tool_stack: string 
-      }),
-    };
-  });
+      return {
+        slug,
+        ...(matterResult.data as { 
+          title: string; 
+          category: string; 
+          difficulty: string; 
+          tool_stack: string 
+        }),
+      };
+    });
 
   // Lọc ra các bài có cùng Category nhưng KHÔNG trùng với bài đang đọc
   const related = allPosts.filter(
