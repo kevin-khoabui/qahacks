@@ -1,11 +1,7 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+// 1. Import file JSON bình thường
+import generatedPosts from "@/public/content/posts.generated.json";
 
-// DÙNG path.resolve ĐỂ ĐẢM BẢO TÌM ĐÚNG THƯ MỤC GỐC TRÊN CLOUDFLARE WORKERS RUNTIME
-const postsDirectory = path.join(process.cwd(), "public", "content", "posts");
-
-// Định nghĩa một cấu trúc dữ liệu chuẩn (Interface) dùng chung cho toàn bộ hệ thống
+// Định nghĩa cấu trúc dữ liệu chuẩn (Interface)
 export interface PostData {
   slug: string;
   title: string;
@@ -13,92 +9,47 @@ export interface PostData {
   target_role: string;
   category: string;
   sub_category: string;
-  question_type: string; // ◄ Đảm bảo trường này xuất hiện trong Core Type
+  question_type: string; 
   tool_stack: string;
   tags: string[];
   content: string;
 }
 
-// Hàm lấy dữ liệu chi tiết của một bài viết dựa vào tên file (slug)
-export async function getPostData(slug: string) {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  
-  if (!fs.existsSync(fullPath)) {
-    return null;
-  }
+// 2. ÉP KIỂU dữ liệu để TypeScript hiểu file JSON này chứa danh sách các bài viết PostData
+const posts = generatedPosts as PostData[];
 
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Dùng gray-matter để tách phần Metadata (Frontmatter) và phần Nội dung (Content)
-  const { data, content } = matter(fileContents);
-
-  return {
-    slug,
-    content,
-    ...(data as Omit<PostData, "slug" | "content">),
-  };
+// ========================================================
+// 1. HÀM LẤY CHI TIẾT BÀI VIẾT (Bây giờ p.slug sẽ hết sạch lỗi)
+// ========================================================
+export async function getPostData(slug: string): Promise<PostData | null> {
+  const post = posts.find((p) => p.slug === slug);
+  if (!post) return null;
+  return post;
 }
 
-// Hàm lấy danh sách tất cả bài viết để hiển thị ngoài trang chủ
+// ========================================================
+// 2. HÀM LẤY TẤT CẢ BÀI VIẾT
+// ========================================================
 export function getAllPosts() {
-  // Kiểm tra xem thư mục có tồn tại không để tránh sập app trên Worker
-  if (!fs.existsSync(postsDirectory)) {
-    console.warn(`⚠️ Warning: Thư mục bài viết không tìm thấy tại: ${postsDirectory}`);
-    return [];
-  }
-  
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith(".md"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
-
-      return {
-        slug,
-        ...(data as Omit<PostData, "slug" | "content">), // ◄ Dùng Omit để tự động kế thừa tất cả các trường metadata
-      };
-    });
-
-  return allPostsData;
+  return posts.map(({ content, ...post }) => ({
+    slug: post.slug,
+    ...(post as Omit<PostData, "slug" | "content">)
+  }));
 }
 
-// Hàm lấy các bài viết liên quan
+// ========================================================
+// 3. HÀM LẤY BÀI VIẾT LIÊN QUAN
+// ========================================================
 export async function getRelatedPosts(currentSlug: string, currentCategory: string, limit: number = 2) {
-  // Đồng bộ đường dẫn tuyệt đối bằng path.resolve tương tự như trên
-  const targetDirectory = path.resolve(process.cwd(), "content/posts");
-  
-  if (!fs.existsSync(targetDirectory)) return [];
-
-  // Đọc toàn bộ file trong thư mục
-  const fileNames = fs.readdirSync(targetDirectory);
-
-  const allPosts = fileNames
-    .filter((fileName) => fileName.endsWith(".md"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(targetDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const matterResult = matter(fileContents);
-
-      return {
-        slug,
-        ...(matterResult.data as { 
-          title: string; 
-          category: string; 
-          difficulty: string; 
-          tool_stack: string 
-        }),
-      };
-    });
-
-  // Lọc ra các bài có cùng Category nhưng KHÔNG trùng với bài đang đọc
-  const related = allPosts.filter(
+  const related = posts.filter(
     (post) => post.category === currentCategory && post.slug !== currentSlug
   );
 
-  // Lấy số lượng bài giới hạn (Mặc định là 2 bài)
-  return related.slice(0, limit);
+  return related.slice(0, limit).map(({ content, ...post }) => ({
+    slug: post.slug,
+    title: post.title,
+    category: post.category,
+    difficulty: post.difficulty,
+    tool_stack: post.tool_stack,
+  }));
 }
