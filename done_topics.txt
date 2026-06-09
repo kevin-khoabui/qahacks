@@ -61,3 +61,26 @@ Auditing legacy test cases and optimizing regression test suites in Xray as a QA
 Negotiating testing scope and production deployment readiness with Product Owners using reports from SQL as a Senior Manual QA for a high-traffic media streaming service with an understaffed QA team.
 Handling resistance from team members when transitioning to a new test management workflow in Postman for a Manual Test Leader in a multi-tenant SaaS ecosystem while onboarding new offshore QA resources.
 Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a QA Lead for a legacy migration project.
+Negotiating testing scope and production deployment readiness with Product Owners using reports from Chrome DevTools as a QA Lead in a fast-paced Agile deployment model with limited documentation and changing requirements.
+Establishing a risk-based testing approach and traceability matrix using Postman for a Manual Test Leader minimizing manual overhead during major releases.
+Establishing a risk-based testing approach and traceability matrix using Postman for a Test Manager for a cloud-native microservices architecture with an understaffed QA team.
+Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Test Manager for a legacy migration project.
+How a Test Manager manages conflict with developers regarding release blockers and defect severity in Agile dealing with highly unstable staging environments.
+Troubleshooting frontend rendering issues and analyzing network requests using Confluence as a QA Lead across distributed cross-functional teams.
+Establishing a risk-based testing approach and traceability matrix using Chrome DevTools for a Senior Manual QA in a multi-tenant SaaS ecosystem under extreme time constraints.
+Negotiating testing scope and production deployment readiness with Product Owners using reports from Confluence as a Test Manager across distributed cross-functional teams.
+Validating complex backend data integrity manually using Chrome DevTools for a Senior Manual QA across distributed cross-functional teams minimizing manual overhead during major releases.
+Establishing a risk-based testing approach and traceability matrix using Jira for a Senior Manual QA in a fast-paced Agile deployment model.
+Auditing legacy test cases and optimizing regression test suites in Chrome DevTools as a Senior Manual QA for a high-traffic media streaming service while onboarding new offshore QA resources.
+Designing a comprehensive manual exploratory testing strategy using Jira for a QA Lead in a fast-paced Agile deployment model under extreme time constraints.
+Leading defect triage meetings and prioritizing critical production bugs in TestRail as a Senior Manual QA for a legacy migration project under extreme time constraints.
+Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a QA Lead.
+Auditing legacy test cases and optimizing regression test suites in Xray as a Test Strategy Lead in a fast-paced Agile deployment model under extreme time constraints.
+Auditing legacy test cases and optimizing regression test suites in Postman as a Senior Manual QA with limited documentation and changing requirements.
+Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Test Manager.
+How a Senior Manual QA balances structured test case execution in Zephyr with time-boxed exploratory sessions to ensure smooth third-party API integrations.
+Validating complex backend data integrity manually using Xray for a Test Strategy Lead minimizing manual overhead during major releases.
+Leading defect triage meetings and prioritizing critical production bugs in SQL as a Test Manager.
+Auditing legacy test cases and optimizing regression test suites in Jira as a Test Manager for a high-traffic media streaming service while onboarding new offshore QA resources.
+Auditing legacy test cases and optimizing regression test suites in Zephyr as a Test Manager with an understaffed QA team.
+How a QA Lead trains and mentors junior testers on writing effective bug reports in Chrome DevTools in a fast-paced Agile deployment model under extreme time constraints.
