@@ -1,27 +1,4 @@
-Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Manual Test Leader in a fast-paced Agile deployment model.
 Auditing legacy test cases and optimizing regression test suites in Postman as a Test Manager across distributed cross-functional teams with limited documentation and changing requirements.
-Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a Senior Manual QA for a cloud-native microservices architecture while onboarding new offshore QA resources.
-Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Postman for a Test Strategy Lead for a legacy migration project.
-Leading defect triage meetings and prioritizing critical production bugs in Confluence as a QA Lead within a highly-regulated fintech application under extreme time constraints.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a QA Lead.
-Leading defect triage meetings and prioritizing critical production bugs in Confluence as a Manual Test Leader within a highly-regulated fintech application with an understaffed QA team.
-Troubleshooting frontend rendering issues and analyzing network requests using SQL as a Senior Manual QA while onboarding new offshore QA resources.
-Negotiating testing scope and production deployment readiness with Product Owners using reports from Chrome DevTools as a Manual Test Leader to ensure smooth third-party API integrations under extreme time constraints.
-Leading defect triage meetings and prioritizing critical production bugs in Confluence as a Manual Test Leader in a multi-tenant SaaS ecosystem dealing with highly unstable staging environments.
-Validating complex backend data integrity manually using Jira for a Manual Test Leader in a multi-tenant SaaS ecosystem under extreme time constraints.
-Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Senior Manual QA for an enterprise e-commerce platform.
-How a Senior Manual QA manages conflict with developers regarding release blockers and defect severity in Agile with an understaffed QA team.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader for a high-traffic media streaming service with an understaffed QA team.
-Establishing a risk-based testing approach and traceability matrix using Postman for a Senior Manual QA to ensure smooth third-party API integrations ensuring strict data privacy and compliance standards.
-Handling resistance from team members when transitioning to a new test management workflow in Postman for a QA Lead within a highly-regulated fintech application.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader for an enterprise e-commerce platform ensuring strict data privacy and compliance standards.
-Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Jira for a Senior Manual QA in a fast-paced Agile deployment model.
-How a Manual Test Leader balances structured test case execution in Chrome DevTools with time-boxed exploratory sessions under extreme time constraints.
-Troubleshooting frontend rendering issues and analyzing network requests using Xray as a Manual Test Leader within a highly-regulated fintech application.
-Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Test Manager handling sensitive user data compliance.
-Leading defect triage meetings and prioritizing critical production bugs in TestRail as a Manual Test Leader for a high-traffic media streaming service.
-Validating complex backend data integrity manually using TestRail for a Test Manager for a cloud-native microservices architecture.
-Negotiating testing scope and production deployment readiness with Product Owners using reports from Confluence as a Test Strategy Lead dealing with highly unstable staging environments.
 Leading defect triage meetings and prioritizing critical production bugs in TestRail as a Manual Test Leader within a highly-regulated fintech application ensuring strict data privacy and compliance standards.
 Leading defect triage meetings and prioritizing critical production bugs in SQL as a Test Manager to ensure smooth third-party API integrations under extreme time constraints.
 Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Zephyr for a QA Lead with an understaffed QA team.
