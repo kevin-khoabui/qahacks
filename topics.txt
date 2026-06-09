@@ -1,26 +1,4 @@
-Manual Testing, QA Leader role: How do you handle a critical release blocker?
 Manual Testing, QA Leader role: Managing emergency hotfix testing workflows.
-Manual Testing, QA Leader role: What metrics prove manual testing value to executives?
-Manual Testing, QA Leader role: Aligning QA metrics with high-level business goals.
-Manual Testing, QA Leader role: How do you run an efficient bug triage meeting?
-Manual Testing, QA Leader role: Best practices for multi-team defect triage sessions.
-Manual Testing, QA Leader role: When do you reject a developer build from entering QA?
-Manual Testing, QA Leader role: Setting strict smoke test entry criteria for builds.
-Manual Testing, QA Leader role: How do you prevent manual tester burnout during regression?
-Manual Testing, QA Leader role: Rotating team assignments during intense regression.
-Manual Testing, QA Leader role: What makes an exploratory testing session successful?
-Manual Testing, QA Leader role: Structuring timeboxed exploratory charters.
-Manual Testing, QA Leader role: How do you test complex data migrations manually?
-Manual Testing, QA Leader role: Verifying data integrity using manual SQL checks.
-Manual Testing, QA Leader role: How do you resolve a severity dispute with a dev lead?
-Manual Testing, QA Leader role: Using objective impact matrices to resolve disputes.
-Manual Testing, QA Leader role: How do you structure UAT with non-technical users?
-Manual Testing, QA Leader role: Coordinating user acceptance testing workflows.
-Manual Testing, QA Leader role: What is your approach to requirement traceability?
-Manual Testing, QA Leader role: Mapping manual test cases to original user stories.
-Manual Testing, QA Leader role: How do you onboard a manual tester to a complex domain?
-Manual Testing, QA Leader role: Accelerating domain knowledge transfers for new hires.
-Manual Testing, QA Leader role: What steps fix a critical bug missed in production?
 Manual Testing, QA Leader role: Performing root cause analysis on production leaks.
 Manual Testing, QA Leader role: How do you estimate manual testing for a big project?
 Manual Testing, QA Leader role: Developing realistic estimation models for testing.
