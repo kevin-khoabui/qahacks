@@ -32,14 +32,14 @@ jobs:
         run: |
           echo "$ENV_CONTENT" > .env.local
 
-      # ĐÃ SỬA: Thay thế npx ts-node bằng npx tsx để xử lý triệt để lỗi ERR_UNKNOWN_FILE_EXTENSION
+      # ĐÃ CHUẨN HÓA: Gọi file điều phối mẻ lớn run-all-keys để quét sạch từ Key 1 đến Key 24
       - name: 🚀 Run smart generation script pipeline
         run: |
           # 1. Quét dữ liệu cũ để cập nhật file JSON trước
           node scripts/generate-posts.mjs
           
-          # 2. Sử dụng tsx để thực thi file TypeScript trực tiếp trong môi trường Node ESM mượt mà
-          npx tsx scripts/generate.ts
+          # 2. KHỞI ĐỘNG MẺ CHẠY FULL 24 KEYS CÙNG LÚC HẰNG GIỜ
+          npx tsx scripts/run-all-keys.ts
           
           # 3. Nén lại file JSON để cập nhật thanh tìm kiếm trên giao diện web
           node scripts/generate-posts.mjs
@@ -49,5 +49,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          git commit -m "🤖 Auto-generated a new QA post [skip ci]" || echo "No changes to commit"
+          git commit -m "🤖 Auto-generated a batch of new QA posts [skip ci]" || echo "No changes to commit"
           git push

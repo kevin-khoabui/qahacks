@@ -3,50 +3,86 @@ import * as fs from "fs";
 import * as path from "path";
 import * as dotenv from "dotenv";
 
-// 1. Nạp file .env.local để đếm số lượng Key hiện có
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
-// 2. Tự động quét tìm tất cả các biến có chữ GEMINI_API_KEY và không bị rỗng
 const activeKeys = Object.keys(process.env).filter(
-  (key) => key.startsWith("GEMINI_API_KEY") && process.env[key]?.trim() !== ""
+  (key) => 
+    key.startsWith("GEMINI_API_KEY_") && 
+    !key.endsWith("_25") && 
+    process.env[key]?.trim() !== ""
 );
 
 const TARGET_COUNT = activeKeys.length;
-const DELAY_MS = 15000; // Nghỉ 15 giây giữa mỗi bài để an toàn
+const DELAY_MS = 3000; 
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function runAll() {
   console.log(`\n==================================================`);
-  console.log(`🔍 PHÁT HIỆN ${TARGET_COUNT} API KEYS HỢP LỆ TRONG HỆ THỐNG.`);
-  console.log(`🚀 BẮT ĐẦU CHẠY MẺ ${TARGET_COUNT} BÀI VIẾT CHO GIỜ NÀY...\n`);
+  console.log(`🔍 PHÁT HIỆN ${TARGET_COUNT}/24 API KEYS HỢP LỆ CHO BÀI LẺ.`);
+  console.log(`🚀 BẮT ĐẦU CHẠY MẺ TỔNG LỰC ${TARGET_COUNT} BÀI...`);
+  console.log(`==================================================\n`);
   
   if (TARGET_COUNT === 0) {
-    console.log("❌ Lỗi: Không tìm thấy Key nào trong .env.local. Dừng hoạt động.");
+    console.log("❌ Lỗi: Không tìm thấy Key nào hợp lệ. Dừng hoạt động.");
     return;
   }
 
+  // Tạo mảng để lưu vết trạng thái thành công/thất bại của từng lượt trong mẻ
+  const runResults: { topic: string; success: boolean }[] = [];
+
+  const filePath = path.join(process.cwd(), "topics.txt");
+  if (!fs.existsSync(filePath)) {
+    console.error("❌ Lỗi: Không tìm thấy file topics.txt!");
+    return;
+  }
+
+  const lines = fs.readFileSync(filePath, "utf-8").split("\n").map(line => line.trim());
+  const validTopics = lines.filter(line => line.length > 0);
+
+  // Vòng lặp bắn đạn tịnh tiến: Key nào xử lý dòng nấy, không tranh chấp dòng đầu
   for (let i = 1; i <= TARGET_COUNT; i++) {
-    console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Đang gọi AI cào bài viết mới...`);
+    if (i > validTopics.length) {
+      console.log("🎉 Hết bài trong kho topics.txt để cấu hình lượt này.");
+      break;
+    }
+
+    const targetTopic = validTopics[i - 1];
+    console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Khởi động lượt bằng Key số ${i}...`);
     
+    let isSuccess = false;
     await new Promise<void>((resolve) => {
-      const child = spawn("npm", ["run", "gen:single"], { 
+      // Truyền cả số thứ tự Key (i) và nội dung chủ đề sang cho generate.ts xử lý độc lập
+      const child = spawn("npx", ["tsx", "scripts/generate.ts", String(i), targetTopic], { 
         stdio: "inherit", 
         shell: true 
       });
 
       child.on("close", (code) => {
+        if (code === 0) isSuccess = true;
         resolve(); 
       });
     });
 
-    if (i < TARGET_COUNT) {
-      console.log(`\n💤 Tạm nghỉ ${DELAY_MS / 1000} giây để làm mát hệ thống (Chống Rate Limit)...`);
+    runResults.push({ topic: targetTopic, success: isSuccess });
+
+    if (i < TARGET_COUNT && i < validTopics.length) {
       await sleep(DELAY_MS);
     }
   }
+
+  // ============================================================================
+  // BƯỚC QUÉT DỌN CUỐI MẺ CHẠY: CHỈ XÓA NHỮNG DÒNG ĐÃ THÀNH CÔNG KHỎI TOPICS.TXT
+  // ============================================================================
+  console.log(`\n🧹 Đang tiến hành quét dọn và đồng bộ file topics.txt...`);
+  const freshLines = fs.readFileSync(filePath, "utf-8").split("\n").map(line => line.trim());
   
-  console.log(`\n🎉 HOÀN TẤT MẺ CHẠY CỦA GIỜ NÀY! ĐÃ BƠM XONG ${TARGET_COUNT} BÀI VÀO DATABASE.`);
+  const successfulTopics = runResults.filter(r => r.success).map(r => r.topic);
+  const updatedLines = freshLines.filter(line => !successfulTopics.includes(line) && line.length > 0);
+  
+  fs.writeFileSync(filePath, updatedLines.join("\n"), "utf-8");
+  console.log(`✅ Đã đồng bộ sạch sẽ! Đã cắt ${successfulTopics.length} dòng thành công. Còn lại: ${updatedLines.length} chủ đề.`);
+  console.log(`\n🎉 HOÀN TẤT MẺ CHẠY CỦA GIỜ NÀY!`);
 }
 
 runAll();
