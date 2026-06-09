@@ -1,9 +1,9 @@
-name: 📦 Auto Aggregate Milestones (Top 10-50)
+name: 📦 Auto Aggregate Milestones (Top 10-50 Daily)
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Đúng 00:00 nửa đêm hệ thống sẽ thức dậy quét mốc chẵn
-  workflow_dispatch: # Cho phép bấm chạy bằng tay bất cứ lúc nào
+    - cron: '0 0 * * *' # Đúng 00:00 nửa đêm UTC hằng ngày hệ thống tự thức dậy cày 1 bài Top
+  workflow_dispatch: # Cho phép sếp bấm chạy bằng tay bất cứ lúc nào trên GitHub
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -32,16 +32,15 @@ jobs:
         run: |
           echo "$ENV_CONTENT" > .env.local
 
-      # ĐÃ SỬA: Thay thế npx ts-node bằng npx tsx để loại bỏ lỗi ERR_UNKNOWN_FILE_EXTENSION
       - name: 🚀 Run aggregation script
         run: |
-          # 1. Quét cập nhật kho dữ liệu trước
+          # 1. Quét dữ liệu cũ để đồng bộ file JSON trước
           node scripts/generate-posts.mjs
           
-          # 2. Sử dụng tsx để gộp bài số chẵn nửa đêm một cách mượt mà
+          # 2. Gọi cỗ máy gộp bài Collection Daily bốc đạn từ topics_top.txt
           npx tsx scripts/aggregate.ts
           
-          # 3. Đồng bộ lại file JSON đầu ra lần cuối
+          # 3. Nén lại file JSON đầu ra lần cuối để cập nhật giao diện tìm kiếm trên web
           node scripts/generate-posts.mjs
 
       - name: 💾 Commit and Push changes
@@ -49,5 +48,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          git commit -m "🤖 Auto-aggregated check mốc chẵn [skip ci]" || echo "No changes to commit"
+          git commit -m "🤖 Auto-aggregated a new Top Collection post [skip ci]" || echo "No changes to commit"
           git push
