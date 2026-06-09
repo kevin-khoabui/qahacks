@@ -13,6 +13,9 @@ export default function TableOfContents() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [isOpen, setIsOpen] = useState(true); // Mặc định luôn mở trên mobile
   const headingElementsRef = useRef<{ [key: string]: IntersectionObserverEntry }>({});
+  
+  // 🎯 CỜ CHẶN CHỐNG NHẢY ITEM KHI ĐANG CLICK CUỘN TRANG
+  const isClickScrolling = useRef(false);
 
   useEffect(() => {
     const articleElement = document.querySelector("article");
@@ -32,11 +35,11 @@ export default function TableOfContents() {
 
       if (!id) return;
 
-      // 🛠️ BỘ LỌC TỐI GIẢN CHỈ TÌM BÀI GỘP: Chỉ bốc duy nhất các tiêu đề bắt đầu bằng chữ "Question X"
+      // 🛠️ BỘ LỌC TỐI GIẢN CHỈ TÌM BÀI GỘP
       if (textLower.match(/^question\s+\d+/i)) {
         dynamicMenuItems.push({ 
           id, 
-          label: text, // Giữ nguyên chữ "Question 1", "Question 2"...
+          label: text, 
           level: el.tagName === "H2" ? 2 : 3 
         });
         validIds.push(id);
@@ -50,6 +53,9 @@ export default function TableOfContents() {
     }
 
     const callback = (headings: IntersectionObserverEntry[]) => {
+      // 🛑 NẾU NGƯỜI DÙNG ĐANG CLICK CUỘN, BỎ QUA KHÔNG CHO OBSERVER TỰ ĐỘNG HIGHLIGHT SAI
+      if (isClickScrolling.current) return;
+
       headings.forEach((heading) => {
         headingElementsRef.current[heading.target.id] = heading;
       });
@@ -61,15 +67,18 @@ export default function TableOfContents() {
       if (visibleHeadings.length === 1) {
         setActiveId(visibleHeadings[0].target.id);
       } else if (visibleHeadings.length > 1) {
-        const sortedVisibleHeadings = visibleHeadings.sort(
+        const sortedVisibleHeadings = visibleVisibleHeadings.sort(
           (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
         );
         setActiveId(sortedVisibleHeadings[0].target.id);
       }
     };
 
+    // 🛠️ TINH CHỈNH ROOTMARGIN: 
+    // - Hạ biên trên xuống -100px (để bù trừ hẳn cho Header cản trở)
+    // - Co hẹp biên dưới lại -20% để ép vùng quét tập trung vào nửa trên màn hình
     const observer = new IntersectionObserver(callback, {
-      rootMargin: "-80px 0px -50% 0px",
+      rootMargin: "-100px 0px -65% 0px",
       threshold: [0, 0.2, 0.5, 1.0],
     });
 
@@ -81,8 +90,6 @@ export default function TableOfContents() {
     return () => observer.disconnect();
   }, []);
 
-  // 🎯 CHỐT CHẶN VÀNG CỦA SẾP: 
-  // Nếu không phải bài gộp (mảng rỗng) hoặc chỉ có đúng 1 câu hỏi -> ẨN SẠCH, TRẢ VỀ NULL KHÔNG RENDER GÌ CẢ
   if (menuItems.length <= 1) return null;
 
   return (
@@ -103,7 +110,7 @@ export default function TableOfContents() {
         </svg>
       </button>
       
-      {/* DANH SÁCH CHỈ HIỂN THỊ KHI CÓ TỪ 2 CÂU TRỞ LÊN */}
+      {/* DANH SÁCH MỤC LỤC */}
       <nav className={`space-y-1.5 pr-1 transition-all duration-200 ${isOpen ? 'block' : 'hidden lg:block'}`}>
         {menuItems.map((item) => {
           const isActive = activeId === item.id;
@@ -114,10 +121,27 @@ export default function TableOfContents() {
               href={`#${item.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById(item.id)?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
+                
+                // 1. Khóa bộ tự động scan của IntersectionObserver lại
+                isClickScrolling.current = true;
+                
+                // 2. Ép giao diện highlight ngay lập tức mục vừa bấm
+                setActiveId(item.id);
+
+                // 3. Tiến hành cuộn mượt đến đích
+                const targetElement = document.getElementById(item.id);
+                if (targetElement) {
+                  targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+
+                // 4. Mở khóa cờ sau khi hoạt ảnh cuộn hoàn tất (tầm 600ms)
+                setTimeout(() => {
+                  isClickScrolling.current = false;
+                }, 600);
+
                 if (window.innerWidth < 1024) setIsOpen(false);
               }}
               className={`block transition-all duration-150 rounded-lg tracking-wide text-xs py-1.5 font-semibold pl-2 text-slate-400 hover:text-slate-200 ${
