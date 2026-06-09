@@ -2,7 +2,7 @@ name: 🤖 Auto Generate QA Posts
 
 on:
   schedule:
-    - cron: '0 * * * *' # Cứ mỗi 1 tiếng hệ thống sẽ tự động thức dậy chạy 1 lần
+    - cron: '17 * * * *'  
   workflow_dispatch: # Cho phép sếp chủ động bấm chạy bằng tay trên GitHub
 
 env:

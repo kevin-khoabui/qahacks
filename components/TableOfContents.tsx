@@ -67,7 +67,7 @@ export default function TableOfContents() {
       if (visibleHeadings.length === 1) {
         setActiveId(visibleHeadings[0].target.id);
       } else if (visibleHeadings.length > 1) {
-        const sortedVisibleHeadings = visibleVisibleHeadings.sort(
+        const sortedVisibleHeadings = visibleHeadings.sort(
           (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
         );
         setActiveId(sortedVisibleHeadings[0].target.id);
