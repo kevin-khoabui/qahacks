@@ -1,23 +1,5 @@
-Leading defect triage meetings and prioritizing critical production bugs in TestRail as a Manual Test Leader within a highly-regulated fintech application ensuring strict data privacy and compliance standards.
 Leading defect triage meetings and prioritizing critical production bugs in Xray as a Manual Test Leader for a legacy migration project.
-Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with SQL for a Test Strategy Lead for an enterprise e-commerce platform while onboarding new offshore QA resources.
-Troubleshooting frontend rendering issues and analyzing network requests using Zephyr as a Test Manager for an enterprise e-commerce platform ensuring strict data privacy and compliance standards.
-How a Test Manager manages conflict with developers regarding release blockers and defect severity in Agile ensuring strict data privacy and compliance standards.
-Designing a comprehensive manual exploratory testing strategy using Confluence for a Test Manager while onboarding new offshore QA resources.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Test Strategy Lead in a fast-paced Agile deployment model with limited documentation and changing requirements.
-Designing a comprehensive manual exploratory testing strategy using TestRail for a Test Strategy Lead.
-Leading defect triage meetings and prioritizing critical production bugs in SQL as a Test Strategy Lead in a multi-tenant SaaS ecosystem.
-How a QA Lead manages conflict with developers regarding release blockers and defect severity in Agile ensuring strict data privacy and compliance standards.
-Establishing a risk-based testing approach and traceability matrix using Chrome DevTools for a QA Lead in a fast-paced Agile deployment model while onboarding new offshore QA resources.
-Auditing legacy test cases and optimizing regression test suites in Postman as a Test Manager in a multi-tenant SaaS ecosystem with limited documentation and changing requirements.
-How a Senior Manual QA trains and mentors junior testers on writing effective bug reports in Zephyr.
-Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a QA Lead to ensure smooth third-party API integrations under extreme time constraints.
-Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader for a legacy migration project dealing with highly unstable staging environments.
-Validating complex backend data integrity manually using Confluence for a QA Lead for a cloud-native microservices architecture with limited documentation and changing requirements.
-How a QA Lead manages conflict with developers regarding release blockers and defect severity in Agile across distributed cross-functional teams.
-Handling resistance from team members when transitioning to a new test management workflow in TestRail for a Test Strategy Lead to ensure smooth third-party API integrations.
 How a Senior Manual QA trains and mentors junior testers on writing effective bug reports in TestRail across distributed cross-functional teams with limited documentation and changing requirements.
-Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a Senior Manual QA for a cloud-native microservices architecture.
 Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a QA Lead for a cloud-native microservices architecture.
 Establishing a risk-based testing approach and traceability matrix using Postman for a Test Manager for an enterprise e-commerce platform.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Confluence as a Test Strategy Lead minimizing manual overhead during major releases.
