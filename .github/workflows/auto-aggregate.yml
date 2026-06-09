@@ -1,15 +1,15 @@
-name: 🤖 Auto Generate QA Posts
+name: 📦 Auto Aggregate Milestones (Top 10-50)
 
 on:
   schedule:
-    - cron: '0 * * * *' # Cứ mỗi 1 tiếng hệ thống sẽ tự động thức dậy chạy 1 lần
-  workflow_dispatch: # Cho phép sếp chủ động bấm chạy bằng tay trên GitHub
+    - cron: '0 0 * * *' # Đúng 00:00 nửa đêm hệ thống sẽ thức dậy quét mốc chẵn
+  workflow_dispatch: # Cho phép bấm chạy bằng tay bất cứ lúc nào
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  generate:
+  aggregate:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -32,15 +32,15 @@ jobs:
         run: |
           echo "$ENV_CONTENT" > .env.local
 
-      - name: 🚀 Run smart generation script pipeline
+      - name: 🚀 Run aggregation script
         run: |
-          # 1. Quét dữ liệu cũ để cập nhật file JSON trước
+          # 1. Quét cập nhật kho dữ liệu trước
           node scripts/generate-posts.mjs
           
-          # 2. Gọi cỗ máy cày bài lẻ hàng giờ (sử dụng full 24 keys xoay vòng)
-          npx ts-node scripts/generate.ts
+          # 2. Chạy file kiểm tra mốc chẵn để gộp bài Compilation tổng hợp
+          npx ts-node scripts/aggregate.ts
           
-          # 3. Nén lại file JSON để cập nhật thanh tìm kiếm trên giao diện web
+          # 3. Đồng bộ lại file JSON đầu ra lần cuối
           node scripts/generate-posts.mjs
 
       - name: 💾 Commit and Push changes
@@ -48,5 +48,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          git commit -m "🤖 Auto-generated a new QA post [skip ci]" || echo "No changes to commit"
+          git commit -m "🤖 Auto-aggregated check mốc chẵn [skip ci]" || echo "No changes to commit"
           git push

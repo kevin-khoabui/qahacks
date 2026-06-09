@@ -6,15 +6,10 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
-const apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey) {
-  console.error("❌ Chưa cấu hình GEMINI_API_KEY");
-  process.exit(1);
-}
-const genAI = new GoogleGenerativeAI(apiKey);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
 const postsDirectory = path.join(process.cwd(), "content/posts");
+
+// CHỈ ĐỊNH ĐÍCH DANH ĐẶC VỤ KEY 25 CHẠY RIÊNG KHÔNG SỢ TRÙNG LẶP HẰNG GIỜ
+const SINGLE_AGGREGATE_KEY = process.env.GEMINI_API_KEY_25 || process.env.GEMINI_API_KEY || "";
 
 function getRawPosts() {
   if (!fs.existsSync(postsDirectory)) return [];
@@ -28,12 +23,16 @@ function getRawPosts() {
 }
 
 async function runAggregation() {
-  const allFiles = getRawPosts();
-  
-  // Lọc bài đơn lẻ
-  const singlePosts = allFiles.filter(p => p.metadata.question_type !== "Compilation");
+  console.log("🔑 [Gộp bài Daily] Khởi động cỗ máy bằng API Key số 25 biệt phái.");
+  if (!SINGLE_AGGREGATE_KEY) {
+    console.error("❌ Lỗi: Không tìm thấy cấu hình GEMINI_API_KEY_25!");
+    return;
+  }
 
-  // Nhóm theo vai trò (target_role)
+  const allFiles = getRawPosts();
+  const singlePosts = allFiles.filter(p => p.metadata.question_type !== "Compilation");
+  const compilationPosts = allFiles.filter(p => p.metadata.question_type === "Compilation");
+
   const rolesGroup: { [key: string]: any[] } = {};
   singlePosts.forEach(post => {
     const role = post.metadata.target_role || "QA_Engineer";
@@ -41,85 +40,74 @@ async function runAggregation() {
     rolesGroup[role].push(post);
   });
 
-  console.log("📊 Đang rà soát kho dữ liệu bài viết lẻ để tính toán mốc chẵn...");
+  // Quét đếm chuẩn các mốc chẵn yêu cầu (Tối đa mốc 50)
+  const targetMilestones = [10, 20, 30, 40, 50];
 
-  for (const role of Object.keys(rolesGroup)) {
-    const postsInRole = rolesGroup[role];
-    const totalSingles = postsInRole.length;
-    const targetMilestone = Math.floor(totalSingles / 10) * 10;
+  for (const [role, posts] of Object.entries(rolesGroup)) {
+    const totalSinglePosts = posts.length;
 
-    if (targetMilestone < 10) {
-      console.log(`ℹ️ Vị trí [${role}] mới tích lũy được ${totalSingles} bài lẻ, chưa đạt mốc tạo đề chẵn (Tối thiểu cần 10).`);
-      continue;
-    }
+    for (const milestone of targetMilestones) {
+      if (totalSinglePosts >= milestone) {
+        const outputFileName = `top-${milestone}-${role.toLowerCase().replace(/_/g, "-")}.md`;
+        const outputPath = path.join(postsDirectory, outputFileName);
 
-    for (let milestone = 10; milestone <= targetMilestone; milestone += 10) {
-      const slugTitle = `top-${milestone}-interview-questions-and-answers-for-${role.toLowerCase().replace(/_/g, "-")}`;
-      const outputFileName = `${slugTitle}.md`;
-      const outputPath = path.join(postsDirectory, outputFileName);
+        // KIỂM TRA: Tập này tạo rồi thì bỏ qua luôn
+        const alreadyExists = compilationPosts.some(cp => cp.fileName === outputFileName);
+        if (alreadyExists) {
+          console.log(`⏭️ Bộ đề Top ${milestone} cho [${role}] đã tồn tại. Bỏ qua.`);
+          continue;
+        }
 
-      if (fs.existsSync(outputPath)) {
-        console.log(`⏩ Mốc [Top ${milestone}] của vai trò [${role}] đã được đóng gói từ trước. Bỏ qua.`);
-        continue;
-      }
+        const genAI = new GoogleGenerativeAI(SINGLE_AGGREGATE_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
 
-      console.log(`🔥 Đủ điều kiện! Đang kích hoạt AI tổng hợp cẩm nang trang riêng: [Top ${milestone}] cho [${role}]...`);
+        const postsToCompile = posts.slice(0, milestone);
+        const rawMaterials = postsToCompile.map((p, idx) => `--- Bài lẻ ${idx + 1} ---\nTiêu đề: ${p.metadata.title}\nNội dung:\n${p.body}`).join("\n\n");
 
-      const selectedPosts = postsInRole.slice(0, milestone);
-      const rawMaterials = selectedPosts.map((p, idx) => `--- QUESTION ${idx + 1} ---\nTitle: ${p.metadata.title}\nContent:\n${p.body}`).join("\n\n");
+        console.log(`🤖 [Gộp bài số chẵn] Tiến hành đóng gói bộ đề Top ${milestone} cho vai trò: [${role}]...`);
 
-      // Nâng cấp prompt: Bắt Gemini tự phân tích và tự điền Taxonomy cho bài gộp, không lấy vội của bài lẻ đầu tiên
-      const prompt = `
-        You are an expert Principal QA Engineer and a world-class SEO editor.
-        I will give you a list of ${milestone} individual interview questions and answers for the role "${role}".
-        Your task is to merge, polish, and synthesize them into a single, cohesive, massive compilation post titled "Top ${milestone} Interview Questions and Answers for ${role.replace(/_/g, " ")}".
+        const prompt = `
+          You are an expert Principal QA Consultant. Write a high-quality professional compilation guide post titled: "Top ${milestone} ${role.replace(/_/g, " ")} Interview Questions & Strategic Answers Blueprint".
+          
+          The output MUST start with this Frontmatter:
+          ---
+          title: 'Top ${milestone} ${role.replace(/_/g, " ")} Interview Questions & Strategic Answers Blueprint'
+          difficulty: 'Advanced'
+          target_role: '${role}'
+          category: 'Technical'
+          sub_category: 'Strategy'
+          question_type: 'Compilation'
+          core_testing_type: 'Functional'
+          domain: 'E-commerce'
+          platform: 'Web'
+          tool_stack: 'None'
+          tags: ['testing', 'interview-prep', '${role.toLowerCase().replace(/_/g, "-")}', 'compilation', 'top-${milestone}']
+          ---
 
-        CRITICAL REQUIREMENT (TAXONOMY EVALUATION):
-        Analyze the combined content of these questions and determine the single most appropriate value for:
-        - "category": Must be one of ['Technical', 'Foundations', 'Analytical_Behavioral'].
-        - "sub_category": Must be one of ['Automation', 'API', 'Database', 'Performance', 'Security', 'Manual', 'Methodology', 'Strategy', 'Behavioral'].
-        - "tool_stack": If the majority uses a tool, specify it ('Playwright', 'SQL', etc.), otherwise use 'None'.
+          ## Overview
+          Provide a high-quality professional introduction explaining what this mega guide covers and how it guarantees success for a ${role.replace(/_/g, " ")} role.
 
-        CRITICAL OUTPUT FORMAT:
-        The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the response or frontmatter in code blocks like \`\`\`markdown.
+          ### Compilation Questions:
+          Present all the provided questions and answers below sequentially. Re-format them beautifully with headings like "### Q[Number]: [Question text]" and "### Expert Answer:". Keep all code snippets, technical steps, and explanations from the source materials fully intact, ensuring production-grade quality.
 
-        ---
-        title: 'Top ${milestone} Interview Questions and Answers for ${role.replace(/_/g, " ")}'
-        difficulty: 'Advanced'
-        target_role: '${role}'
-        category: '[Insert Evaluated Value]'
-        sub_category: '[Insert Evaluated Value]'
-        question_type: 'Compilation'
-        core_testing_type: 'Functional'
-        domain: 'E-commerce'
-        platform: 'Web'
-        tool_stack: '[Insert Evaluated Value]'
-        tags: ['testing', 'interview-prep', '${role.toLowerCase().replace(/_/g, "-")}', 'compilation']
-        ---
+          Here is the source data to compile:
+          ${rawMaterials}
+        `;
 
-        ## Overview
-        [Provide a high-quality professional introduction explaining what this mega guide covers and how it guarantees success for a ${role.replace(/_/g, " ")} role]
+        try {
+          const result = await model.generateContent(prompt);
+          let responseText = result.response.text();
+          const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
 
-        ### Compilation Questions:
-        [Present all the provided questions and answers below sequentially. Re-format them beautifully with headings like "### Q1: [Question text]" and "### Answer:". Keep all code snippets, technical steps, and explanations from the source materials fully intact, ensuring production-grade quality.]
-
-        Here is the source data to compile:
-        ${rawMaterials}
-      `;
-
-      try {
-        const result = await model.generateContent(prompt);
-        let responseText = result.response.text();
-        const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
-
-        fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
-        console.log(`✅ Đã tạo tệp bộ đề số chẵn thành công: /content/posts/${outputFileName}`);
-      } catch (error) {
-        console.error(`❌ Lỗi gọi API khi đóng gói mốc Top ${milestone}:`, error);
+          fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
+          console.log(`🔥 [XUẤT BẢN THÀNH CÔNG] Đã tạo file Compilation: /content/posts/${outputFileName}`);
+        } catch (error) {
+          console.error(`❌ Lỗi gọi API khi đóng gói mốc Top ${milestone}:`, error);
+        }
       }
     }
   }
-  console.log("🎉 TIẾN TRÌNH QUÉT VÀ ĐÓNG GÓI BỘ ĐỀ TỰ ĐỘNG ĐÃ HOÀN TẤT MỸ MÃN!");
+  console.log("🎉 TIẾN TRÌNH QUÉT ĐẾM MỐC CHẴN ĐÃ HOÀN TẤT AN TOÀN.");
 }
 
 runAggregation();
