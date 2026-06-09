@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
-// 1. IMPORT CÁC THÀNH PHẦN TÌM KIẾM
+// 1. IMPORT CÁC THÀNH PHẦN TÌM KIẾM VÀ GOOGLE ANALYTICS
 import { getAllPosts } from "@/lib/posts";
 import CommandPalette from "@/components/CommandPalette";
 import NavbarSearchButton from "@/components/NavbarSearchButton";
+import { GoogleAnalytics } from "@next/third-parties/google"; // Nhúng thư viện GA4 chính chủ của Next.js
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -229,6 +230,9 @@ export default function RootLayout({
             <p>© {new Date().getFullYear()} QAHacks.com. All rights reserved. Designed for QA Leaders and Engineers.</p>
           </div>
         </footer>
+
+        {/* 4. KÍCH HOẠT MẮT THẦN GOOGLE ANALYTICS VỚI ID CỦA BẠN */}
+        <GoogleAnalytics gaId="G-Z9ZQWLQN2X" />
 
       </body>
     </html>
