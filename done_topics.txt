@@ -129,3 +129,23 @@ Negotiating testing scope and production deployment readiness with Product Owner
 Managing tight release deadlines and prioritizing critical test paths during an emergency hotfix as a QA Lead with an understaffed QA team.
 Establishing a risk-based testing approach and traceability matrix using Confluence for a QA Lead with an understaffed QA team.
 Troubleshooting frontend rendering issues and analyzing network requests using TestRail as a Senior Manual QA for a high-traffic media streaming service.
+Establishing
+Troubleshooting
+Behavioral
+Negotiating
+Behavioral
+How
+Auditing
+Handling
+Establishing
+Managing
+Leading
+Defining
+How
+Defining
+Leading
+How
+Negotiating
+Behavioral
+How
+Behavioral
