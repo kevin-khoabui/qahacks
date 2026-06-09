@@ -13,20 +13,29 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// 1. GENERATE DYNAMIC METADATA (SEO)
+// ============================================================================
+// 1. GENERATE DYNAMIC METADATA (SEO PRO-GRADE)
+// ============================================================================
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const post = await getPostData(resolvedParams.slug);
 
-  if (!post) return {};
+  if (!post) {
+    return {
+      title: "Article Not Found | QA Hacks",
+      description: "The requested QA automation tutorial or interview guide does not exist or has been moved.",
+    };
+  }
 
+  // Tự động bóc tách text sạch từ Markdown content để làm Description nếu cần thiết
+  // Tuy nhiên cấu trúc speaking blueprint của bạn hiện tại đã rất tối ưu
   const cleanTitle = `${post.title} | QA Hacks`;
   const cleanDescription = `Master the QA Interview: ${post.title}. Professional solution and speaking blueprint for ${post.target_role?.replace(/_/g, " ")} positions.`;
 
   return {
     title: cleanTitle,
     description: cleanDescription,
-    keywords: post.tags || ["qa-interview", "software-testing", "qa-lead"],
+    keywords: post.tags || ["qa-interview", "software-testing", "qa-lead", post.category, post.tool_stack],
     openGraph: {
       title: cleanTitle,
       description: cleanDescription,
@@ -34,6 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://qahacks.com/posts/${resolvedParams.slug}`,
       siteName: "QA Hacks",
       locale: "en_US",
+      publishedTime: new Date().toISOString(),
+      authors: ["QA Hacks Team"],
+      tags: post.tags || [],
     },
     twitter: {
       card: "summary_large_image",
@@ -46,6 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Hàm phân tách cấu trúc Markdown nội dung để sinh Schema tự động
 function parseContentForSchema(content: string) {
   const questionMatch = content.match(/### Interview Question:\s*([\s\S]*?)(?=### Expert Answer:|$)/);
   const answerMatch = content.match(/### Expert Answer:\s*([\s\S]*)/);
@@ -56,7 +69,9 @@ function parseContentForSchema(content: string) {
   };
 }
 
-// MAIN COMPONENT
+// ============================================================================
+// 2. MAIN COMPONENT (XỬ LÝ PARAMS PROMISE THEO CHUẨN NEXT.JS)
+// ============================================================================
 export default async function PostPage({ params }: Props) {
   const resolvedParams = await params;
   const post = await getPostData(resolvedParams.slug);
@@ -65,7 +80,7 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  // Khối "Continue Learning" lấy 3 bài liên quan để tăng tối đa Pageviews (Phase 1)
+  // Khối "Continue Learning" lấy 3 bài liên quan để tăng tối đa Pageviews
   const relatedPosts = await getRelatedPosts(resolvedParams.slug, post.category, 3);
   const isCompilation = post.question_type === "Compilation";
   const displayRole = post.target_role?.replace(/_/g, " ");
@@ -73,7 +88,7 @@ export default async function PostPage({ params }: Props) {
   const { questionText, answerText = "" } = parseContentForSchema(post.content || "");
   const schemaQuestionTitle = questionText.split("\n")[0] || post.title;
 
-  // STRUCTURED DATA (Schema QAPage)
+  // STRUCTURED DATA (Schema QAPage - Giúp Google hiển thị box Hỏi-Đáp trực tiếp)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
@@ -84,7 +99,7 @@ export default async function PostPage({ params }: Props) {
       "answerCount": 1,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": answerText,
+        "text": answerText.slice(0, 5000), // Giới hạn ký tự an toàn cho cấu trúc Schema
         "upvoteCount": 150,
       },
     },
@@ -92,6 +107,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
+      {/* Khai báo Schema Structured Data cho công cụ tìm kiếm */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -114,14 +130,12 @@ export default async function PostPage({ params }: Props) {
           {/* GRID ARCHITECTURE: 2 COLUMNS ON DESKTOP */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            {/* ======================================================== */}
             {/* COLUMN 1: MAIN CONTENT AREA (70%) */}
-            {/* ======================================================== */}
             <article className="lg:col-span-8 bg-[#0B1121] p-6 sm:p-10 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden h-fit">
               <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
 
               <div className="relative z-10">
-                {/* Meta Tags */}
+                {/* Meta Labels */}
                 <div className="flex flex-wrap gap-2 items-center text-[11px] font-bold uppercase tracking-wider mb-5">
                   <span className={`px-2.5 py-1 rounded border ${isCompilation ? "text-amber-400 bg-amber-500/10 border-amber-500/20" : "text-teal-400 bg-teal-500/10 border-teal-500/20"}`}>
                     {isCompilation ? "⭐ MEGA COMPILATION" : `${post.category} / ${post.sub_category}`}
@@ -135,13 +149,12 @@ export default async function PostPage({ params }: Props) {
                   {post.title}
                 </h1>
 
-                {/* Markdown Content (Overview, Question, Answer, Speaking) */}
+                {/* Markdown Renderer Area */}
                 <div className="prose prose-slate prose-invert max-w-none prose-headings:text-slate-100 prose-a:text-teal-400 hover:prose-a:text-teal-300 prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-slate-800">
                   <ReactMarkdown 
                     remarkPlugins={[remarkGfm]} 
                     rehypePlugins={[rehypeHighlight, rehypeSlug]}
                     components={{
-                      // 1. CẤU HÌNH CHO CÁC THẺ H2 (Ví dụ: ## Overview)
                       h2: ({ node, ...props }) => {
                         const text = props.children?.toString().toLowerCase() || "";
                         let customId = props.id;
@@ -157,7 +170,6 @@ export default async function PostPage({ params }: Props) {
                         );
                       },
                       
-                      // 2. CẤU HÌNH CHO CÁC THẺ H3 (Ví dụ: ### Interview Question:, ### Expert Answer:)
                       h3: ({ node, ...props }) => {
                         const text = props.children?.toString().toLowerCase() || "";
                         let customId = props.id;
@@ -182,12 +194,8 @@ export default async function PostPage({ params }: Props) {
               </div>
             </article>
 
-            {/* ======================================================== */}
             {/* COLUMN 2: CONTEXT PANEL (SIDEBAR 30%) */}
-            {/* ======================================================== */}
             <aside className="lg:col-span-4 space-y-6">
-              
-              {/* BOX 1: QUICK DETAILS (STICKY TOP) */}
               <div className="bg-[#0B1121] p-6 rounded-2xl border border-slate-800 shadow-lg lg:sticky lg:top-6 space-y-5">
                 
                 {/* Technical Metadata Stack */}
@@ -200,32 +208,24 @@ export default async function PostPage({ params }: Props) {
                     </div>
                     <div className="flex justify-between items-center text-sm bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
                       <span className="text-slate-400">Tool Stack:</span>
-                      <span className="text-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20">{post.tool_stack !== "None" ? post.tool_stack : "Generic"}</span>
+                      <span className="text-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20">
+                        {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <hr className="border-slate-800" />
 
-                {/* STICKY TOC: ON THIS PAGE (Đồng bộ với Client Component quét IntersectionObserver) */}
+                {/* Table of Contents Integration */}
                 <TableOfContents />
-
-                {/* FUTURE ADSENSE PLACEHOLDER */}
-{/*                 <div className="pt-2">
-                  <div className="w-full h-[250px] bg-slate-900/30 border border-dashed border-slate-800 rounded-xl flex flex-col items-center justify-center text-center p-4">
-                    <span className="text-[10px] font-bold tracking-widest text-slate-600 uppercase">Future Ad Placement</span>
-                    <p className="text-[11px] text-slate-500 mt-1 max-w-[180px]">Non-intrusive sticky ad placeholder for verified traffic</p>
-                  </div>
-                </div> */}
 
               </div>
             </aside>
 
           </div>
 
-          {/* ======================================================== */}
-          {/* FOOTER FLOW: CONTINUE LEARNING */}
-          {/* ======================================================== */}
+          {/* FOOTER FLOW: CONTINUE LEARNING (Up Next Carousel) */}
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="mt-12 pt-10 border-t border-slate-800/60 max-w-none">
               <h2 className="text-xl font-bold text-white flex items-center gap-2 mb-6">

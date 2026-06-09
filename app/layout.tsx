@@ -6,15 +6,72 @@ import "./globals.css";
 // 1. IMPORT CÁC THÀNH PHẦN TÌM KIẾM
 import { getAllPosts } from "@/lib/posts";
 import CommandPalette from "@/components/CommandPalette";
-import NavbarSearchButton from "@/components/NavbarSearchButton"; // <-- THÊM DÒNG NÀY
-
+import NavbarSearchButton from "@/components/NavbarSearchButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// ==================== GLOBAL SEO & METADATA CONFIGURATION (100% ENGLISH) ====================
 export const metadata: Metadata = {
-  title: "QAHacks | Ultimate QA Interview Hub",
-  description: "Production-grade QA interview questions, code challenges, and mega compilations.",
+  title: {
+    default: "QAHacks | Ultimate QA Interview Hub & Automation Handbook",
+    template: "%s | QAHacks" // Tự động chèn tên bài viết vào sau, ví dụ: "Playwright Advanced | QAHacks"
+  },
+  description: "Master software automation testing with production-grade QA interview questions, advanced code challenges, framework best practices, and mega compilations for Playwright, Cypress, and CI/CD pipelines.",
+  keywords: [
+    "automation testing", 
+    "QA interview questions", 
+    "QAHacks", 
+    "playwright tutorial", 
+    "cypress frameworks", 
+    "selenium testing", 
+    "software engineering in test", 
+    "SDET interview guide",
+    "CI/CD pipeline test automation"
+  ],
+  authors: [{ name: "QAHacks Team" }],
+  creator: "QAHacks",
+  metadataBase: new URL("https://qahacks.com"), // Điền domain chính thức của bạn vào đây
+
+  // Open Graph Tags (Hiển thị khi share lên LinkedIn, Facebook, Slack, Discord...)
+  openGraph: {
+    title: "QAHacks | Ultimate QA Interview Hub & Automation Handbook",
+    description: "Production-grade QA interview questions, advanced code challenges, and framework best practices for Playwright, Cypress, and CI/CD pipelines.",
+    url: "https://qahacks.com",
+    siteName: "QAHacks",
+    images: [
+      {
+        url: "/og-image.png", // Bạn thiết kế 1 ảnh banner 1200x630 ném vào thư mục public đặt tên là og-image.png nhé
+        width: 1200,
+        height: 630,
+        alt: "QAHacks - Ultimate QA Interview Hub Banner Preview",
+      },
+    ],
+    locale: "en_US", // Chuẩn hóa tiếng Anh toàn cầu
+    type: "website",
+  },
+
+  // Twitter / X Cards Cấu hình hiển thị trên X
+  twitter: {
+    card: "summary_large_image",
+    title: "QAHacks | Ultimate QA Interview Hub",
+    description: "Production-grade QA interview questions, advanced code challenges, and framework best practices.",
+    images: ["/og-image.png"],
+  },
+  
+  // Điều hướng Bot tìm kiếm (Googlebot, Bingbot...) cào dữ liệu
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
+// ============================================================================================
 
 export default function RootLayout({
   children,
@@ -38,15 +95,20 @@ export default function RootLayout({
         <header className="sticky top-0 z-50 border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
             
-            {/* LOGO TRÁI: Phong cách Minimalist White Line-art */}
+            {/* LOGO TRÁI: Đã đồng bộ bằng cách gọi Favicon Code và Đổ màu Gradient Text */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-800 bg-slate-900/50 group-hover:border-emerald-500/50 transition-colors">
-                <svg className="h-5 w-5 text-white group-hover:text-emerald-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+              {/* Gọi chính endpoint icon code ra làm ảnh (Tỷ lệ vuông 36px đồng bộ với tab trình duyệt) */}
+              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 group-hover:border-emerald-500/50 transition-colors p-1">
+                <img 
+                  src="/icon" 
+                  alt="QA Icon" 
+                  className="h-full w-full object-contain"
+                />
               </div>
-              <span className="text-lg font-bold tracking-tight text-white">
-                QA<span className="text-emerald-400">Hacks</span>
+
+              {/* Chữ thương hiệu đổi sang màu Mint Gradient cực hợp với nền tối bg-slate-950 */}
+              <span className="text-lg font-black tracking-tight bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent group-hover:from-emerald-300 group-hover:to-teal-200 transition-all">
+                QA<span className="text-white">Hacks</span>
               </span>
             </Link>
 
@@ -134,7 +196,7 @@ export default function RootLayout({
                     <Link href="/?tool=Selenium" className="block px-3 py-2 text-xs font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors flex items-center justify-between">
                       Selenium
                     </Link>
-                    <div className="h-px bg-slate-800 my-1 mx-2"></div> {/* Đường kẻ phân cách nhỏ */}
+                    <div className="h-px bg-slate-800 my-1 mx-2"></div>
                     <Link href="/?tool=Postman" className="block px-3 py-2 text-xs font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors flex items-center justify-between">
                       Postman
                     </Link>
@@ -147,40 +209,15 @@ export default function RootLayout({
               </Link>
             </nav>
 
-            {/* NÚT BÊN PHẢI: Github Link hoặc CTA nhỏ */}
-{/*             <div className="flex items-center gap-4">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </div> */}
+            {/* KHU VỰC NÚT TÌM KIẾM BÊN PHẢI */}
             <div className="flex items-center gap-3 sm:gap-4">
-              
-              {/* NÚT SEARCH TRÊN MENU VỪA TẠO */}
               <NavbarSearchButton />
-
-{/*               <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </a> */}
             </div>
 
           </div>
         </header>
 
-        {/* 3. NHÚNG COMMAND PALETTE VÀO ĐÂY (Nằm ngoài cùng để phủ lên trên mọi thứ) */}
+        {/* 3. NHÚNG COMMAND PALETTE VÀO ĐÂY */}
         <CommandPalette posts={searchData} />
 
         {/* VÙNG CHỨA NỘI DUNG CHÍNH ĐỘNG CỦA CÁC TRANG (PAGE CHILDREN) */}

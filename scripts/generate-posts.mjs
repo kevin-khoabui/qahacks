@@ -2,24 +2,26 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-// 1. Chỉ đúng vào thư mục public nơi đống file .md đang ẩn nấp
-const targetFolder = path.resolve(process.cwd(), "public", "content", "posts");
+// 1. CHỈ ĐÚNG VỊ TRÍ MỚI: Thư mục content đã được đưa ra ngoài gốc (an toàn, không lo bị lộ)
+const targetFolder = path.resolve(process.cwd(), "content", "posts");
+
+// 2. GIỮ NGUYÊN FILE ĐẦU RA Ở TRONG PUBLIC: Để Next.js và Cloudflare đọc được lúc runtime
 const jsonResultFile = path.resolve(process.cwd(), "public", "content", "posts.generated.json");
 
-// 2. Đảm bảo thư mục đầu ra tồn tại
+// Đảm bảo thư mục public/content/ luôn tồn tại để chứa file JSON
 const outputDir = path.dirname(jsonResultFile);
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// 3. Kiểm tra an toàn xem thư mục .md có ở đó không
+// Kiểm tra an toàn xem thư mục .md ngoài gốc có ở đó không
 if (!fs.existsSync(targetFolder)) {
   console.error(`❌ Thư mục bài viết không tồn tại ở: ${targetFolder}`);
   fs.writeFileSync(jsonResultFile, JSON.stringify([], null, 2));
   process.exit(1);
 }
 
-// 4. Quét và gom bài viết (Đổi tên biến thành 'allMarkdownFiles' để không bao giờ bị trùng)
+// Quét và gom 108 bài viết từ thư mục gốc ẩn mật
 const allMarkdownFiles = fs
   .readdirSync(targetFolder)
   .filter((fileName) => fileName.endsWith(".md"))
@@ -36,6 +38,6 @@ const allMarkdownFiles = fs
     };
   });
 
-// 5. Ghi ra file JSON
+// Ghi đè dữ liệu sạch vào file JSON công cộng
 fs.writeFileSync(jsonResultFile, JSON.stringify(allMarkdownFiles, null, 2));
-console.log(`\n✅ THÀNH CÔNG RỰC RỠ: Đã gộp ${allMarkdownFiles.length} bài viết .md vào file posts.generated.json!`);
+console.log(`\n✅ THÀNH CÔNG RỰC RỠ: Đã gộp ${allMarkdownFiles.length} bài viết .md an toàn vào file posts.generated.json!`);
