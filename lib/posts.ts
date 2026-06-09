@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 // DÙNG path.resolve ĐỂ ĐẢM BẢO TÌM ĐÚNG THƯ MỤC GỐC TRÊN CLOUDFLARE WORKERS RUNTIME
-const postsDirectory = path.resolve(process.cwd(), "content/posts");
+const postsDirectory = path.join(process.cwd(), "public", "content", "posts");
 
 // Định nghĩa một cấu trúc dữ liệu chuẩn (Interface) dùng chung cho toàn bộ hệ thống
 export interface PostData {
