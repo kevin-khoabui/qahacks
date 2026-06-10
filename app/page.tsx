@@ -15,7 +15,8 @@ interface Props {
     type?: string; 
     tool?: string; 
     page?: string; 
-    q?: string 
+    q?: string;
+    role?: string; // 1. [THÊM LOGIC ROLE]: Định nghĩa role vào Params
   }>;
 }
 
@@ -30,6 +31,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const filterSub = params.sub;
   const filterType = params.type; 
   const filterTool = params.tool; 
+  const filterRole = params.role; // Lấy role cho Metadata
   const searchQuery = params.q;
 
   let title = "QA Hacks | Enterprise QA Interview Preparation Hub";
@@ -53,6 +55,11 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     const cleanCat = filterCategory.replace(/_/g, " ");
     title = `${cleanCat} Strategic QA Guides | QA Hacks`;
     description = `Comprehensive strategy roadmaps, behavioral scenarios, and architecture review responses for ${cleanCat} roles.`;
+  } else if (filterRole) {
+    // 2. [THÊM LOGIC ROLE]: Tối ưu SEO cho thẻ Meta khi lọc theo Role
+    const cleanRole = filterRole.replace(/_/g, " ");
+    title = `${cleanRole} Interview Guides & Solutions | QA Hacks`;
+    description = `Exclusive situational questions, leadership challenges, and technical scenarios tailored for ${cleanRole} positions.`;
   }
 
   return {
@@ -88,22 +95,30 @@ export default async function HomePage({ searchParams }: Props) {
   const filterSub = params.sub;
   const filterType = params.type; 
   const filterTool = params.tool; 
+  const filterRole = params.role; // Lấy role từ URL
   const searchQuery = params.q?.toLowerCase(); 
   
   const currentPage = Number(params.page) || 1;
 
-  // LỌC DỮ LIỆU CHÍNH (Giữ nguyên logic chính xác của bạn)
+  // LỌC DỮ LIỆU CHÍNH
   const filteredPosts = allPosts.filter((post) => {
     const qType = (post as any).question_type;
     const postTool = (post as any).tool_stack;
     const postTitle = post.title?.toLowerCase() || "";
     const postRole = (post as any).target_role?.toLowerCase() || "";
+    const targetRoleMatch = (post as any).target_role || "";
 
+    // Lọc theo Search Query tổng quát
     if (searchQuery) {
       const matchTitle = postTitle.includes(searchQuery);
       const matchTool = postTool?.toLowerCase().includes(searchQuery);
       const matchRole = postRole.includes(searchQuery);
       if (!matchTitle && !matchTool && !matchRole) return false;
+    }
+
+    // 3. [THÊM LOGIC ROLE]: Block cứng điều kiện lọc nếu có param ?role=
+    if (filterRole && targetRoleMatch !== filterRole) {
+      return false;
     }
 
     if (filterType === "Compilation") return qType === "Compilation";
@@ -133,6 +148,10 @@ export default async function HomePage({ searchParams }: Props) {
   if (searchQuery) {
     pageTitle = `Search results for "${params.q}"`;
     pageDesc = `Found ${filteredPosts.length} guides matching your keyword.`;
+  } else if (filterRole) {
+    // [THÊM LOGIC ROLE]: Update tiêu đề khi lọc theo Role
+    pageTitle = `${filterRole.replace(/_/g, " ")} Interview Guides`;
+    pageDesc = `Showing specific situational and technical scenarios targeted at ${filterRole.replace(/_/g, " ")}.`;
   } else if (filterType === "Compilation") {
     pageTitle = "⭐ Mega Interview Compilations";
     pageDesc = "Curated high-volume preparation guides containing Top 10, 20, 30 questions and answers.";
@@ -147,7 +166,7 @@ export default async function HomePage({ searchParams }: Props) {
     pageDesc = `Comprehensive guides and technical scenarios for ${filterCategory.replace(/_/g, " ")}.`;
   }
 
-  const isDefaultHome = !filterCategory && !filterSub && !filterType && !filterTool && !searchQuery && currentPage === 1;
+  const isDefaultHome = !filterCategory && !filterSub && !filterType && !filterTool && !filterRole && !searchQuery && currentPage === 1;
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
@@ -170,7 +189,7 @@ export default async function HomePage({ searchParams }: Props) {
             </p>
           </div>
 
-          {(filterCategory || filterSub || filterType || filterTool || searchQuery) && (
+          {(filterCategory || filterSub || filterType || filterTool || filterRole || searchQuery) && (
             <Link href="/" className="text-xs text-emerald-400 hover:text-emerald-300 border border-slate-800 bg-slate-900/30 px-3 py-1.5 rounded-lg transition-colors">
               Clear Filter ✕
             </Link>

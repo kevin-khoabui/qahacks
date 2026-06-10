@@ -78,11 +78,11 @@ export default async function PostPage({ params }: Props) {
   const schemaQuestionTitle = questionText.split("\n")[0] || post.title;
 
 
-const postUrl = `https://qahacks.com/posts/${resolvedParams.slug}`;
+  const postUrl = `https://qahacks.com/posts/${resolvedParams.slug}`;
   const authorName = "QA Hacks Team"; // Hoặc lấy từ post.author nếu có
   const currentDate = new Date().toISOString();
 
-const jsonLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
     "mainEntity": {
@@ -118,7 +118,7 @@ const jsonLd = {
 
       <main className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* BREADCRUMB */}
           <nav className="flex items-center space-x-2 text-xs font-medium text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
@@ -132,7 +132,7 @@ const jsonLd = {
 
           {/* MAIN GRID STRUCT */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-            
+
             {/* MAIN ARTICLE BLOCK */}
             <article className="lg:col-span-8 bg-[#0B1121] p-6 sm:p-10 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden h-fit">
               <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
@@ -160,15 +160,25 @@ const jsonLd = {
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-800/80 pb-2">
                       📋 Interview Context
                     </h3>
-                    <div className="flex justify-between items-center text-xs">
+                    <div className="flex justify-between items-center text-sm bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
                       <span className="text-slate-400">Target Role:</span>
-                      <span className="text-slate-200 font-semibold truncate max-w-[200px]">{displayRole}</span>
+                      {/* ĐÃ THAY BẰNG LINK CÓ GẠCH CHÂN ĐỨT KHÚC MÀU XANH TEAL */}
+                      <Link
+                        href={`/?role=${post.target_role}`}
+                        className="text-teal-400 hover:text-teal-300 font-semibold text-right max-w-[180px] truncate underline decoration-dotted transition-colors cursor-pointer"
+                      >
+                        {displayRole}
+                      </Link>
                     </div>
-                    <div className="flex justify-between items-center text-xs">
+                    <div className="flex justify-between items-center text-xs"> {/* Dùng text-sm cho Desktop */}
                       <span className="text-slate-400">Tool Stack:</span>
-                      <span className="text-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20">
+                      {/* ĐÃ BIẾN THÀNH LINK BẤM ĐƯỢC CÓ HOVER SÁNG LÊN */}
+                      <Link
+                        href={`/?tool=${post.tool_stack}`}
+                        className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/20 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 transition-colors cursor-pointer"
+                      >
                         {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
-                      </span>
+                      </Link>
                     </div>
                   </div>
 
@@ -178,8 +188,8 @@ const jsonLd = {
 
                 {/* Content body */}
                 <div className="prose prose-slate prose-invert max-w-none prose-headings:text-slate-100 prose-a:text-teal-400 hover:prose-a:text-teal-300">
-                  <ReactMarkdown 
-                    remarkPlugins={[remarkGfm]} 
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeHighlight, rehypeSlug]}
                     components={{
                       h3: ({ node, ...props }) => {
@@ -210,15 +220,25 @@ const jsonLd = {
                 <div>
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">📋 Interview Context</h3>
                   <div className="space-y-2.5">
-                    <div className="flex justify-between items-center text-sm bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                    <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Target Role:</span>
-                      <span className="text-slate-200 font-semibold text-right max-w-[180px] truncate">{displayRole}</span>
+                      {/* ĐÃ THAY BẰNG LINK CÓ GẠCH CHÂN ĐỨT KHÚC MÀU XANH TEAL */}
+                      <Link
+                        href={`/?role=${post.target_role}`}
+                        className="text-teal-400 hover:text-teal-300 font-semibold truncate max-w-50 underline decoration-dotted transition-colors cursor-pointer"
+                      >
+                        {displayRole}
+                      </Link>
                     </div>
-                    <div className="flex justify-between items-center text-sm bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                    <div className="flex justify-between items-center text-xs"> {/* Dùng text-sm cho Desktop */}
                       <span className="text-slate-400">Tool Stack:</span>
-                      <span className="text-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20">
+                      {/* ĐÃ BIẾN THÀNH LINK BẤM ĐƯỢC CÓ HOVER SÁNG LÊN */}
+                      <Link
+                        href={`/?tool=${post.tool_stack}`}
+                        className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/20 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 transition-colors cursor-pointer"
+                      >
                         {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
-                      </span>
+                      </Link>
                     </div>
                   </div>
                 </div>
