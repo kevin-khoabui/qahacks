@@ -77,20 +77,35 @@ export default async function PostPage({ params }: Props) {
   const { questionText, answerText = "" } = parseContentForSchema(post.content || "");
   const schemaQuestionTitle = questionText.split("\n")[0] || post.title;
 
-  const jsonLd = {
+
+const postUrl = `https://qahacks.com/posts/${resolvedParams.slug}`;
+  const authorName = "QA Hacks Team"; // Hoặc lấy từ post.author nếu có
+  const currentDate = new Date().toISOString();
+
+const jsonLd = {
     "@context": "https://schema.org",
     "@type": "QAPage",
     "mainEntity": {
       "@type": "Question",
       "name": schemaQuestionTitle.slice(0, 150),
       "text": questionText || post.title,
-      "answerCount": 1,
+      "datePublished": post.date || currentDate, // Dùng ngày từ file md hoặc hiện tại
+      "url": postUrl,
+      "author": {
+        "@type": "Person",
+        "name": authorName
+      },
       "acceptedAnswer": {
         "@type": "Answer",
         "text": answerText.slice(0, 5000),
-        "upvoteCount": 150,
-      },
-    },
+        "datePublished": post.date || currentDate,
+        "url": `${postUrl}#expert-answer`, // Trỏ tới phần Expert Answer trong bài
+        "author": {
+          "@type": "Person",
+          "name": authorName
+        }
+      }
+    }
   };
 
   return (

@@ -13,6 +13,7 @@ export interface PostData {
   tool_stack: string;
   tags: string[];
   content: string;
+  date?: string;
 }
 
 // 2. ÉP KIỂU dữ liệu để TypeScript hiểu file JSON này chứa danh sách các bài viết PostData
