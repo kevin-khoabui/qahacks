@@ -25,7 +25,8 @@ async function combineExistingPostsToCollection(topicLine: string): Promise<bool
     }
   }
 
-  const targetRoleSlug = rawRole.replace(/\s+/g, "_");
+  //const targetRoleSlug = rawRole.replace(/\s+/g, "_");
+  const targetRoleSlug = rawRole;
 
   console.log(`\n🔍 [Vá Lỗi Giao Diện] Tiến hành gộp bài cho chủ đề: "${topicLine}"`);
   console.log(`🎯 Mục tiêu: Gom đúng các bài lẻ có target_role là [${targetRoleSlug}]`);
