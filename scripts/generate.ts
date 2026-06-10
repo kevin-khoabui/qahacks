@@ -42,9 +42,10 @@ function getPromptByMode(topic: string): string {
 
       CRITICAL REQUIREMENT 4 (OUTPUT FORMAT):
       The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in markdown code blocks.
+      THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
 
       ---
-      title: 'A concise, tech-heavy, and SEO-optimized title tailored for the coding or automation topic'
+      title: '[Insert the EXACT same text as your Interview Question here]'
       difficulty: '[Insert Dynamic Value]'
       target_role: '[Insert Dynamic Value]'
       category: 'Technical'
@@ -137,9 +138,10 @@ function getPromptByMode(topic: string): string {
     
     CRITICAL REQUIREMENT 7 (OUTPUT FORMAT)
     Return raw Markdown beginning with frontmatter. Do not wrap the frontmatter or the whole response in markdown code blocks.
-    
+    THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
+
     ---
-    title: 'An executive, SEO-optimized title tailored for a QA Lead interview challenge'
+    title: '[Insert the EXACT same text as your Interview Question here]'
     difficulty: 'Advanced'
     target_role: 'QA Lead'
     category: '[Insert Dynamic Value]'
@@ -190,18 +192,40 @@ async function generateInterviewQuestion(rawTopic: string, keyNumber: number) {
 
     const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
     
-    // 🛠️ Dọn sạch mọi ký tự lạ, biến câu dài thành tên file-gạch-ngang an toàn
-    const fileName = topic
+    // ============================================================================
+    // 🛠️ TẠO URL CHUẨN SEO TỪ TITLE VÀ CHỐNG GHI ĐÈ FILE
+    // ============================================================================
+    let rawFileName = topic.replace(/Manual Testing, QA Leader role:/ig, "").trim(); 
+    
+    // Bắt chính xác dòng title: '...' trong Frontmatter mà AI vừa sinh ra
+    const titleMatch = cleanMarkdown.match(/title:\s*['"](.*?)['"]/);
+    if (titleMatch && titleMatch[1]) {
+      rawFileName = titleMatch[1];
+    }
+
+    // 1. Tạo tên file gốc (Base Name) - Lấy TRỌN VẸN CÂU HỎI
+    const baseFileName = rawFileName
       .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "") 
-      .replace(/\s+/g, "-")          
-      .replace(/-+/g, "-")           
-      .trim() + ".md";
+      .replace(/[^a-z0-9\s-]/g, "")  // Xóa sạch dấu hỏi chấm (?), phẩy, nháy kép
+      .replace(/\s+/g, "-")          // Biến khoảng trắng thành gạch ngang
+      .replace(/-+/g, "-")           // Dọn sạch nếu có nhiều dấu gạch ngang dính liền
+      .replace(/^-|-$/g, "");        // Xóa gạch ngang thừa ở đầu và cuối chuỗi
 
     const outputDir = path.join(process.cwd(), "content", "posts");
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-    const outputPath = path.join(outputDir, fileName);
+    // 2. CHỐNG GHI ĐÈ: Tự động thêm hậu tố -1, -2 nếu file đã tồn tại
+    let fileName = `${baseFileName}.md`;
+    let outputPath = path.join(outputDir, fileName);
+    let counter = 1;
+
+    while (fs.existsSync(outputPath)) {
+      fileName = `${baseFileName}-${counter}.md`;
+      outputPath = path.join(outputDir, fileName);
+      counter++;
+    }
+
+    // 3. Tiến hành ghi file an toàn
     fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
     console.log(`✅ [PASS] Xuất file thành công: ${fileName}`);
     return true;
