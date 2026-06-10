@@ -5,6 +5,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
+// Thu thập danh sách các API Key hợp lệ từ file cấu hình .env.local
 const activeKeys = Object.keys(process.env).filter(
   (key) => 
     key.startsWith("GEMINI_API_KEY_") && 
@@ -37,7 +38,8 @@ async function runAll() {
     return;
   }
 
-  const lines = fs.readFileSync(filePath, "utf-8").split("\n").map(line => line.trim());
+  // Tách dòng chính xác theo ký tự xuống dòng (\n) để giữ nguyên vẹn câu dài
+  const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
   const validTopics = lines.filter(line => line.length > 0);
 
   // Vòng lặp bắn đạn tịnh tiến: Key nào xử lý dòng nấy, không tranh chấp dòng đầu
@@ -52,8 +54,9 @@ async function runAll() {
     
     let isSuccess = false;
     await new Promise<void>((resolve) => {
-      // Truyền cả số thứ tự Key (i) và nội dung chủ đề sang cho generate.ts xử lý độc lập
-      const child = spawn("npx", ["tsx", "scripts/generate.ts", String(i), targetTopic], { 
+      // 🛠️ SỬA LỖI CHIẾN LƯỢC: Bọc targetTopic bằng dấu nháy kép trốn thoát (\"...\") 
+      // Việc này ép shell phải đọc toàn bộ câu dài chứa dấu cách làm 1 tham số duy nhất
+      const child = spawn("npx", ["tsx", "scripts/generate.ts", String(i), `"${targetTopic}"`], { 
         stdio: "inherit", 
         shell: true 
       });
@@ -75,7 +78,7 @@ async function runAll() {
   // BƯỚC QUÉT DỌN CUỐI MẺ CHẠY: CHỈ XÓA NHỮNG DÒNG ĐÃ THÀNH CÔNG KHỎI TOPICS.TXT
   // ============================================================================
   console.log(`\n🧹 Đang tiến hành quét dọn và đồng bộ file topics.txt...`);
-  const freshLines = fs.readFileSync(filePath, "utf-8").split("\n").map(line => line.trim());
+  const freshLines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
   
   const successfulTopics = runResults.filter(r => r.success).map(r => r.topic);
   const updatedLines = freshLines.filter(line => !successfulTopics.includes(line) && line.length > 0);
