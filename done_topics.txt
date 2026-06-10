@@ -251,3 +251,21 @@ Manual
 Manual
 Manual
 Manual
+As a Software QA Test Leader in Manual Testing how do you estimate testing effort for a large project.
+As a Software QA Test Leader in Manual Testing how do you build a test plan from business requirements.
+As a Software QA Test Leader in Manual Testing how do you manage emergency hotfix testing.
+As a Software QA Test Leader in Manual Testing how do you decide release readiness.
+As a Software QA Test Leader in Manual Testing how do you define entry criteria for testing.
+As a Software QA Test Leader in Manual Testing how do you perform root cause analysis for escaped defects.
+As a Software QA Test Leader in Manual Testing how do you measure testing effectiveness.
+As a Software QA Test Leader in Manual Testing how do you track testing progress.
+As a Software QA Test Leader in Manual Testing how do you report project quality status to stakeholders.
+As a Software QA Test Leader in Manual Testing how do you handle requirement changes during a sprint.
+As a Software QA Test Leader in Manual Testing how do you manage scope creep during testing.
+As a Software QA Test Leader in Manual Testing how do you balance quality and delivery speed.
+As a Software QA Test Leader in Manual Testing how do you manage testing when resources are limited.
+As a Software QA Test Leader in Manual Testing how do you handle conflicting priorities from stakeholders.
+As a Software QA Test Leader in Manual Testing how do you build an effective regression suite.
+As a Software QA Test Leader in Manual Testing how do you determine regression coverage.
+As a Software QA Test Leader in Manual Testing how do you optimize regression execution time.
+As a Software QA Test Leader in Manual Testing how do you identify obsolete test cases.
