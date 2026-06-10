@@ -318,3 +318,7 @@ As a Software QA Test Leader in Manual Testing how do you improve test case qual
 As a Software QA Test Leader in Manual Testing how do you create realistic test data for business scenarios.
 As a Software QA Test Leader in Manual Testing how do you validate data migration activities.
 As a Software QA Test Leader in Manual Testing how do you verify database updates during testing.
+As a Software QA Test Leader in Manual Testing how do you identify high risk areas in a project.
+As a Software QA Test Leader in Manual Testing how do you support user acceptance testing activities.
+As a Software QA Test Leader in Manual Testing how do you measure defect leakage after release.
+As a Software QA Test Leader in Manual Testing how do you handle unstable testing environments.
