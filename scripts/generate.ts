@@ -55,17 +55,17 @@ function getPromptByMode(topic: string): string {
       THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
 
       ---
-      title: '[Insert the EXACT same text as your Interview Question here]'
-      difficulty: '[Insert Dynamic Value]'
-      target_role: '[Insert Dynamic Value]'
-      category: 'Technical'
-      sub_category: '[Insert Dynamic Value]'
-      question_type: 'Code-challenge'
-      core_testing_type: 'Automation'
-      domain: 'Enterprise-Software'
-      platform: '[Insert Dynamic Value]'
-      tool_stack: '[Insert Dynamic Value]'
-      tags: ['automation', 'coding-challenge', 'interview-prep', 'tech-strategy']
+      title: "[Insert the EXACT same text as your Interview Question here]"
+      difficulty: "[Insert Dynamic Value]"
+      target_role: "[Insert Dynamic Value]"
+      category: "Technical"
+      sub_category: "[Insert Dynamic Value]"
+      question_type: "Code-challenge"
+      core_testing_type: "Automation"
+      domain: "Enterprise-Software"
+      platform: "[Insert Dynamic Value]"
+      tool_stack: "[Insert Dynamic Value]"
+      tags: ["automation", "coding-challenge", "interview-prep", "tech-strategy"]
       ---
       
       ## Overview
@@ -154,19 +154,19 @@ function getPromptByMode(topic: string): string {
     THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
 
     ---
-    title: '[Insert the EXACT same text as your Interview Question here]'
-    difficulty: 'Advanced'
-    target_role: 'QA Lead'
-    category: '[Insert Dynamic Value]'
-    sub_category: '[Insert Dynamic Value]'
-    question_type: 'Situational'
-    core_testing_type: 'Manual'
-    domain: 'Enterprise-Software'
-    platform: 'Cross-platform'
-    tool_stack: 'None'
-    leadership_competency: '[Insert e.g., Risk Mitigation, Stakeholder Management, Team Mentorship]'
-    interview_focus: '[Insert e.g., Delivery Pressure, Resource Allocation]'
-    tags: ['manual-testing', 'qa-lead', 'interview-prep', 'test-leadership']
+    title: "[Insert the EXACT same text as your Interview Question here]"
+    difficulty: "Advanced"
+    target_role: "QA Lead"
+    category: "[Insert Dynamic Value]"
+    sub_category: "[Insert Dynamic Value]"
+    question_type: "Situational"
+    core_testing_type: "Manual"
+    domain: "Enterprise-Software"
+    platform: "Cross-platform"
+    tool_stack: "None"
+    leadership_competency: "[Insert e.g., Risk Mitigation, Stakeholder Management, Team Mentorship]"
+    interview_focus: "[Insert e.g., Delivery Pressure, Resource Allocation]"
+    tags: ["manual-testing", "qa-lead", "interview-prep", "test-leadership"]
     ---
     
     ## Overview
