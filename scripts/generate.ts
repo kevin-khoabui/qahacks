@@ -203,7 +203,13 @@ async function generateInterviewQuestion(rawTopic: string, keyNumber: number) {
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
 
-    const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
+    const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "").trim();
+
+    // 🛡️ CHỐT CHẶN AN TOÀN: Nếu AI trả về trống hoặc dữ liệu rác quá ngắn, báo FAIL luôn
+    if (!cleanMarkdown || cleanMarkdown.length < 50) {
+      console.error(`❌ [FAIL] Key [${keyNumber}] nhận được dữ liệu lỗi hoặc quá ngắn. Đang bỏ qua để chạy lại sau.`);
+      return false; // Trả về false để bộ điều phối không ghi vào done_topics.txt
+    }
 
     // ============================================================================
     // 🛠️ TẠO URL CHUẨN SEO TỪ TITLE VÀ CHỐNG GHI ĐÈ FILE
