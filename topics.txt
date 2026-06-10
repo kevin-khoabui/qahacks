@@ -1,23 +1,12 @@
 As a Software QA Test Leader in Manual Testing how do you create a test strategy for a new product.
 As a Software QA Test Leader in Manual Testing how do you prioritize testing activities under tight deadlines.
-As a Software QA Test Leader in Manual Testing how do you allocate testing resources across multiple projects.
-As a Software QA Test Leader in Manual Testing how do you define exit criteria for testing.
-As a Software QA Test Leader in Manual Testing how do you manage testing risks throughout a project.
 As a Software QA Test Leader in Manual Testing how do you reduce production defects.
 As a Software QA Test Leader in Manual Testing how do you improve test case quality.
-As a Software QA Test Leader in Manual Testing how do you review test cases created by team members.
 As a Software QA Test Leader in Manual Testing how do you ensure test case traceability.
 As a Software QA Test Leader in Manual Testing how do you create reusable test assets.
-As a Software QA Test Leader in Manual Testing how do you manage test data effectively.
 As a Software QA Test Leader in Manual Testing how do you validate business critical workflows.
 As a Software QA Test Leader in Manual Testing how do you test complex end to end processes.
-As a Software QA Test Leader in Manual Testing how do you perform boundary value testing.
-As a Software QA Test Leader in Manual Testing how do you perform negative testing.
 As a Software QA Test Leader in Manual Testing how do you perform exploratory testing.
-As a Software QA Test Leader in Manual Testing how do you verify business rules and calculations.
-As a Software QA Test Leader in Manual Testing how do you test financial transactions.
-As a Software QA Test Leader in Manual Testing how do you test healthcare applications safely.
-As a Software QA Test Leader in Manual Testing how do you validate audit trail requirements.
 As a Software QA Test Leader in Manual Testing how do you test applications with complex workflows.
 As a Software QA Test Leader in Manual Testing how do you validate workflow state transitions.
 As a Software QA Test Leader in Manual Testing how do you test mobile applications across different devices.

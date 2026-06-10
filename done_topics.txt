@@ -269,3 +269,14 @@ As a Software QA Test Leader in Manual Testing how do you build an effective reg
 As a Software QA Test Leader in Manual Testing how do you determine regression coverage.
 As a Software QA Test Leader in Manual Testing how do you optimize regression execution time.
 As a Software QA Test Leader in Manual Testing how do you identify obsolete test cases.
+As a Software QA Test Leader in Manual Testing how do you allocate testing resources across multiple projects.
+As a Software QA Test Leader in Manual Testing how do you define exit criteria for testing.
+As a Software QA Test Leader in Manual Testing how do you manage testing risks throughout a project.
+As a Software QA Test Leader in Manual Testing how do you review test cases created by team members.
+As a Software QA Test Leader in Manual Testing how do you manage test data effectively.
+As a Software QA Test Leader in Manual Testing how do you perform boundary value testing.
+As a Software QA Test Leader in Manual Testing how do you perform negative testing.
+As a Software QA Test Leader in Manual Testing how do you verify business rules and calculations.
+As a Software QA Test Leader in Manual Testing how do you test financial transactions.
+As a Software QA Test Leader in Manual Testing how do you test healthcare applications safely.
+As a Software QA Test Leader in Manual Testing how do you validate audit trail requirements.
