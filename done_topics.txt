@@ -280,3 +280,6 @@ As a Software QA Test Leader in Manual Testing how do you verify business rules 
 As a Software QA Test Leader in Manual Testing how do you test financial transactions.
 As a Software QA Test Leader in Manual Testing how do you test healthcare applications safely.
 As a Software QA Test Leader in Manual Testing how do you validate audit trail requirements.
+As a Software QA Test Leader in Manual Testing how do you allocate testing resources across project phases.
+As a Software QA Test Leader in Manual Testing how do you monitor testing progress during execution.
+As a Software QA Test Leader in Manual Testing how do you handle critical defects before production deployment.
