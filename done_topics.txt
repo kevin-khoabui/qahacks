@@ -283,3 +283,22 @@ As a Software QA Test Leader in Manual Testing how do you validate audit trail r
 As a Software QA Test Leader in Manual Testing how do you allocate testing resources across project phases.
 As a Software QA Test Leader in Manual Testing how do you monitor testing progress during execution.
 As a Software QA Test Leader in Manual Testing how do you handle critical defects before production deployment.
+As a Software QA Test Leader in Manual Testing how do you identify testing risks at the beginning of a project.
+As a Software QA Test Leader in Manual Testing how do you define entry criteria for system testing.
+As a Software QA Test Leader in Manual Testing how do you define exit criteria for a release.
+As a Software QA Test Leader in Manual Testing how do you report project status to stakeholders.
+As a Software QA Test Leader in Manual Testing how do you handle requirement changes during testing.
+As a Software QA Test Leader in Manual Testing how do you manage testing activities in Agile projects.
+As a Software QA Test Leader in Manual Testing how do you participate in sprint planning meetings.
+As a Software QA Test Leader in Manual Testing how do you estimate testing tasks during sprint planning.
+As a Software QA Test Leader in Manual Testing how do you ensure test coverage for user stories.
+As a Software QA Test Leader in Manual Testing how do you manage regression testing before release.
+As a Software QA Test Leader in Manual Testing how do you select regression test cases for execution.
+As a Software QA Test Leader in Manual Testing how do you perform defect triage with developers.
+As a Software QA Test Leader in Manual Testing how do you decide whether a release should proceed or be delayed.
+As a Software QA Test Leader in Manual Testing how do you perform root cause analysis for production defects.
+As a Software QA Test Leader in Manual Testing how do you manage a team of manual testers.
+As a Software QA Test Leader in Manual Testing how do you evaluate tester performance.
+As a Software QA Test Leader in Manual Testing how do you mentor junior QA engineers.
+As a Software QA Test Leader in Manual Testing how do you resolve conflicts within the testing team.
+As a Software QA Test Leader in Manual Testing how do you handle disagreements with developers regarding defects.
