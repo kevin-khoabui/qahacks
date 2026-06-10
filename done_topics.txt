@@ -302,3 +302,19 @@ As a Software QA Test Leader in Manual Testing how do you evaluate tester perfor
 As a Software QA Test Leader in Manual Testing how do you mentor junior QA engineers.
 As a Software QA Test Leader in Manual Testing how do you resolve conflicts within the testing team.
 As a Software QA Test Leader in Manual Testing how do you handle disagreements with developers regarding defects.
+As a Software QA Test Leader in Manual Testing how do you prioritize testing activities when the schedule is tight.
+As a Software QA Test Leader in Manual Testing how do you determine the scope of testing for a release.
+As a Software QA Test Leader in Manual Testing how do you ensure high quality bug reports.
+As a Software QA Test Leader in Manual Testing how do you validate third party API integrations.
+As a Software QA Test Leader in Manual Testing how do you test complex end to end business workflows.
+As a Software QA Test Leader in Manual Testing how do you create a risk based testing strategy.
+As a Software QA Test Leader in Manual Testing how do you prioritize defects when multiple critical issues are reported.
+As a Software QA Test Leader in Manual Testing how do you manage hotfix testing under tight deadlines.
+As a Software QA Test Leader in Manual Testing how do you ensure quality when testing time is limited.
+As a Software QA Test Leader in Manual Testing how do you estimate testing effort for unclear requirements.
+As a Software QA Test Leader in Manual Testing how do you handle missing requirements during test design.
+As a Software QA Test Leader in Manual Testing how do you review requirements before test execution.
+As a Software QA Test Leader in Manual Testing how do you improve test case quality across the team.
+As a Software QA Test Leader in Manual Testing how do you create realistic test data for business scenarios.
+As a Software QA Test Leader in Manual Testing how do you validate data migration activities.
+As a Software QA Test Leader in Manual Testing how do you verify database updates during testing.
