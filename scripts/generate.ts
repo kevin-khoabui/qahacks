@@ -40,7 +40,17 @@ function getPromptByMode(topic: string): string {
       - "target_role": Set logically ('QA_Engineer', 'Senior_Automation', 'DevOps_QA').
       - "tool_stack": Identify the main tool used (e.g., 'Playwright', 'Cypress', 'JMeter', 'Postman', 'SQL', 'Docker'). If no tool is used, set 'None'.
 
-      CRITICAL REQUIREMENT 4 (OUTPUT FORMAT):
+         CRITICAL REQUIREMENT 4 (QUESTION DESIGN)
+      - IMPORTANT: Do not output the topic as the Interview Question. Use the topic "${topic}" as the underlying theme to craft an original, high-level situational question that a Lead would actually face in a meeting.
+      - INPUT CONTEXT: The topic "${topic}" is the underlying theme of this interview question.
+      - TRANSFORMATION: Do NOT repeat the topic verbatim. You must transform this topic into a specific, challenging, and professional situational interview question.
+      - The Interview Question must:
+        - Be situational or behavioral (e.g., "Tell me about a time...", "Imagine you are facing a situation where...").
+        - Present a high-stakes scenario involving delivery pressure, stakeholder misalignment, or resource constraints.
+        - Be under 200 characters.
+        - Avoid theoretical definitions or "What is" questions.
+
+      CRITICAL REQUIREMENT 5 (OUTPUT FORMAT):
       The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in markdown code blocks.
       THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
 
@@ -53,7 +63,7 @@ function getPromptByMode(topic: string): string {
       question_type: 'Code-challenge'
       core_testing_type: 'Automation'
       domain: 'Enterprise-Software'
-      platform: 'Web'
+      platform: '[Insert Dynamic Value]'
       tool_stack: '[Insert Dynamic Value]'
       tags: ['automation', 'coding-challenge', 'interview-prep', 'tech-strategy']
       ---
@@ -90,13 +100,16 @@ function getPromptByMode(topic: string): string {
     - Handle delivery pressure and changing priorities
     - Avoid enterprise governance discussions that belong to QA Manager responsibilities.
     
-    CRITICAL REQUIREMENT 2 (QUESTION DESIGN)
-    The Interview Question must:
-    - Be situational or behavioral
-    - Be under 200 characters
-    - Reflect a real testing leadership challenge
-    - Require prioritization and decision-making
-    - Avoid theoretical definitions
+   CRITICAL REQUIREMENT 2 (QUESTION DESIGN)
+   - IMPORTANT: Do not output the topic as the Interview Question. Use the topic "${topic}" as the underlying theme to craft an original, high-level situational question that a Lead would actually face in a meeting.
+    - INPUT CONTEXT: The topic "${topic}" is the underlying theme of this interview question.
+    - TRANSFORMATION: Do NOT repeat the topic verbatim. You must transform this topic into a specific, challenging, and professional situational interview question.
+    - The Interview Question must:
+      - Be situational or behavioral (e.g., "Tell me about a time...", "Imagine you are facing a situation where...").
+      - Present a high-stakes scenario involving delivery pressure, stakeholder misalignment, or resource constraints.
+      - Be under 200 characters.
+      - Force the candidate to demonstrate prioritization, risk management, and critical decision-making.
+      - Avoid theoretical definitions or "What is" questions.
     
     CRITICAL REQUIREMENT 3 (EXPERT ANSWER)
     The Expert Answer must:
@@ -130,9 +143,9 @@ function getPromptByMode(topic: string): string {
     
     CRITICAL REQUIREMENT 6 (TAXONOMY)
     Map metadata dynamically. MUST strictly use these values:
-    - category: Must be one of ['Analytical_Behavioral', 'Technical']
+    - category: Must be one of ['Analytical Behavioral', 'Technical', 'Leadership']
     - sub_category: Must be one of ['Strategy', 'Methodology', 'Behavioral']
-    - difficulty: 'Advanced'
+    - difficulty: '[Insert Dynamic Value]'
     - target_role: 'QA Lead'
     - tool_stack: 'None'
     
@@ -191,12 +204,12 @@ async function generateInterviewQuestion(rawTopic: string, keyNumber: number) {
     const responseText = result.response.text();
 
     const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
-    
+
     // ============================================================================
     // 🛠️ TẠO URL CHUẨN SEO TỪ TITLE VÀ CHỐNG GHI ĐÈ FILE
     // ============================================================================
-    let rawFileName = topic.replace(/Manual Testing, QA Leader role:/ig, "").trim(); 
-    
+    let rawFileName = topic.replace(/Manual Testing, QA Leader role:/ig, "").trim();
+
     // Bắt chính xác dòng title: '...' trong Frontmatter mà AI vừa sinh ra
     const titleMatch = cleanMarkdown.match(/title:\s*['"](.*?)['"]/);
     if (titleMatch && titleMatch[1]) {
@@ -238,7 +251,7 @@ async function generateInterviewQuestion(rawTopic: string, keyNumber: number) {
 async function main() {
   const keyArgument = process.argv[2];
   const topicArgument = process.argv[3];
-  
+
   const keyNumber = keyArgument ? parseInt(keyArgument, 10) : 1;
 
   if (!topicArgument) {
@@ -251,9 +264,9 @@ async function main() {
 
   if (success) {
     fs.appendFileSync(doneFilePath, `${topicArgument}\n`, "utf-8");
-    process.exit(0); 
+    process.exit(0);
   } else {
-    process.exit(1); 
+    process.exit(1);
   }
 }
 
