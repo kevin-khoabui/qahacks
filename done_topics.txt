@@ -326,3 +326,9 @@ As a Software QA Test Leader in Manual Testing how do you manage test case revie
 As a Software QA Test Leader in Manual Testing how do you coordinate testing activities with business users.
 As a Software QA Test Leader in Manual Testing how do you prepare a release sign off report.
 As a Software QA Test Leader in Manual Testing how do you validate web applications across different browsers.
+As a Software QA Test Leader in Manual Testing how do you ensure production readiness before go live.
+As a Software QA Test Leader in Manual Testing how do you report testing metrics to management.
+As a Software QA Test Leader in Manual Testing how do you recover testing schedules after environment downtime.
+As a Software QA Test Leader in Manual Testing how do you validate mobile applications across multiple devices.
+As a Software QA Test Leader in Manual Testing how do you test applications under poor network conditions.
+As a Software QA Test Leader in Manual Testing how do you test role based access control functionality.
