@@ -2,13 +2,10 @@ As a Software QA Test Leader in Manual Testing how do you estimate testing effor
 As a Software QA Test Leader in Manual Testing how do you create a test plan from business requirements.
 As a Software QA Test Leader in Manual Testing how do you improve communication between QA and development teams.
 As a Software QA Test Leader in Manual Testing how do you ensure all business requirements are testable.
-As a Software QA Test Leader in Manual Testing how do you manage test case review activities.
 As a Software QA Test Leader in Manual Testing how do you ensure traceability between requirements and test cases.
 As a Software QA Test Leader in Manual Testing how do you manage test data for complex projects.
-As a Software QA Test Leader in Manual Testing how do you coordinate testing activities with business users.
 As a Software QA Test Leader in Manual Testing how do you manage feedback received from user acceptance testing.
 As a Software QA Test Leader in Manual Testing how do you ensure production readiness before go live.
-As a Software QA Test Leader in Manual Testing how do you prepare a release sign off report.
 As a Software QA Test Leader in Manual Testing how do you define quality metrics for a project.
 As a Software QA Test Leader in Manual Testing how do you track defect trends during a project.
 As a Software QA Test Leader in Manual Testing how do you measure testing effectiveness.
@@ -16,7 +13,6 @@ As a Software QA Test Leader in Manual Testing how do you report testing metrics
 As a Software QA Test Leader in Manual Testing how do you manage testing activities across multiple environments.
 As a Software QA Test Leader in Manual Testing how do you recover testing schedules after environment downtime.
 As a Software QA Test Leader in Manual Testing how do you coordinate environment usage across multiple teams.
-As a Software QA Test Leader in Manual Testing how do you validate web applications across different browsers.
 As a Software QA Test Leader in Manual Testing how do you validate mobile applications across multiple devices.
 As a Software QA Test Leader in Manual Testing how do you manage device coverage for mobile testing.
 As a Software QA Test Leader in Manual Testing how do you test applications under poor network conditions.

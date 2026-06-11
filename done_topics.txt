@@ -322,3 +322,7 @@ As a Software QA Test Leader in Manual Testing how do you identify high risk are
 As a Software QA Test Leader in Manual Testing how do you support user acceptance testing activities.
 As a Software QA Test Leader in Manual Testing how do you measure defect leakage after release.
 As a Software QA Test Leader in Manual Testing how do you handle unstable testing environments.
+As a Software QA Test Leader in Manual Testing how do you manage test case review activities.
+As a Software QA Test Leader in Manual Testing how do you coordinate testing activities with business users.
+As a Software QA Test Leader in Manual Testing how do you prepare a release sign off report.
+As a Software QA Test Leader in Manual Testing how do you validate web applications across different browsers.
