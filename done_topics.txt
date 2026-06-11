@@ -373,3 +373,12 @@ As a Software QA Test Leader in Manual Testing how do you manage testing for thi
 As a Software QA Test Leader in Manual Testing how do you create knowledge sharing activities for testers.
 As a Software QA Test Leader in Manual Testing how do you ensure adequate negative testing coverage.
 As a Software QA Test Leader in Manual Testing how do you identify gaps in requirement specifications.
+As a Software QA Test Leader in Manual Testing how do you measure testing effectiveness.
+As a Software QA Test Leader in Manual Testing how do you recognize high performing testers.
+As a Software QA Test Leader in Manual Testing how do you identify hidden risks in business requirements.
+As a Software QA Test Leader in Manual Testing how do you validate end to end workflows before release.
+As a Software QA Test Leader in Manual Testing how do you determine the minimum testing scope for a hotfix release.
+As a Software QA Test Leader in Manual Testing how do you validate acceptance criteria for new features.
+As a Software QA Test Leader in Manual Testing how do you estimate testing tasks for Agile projects.
+As a Software QA Test Leader in Manual Testing how do you manage testing activities within short sprint cycles.
+As a Software QA Test Leader in Manual Testing how do you contribute during sprint retrospectives.
