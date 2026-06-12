@@ -1,12 +1,9 @@
-As a Software QA Test Leader in Manual Testing how do you build a strong quality culture within the team.
 As a Software QA Test Leader in Manual Testing how do you reduce regression execution effort without increasing risk.
 As a Software QA Test Leader in Manual Testing how do you validate production fixes before deployment.
 As a Software QA Test Leader in Manual Testing how do you verify hotfix changes do not impact existing functionality.
-As a Software QA Test Leader in Manual Testing how do you create release readiness checklists.
 As a Software QA Test Leader in Manual Testing how do you determine whether a release should be approved.
 As a Software QA Test Leader in Manual Testing how do you present release risks to stakeholders.
 As a Software QA Test Leader in Manual Testing how do you support go live activities.
-As a Software QA Test Leader in Manual Testing how do you monitor software quality immediately after deployment.
 As a Software QA Test Leader in Manual Testing how do you organize post release reviews.
 As a Software QA Test Leader in Manual Testing how do you identify lessons learned from failed releases.
 As a Software QA Test Leader in Manual Testing how do you improve release quality over time.
@@ -18,7 +15,6 @@ As a Software QA Test Leader in Manual Testing how do you ensure defect reports 
 As a Software QA Test Leader in Manual Testing how do you improve the quality of defect reporting within your team.
 As a Software QA Test Leader in Manual Testing how do you analyze defect distribution across project modules.
 As a Software QA Test Leader in Manual Testing how do you identify defect prone areas of a system.
-As a Software QA Test Leader in Manual Testing how do you use defect metrics to improve testing strategy.
 As a Software QA Test Leader in Manual Testing how do you identify root causes behind escaped defects.
 As a Software QA Test Leader in Manual Testing how do you reduce defect leakage into production.
 As a Software QA Test Leader in Manual Testing how do you establish defect prevention practices.

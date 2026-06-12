@@ -405,3 +405,7 @@ As a Software QA Test Leader in Manual Testing how do you select high value regr
 As a Software QA Test Leader in Manual Testing how do you maintain regression suites over long term projects.
 As a Software QA Test Leader in Manual Testing how do you identify obsolete test cases in regression suites.
 As a Software QA Test Leader in Manual Testing how do you measure regression testing effectiveness.
+As a Software QA Test Leader in Manual Testing how do you build a strong quality culture within the team.
+As a Software QA Test Leader in Manual Testing how do you create release readiness checklists.
+As a Software QA Test Leader in Manual Testing how do you monitor software quality immediately after deployment.
+As a Software QA Test Leader in Manual Testing how do you use defect metrics to improve testing strategy.
