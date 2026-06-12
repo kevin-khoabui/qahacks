@@ -1,26 +1,4 @@
-As a Software QA Test Leader in Manual Testing how would you allocate testers across multiple project streams.
 As a Software QA Test Leader in Manual Testing how would you evaluate tester performance fairly.
-As a Software QA Test Leader in Manual Testing how would you identify underperforming team members.
-As a Software QA Test Leader in Manual Testing how would you improve team productivity.
-As a Software QA Test Leader in Manual Testing how would you motivate testers during demanding projects.
-As a Software QA Test Leader in Manual Testing how would you retain strong QA talent.
-As a Software QA Test Leader in Manual Testing how would you build a culture of accountability within the QA team.
-As a Software QA Test Leader in Manual Testing how would you encourage knowledge sharing across team members.
-As a Software QA Test Leader in Manual Testing how would you handle conflicts between team members.
-As a Software QA Test Leader in Manual Testing how would you manage a distributed QA team.
-As a Software QA Test Leader in Manual Testing how would you coordinate testing activities across different time zones.
-As a Software QA Test Leader in Manual Testing how would you assign work based on team strengths and weaknesses.
-As a Software QA Test Leader in Manual Testing how would you build succession plans for key QA positions.
-As a Software QA Test Leader in Manual Testing how would you identify future QA leaders in your team.
-As a Software QA Test Leader in Manual Testing how would you prepare testers for larger responsibilities.
-As a Software QA Test Leader in Manual Testing how would you establish clear expectations for the QA team.
-As a Software QA Test Leader in Manual Testing how would you improve communication within the QA organization.
-As a Software QA Test Leader in Manual Testing how would you manage QA activities within Agile projects.
-As a Software QA Test Leader in Manual Testing how would you contribute during sprint planning sessions.
-As a Software QA Test Leader in Manual Testing how would you manage testing commitments during short sprints.
-As a Software QA Test Leader in Manual Testing how would you coordinate QA activities with Scrum teams.
-As a Software QA Test Leader in Manual Testing how would you improve collaboration between QA and Product Owners.
-As a Software QA Test Leader in Manual Testing how would you ensure QA contributes value during retrospectives.
 As a Software QA Test Leader in Manual Testing how would you manage testing across multiple Agile teams.
 As a Software QA Test Leader in Manual Testing how would you handle scope changes during active sprints.
 As a Software QA Test Leader in Manual Testing how would you balance sprint goals with quality objectives.
