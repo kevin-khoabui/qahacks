@@ -1,27 +1,4 @@
-As a Software QA Test Leader in Manual Testing how would you estimate testing effort for a project with limited requirements.
 As a Software QA Test Leader in Manual Testing how would you allocate testers across multiple project streams.
-As a Software QA Test Leader in Manual Testing how would you manage testing activities across multiple releases.
-As a Software QA Test Leader in Manual Testing how would you maintain regression suites across long term projects.
-As a Software QA Test Leader in Manual Testing how would you decide which scenarios deserve the highest testing priority.
-As a Software QA Test Leader in Manual Testing how would you handle frequent requirement changes during testing.
-As a Software QA Test Leader in Manual Testing how would you manage testing when requirements are unclear.
-As a Software QA Test Leader in Manual Testing how would you work with business analysts to improve requirement quality.
-As a Software QA Test Leader in Manual Testing how would you ensure requirements are testable before development starts.
-As a Software QA Test Leader in Manual Testing how would you manage requirement gaps discovered late in the project.
-As a Software QA Test Leader in Manual Testing how would you organize defect triage meetings.
-As a Software QA Test Leader in Manual Testing how would you handle disagreements about defect severity.
-As a Software QA Test Leader in Manual Testing how would you resolve conflicts between QA and development teams.
-As a Software QA Test Leader in Manual Testing how would you manage large defect backlogs.
-As a Software QA Test Leader in Manual Testing how would you reduce defect leakage into production.
-As a Software QA Test Leader in Manual Testing how would you investigate the root causes of recurring defects.
-As a Software QA Test Leader in Manual Testing how would you improve defect management processes.
-As a Software QA Test Leader in Manual Testing how would you use defect metrics to improve project quality.
-As a Software QA Test Leader in Manual Testing how would you respond to a critical production defect reported by customers.
-As a Software QA Test Leader in Manual Testing how would you coordinate root cause analysis after a production incident.
-As a Software QA Test Leader in Manual Testing how would you build a high performing QA team.
-As a Software QA Test Leader in Manual Testing how would you onboard new testers efficiently.
-As a Software QA Test Leader in Manual Testing how would you mentor junior QA engineers.
-As a Software QA Test Leader in Manual Testing how would you coach senior testers toward leadership roles.
 As a Software QA Test Leader in Manual Testing how would you evaluate tester performance fairly.
 As a Software QA Test Leader in Manual Testing how would you identify underperforming team members.
 As a Software QA Test Leader in Manual Testing how would you improve team productivity.
