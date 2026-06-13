@@ -628,3 +628,26 @@ Negotiating testing scope and production deployment readiness with Product Owner
 Establishing a risk-based testing approach and traceability matrix using Jira for a Senior Manual QA under extreme time constraints.
 Leading defect triage meetings and prioritizing critical production bugs in Zephyr as a Test Manager for an enterprise e-commerce platform during a major UI redesign phase.
 Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Manual Test Leader with limited documentation and changing requirements.
+As a Software QA Test Leader in Manual Testing how would you ensure lessons learned are applied to future projects.
+Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a QA Lead during a major UI redesign phase.
+Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Test Manager dealing with highly unstable staging environments.
+Troubleshooting frontend rendering issues and analyzing network requests using TestRail as a Test Manager during a major UI redesign phase.
+Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader ensuring strict data privacy and compliance standards.
+Establishing a risk-based testing approach and traceability matrix using Chrome DevTools for a Manual Test Leader in a fast-paced Agile deployment model.
+Validating complex backend data integrity manually using SQL for a Manual Test Leader with an understaffed QA team.
+Handling resistance from team members when transitioning to a new test management workflow in Postman for a Test Manager with limited documentation and changing requirements.
+How a Test Manager balances structured test case execution in Jira with time-boxed exploratory sessions.
+How a Manual Test Leader manages conflict with developers regarding release blockers and defect severity in Agile for a high-traffic media streaming service.
+Establishing a risk-based testing approach and traceability matrix using SQL for a Manual Test Leader in a fast-paced Agile deployment model ensuring strict data privacy and compliance standards.
+Establishing a risk-based testing approach and traceability matrix using Jira for a Test Manager for a high-traffic media streaming service.
+Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with SQL for a Test Strategy Lead in a fast-paced Agile deployment model.
+Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Manual Test Leader handling sensitive user data compliance.
+How a Test Strategy Lead balances structured test case execution in SQL with time-boxed exploratory sessions for a legacy migration project.
+Troubleshooting frontend rendering issues and analyzing network requests using Confluence as a Test Strategy Lead under extreme time constraints.
+How a Senior Manual QA balances structured test case execution in Chrome DevTools with time-boxed exploratory sessions with limited documentation and changing requirements.
+Designing a comprehensive manual exploratory testing strategy using Zephyr for a Test Manager within a highly-regulated fintech application.
+Establishing a risk-based testing approach and traceability matrix using Jira for a Manual Test Leader to ensure smooth third-party API integrations.
+Auditing legacy test cases and optimizing regression test suites in SQL as a Manual Test Leader across distributed cross-functional teams with an understaffed QA team.
+Auditing legacy test cases and optimizing regression test suites in Confluence as a Test Manager for a cloud-native microservices architecture.
+Handling resistance from team members when transitioning to a new test management workflow in Chrome DevTools for a Senior Manual QA.
+How a Senior Manual QA manages conflict with developers regarding release blockers and defect severity in Agile to ensure smooth third-party API integrations.
