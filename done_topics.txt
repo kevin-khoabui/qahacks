@@ -519,3 +519,25 @@ As a Software QA Test Leader in Manual Testing how would you manage testing comm
 As a Software QA Test Leader in Manual Testing how would you coordinate QA activities with Scrum teams.
 As a Software QA Test Leader in Manual Testing how would you improve collaboration between QA and Product Owners.
 As a Software QA Test Leader in Manual Testing how would you ensure QA contributes value during retrospectives.
+As a Software QA Test Leader in Manual Testing how would you evaluate tester performance fairly.
+As a Software QA Test Leader in Manual Testing how would you handle scope changes during active sprints.
+As a Software QA Test Leader in Manual Testing how would you balance sprint goals with quality objectives.
+As a Software QA Test Leader in Manual Testing how would you improve QA maturity in Agile environments.
+As a Software QA Test Leader in Manual Testing how would you communicate project quality status to senior management.
+As a Software QA Test Leader in Manual Testing how would you present testing metrics to stakeholders.
+As a Software QA Test Leader in Manual Testing how would you explain testing risks to non technical audiences.
+As a Software QA Test Leader in Manual Testing how would you gain stakeholder support for quality initiatives.
+As a Software QA Test Leader in Manual Testing how would you manage unrealistic stakeholder expectations.
+As a Software QA Test Leader in Manual Testing how would you communicate project delays caused by quality issues.
+As a Software QA Test Leader in Manual Testing how would you build trust with project stakeholders.
+As a Software QA Test Leader in Manual Testing how would you justify additional QA resources for a project.
+As a Software QA Test Leader in Manual Testing how would you influence project decisions using quality data.
+As a Software QA Test Leader in Manual Testing how would you establish quality metrics that drive action.
+As a Software QA Test Leader in Manual Testing how would you measure the effectiveness of your QA team.
+As a Software QA Test Leader in Manual Testing how would you use KPIs to improve testing performance.
+As a Software QA Test Leader in Manual Testing how would you track quality trends across releases.
+As a Software QA Test Leader in Manual Testing how would you evaluate project quality health.
+As a Software QA Test Leader in Manual Testing how would you identify opportunities for process improvement.
+As a Software QA Test Leader in Manual Testing how would you standardize testing processes across projects.
+As a Software QA Test Leader in Manual Testing how would you improve the quality of test documentation.
+As a Software QA Test Leader in Manual Testing how would you establish peer review processes for QA deliverables.
