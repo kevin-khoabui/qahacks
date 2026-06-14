@@ -1,10 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // 🚀 Ép Next.js xuất ra file tĩnh thuần túy (HTML/CSS/JS)
-  
+  /* Bắt buộc phải có khi dùng static export để tránh lỗi tối ưu hóa ảnh trên Edge */
   images: {
-    unoptimized: true, // Bắt buộc phải có để tránh lỗi tối ưu hóa ảnh tĩnh
+    unoptimized: true, 
   },
 
   // ============================================================================
