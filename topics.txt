@@ -2,23 +2,18 @@ Designing a comprehensive manual exploratory testing strategy using Chrome DevTo
 Behavioral scenario: Mediating a dispute between a Product Manager and QA team over acceptance criteria as a Senior Manual QA for an enterprise e-commerce platform.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Xray as a Test Manager handling sensitive user data compliance during a major UI redesign phase.
 Leading defect triage meetings and prioritizing critical production bugs in Confluence as a Test Manager across distributed cross-functional teams.
-Designing a comprehensive manual exploratory testing strategy using Chrome DevTools for a Test Manager in a fast-paced Agile deployment model with limited documentation and changing requirements.
 How a Manual Test Leader trains and mentors junior testers on writing effective bug reports in Postman in a multi-tenant SaaS ecosystem under extreme time constraints.
 Establishing a risk-based testing approach and traceability matrix using Confluence for a Test Strategy Lead handling sensitive user data compliance ensuring strict data privacy and compliance standards.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Jira as a Test Manager with limited documentation and changing requirements.
 Troubleshooting frontend rendering issues and analyzing network requests using TestRail as a Test Strategy Lead in a fast-paced Agile deployment model.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from SQL as a QA Lead for a legacy migration project while onboarding new offshore QA resources.
 Behavioral scenario: Explaining testing delays and resource constraints to stakeholders as a Test Strategy Lead in a fast-paced Agile deployment model.
-Leading defect triage meetings and prioritizing critical production bugs in SQL as a Manual Test Leader in a fast-paced Agile deployment model with an understaffed QA team.
-Handling resistance from team members when transitioning to a new test management workflow in Chrome DevTools for a Senior Manual QA during a major UI redesign phase.
 How a QA Lead balances structured test case execution in Xray with time-boxed exploratory sessions for a legacy migration project under extreme time constraints.
-Auditing legacy test cases and optimizing regression test suites in Chrome DevTools as a Test Strategy Lead in a fast-paced Agile deployment model.
 Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Jira for a QA Lead within a highly-regulated fintech application ensuring strict data privacy and compliance standards.
 Troubleshooting frontend rendering issues and analyzing network requests using Confluence as a Senior Manual QA handling sensitive user data compliance.
 How a Test Strategy Lead manages conflict with developers regarding release blockers and defect severity in Agile in a fast-paced Agile deployment model minimizing manual overhead during major releases.
 Designing a comprehensive manual exploratory testing strategy using Chrome DevTools for a Test Manager with limited documentation and changing requirements.
 Auditing legacy test cases and optimizing regression test suites in TestRail as a QA Lead.
-Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Postman for a Manual Test Leader with limited documentation and changing requirements.
 Leading defect triage meetings and prioritizing critical production bugs in Xray as a QA Lead handling sensitive user data compliance with an understaffed QA team.
 How a Senior Manual QA manages conflict with developers regarding release blockers and defect severity in Agile within a highly-regulated fintech application minimizing manual overhead during major releases.
 Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Confluence for a Test Manager.

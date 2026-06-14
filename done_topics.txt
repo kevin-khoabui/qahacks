@@ -743,3 +743,8 @@ Establishing a risk-based testing approach and traceability matrix using TestRai
 Establishing a risk-based testing approach and traceability matrix using Zephyr for a Test Strategy Lead handling sensitive user data compliance.
 Auditing legacy test cases and optimizing regression test suites in Chrome DevTools as a QA Lead within a highly-regulated fintech application while onboarding new offshore QA resources.
 Negotiating testing scope and production deployment readiness with Product Owners using reports from Chrome DevTools as a Senior Manual QA within a highly-regulated fintech application under extreme time constraints.
+Designing a comprehensive manual exploratory testing strategy using Chrome DevTools for a Test Manager in a fast-paced Agile deployment model with limited documentation and changing requirements.
+Leading defect triage meetings and prioritizing critical production bugs in SQL as a Manual Test Leader in a fast-paced Agile deployment model with an understaffed QA team.
+Handling resistance from team members when transitioning to a new test management workflow in Chrome DevTools for a Senior Manual QA during a major UI redesign phase.
+Auditing legacy test cases and optimizing regression test suites in Chrome DevTools as a Test Strategy Lead in a fast-paced Agile deployment model.
+Defining manual QA metrics, test coverage definitions, and acceptance criteria in Agile SDLC with Postman for a Manual Test Leader with limited documentation and changing requirements.
