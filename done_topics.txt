@@ -67,3 +67,26 @@ Manual QA Engineer | Analytical Behavioral - How do you manage your bug backlog 
 Manual QA Engineer | Foundations Methodology - What is your process for conducting User Acceptance Testing support when client testers lack formal QA knowledge?
 Manual QA Engineer | Analytical Behavioral - How do you verify an enterprise dashboard behaves correctly when a user logs in with zero historical data assets?
 Manual QA Engineer | Foundations Methodology - What criteria do you use to select a subset of test cases for a quick patch-release smoke validation?
+Manual QA Engineer | Foundations Methodology - What test criteria do you use to evaluate if a user interface meets established corporate branding and styling guidelines?
+Manual QA Engineer | Foundations Methodology - What test scenarios do you write to validate a dynamic form generator that renders inputs based on user profile settings?
+Manual QA Engineer | Analytical Behavioral - How do you verify that background location tracking features do not cause excessive battery drain during manual mobile testing?
+Manual QA Engineer | Foundations Methodology - What is your approach to testing data validation messages to ensure they are user-friendly, descriptive, and accurate?
+Manual QA Engineer | Analytical Behavioral - How do you perform cross-device functional testing for a responsive web layout on non-standard screen aspect ratios?
+Manual QA Engineer | Foundations Methodology - What test cases do you design to verify an application's handling of special characters and emoji inputs in text fields?
+Manual QA Engineer | Analytical Behavioral - How do you maintain testing focus and objectivity when re-testing the same bug fix for the fourth time in a row?
+Manual QA Engineer | Foundations Methodology - What is your strategy for validating a referral code program with complex reward triggers and expiration rules?
+Manual QA Engineer | Analytical Behavioral - How do you handle a dispute with a developer who claims a functional flaw you found is an enhancement request?
+Manual QA Engineer | Foundations Methodology - What scenarios do you design to test an auto-save feature to guarantee no user input is lost during typing delays?
+Manual QA Engineer | Analytical Behavioral - How do you validate a dark mode toggle to ensure all UI components adjust their contrast and visibility correctly?
+Manual QA Engineer | Foundations Methodology - What is your checklist for verifying a complex shipping calculator that factors in weight, dimensions, and zip zones?
+Manual QA Engineer | Analytical Behavioral - How do you test a real-time multiplayer lobby system to verify user disconnects and automatic slot reassignments?
+Manual QA Engineer | Foundations Methodology - What specific test scenarios do you write to validate an API payload contract using manual tool setups like Postman?
+Manual QA Engineer | Analytical Behavioral - How do you approach testing an end-of-year data archiving process without damaging active production lookalike structures?
+Manual QA Engineer | Foundations Methodology - What test cases do you design to verify an application's behavior when system permissions like camera access are denied?
+Manual QA Engineer | Analytical Behavioral - How do you balance structure and creativity when executing a dedicated time-boxed exploratory testing session?
+Manual QA Engineer | Foundations Methodology - What is your methodology for testing a shopping app's offline mode to ensure cart updates sync when online?
+Manual QA Engineer | Analytical Behavioral - How do you analyze log files inside the browser console to add more technical context to your bug reports?
+Manual QA Engineer | Foundations Methodology - What test scenarios do you use to validate an interactive calendar reservation module with complex overlapping conflicts?
+Manual QA Engineer | Analytical Behavioral - How do you handle testing a critical security patch deployment when you are not given any release notes or impact analysis?
+Manual QA Engineer | Foundations Methodology - What is your process for verifying that deep-linked promotional URLs bypass login walls correctly for authenticated users?
+Manual QA Engineer | Analytical Behavioral - How do you perform comparative testing between a staging database and a production database schema to catch drift manually?
