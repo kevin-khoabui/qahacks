@@ -19,7 +19,7 @@ export default function NotFound() {
   return (
     <main className="min-h-[70vh] bg-slate-950 flex flex-col items-center justify-center text-center px-4">
       <div className="space-y-5">
-        {/* Biểu tượng cảnh báo mang phong cách mã hóa.*/}
+        {/*Biểu tượng cảnh báo mang phong cách mã hóa.*/}
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 text-2xl font-bold animate-pulse">
           ⚠️
         </div>
