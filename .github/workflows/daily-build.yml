@@ -37,6 +37,6 @@ jobs:
 
       # Bước 6: Dùng Wrangler đẩy thẳng thư mục 'out' siêu sạch lên Cloudflare Pages
       - name: ⚡ Deploy directly to Cloudflare Pages via Wrangler
-        run: npx wrangler pages deploy out --project-name=qahacks
+        run: npx wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }} # Bạn cấu hình Token này trong mục Settings > Secrets của GitHub nhé
