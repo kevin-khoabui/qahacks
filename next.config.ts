@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // Khóa chặt chế độ xuất trang tĩnh
+  output: "export",      // Ép xuất trang tĩnh ra thư mục out
   images: {
-    unoptimized: true, // Bắt buộc phải có để Next.js không cố tối ưu ảnh động
+    unoptimized: true,   // Tắt tối ưu ảnh động để chạy được trên CDN tĩnh
   },
+  trailingSlash: false,  // BẮT BUỘC: Ép file index.html phải nằm ở ngoài rìa thư mục out!
 };
 
 export default nextConfig;
