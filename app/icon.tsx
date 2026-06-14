@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+export const dynamic = "force-static";
 
 // Cấu hình kích thước chuẩn cho Favicon
 export const size = {
