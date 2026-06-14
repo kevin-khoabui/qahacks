@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { getPostData, getRelatedPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
@@ -11,6 +13,31 @@ import TableOfContents from "@/components/TableOfContents";
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+// ============================================================================
+// 🚀 FIX LỖI 1: BẮT BUỘC PHẢI CÓ HÀM NÀY KHI DÙNG CHẾ ĐỘ OUTPUT: EXPORT
+// ============================================================================
+export async function generateStaticParams() {
+  const jsonPath = path.resolve(process.cwd(), "public", "content", "posts.generated.json");
+  
+  if (!fs.existsSync(jsonPath)) {
+    console.warn("⚠️ Cảnh báo: Chưa tìm thấy tệp posts.generated.json lúc biên dịch!");
+    return [];
+  }
+
+  try {
+    const fileContents = fs.readFileSync(jsonPath, "utf8");
+    const posts = JSON.parse(fileContents);
+    
+    // Trả về mảng phẳng chứa toàn bộ danh sách slug ngắn cho Next.js render sẵn thành HTML
+    return posts.map((post: { slug: string }) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error("❌ Lỗi quét danh sách slug trong generateStaticParams:", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -77,9 +104,8 @@ export default async function PostPage({ params }: Props) {
   const { questionText, answerText = "" } = parseContentForSchema(post.content || "");
   const schemaQuestionTitle = questionText.split("\n")[0] || post.title;
 
-
   const postUrl = `https://qahacks.com/posts/${resolvedParams.slug}`;
-  const authorName = "QA Hacks Team"; // Hoặc lấy từ post.author nếu có
+  const authorName = "QA Hacks Team";
   const currentDate = new Date().toISOString();
 
   const jsonLd = {
@@ -91,22 +117,22 @@ export default async function PostPage({ params }: Props) {
       "text": questionText || post.title,
       "datePublished": (post as any).date || currentDate,
       "url": postUrl,
-      "answerCount": 1, // ✅ FIX LỖI CHÍ MẠNG: Khai báo có 1 câu trả lời
+      "answerCount": 1,
       "author": {
         "@type": "Person",
         "name": authorName,
-        "url": "https://qahacks.com" // ✅ KHẮC PHỤC CẢNH BÁO: Link tác giả
+        "url": "https://qahacks.com"
       },
       "acceptedAnswer": {
         "@type": "Answer",
         "text": answerText.slice(0, 5000),
         "datePublished": (post as any).date || currentDate,
         "url": `${postUrl}#expert-answer`,
-        "upvoteCount": 150, // ✅ KHẮC PHỤC CẢNH BÁO: Giả lập có 150 lượt upvote cho uy tín
+        "upvoteCount": 150,
         "author": {
           "@type": "Person",
           "name": authorName,
-          "url": "https://qahacks.com" // ✅ KHẮC PHỤC CẢNH BÁO: Link tác giả
+          "url": "https://qahacks.com"
         }
       }
     }
@@ -162,7 +188,6 @@ export default async function PostPage({ params }: Props) {
                     </h3>
                     <div className="flex justify-between items-center text-sm bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
                       <span className="text-slate-400">Target Role:</span>
-                      {/* ĐÃ THAY BẰNG LINK CÓ GẠCH CHÂN ĐỨT KHÚC MÀU XANH TEAL */}
                       <Link
                         href={`/?role=${post.target_role}`}
                         className="text-teal-400 hover:text-teal-300 font-semibold text-right max-w-[180px] truncate underline decoration-dotted transition-colors cursor-pointer"
@@ -170,9 +195,8 @@ export default async function PostPage({ params }: Props) {
                         {displayRole}
                       </Link>
                     </div>
-                    <div className="flex justify-between items-center text-xs"> {/* Dùng text-sm cho Desktop */}
+                    <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Tool Stack:</span>
-                      {/* ĐÃ BIẾN THÀNH LINK BẤM ĐƯỢC CÓ HOVER SÁNG LÊN */}
                       <Link
                         href={`/?tool=${post.tool_stack}`}
                         className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/20 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 transition-colors cursor-pointer"
@@ -222,7 +246,6 @@ export default async function PostPage({ params }: Props) {
                   <div className="space-y-2.5">
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Target Role:</span>
-                      {/* ĐÃ THAY BẰNG LINK CÓ GẠCH CHÂN ĐỨT KHÚC MÀU XANH TEAL */}
                       <Link
                         href={`/?role=${post.target_role}`}
                         className="text-teal-400 hover:text-teal-300 font-semibold truncate max-w-50 underline decoration-dotted transition-colors cursor-pointer"
@@ -230,9 +253,8 @@ export default async function PostPage({ params }: Props) {
                         {displayRole}
                       </Link>
                     </div>
-                    <div className="flex justify-between items-center text-xs"> {/* Dùng text-sm cho Desktop */}
+                    <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Tool Stack:</span>
-                      {/* ĐÃ BIẾN THÀNH LINK BẤM ĐƯỢC CÓ HOVER SÁNG LÊN */}
                       <Link
                         href={`/?tool=${post.tool_stack}`}
                         className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/20 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 transition-colors cursor-pointer"
@@ -248,7 +270,7 @@ export default async function PostPage({ params }: Props) {
             </aside>
           </div>
 
-          {/* RELATED POSTS (ĐÃ ĐƯA RA NGOÀI GRID HOÀN TOÀN ĐỂ TRIỆT TIÊU BOX TRỐNG) */}
+          {/* RELATED POSTS */}
           {relatedPosts && relatedPosts.length > 0 && (
             <section className="mt-12 pt-10 border-t border-slate-800/60 max-w-none">
               <h2 className="text-xl font-bold text-white flex items-center gap-2 mb-6">
