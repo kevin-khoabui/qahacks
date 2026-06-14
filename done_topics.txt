@@ -44,3 +44,26 @@ Manual QA Engineer | Foundations Methodology - What is your methodology for test
 Manual QA Engineer | Analytical Behavioral - How do you verify that sensitive customer data is properly masked in log files and user profiles during manual review?
 Manual QA Engineer | Foundations Methodology - What scenarios do you design to test a multi-tenant application where data leakage between clients is a high risk?
 Manual QA Engineer | Analytical Behavioral - How do you handle testing a hotfix branch while simultaneously executing regression testing on the main release branch?
+Manual QA Engineer | Analytical Behavioral - How do you prioritize your testing efforts when a sprint backlog contains twenty features but only five days of QA time remain?
+Manual QA Engineer | Analytical Behavioral - How do you test an application's behavior when multiple modal dialogs and alerts are triggered concurrently?
+Manual QA Engineer | Foundations Methodology - What is your strategy for sanity testing a micro-frontend block that was updated independently of the main platform?
+Manual QA Engineer | Foundations Methodology - How do you structure a high-coverage test suite for an e-signature document workflow involving multiple external signers?
+Manual QA Engineer | Foundations Methodology - What manual verification steps do you take to confirm data persistence after an application server restarts mid-session?
+Manual QA Engineer | Analytical Behavioral - How do you investigate a defect where data is saved correctly in the database but renders corrupted on the web page?
+Manual QA Engineer | Analytical Behavioral - What is your approach to testing an advanced charting module to ensure data points plot correctly across logarithmic scales?
+Manual QA Engineer | Foundations Methodology - How do you design positive and negative test cases for an address validation feature utilizing zip code lookups?
+Manual QA Engineer | Foundations Methodology - What strategy do you employ to test an application's behavior when the device's storage is completely full?
+Manual QA Engineer | Analytical Behavioral - How do you validate an interactive notification center to ensure unread counts sync accurately across multiple open tabs?
+Manual QA Engineer | Foundations Methodology - What test scenarios do you design to verify session recovery when a browser crashes during an ongoing questionnaire?
+Manual QA Engineer | Analytical Behavioral - How do you handle testing a backend calculation algorithm when the frontend UI for it has not been built yet?
+Manual QA Engineer | Foundations Methodology - What is your checklist for executing a comprehensive post-release verification sweep in the live production environment?
+Manual QA Engineer | Analytical Behavioral - How do you evaluate whether a reported bug is a duplicate ticket or a unique edge case with different root causes?
+Manual QA Engineer | Foundations Methodology - What scenarios do you prioritize when testing a password reset flow to prevent account takeover vulnerabilities manually?
+Manual QA Engineer | Analytical Behavioral - How do you test a peer-to-peer messaging system to verify message ordering and delivery statuses over poor connections?
+Manual QA Engineer | Foundations Methodology - What is your technique for validating a inventory management system when quantities are updated by sales in real time?
+Manual QA Engineer | Analytical Behavioral - How do you challenge an ambiguous requirement statement during a sprint refinement meeting to prevent defect injection?
+Manual QA Engineer | Foundations Methodology - What test cases do you write to ensure a printing feature renders layouts correctly across different paper sizes and margins?
+Manual QA Engineer | Analytical Behavioral - How do you manage your bug backlog when a single feature rewrite breaks ten unrelated historical test cases?
+Manual QA Engineer | Foundations Methodology - What is your process for conducting User Acceptance Testing support when client testers lack formal QA knowledge?
+Manual QA Engineer | Analytical Behavioral - How do you verify an enterprise dashboard behaves correctly when a user logs in with zero historical data assets?
+Manual QA Engineer | Foundations Methodology - What criteria do you use to select a subset of test cases for a quick patch-release smoke validation?
