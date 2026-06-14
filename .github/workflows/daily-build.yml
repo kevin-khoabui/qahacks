@@ -35,8 +35,8 @@ jobs:
           rm -rf .next out
           npm run build
 
-      # Bước 6: 🛠️ ĐÃ SỬA: Ép Wrangler bốc asset tĩnh đè lên Cloudflare Workers (Chống sập do OpenNext)
+      # Bước 6: 🎯 Đã gọt sạch trùng lặp - Đẩy trực tiếp tĩnh lên Cloudflare Workers
       - name: ⚡ Deploy directly to Cloudflare Workers via Wrangler Assets
-        run: npx wrangler deploy --assets ./out
+        run: npx wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
