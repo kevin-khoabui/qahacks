@@ -1,12 +1,11 @@
-// ÉP TRANG CHỦ CHẠY ĐỘNG ĐỂ XỬ LÝ SEARCHPARAMS TRÊN CLOUDFLARE WORKERS RUNTME
-export const dynamic = "force-static";
-export const revalidate = 0;
-
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import Pagination from "@/components/Pagination";
 import HeroBanner from "@/components/HeroBanner";
 import { Metadata } from "next";
+
+// 🚀 FIX LỖI 1: Khóa cứng chế độ xuất tĩnh 100%, xóa bỏ revalidate = 0 để Cloudflare nuốt trọn asset
+export const dynamic = "force-static";
 
 interface Props {
   searchParams: Promise<{ 
@@ -16,7 +15,7 @@ interface Props {
     tool?: string; 
     page?: string; 
     q?: string;
-    role?: string; // 1. [THÊM LOGIC ROLE]: Định nghĩa role vào Params
+    role?: string;
   }>;
 }
 
@@ -31,13 +30,12 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const filterSub = params.sub;
   const filterType = params.type; 
   const filterTool = params.tool; 
-  const filterRole = params.role; // Lấy role cho Metadata
+  const filterRole = params.role;
   const searchQuery = params.q;
 
   let title = "QA Hacks | Enterprise QA Interview Preparation Hub";
   let description = "Master your next Software Testing interview with production-grade QA solutions, real-world microservices scenarios, and executive speaking blueprints.";
 
-  // Điều chỉnh Meta theo hành vi bộ lọc của User hoặc Bot Google
   if (searchQuery) {
     title = `Search Results for "${searchQuery}" | QA Hacks`;
     description = `Browse the latest tech interview questions and professional answers containing the keyword "${searchQuery}".`;
@@ -56,7 +54,6 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     title = `${cleanCat} Strategic QA Guides | QA Hacks`;
     description = `Comprehensive strategy roadmaps, behavioral scenarios, and architecture review responses for ${cleanCat} roles.`;
   } else if (filterRole) {
-    // 2. [THÊM LOGIC ROLE]: Tối ưu SEO cho thẻ Meta khi lọc theo Role
     const cleanRole = filterRole.replace(/_/g, " ");
     title = `${cleanRole} Interview Guides & Solutions | QA Hacks`;
     description = `Exclusive situational questions, leadership challenges, and technical scenarios tailored for ${cleanRole} positions.`;
@@ -95,53 +92,68 @@ export default async function HomePage({ searchParams }: Props) {
   const filterSub = params.sub;
   const filterType = params.type; 
   const filterTool = params.tool; 
-  const filterRole = params.role; // Lấy role từ URL
+  const filterRole = params.role; 
   const searchQuery = params.q?.toLowerCase(); 
   
   const currentPage = Number(params.page) || 1;
 
-  // LỌC DỮ LIỆU CHÍNH
+  // ==========================================
+  // 🚀 FIX LỖI 2: ĐỒNG BỘ LOGIC LỌC CHO ĐA THẺ (MULTI-TAG ARRAYS)
+  // ==========================================
   const filteredPosts = allPosts.filter((post) => {
     const qType = (post as any).question_type;
     const postTool = (post as any).tool_stack;
     const postTitle = post.title?.toLowerCase() || "";
-    const postRole = (post as any).target_role?.toLowerCase() || "";
-    const targetRoleMatch = (post as any).target_role || "";
 
-    // Lọc theo Search Query tổng quát
+    // Chuyển đổi an toàn dữ liệu sang mảng đề phòng file cũ chưa đồng bộ lại
+    const postRoles: string[] = Array.isArray((post as any).target_role) 
+      ? (post as any).target_role 
+      : [(post as any).target_role || ""];
+
+    const postCategories: string[] = Array.isArray(post.category) 
+      ? post.category 
+      : [post.category || ""];
+
+    // 1. Lọc theo ô tìm kiếm tổng quát (Search Query)
     if (searchQuery) {
       const matchTitle = postTitle.includes(searchQuery);
       const matchTool = postTool?.toLowerCase().includes(searchQuery);
-      const matchRole = postRole.includes(searchQuery);
+      const matchRole = postRoles.some(role => role.toLowerCase().includes(searchQuery));
       if (!matchTitle && !matchTool && !matchRole) return false;
     }
 
-    // 3. [THÊM LOGIC ROLE]: Block cứng điều kiện lọc nếu có param ?role=
-    if (filterRole && targetRoleMatch !== filterRole) {
+    // 2. Lọc theo Đa Target Roles (.includes thay vì ===)
+    if (filterRole && !postRoles.includes(filterRole)) {
       return false;
     }
 
+    // 3. Phân luồng lọc dạng tập hợp Compilation bài viết lớn
     if (filterType === "Compilation") return qType === "Compilation";
+    
+    // 4. Lọc theo cấu trúc Tool Stack
     if (filterTool) {
       if (qType === "Compilation") return false;
       return postTool === filterTool;
     }
+
+    // 5. Lọc theo Đa Danh mục chính (.includes thay vì ===) và Sub Category
     if (filterSub || filterCategory) {
       if (qType === "Compilation") return false; 
-      if (filterCategory && post.category !== filterCategory) return false;
+      if (filterCategory && !postCategories.includes(filterCategory)) return false;
       if (filterSub && post.sub_category !== filterSub) return false;
       return true;
     }
+
     return true;
   });
 
-  // PHÂN TRANG
+  // PHÂN TRANG DỮ LIỆU
   const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedPosts = filteredPosts.slice(startIndex, endIndex);
 
-  // TẠO TIÊU ĐỀ ĐỘNG TRÊN UI
+  // TẠO TIÊU ĐỀ ĐỘNG TRÊN GIAO DIỆN UI
   let pageTitle = "All Interview Guides";
   let pageDesc = "Deep-dive technical questions and production-grade solutions for QA Professionals.";
 
@@ -149,7 +161,6 @@ export default async function HomePage({ searchParams }: Props) {
     pageTitle = `Search results for "${params.q}"`;
     pageDesc = `Found ${filteredPosts.length} guides matching your keyword.`;
   } else if (filterRole) {
-    // [THÊM LOGIC ROLE]: Update tiêu đề khi lọc theo Role
     pageTitle = `${filterRole.replace(/_/g, " ")} Interview Guides`;
     pageDesc = `Showing specific situational and technical scenarios targeted at ${filterRole.replace(/_/g, " ")}.`;
   } else if (filterType === "Compilation") {
@@ -174,7 +185,6 @@ export default async function HomePage({ searchParams }: Props) {
       {/* HIỂN THỊ HERO BANNER NẾU LÀ TRANG CHỦ MẶC ĐỊNH */}
       {isDefaultHome && <HeroBanner />}
 
-      {/* Cấu trúc Semantic HTML: Chuyển khối bọc danh sách sang thẻ <section> */}
       <section className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         
         {/* Phần header động */}
@@ -236,7 +246,6 @@ export default async function HomePage({ searchParams }: Props) {
                           )}
                         </div>
 
-                        {/* Thẻ h2 cho tiêu đề bài viết lẻ ở trang danh sách để giữ đúng sơ đồ phân cấp HTML */}
                         <h2 className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors line-clamp-3 leading-snug">
                           {post.title}
                         </h2>

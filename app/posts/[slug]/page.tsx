@@ -30,7 +30,6 @@ export async function generateStaticParams() {
     const fileContents = fs.readFileSync(jsonPath, "utf8");
     const posts = JSON.parse(fileContents);
     
-    // Trả về mảng phẳng chứa toàn bộ danh sách slug ngắn cho Next.js render sẵn thành HTML
     return posts.map((post: { slug: string }) => ({
       slug: post.slug,
     }));
@@ -51,13 +50,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Chuẩn hóa mảng thẻ thành chuỗi để làm Description/Keywords
+  const rolesArray = Array.isArray(post.target_role) ? post.target_role : [post.target_role || ""];
+  const categoriesArray = Array.isArray(post.category) ? post.category : [post.category || ""];
+  
+  const displayRoles = rolesArray.map(r => r.replace(/_/g, " ")).join(", ");
+
   const cleanTitle = `${post.title} | QA Hacks`;
-  const cleanDescription = `Master the QA Interview: ${post.title}. Professional solution and speaking blueprint for ${post.target_role?.replace(/_/g, " ")} positions.`;
+  const cleanDescription = `Master the QA Interview: ${post.title}. Professional solution and speaking blueprint for ${displayRoles || "QA"} positions.`;
 
   return {
     title: cleanTitle,
     description: cleanDescription,
-    keywords: post.tags || ["qa-interview", "software-testing", "qa-lead", post.category, post.tool_stack],
+    keywords: post.tags || ["qa-interview", "software-testing", "qa-lead", ...categoriesArray, post.tool_stack],
     openGraph: {
       title: cleanTitle,
       description: cleanDescription,
@@ -98,8 +103,13 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  const relatedPosts = await getRelatedPosts(resolvedParams.slug, post.category || "Technical", 3);
-  const displayRole = post.target_role?.replace(/_/g, " ") || "QA Engineer";
+  // Ép kiểu dữ liệu mảng an toàn đề phòng file cũ chưa đồng bộ
+  const roles: string[] = Array.isArray(post.target_role) ? post.target_role : [post.target_role || "QA_Engineer"];
+  const categories: string[] = Array.isArray(post.category) ? post.category : [post.category || "Technical"];
+
+  // Bốc liên đới liên quan dựa trên phần tử danh mục đầu tiên trong mảng dữ liệu tĩnh
+  const primaryCategory = categories[0] || "Technical";
+  const relatedPosts = await getRelatedPosts(resolvedParams.slug, primaryCategory, 3);
 
   const { questionText, answerText = "" } = parseContentForSchema(post.content || "");
   const schemaQuestionTitle = questionText.split("\n")[0] || post.title;
@@ -149,8 +159,8 @@ export default async function PostPage({ params }: Props) {
           <nav className="flex items-center space-x-2 text-xs font-medium text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
             <span className="text-slate-600">/</span>
-            <Link href={`/?category=${post.category}`} className="hover:text-teal-400 transition-colors capitalize">
-              {post.category?.toLowerCase().replace(/_/g, " ")}
+            <Link href={`/?category=${primaryCategory}`} className="hover:text-teal-400 transition-colors capitalize">
+              {primaryCategory.toLowerCase().replace(/_/g, " ")}
             </Link>
             <span className="text-slate-600">/</span>
             <span className="text-slate-200 font-semibold line-clamp-1">{post.title}</span>
@@ -164,11 +174,13 @@ export default async function PostPage({ params }: Props) {
               <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
 
               <div className="relative z-10">
-                {/* Meta Tags */}
+                {/* ĐA THẺ METATAGS: Duyệt mảng category tự động */}
                 <div className="flex flex-wrap gap-2 items-center text-[11px] font-bold uppercase tracking-wider mb-5">
-                  <span className="px-2.5 py-1 rounded border text-teal-400 bg-teal-500/10 border-teal-500/20">
-                    {post.category} / {post.sub_category}
-                  </span>
+                  {categories.map((cat) => (
+                    <span key={cat} className="px-2.5 py-1 rounded border text-teal-400 bg-teal-500/10 border-teal-500/20">
+                      {cat.replace(/_/g, " ")} {post.sub_category ? `/ ${post.sub_category}` : ""}
+                    </span>
+                  ))}
                   <span className="px-2.5 py-1 rounded border text-rose-400 bg-rose-500/10 border-rose-500/20">
                     {post.difficulty}
                   </span>
@@ -181,20 +193,27 @@ export default async function PostPage({ params }: Props) {
 
                 {/* MOBILE ONLY COMPONENT LAYOUT */}
                 <div className="block lg:hidden space-y-4 mb-8">
-                  {/* MOBILE INTERVIEW CONTEXT */}
                   <div className="bg-slate-900/40 p-4 rounded-xl border border-slate-800/60 space-y-2.5">
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-800/80 pb-2">
                       📋 Interview Context
                     </h3>
-                    <div className="flex justify-between items-center text-sm bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
-                      <span className="text-slate-400">Target Role:</span>
-                      <Link
-                        href={`/?role=${post.target_role}`}
-                        className="text-teal-400 hover:text-teal-300 font-semibold text-right max-w-[180px] truncate underline decoration-dotted transition-colors cursor-pointer"
-                      >
-                        {displayRole}
-                      </Link>
+                    
+                    {/* Duyệt đa Role trên Mobile */}
+                    <div className="flex flex-col gap-2 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                      <span className="text-xs text-slate-400">Target Roles:</span>
+                      <div className="flex flex-wrap gap-1.5 justify-end">
+                        {roles.map((role) => (
+                          <Link
+                            key={role}
+                            href={`/?role=${role}`}
+                            className="text-teal-400 hover:text-teal-300 font-semibold text-xs underline decoration-dotted transition-colors cursor-pointer"
+                          >
+                            {role.replace(/_/g, " ")}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
+
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Tool Stack:</span>
                       <Link
@@ -206,7 +225,6 @@ export default async function PostPage({ params }: Props) {
                     </div>
                   </div>
 
-                  {/* MOBILE TABLE OF CONTENTS */}
                   <TableOfContents />
                 </div>
 
@@ -243,17 +261,25 @@ export default async function PostPage({ params }: Props) {
               <div className="hidden lg:block bg-[#0B1121] p-6 rounded-2xl border border-slate-800 shadow-lg lg:sticky lg:top-6 space-y-5">
                 <div>
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">📋 Interview Context</h3>
-                  <div className="space-y-2.5">
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="text-slate-400">Target Role:</span>
-                      <Link
-                        href={`/?role=${post.target_role}`}
-                        className="text-teal-400 hover:text-teal-300 font-semibold truncate max-w-50 underline decoration-dotted transition-colors cursor-pointer"
-                      >
-                        {displayRole}
-                      </Link>
+                  <div className="space-y-3">
+                    
+                    {/* Duyệt đa Role trên Desktop Sidebar */}
+                    <div className="flex flex-col gap-1.5">
+                      <span className="text-xs text-slate-400">Target Roles:</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {roles.map((role) => (
+                          <Link
+                            key={role}
+                            href={`/?role=${role}`}
+                            className="text-teal-400 hover:text-teal-300 font-semibold text-xs underline decoration-dotted transition-colors cursor-pointer"
+                          >
+                            {role.replace(/_/g, " ")}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center text-xs">
+
+                    <div className="flex justify-between items-center text-xs pt-1.5 border-t border-slate-900">
                       <span className="text-slate-400">Tool Stack:</span>
                       <Link
                         href={`/?tool=${post.tool_stack}`}
@@ -291,7 +317,7 @@ export default async function PostPage({ params }: Props) {
                     <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
                       <span className="text-sky-400">{rp.difficulty}</span>
                       <span>•</span>
-                      <span>{rp.tool_stack !== 'None' ? rp.tool_stack : rp.category}</span>
+                      <span>{Array.isArray(rp.category) ? rp.category[0] : rp.category}</span>
                     </div>
                     <h3 className="text-sm font-semibold text-slate-200 group-hover:text-teal-400 line-clamp-2 leading-snug transition-colors">
                       {rp.title}

@@ -5,251 +5,233 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
-// ============================================================================
-// 🎯 BẢNG ĐIỀU KHIỂN CHUYỂN HỆ CHẾ ĐỘ: 'MANUAL_LEADER' hoặc 'TECHNICAL'
-// Hiện tại đang khóa ở chế độ Manual QA Lead. Sau này muốn viết Automation/Technical thì đổi.
-// ============================================================================
-const CURRENT_MODE: 'MANUAL_LEADER' | 'TECHNICAL' = 'MANUAL_LEADER';
-
 function getTargetApiKey(keyNumber: number): string {
   return process.env[`GEMINI_API_KEY_${keyNumber}`] || "";
 }
 
-function getPromptByMode(topic: string): string {
-  if (CURRENT_MODE === 'TECHNICAL') {
+// ============================================================================
+// 🤖 BỘ PHÁT SINH PROMPT ĐỘNG THEO TỪNG THỂ LOẠI (STRATEGY PATTERN)
+// ============================================================================
+function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: string, categoriesString: string): string {
+  if (isAutomation) {
+    // ⚡ PROMPT DÀNH CHO CÁC VAI TRÒ AUTOMATION (ENGINEER & LEADER)
     return `
-      You are an elite Technical Interviewer and a Principal Automation Architect.
-      Generate a high-yield, tech-heavy interview Q&A post based on this technical/automation topic: "${topic}".
+      You are an elite Technical Interviewer and a Principal Automation Architect specializing in Automation Testing frameworks.
+      Generate a high-yield, tech-heavy interview Q&A post based on this technical automation topic: "${topic}".
       
       CRITICAL REQUIREMENT 1 (STRICT LENGTH & CODE STYLE):
-      - The "Interview Question" must be a sharp, technical, or coding-challenge question (Strictly under 200 characters).
-      - The "Expert Answer" must be a highly structured technical breakdown (Strictly under 2500 characters). Focus on implementation details, best practices, and architecture. You may use small, clean markdown code blocks if necessary.
+      - The "Interview Question" must be a sharp, technical, or architecture-challenge question.
+      - The "Expert Answer" must be a highly structured technical breakdown (Strictly under 2500 characters). Focus on implementation details, automation best practices, and script/framework architecture. You may use small, clean markdown code blocks if necessary.
       - You MUST include a "Speaking Blueprint (3-Minute Verbal Response)" section. This is a word-for-word spoken script in fluent, professional corporate English.
 
       CRITICAL REQUIREMENT 2 (TECHNICAL SIGNPOSTING):
-      The Speaking Blueprint MUST sound like a seasoned Tech Lead explaining their technical implementation or architecture to a Lead Architect or CTO. Strictly follow this conversational flow without bullet points:
-      1. [The Hook]: Start with a powerful statement regarding scalability, engineering efficiency, or modern architecture framework.
-      2. [The Core Execution]: Walk through the technical execution using natural signposting.
-      3. [The Punchline]: Conclude with a definitive philosophy on technical scalability, maintainability, or the ultimate engineering ROI.
+      The Speaking Blueprint MUST sound like a seasoned Automation Specialist or Automation Lead explaining their technical execution to a CTO or Principal Architect. Follow this conversational flow naturally without bullet points:
+      1. [The Hook]: Start with a powerful statement regarding testing scalability, engineering efficiency, or modern automation frameworks (Playwright, Cypress, CI/CD).
+      2. [The Core Execution]: Walk through the technical execution or framework design using natural signposting.
+      3. [The Punchline]: Conclude with a definitive philosophy on technical scalability, test maintainability, or the ultimate engineering ROI.
 
-      CRITICAL REQUIREMENT 3 (AUTOMATIC TAXONOMY MAPPING):
-      Analyze the topic and strictly map the metadata according to our technical guidelines:
-      - "category": Must be 'Technical'.
-      - "sub_category": Must map logically to ['Automation', 'API', 'Database', 'Performance', 'Security', 'DevOps'].
-      - "difficulty": Set dynamically based on complexity ('Intermediate' or 'Advanced').
-      - "target_role": Set logically ('QA_Engineer', 'Senior_Automation', 'DevOps_QA').
-      - "tool_stack": Identify the main tool used (e.g., 'Playwright', 'Cypress', 'JMeter', 'Postman', 'SQL', 'Docker'). If no tool is used, set 'None'.
+      CRITICAL REQUIREMENT 3 (HARDCODED MULTI-TAG MAPPING):
+      You MUST strictly write the exact array values provided below into the Frontmatter block. Do not attempt to guess or alter them:
+      - "target_role": ${rolesString}
+      - "category": ${categoriesString}
 
-         CRITICAL REQUIREMENT 4 (QUESTION DESIGN)
-      - IMPORTANT: Do not output the topic as the Interview Question. Use the topic "${topic}" as the underlying theme to craft an original, high-level situational question that a Lead would actually face in a meeting.
-      - INPUT CONTEXT: The topic "${topic}" is the underlying theme of this interview question.
-      - TRANSFORMATION: Do NOT repeat the topic verbatim. You must transform this topic into a specific, challenging, and professional situational interview question.
-      - The Interview Question must:
-        - Be situational or behavioral (e.g., "Tell me about a time...", "Imagine you are facing a situation where...").
-        - Present a high-stakes scenario involving delivery pressure, stakeholder misalignment, or resource constraints.
-        - Be under 200 characters.
-        - Avoid theoretical definitions or "What is" questions.
+      CRITICAL REQUIREMENT 4 (QUESTION DESIGN)
+      - IMPORTANT: Use the exact raw input "${topic}" as your primary Interview Question. Do not invent a different scenario or rewrite it.
 
       CRITICAL REQUIREMENT 5 (OUTPUT FORMAT):
       The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in markdown code blocks.
-      THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
+      THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${topic}").
 
       ---
-      title: "[Insert the EXACT same text as your Interview Question here]"
-      difficulty: "[Insert Dynamic Value]"
-      target_role: "[Insert Dynamic Value]"
-      category: "Technical"
-      sub_category: "[Insert Dynamic Value]"
+      title: "${topic}"
+      difficulty: "Advanced"
+      target_role: ${rolesString}
+      category: ${categoriesString}
+      sub_category: "Automation"
       question_type: "Code-challenge"
       core_testing_type: "Automation"
       domain: "Enterprise-Software"
-      platform: "[Insert Dynamic Value]"
-      tool_stack: "[Insert Dynamic Value]"
+      platform: "Cross-platform"
+      tool_stack: "None"
       tags: ["automation", "coding-challenge", "interview-prep", "tech-strategy"]
       ---
       
       ## Overview
-      [Provide a brief 2-sentence technical introduction highlighting the core engineering challenge of this specific topic]
+      [Provide a brief 2-sentence technical introduction highlighting the core automation framework challenge of this specific topic]
       
       ### Interview Question:
-      [Insert the short technical question here, under 200 characters]
+      ${topic}
       
       ### Expert Answer:
-      [Insert the structured written answer here. Focus on code quality, framework structure, and technical execution]
+      [Insert the structured written automation answer here. Focus on code quality, design patterns like Page Object Model or Appium strategies, and execution velocity]
 
       ### Speaking Blueprint (3-Minute Verbal Response):
       [Insert the conversational speech sample here, clearly embedding markers for [The Hook], [The Core Execution], and [The Punchline] naturally within the narrative flow]
     `;
   }
 
-  // ============================================================================
-  // 🚀 PROMPT MANUAL LEAD (CỰC PHẨM THỰC CHIẾN TỪ SẾP)
-  // ============================================================================
+  // 📋 PROMPT DÀNH CHO CÁC VAI TRÒ MANUAL (ENGINEER & LEADER)
   return `
-    You are an elite QA Software Test Lead, Manual Software Test Lead, and Senior Engineering Interviewer.
-    Generate a high-quality interview Q&A post tailored specifically for a QA Lead role based on this manual testing topic: "${topic}".
+    You are an elite QA Software Test Lead and a Senior Engineering Interviewer specialized in Manual Testing & Quality Strategies.
+    Generate a high-quality interview Q&A post tailored specifically for this manual testing topic: "${topic}".
     
-    CRITICAL REQUIREMENT 1 (QA LEAD FOCUS)
+    CRITICAL REQUIREMENT 1 (MANUAL & LEADERSHIP FOCUS)
     The response must evaluate a candidate's ability to:
-    - Lead QA execution across a project
-    - Coordinate testing activities
-    - Mentor QA Engineers
-    - Manage testing risks
-    - Drive release readiness
-    - Collaborate with Developers, Product Managers, and Business Analysts
-    - Handle delivery pressure and changing priorities
-    - Avoid enterprise governance discussions that belong to QA Manager responsibilities.
+    - Coordinate testing activities, manage testing risks, and drive release readiness.
+    - Perform deep functional, exploratory, or regression analysis without relying on code.
+    - Collaborate with Developers, Product Managers, and Business Analysts to handle delivery pressure.
     
-   CRITICAL REQUIREMENT 2 (QUESTION DESIGN)
-   - IMPORTANT: Do not output the topic as the Interview Question. Use the topic "${topic}" as the underlying theme to craft an original, high-level situational question that a Lead would actually face in a meeting.
-    - INPUT CONTEXT: The topic "${topic}" is the underlying theme of this interview question.
-    - TRANSFORMATION: Do NOT repeat the topic verbatim. You must transform this topic into a specific, challenging, and professional situational interview question.
-    - The Interview Question must:
-      - Be situational or behavioral (e.g., "Tell me about a time...", "Imagine you are facing a situation where...").
-      - Present a high-stakes scenario involving delivery pressure, stakeholder misalignment, or resource constraints.
-      - Be under 200 characters.
-      - Force the candidate to demonstrate prioritization, risk management, and critical decision-making.
-      - Avoid theoretical definitions or "What is" questions.
+    CRITICAL REQUIREMENT 2 (QUESTION DESIGN)
+    - IMPORTANT: Use the exact raw input "${topic}" as your primary Interview Question. Do not invent a different scenario or rewrite it.
     
     CRITICAL REQUIREMENT 3 (EXPERT ANSWER)
     The Expert Answer must:
-    - Be under 2500 characters
-    - Demonstrate test leadership
-    - Show practical execution strategy
-    - Explain risk identification and mitigation
-    - Include delegation strategy
-    - Include stakeholder communication
-    - Include release decision criteria
-    - Use clean Markdown formatting.
-    - No code blocks.
+    - Be under 2500 characters.
+    - Demonstrate structured test design, practical execution strategy, and risk mitigation.
+    - Use clean Markdown formatting. Absolutely NO code blocks.
     
-    CRITICAL REQUIREMENT 4 (QA LEAD METRICS)
-    Reference relevant delivery metrics where appropriate:
-    - Defect Leakage Rate
-    - Defect Reopen Rate
-    - Test Execution Progress
-    - Requirement Coverage
-    - Regression Coverage
-    - UAT Pass Rate
-    Explain how the metrics influence testing decisions.
+    CRITICAL REQUIREMENT 4 (QA LEAD & ENGINEER METRICS)
+    Reference relevant delivery metrics where appropriate: Defect Leakage Rate, Defect Reopen Rate, Test Execution Progress, Requirement Coverage, or UAT Pass Rate. Explain how these metrics influence testing decisions.
     
     CRITICAL REQUIREMENT 5 (SPEAKING BLUEPRINT)
-    Provide a 3-minute verbal response.
-    The speech must sound like a QA Lead speaking to an Engineering Manager or Delivery Manager.
+    Provide a 3-minute verbal response. The speech must sound like a professional QA specialist speaking to a Delivery Manager or Engineering Director.
     Structure:
-    1. [The Hook]: Present the testing challenge and quality risk.
-    2. [The Core Execution]: Explain execution strategy, team coordination, prioritization, communication, and risk mitigation.
-    3. [The Punchline]: Summarize leadership philosophy and delivery impact.
+    1. [The Hook]: Present the core testing challenge and quality risk.
+    2. [The Core Execution]: Explain strategy, team coordination, prioritization, and communication.
+    3. [The Punchline]: Summarize quality philosophy and delivery impact.
     
-    CRITICAL REQUIREMENT 6 (TAXONOMY)
-    Map metadata dynamically. MUST strictly use these values:
-    - category: Must be one of ['Analytical Behavioral', 'Technical', 'Leadership']
-    - sub_category: Must be one of ['Strategy', 'Methodology', 'Behavioral']
-    - difficulty: '[Insert Dynamic Value]'
-    - target_role: 'QA Lead'
-    - tool_stack: 'None'
+    CRITICAL REQUIREMENT 6 (HARDCODED MULTI-TAG MAPPING)
+    You MUST strictly write the exact array values provided below into the Frontmatter block. Do not attempt to guess or alter them:
+    - "target_role": ${rolesString}
+    - "category": ${categoriesString}
     
     CRITICAL REQUIREMENT 7 (OUTPUT FORMAT)
     Return raw Markdown beginning with frontmatter. Do not wrap the frontmatter or the whole response in markdown code blocks.
-    THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION.
+    THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${topic}").
 
     ---
-    title: "[Insert the EXACT same text as your Interview Question here]"
+    title: "${topic}"
     difficulty: "Advanced"
-    target_role: "QA Lead"
-    category: "[Insert Dynamic Value]"
-    sub_category: "[Insert Dynamic Value]"
+    target_role: ${rolesString}
+    category: ${categoriesString}
+    sub_category: "Strategy"
     question_type: "Situational"
     core_testing_type: "Manual"
     domain: "Enterprise-Software"
     platform: "Cross-platform"
     tool_stack: "None"
-    leadership_competency: "[Insert e.g., Risk Mitigation, Stakeholder Management, Team Mentorship]"
-    interview_focus: "[Insert e.g., Delivery Pressure, Resource Allocation]"
+    leadership_competency: "Risk Mitigation"
+    interview_focus: "Delivery Pressure"
     tags: ["manual-testing", "qa-lead", "interview-prep", "test-leadership"]
     ---
     
     ## Overview
-    [Provide a brief 2-sentence executive summary highlighting the high-stakes risk and leadership challenge]
+    [Provide a brief 2-sentence executive summary highlighting the testing risk and strategic challenge]
     
     ### Interview Question:
-    [Insert the situational leadership question here, under 200 characters]
+    ${topic}
     
     ### Expert Answer:
-    [Insert the structured, strategic framework answer here focusing on QA Lead execution and metrics]
+    [Insert the structured, strategic framework answer here focusing on manual QA execution, coverage, and validation metrics]
 
     ### Speaking Blueprint (3-Minute Verbal Response):
     [Insert the conversational speech sample here, clearly embedding markers for [The Hook], [The Core Execution], and [The Punchline]]
   `;
 }
 
-async function generateInterviewQuestion(rawTopic: string, keyNumber: number) {
-  const apiKey = getTargetApiKey(keyNumber);
+async function generateInterviewQuestion(topic: string, keyNumber: number) {
+  // ============================================================================
+  // ⚡ BỘ TRÍCH XUẤT ĐA THẺ THÔNG MINH (MULTI-TAG EXTRACTION LOGIC)
+  // ============================================================================
+  let targetRoles: string[] = ["Manual_QA_Engineer"]; // Giá trị mặc định an toàn
+  let coreCategories: string[] = ["Leadership"];
+  let actualQuestion = topic;
+
+  if (topic.includes("-") && topic.includes("|")) {
+    try {
+      const dashIndex = topic.indexOf("-");
+      const metadataPart = topic.substring(0, dashIndex).trim();
+      actualQuestion = topic.substring(dashIndex + 1).trim();
+
+      const pipeParts = metadataPart.split("|").map(p => p.trim());
+      
+      // 1. Trích xuất Đa Role (Thay thế khoảng trắng bằng dấu gạch dưới)
+      if (pipeParts[0]) {
+        targetRoles = pipeParts[0]
+          .split(",")
+          .map(r => r.trim().replace(/\s+/g, "_"))
+          .filter(r => r.length > 0);
+      }
+      
+      // 2. Trích xuất Đa Category
+      if (pipeParts[1]) {
+        coreCategories = pipeParts[1]
+          .split(",")
+          .map(c => c.trim().replace(/\s+/g, "_"))
+          .filter(c => c.length > 0);
+      }
+    } catch (e) {
+      console.warn("⚠️ Lỗi bốc tách chuỗi đa thẻ, dùng cấu hình mặc định.");
+    }
+  }
+
+  // ============================================================================
+  // 🔍 TỰ ĐỘNG NHẬN DIỆN CHIẾN LƯỢC: CHỌN PROMPT AUTOMATION HAY MANUAL
+  // Nếu trong mảng targetRoles có chữ "Automation", hệ thống kích hoạt prompt Technical ngay lập tức.
+  // ============================================================================
+  const isAutomation = targetRoles.some(role => role.toLowerCase().includes("automation"));
+
+  const rolesString = JSON.stringify(targetRoles);
+  const categoriesString = JSON.stringify(coreCategories);
+
+  console.log(`🏷️  [Nhận Diện Động] Nhóm: [${isAutomation ? "AUTOMATION" : "MANUAL"}] | Roles: ${rolesString} | Categories: ${categoriesString}`);
+
+  // ============================================================================
+  // 🤖 TIẾN HÀNH KHỞI TẠO AI VÀ GENERATE NỘI DUNG
+  // ============================================================================
+  const apiKey = getTargetApiKey(keyNumber); 
   if (!apiKey) {
-    console.error(`❌ Lỗi: Không tìm thấy biến cấu hình GEMINI_API_KEY_${keyNumber}!`);
+    console.error(`❌ Không tìm thấy API Key số: ${keyNumber}`);
     return false;
   }
 
-  // 🛠️ Gọt bỏ hoàn toàn dấu nháy kép dư thừa ở đầu/cuối do shell truyền sang
-  const topic = rawTopic.replace(/^"|"$/g, "").trim();
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+  // Chọn chiến lược sinh prompt dựa trên loại role đã phân tích động
+  const prompt = getPromptByStrategy(actualQuestion, isAutomation, rolesString, categoriesString);
 
   try {
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-    const prompt = getPromptByMode(topic);
-
-    console.log(`🤖 [Băng chuyền - Chế độ: ${CURRENT_MODE}] Key [${keyNumber}] đang xử lý: "${topic.substring(0, 60)}..."`);
+    console.log(`🤖 Đang gửi câu hỏi lên Gemini: "${actualQuestion.slice(0, 60)}..."`);
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
+    const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
 
-    const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "").trim();
-
-    // 🛡️ CHỐT CHẶN AN TOÀN: Nếu AI trả về trống hoặc dữ liệu rác quá ngắn, báo FAIL luôn
-    if (!cleanMarkdown || cleanMarkdown.length < 50) {
-      console.error(`❌ [FAIL] Key [${keyNumber}] nhận được dữ liệu lỗi hoặc quá ngắn. Đang bỏ qua để chạy lại sau.`);
-      return false; // Trả về false để bộ điều phối không ghi vào done_topics.txt
-    }
-
-    // ============================================================================
-    // 🛠️ TẠO URL CHUẨN SEO TỪ TITLE VÀ CHỐNG GHI ĐÈ FILE
-    // ============================================================================
-    let rawFileName = topic.replace(/Manual Testing, QA Leader role:/ig, "").trim();
-
-    // Bắt chính xác dòng title: '...' trong Frontmatter mà AI vừa sinh ra
-    const titleMatch = cleanMarkdown.match(/title:\s*['"](.*?)['"]/);
-    if (titleMatch && titleMatch[1]) {
-      rawFileName = titleMatch[1];
-    }
-
-    // 1. Tạo tên file gốc (Base Name) - Lấy TRỌN VẸN CÂU HỎI
-    const baseFileName = rawFileName
+    // Ép trọn vẹn câu hỏi gạch nối thành tên file vật lý để tối ưu SEO URL
+    const coreSlug = actualQuestion
       .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")  // Xóa sạch dấu hỏi chấm (?), phẩy, nháy kép
-      .replace(/\s+/g, "-")          // Biến khoảng trắng thành gạch ngang
-      .replace(/-+/g, "-")           // Dọn sạch nếu có nhiều dấu gạch ngang dính liền
-      .replace(/^-|-$/g, "");        // Xóa gạch ngang thừa ở đầu và cuối chuỗi
-
+      .replace(/[^a-z0-9\s]+/g, "")
+      .trim()
+      .replace(/\s+/g, "-");
+    
     const outputDir = path.join(process.cwd(), "content", "posts");
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-    // 2. CHỐNG GHI ĐÈ: Tự động thêm hậu tố -1, -2 nếu file đã tồn tại
-    let fileName = `${baseFileName}.md`;
+    let fileName = `${coreSlug}.md`;
     let outputPath = path.join(outputDir, fileName);
     let counter = 1;
 
     while (fs.existsSync(outputPath)) {
-      fileName = `${baseFileName}-${counter}.md`;
+      fileName = `${coreSlug}-${counter}.md`;
       outputPath = path.join(outputDir, fileName);
       counter++;
     }
 
-    // 3. Tiến hành ghi file an toàn
     fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
-    console.log(`✅ [PASS] Xuất file thành công: ${fileName}`);
+    console.log(`✅ [PASS] Xuất URL nguyên bản thành công: ${fileName}`);
     return true;
   } catch (error) {
-    console.error(`⚠️ [FAIL] Key [${keyNumber}] thất bại do dính hạn ngạch hoặc lỗi kết nối.`, error);
+    console.error(`⚠️ [FAIL] Thất bại tại chủ đề [${actualQuestion.slice(0, 30)}]:`, error);
     return false;
   }
 }
@@ -257,7 +239,6 @@ async function generateInterviewQuestion(rawTopic: string, keyNumber: number) {
 async function main() {
   const keyArgument = process.argv[2];
   const topicArgument = process.argv[3];
-
   const keyNumber = keyArgument ? parseInt(keyArgument, 10) : 1;
 
   if (!topicArgument) {
