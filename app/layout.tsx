@@ -81,12 +81,23 @@ export default function RootLayout({
 }) {
   // 2. LẤY DỮ LIỆU TÌM KIẾM RÚT GỌN (Giúp hệ thống load cực nhanh)
   const allPosts = getAllPosts();
-  const searchData = allPosts.map(post => ({
-    slug: post.slug,
-    title: post.title,
-    category: post.category || "General",
-    tool: (post as any).tool_stack || "None"
-  }));
+  
+  // 🚀 FIX LỖI 3: Chuẩn hóa trường category từ dạng Mảng sang dạng Chuỗi sạch để khớp kiểu dữ liệu với SearchPost
+  const searchData = allPosts.map(post => {
+    // Ép kiểu an toàn để bốc phần tử đầu tiên nếu category trả về mảng dữ liệu tĩnh
+    const rawCategory = post.category;
+    const cleanCategoryString = Array.isArray(rawCategory)
+      ? (rawCategory[0] || "General")
+      : (rawCategory || "General");
+
+    return {
+      slug: post.slug,
+      title: post.title,
+      // Tiến hành gọt sạch dấu gạch dưới toàn cục để hiển thị chữ siêu sạch trên ô tìm kiếm nhanh
+      category: cleanCategoryString.replace(/_/g, " "),
+      tool: (post as any).tool_stack || "None"
+    };
+  });
 
   return (
     <html lang="en" className="dark">
@@ -98,7 +109,6 @@ export default function RootLayout({
             
             {/* LOGO TRÁI: Đã đồng bộ bằng cách gọi Favicon Code và Đổ màu Gradient Text */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              {/* Gọi chính endpoint icon code ra làm ảnh (Tỷ lệ vuông 36px đồng bộ với tab trình duyệt) */}
               <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 group-hover:border-emerald-500/50 transition-colors p-1">
                 <img 
                   src="/icon" 
@@ -107,7 +117,6 @@ export default function RootLayout({
                 />
               </div>
 
-              {/* Chữ thương hiệu đổi sang màu Mint Gradient cực hợp với nền tối bg-slate-950 */}
               <span className="text-lg font-black tracking-tight bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent group-hover:from-emerald-300 group-hover:to-teal-200 transition-all">
                 QA<span className="text-white">Hacks</span>
               </span>
@@ -132,7 +141,6 @@ export default function RootLayout({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                {/* Khối thả xuống khi Hover */}
                 <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
                     <Link href="/?category=Foundations&sub=Manual" className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors">
@@ -156,7 +164,6 @@ export default function RootLayout({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                {/* Khối thả xuống khi Hover */}
                 <div className="absolute left-0 top-full pt-2 w-56 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
                     <Link href="/?sub=Automation" className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition-colors">
