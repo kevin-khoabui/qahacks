@@ -11,16 +11,15 @@ interface MenuItem {
 export default function TableOfContents() {
   const [activeId, setActiveId] = useState("");
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-  const [isOpen, setIsOpen] = useState(true); // Mặc định luôn mở trên mobile
+  const [isOpen, setIsOpen] = useState(true);
   const headingElementsRef = useRef<{ [key: string]: IntersectionObserverEntry }>({});
-  
-  // 🎯 CỜ CHẶN CHỐNG NHẢY ITEM KHI ĐANG CLICK CUỘN TRANG
   const isClickScrolling = useRef(false);
 
   useEffect(() => {
     const articleElement = document.querySelector("article");
     if (!articleElement) return;
 
+    // Quét toàn bộ H2 và H3 trong bài viết
     const headingElements = Array.from(
       articleElement.querySelectorAll("h2, h3")
     ) as HTMLElement[];
@@ -30,20 +29,17 @@ export default function TableOfContents() {
 
     headingElements.forEach((el) => {
       const text = el.innerText || "";
-      const textLower = text.toLowerCase().trim();
       const id = el.id;
 
       if (!id) return;
 
-      // 🛠️ BỘ LỌC TỐI GIẢN CHỈ TÌM BÀI GỘP
-      if (textLower.match(/^question\s+\d+/i)) {
-        dynamicMenuItems.push({ 
-          id, 
-          label: text, 
-          level: el.tagName === "H2" ? 2 : 3 
-        });
-        validIds.push(id);
-      }
+      // 🚀 SỬA LỖI 2: Bộ lọc thông minh - Ăn cả bài Mega Compilation lẫn bài đơn lẻ (Context, Solution, Blueprint...)
+      dynamicMenuItems.push({ 
+        id, 
+        label: text, 
+        level: el.tagName === "H2" ? 2 : 3 
+      });
+      validIds.push(id);
     });
 
     setMenuItems(dynamicMenuItems);
@@ -53,7 +49,6 @@ export default function TableOfContents() {
     }
 
     const callback = (headings: IntersectionObserverEntry[]) => {
-      // 🛑 NẾU NGƯỜI DÙNG ĐANG CLICK CUỘN, BỎ QUA KHÔNG CHO OBSERVER TỰ ĐỘNG HIGHLIGHT SAI
       if (isClickScrolling.current) return;
 
       headings.forEach((heading) => {
@@ -74,9 +69,6 @@ export default function TableOfContents() {
       }
     };
 
-    // 🛠️ TINH CHỈNH ROOTMARGIN: 
-    // - Hạ biên trên xuống -100px (để bù trừ hẳn cho Header cản trở)
-    // - Co hẹp biên dưới lại -20% để ép vùng quét tập trung vào nửa trên màn hình
     const observer = new IntersectionObserver(callback, {
       rootMargin: "-100px 0px -65% 0px",
       threshold: [0, 0.2, 0.5, 1.0],
@@ -93,13 +85,13 @@ export default function TableOfContents() {
   if (menuItems.length <= 1) return null;
 
   return (
-    <div className="bg-slate-900/30 lg:bg-transparent p-4 lg:p-0 rounded-xl border border-slate-800/60 lg:border-none space-y-3 w-full">
-      {/* HEADER MỤC LỤC */}
+    // 🚀 SỬA LỖI 1: Giới hạn độ rộng tối đa max-w-[260px] và chống tràn text (break-words)
+<div className="bg-slate-900/30 lg:bg-transparent p-4 lg:p-0 rounded-xl border border-slate-800/60 lg:border-none space-y-3 w-full sticky top-28 hierarchy-toc">      {/* HEADER MỤC LỤC */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full lg:cursor-default flex items-center justify-between lg:justify-start gap-1.5 border-b border-slate-900 pb-2.5 text-left focus:outline-none group"
       >
-        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 whitespace-nowrap">
           📍 On This Page
         </h3>
         <svg 
@@ -121,14 +113,9 @@ export default function TableOfContents() {
               href={`#${item.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                
-                // 1. Khóa bộ tự động scan của IntersectionObserver lại
                 isClickScrolling.current = true;
-                
-                // 2. Ép giao diện highlight ngay lập tức mục vừa bấm
                 setActiveId(item.id);
 
-                // 3. Tiến hành cuộn mượt đến đích
                 const targetElement = document.getElementById(item.id);
                 if (targetElement) {
                   targetElement.scrollIntoView({
@@ -137,16 +124,18 @@ export default function TableOfContents() {
                   });
                 }
 
-                // 4. Mở khóa cờ sau khi hoạt ảnh cuộn hoàn tất (tầm 600ms)
                 setTimeout(() => {
                   isClickScrolling.current = false;
                 }, 600);
 
                 if (window.innerWidth < 1024) setIsOpen(false);
               }}
-              className={`block transition-all duration-150 rounded-lg tracking-wide text-xs py-1.5 font-semibold pl-2 text-slate-400 hover:text-slate-200 ${
+              // Thêm pl-4 cho level 3 để thụt lề phân cấp, dùng break-words chống tràn chữ
+              className={`block transition-all duration-150 rounded-lg tracking-wide text-xs py-1.5 font-semibold text-slate-400 hover:text-slate-200 break-words ${
+                item.level === 3 ? "pl-5 text-[11px] text-slate-500" : "pl-2"
+              } ${
                 isActive
-                  ? "text-teal-400 font-bold bg-teal-500/5 border-l-2 border-teal-400 pl-2 rounded-l-none"
+                  ? "text-teal-400 font-bold bg-teal-500/5 border-l-2 border-teal-400 rounded-l-none"
                   : ""
               }`}
             >

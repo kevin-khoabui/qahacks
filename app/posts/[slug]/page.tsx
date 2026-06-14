@@ -16,7 +16,7 @@ interface Props {
 }
 
 // ============================================================================
-// 🚀 FIX LỖI 1: BẮT BUỘC PHẢI CÓ HÀM NÀY KHI DÙNG CHẾ ĐỘ OUTPUT: EXPORT
+// 1. GENERATE STATIC PARAMS (BẮT BUỘC CHO OUTPUT: EXPORT)
 // ============================================================================
 export async function generateStaticParams() {
   const jsonPath = path.resolve(process.cwd(), "public", "content", "posts.generated.json");
@@ -39,6 +39,9 @@ export async function generateStaticParams() {
   }
 }
 
+// ============================================================================
+// 2. DYNAMIC METADATA GENERATOR (SEO OPTIMIZATION)
+// ============================================================================
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const post = await getPostData(resolvedParams.slug);
@@ -50,11 +53,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // Chuẩn hóa mảng thẻ thành chuỗi để làm Description/Keywords
   const rolesArray = Array.isArray(post.target_role) ? post.target_role : [post.target_role || ""];
   const categoriesArray = Array.isArray(post.category) ? post.category : [post.category || ""];
   
-  // 🔍 SỬA CHỖ NÀY: Thay thế triệt để dấu gạch dưới trong chuỗi mô tả SEO
   const displayRoles = rolesArray.map(r => r.replace(/_/g, " ")).join(", ");
 
   const cleanTitle = `${post.title} | QA Hacks`;
@@ -86,6 +87,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// ============================================================================
+// 3. SCHEMA.ORG EXTRACTOR HELPER
+// ============================================================================
 function parseContentForSchema(content: string) {
   const questionMatch = content.match(/### Interview Question(?:\s+\d+)?:\s*([\s\S]*?)(?=### Expert Answer|$)/i);
   const answerMatch = content.match(/### Expert Answer(?:\s+\d+)?:\s*([\s\S]*)/i);
@@ -96,6 +100,9 @@ function parseContentForSchema(content: string) {
   };
 }
 
+// ============================================================================
+// 4. MAIN POST PAGE COMPONENT
+// ============================================================================
 export default async function PostPage({ params }: Props) {
   const resolvedParams = await params;
   const post = await getPostData(resolvedParams.slug);
@@ -104,11 +111,9 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  // Ép kiểu dữ liệu mảng an toàn đề phòng file cũ chưa đồng bộ
   const roles: string[] = Array.isArray(post.target_role) ? post.target_role : [post.target_role || "QA_Engineer"];
   const categories: string[] = Array.isArray(post.category) ? post.category : [post.category || "Technical"];
 
-  // Bốc liên đới liên quan dựa trên phần tử danh mục đầu tiên trong mảng dữ liệu tĩnh
   const primaryCategory = categories[0] || "Technical";
   const relatedPosts = await getRelatedPosts(resolvedParams.slug, primaryCategory, 3);
 
@@ -160,8 +165,7 @@ export default async function PostPage({ params }: Props) {
           <nav className="flex items-center space-x-2 text-xs font-medium text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
             <span className="text-slate-600">/</span>
-            {/* 🔍 SỬA CHỖ NÀY: Gọt dấu gạch dưới cho chuỗi hiển thị trên Breadcrumb */}
-            <Link href={`/?category=${primaryCategory}`} className="hover:text-teal-400 transition-colors capitalize">
+            <Link href="/" className="hover:text-teal-400 transition-colors capitalize">
               {primaryCategory.toLowerCase().replace(/_/g, " ")}
             </Link>
             <span className="text-slate-600">/</span>
@@ -176,14 +180,14 @@ export default async function PostPage({ params }: Props) {
               <div className="absolute top-0 left-0 w-full h-48 bg-linear-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
 
               <div className="relative z-10">
-                {/* ĐA THẺ METATAGS: Duyệt mảng category tự động và xóa bỏ dấu gạch dưới */}
+                {/* METATAGS */}
                 <div className="flex flex-wrap gap-2 items-center text-[11px] font-bold uppercase tracking-wider mb-5">
                   {categories.map((cat) => (
-                    <span key={cat} className="px-2.5 py-1 rounded border text-teal-400 bg-teal-500/10 border-teal-500/20">
+                    <span key={cat} className="px-2.5 py-1 rounded border text-teal-400 bg-teal-500/10 border-teal-500/20 whitespace-nowrap">
                       {cat.replace(/_/g, " ")} {post.sub_category ? `/ ${post.sub_category.replace(/_/g, " ")}` : ""}
                     </span>
                   ))}
-                  <span className="px-2.5 py-1 rounded border text-rose-400 bg-rose-500/10 border-rose-500/20">
+                  <span className="px-2.5 py-1 rounded border text-rose-400 bg-rose-500/10 border-rose-500/20 whitespace-nowrap">
                     {post.difficulty}
                   </span>
                 </div>
@@ -200,27 +204,29 @@ export default async function PostPage({ params }: Props) {
                       📋 Interview Context
                     </h3>
                     
-                    {/* Duyệt đa Role trên Mobile và làm sạch chữ */}
-                    <div className="flex flex-col gap-2 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
-                      <span className="text-xs text-slate-400">Target Roles:</span>
+                    {/* Target Roles (Mobile) - Truyền Hash động bảo mật, không sợ sập Cloudflare */}
+                    <div className="flex justify-between items-start text-xs gap-4 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                      <span className="text-slate-400 pt-0.5 whitespace-nowrap">Target Roles:</span>
                       <div className="flex flex-wrap gap-1.5 justify-end">
-                        {roles.map((role) => (
-                          <Link
-                            key={role}
-                            href={`/?role=${role}`}
-                            className="text-teal-400 hover:text-teal-300 font-semibold text-xs underline decoration-dotted transition-colors cursor-pointer"
-                          >
-                            {role.replace(/_/g, " ")}
-                          </Link>
-                        ))}
+{roles.map((role) => (
+  <Link
+    key={role}
+    // CHUYỂN HƯỚNG SANG TRANG CATEGORY THẬT: Tự động nhảy sang /roles/Manual_QA_Engineer chuẩn SEO
+    href={`/roles/${role}`} 
+    className="text-teal-400 font-semibold text-xs border border-teal-500/20 bg-teal-500/5 hover:bg-teal-500/10 hover:border-teal-400 px-2 py-0.5 rounded whitespace-nowrap transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 inline-block select-none"
+  >
+    {role.replace(/_/g, " ")}
+  </Link>
+))}
                       </div>
                     </div>
 
+                    {/* Tool Stack (Mobile) */}
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Tool Stack:</span>
                       <Link
-                        href={`/?tool=${post.tool_stack}`}
-                        className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/20 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 transition-colors cursor-pointer"
+                        href={`/#tool=${post.tool_stack}`}
+                        className="text-emerald-400 hover:text-emerald-300 border border-emerald-500/20 hover:border-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 whitespace-nowrap inline-block select-none"
                       >
                         {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
                       </Link>
@@ -259,21 +265,21 @@ export default async function PostPage({ params }: Props) {
             </article>
 
             {/* SIDEBAR CONTAINER (DESKTOP ONLY) */}
-            <aside className="lg:col-span-4 h-full">
-              <div className="hidden lg:block bg-[#0B1121] p-6 rounded-2xl border border-slate-800 shadow-lg lg:sticky lg:top-6 space-y-5">
+            <aside className="lg:col-span-3 w-full h-full">
+              <div className="hidden lg:block bg-[#0B1121] p-6 rounded-2xl border border-slate-800 shadow-lg lg:sticky lg:top-28 space-y-5">
                 <div>
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">📋 Interview Context</h3>
                   <div className="space-y-3">
                     
-                    {/* Duyệt đa Role trên Desktop Sidebar và gọt sạch dấu gạch dưới */}
-                    <div className="flex flex-col gap-1.5">
+                    {/* Target Roles (Desktop Sidebar) - Chuyển sang định dạng Hash tĩnh siêu an toàn */}
+                    <div className="flex flex-col gap-2">
                       <span className="text-xs text-slate-400">Target Roles:</span>
                       <div className="flex flex-wrap gap-1.5">
                         {roles.map((role) => (
                           <Link
                             key={role}
-                            href={`/?role=${role}`}
-                            className="text-teal-400 hover:text-teal-300 font-semibold text-xs underline decoration-dotted transition-colors cursor-pointer"
+                            href={`/#role=${role}`}
+                            className="text-teal-400 font-semibold text-xs border border-teal-500/20 bg-teal-500/5 hover:bg-teal-500/10 hover:border-teal-400 px-2 py-0.5 rounded whitespace-nowrap transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 inline-block select-none"
                           >
                             {role.replace(/_/g, " ")}
                           </Link>
@@ -281,11 +287,12 @@ export default async function PostPage({ params }: Props) {
                       </div>
                     </div>
 
-                    <div className="flex justify-between items-center text-xs pt-1.5 border-t border-slate-900">
+                    {/* Tool Stack (Desktop Sidebar) */}
+                    <div className="flex justify-between items-center text-xs pt-2.5 border-t border-slate-900">
                       <span className="text-slate-400">Tool Stack:</span>
                       <Link
-                        href={`/?tool=${post.tool_stack}`}
-                        className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/20 font-bold px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 transition-colors cursor-pointer"
+                        href={`/#tool=${post.tool_stack}`}
+                        className="text-emerald-400 hover:text-emerald-300 border border-emerald-500/20 hover:border-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 whitespace-nowrap inline-block select-none"
                       >
                         {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
                       </Link>
@@ -311,7 +318,6 @@ export default async function PostPage({ params }: Props) {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {relatedPosts.map((rp) => {
-                  // 🔍 SỬA CHỖ NÀY: Gọt sạch dấu gạch dưới cho category của các bài viết liên quan ở footer
                   const rpCategory = Array.isArray(rp.category) ? rp.category[0] : rp.category;
                   const displayRpCategory = rpCategory ? rpCategory.replace(/_/g, " ") : "General";
 
