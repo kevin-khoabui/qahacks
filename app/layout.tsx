@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
-// 1. IMPORT CÁC THÀNH PHẦN TÌM KIẾM VÀ GOOGLE ANALYTICS
+//1. IMPORT CÁC THÀNH PHẦN TÌM KIẾM VÀ GOOGLE ANALYTICS
 import { getAllPosts } from "@/lib/posts";
 import CommandPalette from "@/components/CommandPalette";
 import NavbarSearchButton from "@/components/NavbarSearchButton";
