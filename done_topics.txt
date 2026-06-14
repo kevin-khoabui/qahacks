@@ -90,3 +90,10 @@ Manual QA Engineer | Foundations Methodology - What test scenarios do you use to
 Manual QA Engineer | Analytical Behavioral - How do you handle testing a critical security patch deployment when you are not given any release notes or impact analysis?
 Manual QA Engineer | Foundations Methodology - What is your process for verifying that deep-linked promotional URLs bypass login walls correctly for authenticated users?
 Manual QA Engineer | Analytical Behavioral - How do you perform comparative testing between a staging database and a production database schema to catch drift manually?
+Manual QA Engineer | Analytical Behavioral - How do you handle testing a mobile app when a new OS beta version breaks the current production application build?
+Manual QA Engineer | Analytical Behavioral - How do you approach mobile hardware integration testing like verifying biometric login fallback sequences to pin entry?
+Manual QA Engineer | Foundations Methodology - What scenarios do you design to validate a video player module's behavior during scrubbing, buffering, and quality switches?
+Manual QA Engineer | Analytical Behavioral - How do you ensure testing neutrality when validating a feature that was built by a close personal friend on the dev team?
+Manual QA Engineer | Foundations Methodology - What is your technique for testing data rollbacks when a multi-stage wizard transaction fails at the final step?
+Manual QA Engineer | Analytical Behavioral - How do you investigate a defect where an application works perfectly in the QA environment but fails immediately in Staging?
+Manual QA Engineer | Foundations Methodology - What specific test cases do you write to ensure session tokens invalidate completely upon explicit user logout?
