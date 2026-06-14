@@ -1,5 +1,5 @@
 // ÉP TRANG CHỦ CHẠY ĐỘNG ĐỂ XỬ LÝ SEARCHPARAMS TRÊN CLOUDFLARE WORKERS RUNTME
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 export const revalidate = 0;
 
 import { getAllPosts } from "@/lib/posts";
