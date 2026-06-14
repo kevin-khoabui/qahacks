@@ -1,2 +1,2 @@
-/content/posts/* /posts/:splat  301
-/content/posts    /              301
+/content/posts/:slug.md /posts/:slug 301
+/content/posts / 301
