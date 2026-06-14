@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Bắt buộc phải có khi dùng static export để tránh lỗi tối ưu hóa ảnh trên Edge */
+  output: 'export', // 🚀 Kích hoạt chế độ xuất trang tĩnh hoàn toàn
+  
   images: {
-    unoptimized: true, 
+    unoptimized: true, // Bắt buộc phải có để tránh lỗi render ảnh tĩnh khi export
   },
 
   // ============================================================================
