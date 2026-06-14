@@ -54,6 +54,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     title = `${cleanCat} Strategic QA Guides | QA Hacks`;
     description = `Comprehensive strategy roadmaps, behavioral scenarios, and architecture review responses for ${cleanCat} roles.`;
   } else if (filterRole) {
+    // 🔍 SỬA CHỖ NÀY: Dùng bộ lọc regex /_/g để làm sạch dấu gạch dưới trong thẻ Meta Title của trình duyệt
     const cleanRole = filterRole.replace(/_/g, " ");
     title = `${cleanRole} Interview Guides & Solutions | QA Hacks`;
     description = `Exclusive situational questions, leadership challenges, and technical scenarios tailored for ${cleanRole} positions.`;
@@ -161,8 +162,10 @@ export default async function HomePage({ searchParams }: Props) {
     pageTitle = `Search results for "${params.q}"`;
     pageDesc = `Found ${filteredPosts.length} guides matching your keyword.`;
   } else if (filterRole) {
-    pageTitle = `${filterRole.replace(/_/g, " ")} Interview Guides`;
-    pageDesc = `Showing specific situational and technical scenarios targeted at ${filterRole.replace(/_/g, " ")}.`;
+    // 🔍 SỬA CHỖ NÀY: Dùng .replace(/_/g, " ") để gọt sạch dấu gạch dưới khi hiển thị ở Header chính của UI
+    const cleanRole = filterRole.replace(/_/g, " ");
+    pageTitle = `${cleanRole} Interview Guides`;
+    pageDesc = `Showing specific situational and technical scenarios targeted at ${cleanRole}.`;
   } else if (filterType === "Compilation") {
     pageTitle = "⭐ Mega Interview Compilations";
     pageDesc = "Curated high-volume preparation guides containing Top 10, 20, 30 questions and answers.";
@@ -218,6 +221,11 @@ export default async function HomePage({ searchParams }: Props) {
                 const qType = (post as any).question_type;
                 const pTool = (post as any).tool_stack;
                 
+                // Trích xuất mảng dữ liệu an toàn để hiển thị đa thẻ (multi-role tags) lên từng hộp bài viết
+                const postRoles: string[] = Array.isArray((post as any).target_role) 
+                  ? (post as any).target_role 
+                  : [(post as any).target_role || ""];
+
                 return (
                   <Link 
                     key={post.slug} 
@@ -226,13 +234,16 @@ export default async function HomePage({ searchParams }: Props) {
                   >
                     <div className="flex flex-col h-full justify-between">
                       <div>
+                        {/* 🔍 KHU VỰC THẺ TAGS: ĐÃ ĐƯỢC CHUẨN HÓA CHỮ SẠCH */}
                         <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider mb-3">
                           <span className={`px-2 py-0.5 rounded border ${
                             qType === "Compilation" 
                               ? "text-amber-400 bg-amber-950/40 border-amber-900/30" 
                               : "text-emerald-400 bg-emerald-950/40 border-emerald-900/30"
                           }`}>
-                            {qType === "Compilation" ? "MEGA COMPILATION" : (post.sub_category || "General")}
+                            {qType === "Compilation" 
+                              ? "MEGA COMPILATION" 
+                              : (post.sub_category || "General").replace(/_/g, " ")}
                           </span>
                           
                           <span className="bg-slate-900/50 text-slate-400 px-2 py-0.5 rounded border border-slate-800/30">
@@ -246,9 +257,25 @@ export default async function HomePage({ searchParams }: Props) {
                           )}
                         </div>
 
+                        {/* Tiêu đề bài viết */}
                         <h2 className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors line-clamp-3 leading-snug">
                           {post.title}
                         </h2>
+
+                        {/* 🚀 KHU VỰC THÊM MỚI: Hiển thị danh sách các Target Roles bằng chữ sạch (Không dấu gạch dưới) */}
+                        <div className="flex flex-wrap gap-1.5 mt-3">
+                          {postRoles.map((role: string) => {
+                            if (!role) return null;
+                            return (
+                              <span 
+                                key={role} 
+                                className="text-[10px] text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded border border-slate-800/60 tracking-wide normal-case font-normal"
+                              >
+                                {role.replace(/_/g, " ")}
+                              </span>
+                            );
+                          })}
+                        </div>
                       </div>
 
                       <div className="mt-5 flex items-center text-xs font-semibold text-slate-500 group-hover:text-emerald-400 transition-colors pt-2 border-t border-slate-900/40">

@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const rolesArray = Array.isArray(post.target_role) ? post.target_role : [post.target_role || ""];
   const categoriesArray = Array.isArray(post.category) ? post.category : [post.category || ""];
   
+  // 🔍 SỬA CHỖ NÀY: Thay thế triệt để dấu gạch dưới trong chuỗi mô tả SEO
   const displayRoles = rolesArray.map(r => r.replace(/_/g, " ")).join(", ");
 
   const cleanTitle = `${post.title} | QA Hacks`;
@@ -62,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cleanTitle,
     description: cleanDescription,
-    keywords: post.tags || ["qa-interview", "software-testing", "qa-lead", ...categoriesArray, post.tool_stack],
+    keywords: post.tags || ["qa-interview", "software-testing", "qa-lead", ...categoriesArray.map(c => c.replace(/_/g, " ")), post.tool_stack],
     openGraph: {
       title: cleanTitle,
       description: cleanDescription,
@@ -159,6 +160,7 @@ export default async function PostPage({ params }: Props) {
           <nav className="flex items-center space-x-2 text-xs font-medium text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-teal-400 transition-colors">Home</Link>
             <span className="text-slate-600">/</span>
+            {/* 🔍 SỬA CHỖ NÀY: Gọt dấu gạch dưới cho chuỗi hiển thị trên Breadcrumb */}
             <Link href={`/?category=${primaryCategory}`} className="hover:text-teal-400 transition-colors capitalize">
               {primaryCategory.toLowerCase().replace(/_/g, " ")}
             </Link>
@@ -174,11 +176,11 @@ export default async function PostPage({ params }: Props) {
               <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
 
               <div className="relative z-10">
-                {/* ĐA THẺ METATAGS: Duyệt mảng category tự động */}
+                {/* ĐA THẺ METATAGS: Duyệt mảng category tự động và xóa bỏ dấu gạch dưới */}
                 <div className="flex flex-wrap gap-2 items-center text-[11px] font-bold uppercase tracking-wider mb-5">
                   {categories.map((cat) => (
                     <span key={cat} className="px-2.5 py-1 rounded border text-teal-400 bg-teal-500/10 border-teal-500/20">
-                      {cat.replace(/_/g, " ")} {post.sub_category ? `/ ${post.sub_category}` : ""}
+                      {cat.replace(/_/g, " ")} {post.sub_category ? `/ ${post.sub_category.replace(/_/g, " ")}` : ""}
                     </span>
                   ))}
                   <span className="px-2.5 py-1 rounded border text-rose-400 bg-rose-500/10 border-rose-500/20">
@@ -198,7 +200,7 @@ export default async function PostPage({ params }: Props) {
                       📋 Interview Context
                     </h3>
                     
-                    {/* Duyệt đa Role trên Mobile */}
+                    {/* Duyệt đa Role trên Mobile và làm sạch chữ */}
                     <div className="flex flex-col gap-2 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
                       <span className="text-xs text-slate-400">Target Roles:</span>
                       <div className="flex flex-wrap gap-1.5 justify-end">
@@ -263,7 +265,7 @@ export default async function PostPage({ params }: Props) {
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">📋 Interview Context</h3>
                   <div className="space-y-3">
                     
-                    {/* Duyệt đa Role trên Desktop Sidebar */}
+                    {/* Duyệt đa Role trên Desktop Sidebar và gọt sạch dấu gạch dưới */}
                     <div className="flex flex-col gap-1.5">
                       <span className="text-xs text-slate-400">Target Roles:</span>
                       <div className="flex flex-wrap gap-1.5">
@@ -308,22 +310,28 @@ export default async function PostPage({ params }: Props) {
                 Continue Learning: Up Next
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {relatedPosts.map((rp) => (
-                  <Link
-                    href={`/posts/${rp.slug}`}
-                    key={rp.slug}
-                    className="group block p-5 rounded-xl border border-slate-800/80 bg-[#0B1121]/60 hover:bg-[#0B1121] hover:border-teal-500/30 transition-all duration-300"
-                  >
-                    <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-                      <span className="text-sky-400">{rp.difficulty}</span>
-                      <span>•</span>
-                      <span>{Array.isArray(rp.category) ? rp.category[0] : rp.category}</span>
-                    </div>
-                    <h3 className="text-sm font-semibold text-slate-200 group-hover:text-teal-400 line-clamp-2 leading-snug transition-colors">
-                      {rp.title}
-                    </h3>
-                  </Link>
-                ))}
+                {relatedPosts.map((rp) => {
+                  // 🔍 SỬA CHỖ NÀY: Gọt sạch dấu gạch dưới cho category của các bài viết liên quan ở footer
+                  const rpCategory = Array.isArray(rp.category) ? rp.category[0] : rp.category;
+                  const displayRpCategory = rpCategory ? rpCategory.replace(/_/g, " ") : "General";
+
+                  return (
+                    <Link
+                      href={`/posts/${rp.slug}`}
+                      key={rp.slug}
+                      className="group block p-5 rounded-xl border border-slate-800/80 bg-[#0B1121]/60 hover:bg-[#0B1121] hover:border-teal-500/30 transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+                        <span className="text-sky-400">{rp.difficulty}</span>
+                        <span>•</span>
+                        <span>{rp.tool_stack !== 'None' ? rp.tool_stack : displayRpCategory}</span>
+                      </div>
+                      <h3 className="text-sm font-semibold text-slate-200 group-hover:text-teal-400 line-clamp-2 leading-snug transition-colors">
+                        {rp.title}
+                      </h3>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
           )}
