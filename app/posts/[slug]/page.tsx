@@ -173,7 +173,7 @@ export default async function PostPage({ params }: Props) {
 
             {/* MAIN ARTICLE BLOCK */}
             <article className="lg:col-span-8 bg-[#0B1121] p-6 sm:p-10 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden h-fit">
-              <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
+              <div className="absolute top-0 left-0 w-full h-48 bg-linear-to-b from-teal-900/10 to-transparent pointer-events-none"></div>
 
               <div className="relative z-10">
                 {/* ĐA THẺ METATAGS: Duyệt mảng category tự động và xóa bỏ dấu gạch dưới */}
