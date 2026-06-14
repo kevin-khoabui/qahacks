@@ -97,3 +97,4 @@ Manual QA Engineer | Analytical Behavioral - How do you ensure testing neutralit
 Manual QA Engineer | Foundations Methodology - What is your technique for testing data rollbacks when a multi-stage wizard transaction fails at the final step?
 Manual QA Engineer | Analytical Behavioral - How do you investigate a defect where an application works perfectly in the QA environment but fails immediately in Staging?
 Manual QA Engineer | Foundations Methodology - What specific test cases do you write to ensure session tokens invalidate completely upon explicit user logout?
+Manual QA Engineer | Foundations Methodology - What test cases do you write to validate custom filtering views that users can save, edit, and delete?

@@ -1,1 +1,0 @@
-Manual QA Engineer | Foundations Methodology - What test cases do you write to validate custom filtering views that users can save, edit, and delete?
