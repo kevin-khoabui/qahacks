@@ -1,0 +1,23 @@
+Manual QA Engineer | Foundations Methodology - How do you design a comprehensive regression test suite for a legacy application with zero existing documentation?
+Manual QA Engineer | Analytical Behavioral - How do you isolate and document an intermittent crash that only occurs on specific mobile devices during network switching?
+Manual QA Engineer | Analytical Behavioral - What strategy do you use to test a real-time data streaming dashboard to ensure zero data drop or message duplication?
+Manual QA Engineer | Foundations Methodology - How do you verify boundary conditions and equivalence partitioning for a complex financial interest calculation engine?
+Manual QA Engineer | Foundations Methodology - What is your process for creating test data when validating user registration flows that require unique Social Security Numbers?
+Manual QA Engineer | Analytical Behavioral - How do you perform end-to-end testing for a shopping cart checkout process when a third-party coupon API is extremely unstable?
+Manual QA Engineer | Foundations Methodology - What testing techniques do you apply to validate complex data migration from an Oracle server to a PostgreSQL database?
+Manual QA Engineer | Analytical Behavioral - How do you approach cross-browser testing for an enterprise application when you are given only one day before release?
+Manual QA Engineer | Foundations Methodology - What is your methodology for testing a dynamic search engine with multi-filter sorting and deep-nested pagination?
+Manual QA Engineer | Analytical Behavioral - How do you handle testing a feature when the developer gives you a build containing five blocker bugs in the first flow?
+Manual QA Engineer | Foundations Methodology - What specific test scenarios do you design to validate cookie and session timeout handling on shared public computers?
+Manual QA Engineer | Analytical Behavioral - How do you test a mobile application's behavior when it suddenly loses internet connectivity mid-transaction?
+Manual QA Engineer | Foundations Methodology - What is your approach to testing an asynchronous batch processing system that runs once every 24 hours?
+Manual QA Engineer | Analytical Behavioral - How do you validate file upload functionality to ensure protection against oversized files and malicious scripts without code inspection?
+Manual QA Engineer | Foundations Methodology - What test cases do you write to verify a complex user permission matrix with hierarchical roles and inherited access?
+Manual QA Engineer | Analytical Behavioral - How do you approach testing a localized web application that supports multiple time zones, languages, and currencies?
+Manual QA Engineer | Foundations Methodology - What is your technique for validating data synchronization between a web application and a native mobile application?
+Manual QA Engineer | Analytical Behavioral - How do you handle a scenario where a bug you reported cannot be reproduced on the developer's local machine?
+Manual QA Engineer | Foundations Methodology - What scenarios do you design to test a multi-step user onboarding wizard where progress can be saved and resumed?
+Manual QA Engineer | Analytical Behavioral - How do you test an email notification system to ensure deep links open the correct screen inside a mobile app?
+Manual QA Engineer | Foundations Methodology - What is your strategy for testing a rich text editor feature to ensure proper rendering of formatting and media?
+Manual QA Engineer | Analytical Behavioral - How do you validate a reporting system to ensure generated PDF and Excel sheets exactly match the UI data?
+Manual QA Engineer | Foundations Methodology - What test cases do you design to verify compliance with basic accessibility standards like keyboard navigation and contrast?
