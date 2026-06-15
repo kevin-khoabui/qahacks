@@ -33,6 +33,9 @@ function cleanSingleString(fieldData: any): string {
 // ============================================================================
 // 🎯 1. BỘ GENERATE TĨNH CHỐNG SẬP BUILD (ĐÃ FIX KHỚP REN DẤU GẠCH DƯỚI)
 // ============================================================================
+// ============================================================================
+// 🎯 1. BỘ GENERATE TĨNH CHỐNG SẬP BUILD (ĐÃ FIX KHỚP REN DẤU GẠCH DƯỚI & FAVICON)
+// ============================================================================
 export async function generateStaticParams() {
   const allPosts = getAllPosts();
   const paths: { slug: string[] }[] = [];
@@ -91,7 +94,7 @@ export async function generateStaticParams() {
   difficulties.add("Intermediate");
   difficulties.add("Advanced");
 
-  // Đóng gói mảng URL tĩnh
+  // Đóng gói mảng URL tĩnh cho các phân loại đơn lẻ
   roles.forEach(r => paths.push({ slug: ["roles", r] }));
   categories.forEach(c => paths.push({ slug: ["categories", c] }));
   subCategories.forEach(sc => paths.push({ slug: ["sub-categories", sc] }));
@@ -100,8 +103,15 @@ export async function generateStaticParams() {
   platforms.forEach(p => paths.push({ slug: ["platforms", p] }));
   tools.forEach(t => paths.push({ slug: ["tools", t] }));
   difficulties.forEach(df => paths.push({ slug: ["difficulties", df] }));
+
+  // 🚀 BỌC GIÁP ĐỆM CHỮ HOA/THƯỜNG CHO PHÂN LOẠI TYPES CHỐNG LỖI 404/500
   paths.push({ slug: ["types", "compilation"] });
+  paths.push({ slug: ["types", "Compilation"] });
   paths.push({ slug: ["types", "situational"] });
+  paths.push({ slug: ["types", "Situational"] });
+
+  // 🚀 CỨU NGUY TUYỆT ĐỐI: Khai báo sẵn bẫy "favicon.ico" giả lập để Next.js không ném lỗi 500 khi trình duyệt cào ngầm
+  paths.push({ slug: ["favicon.ico"] });
 
   return paths;
 }
