@@ -110,9 +110,6 @@ export async function generateStaticParams() {
   paths.push({ slug: ["types", "situational"] });
   paths.push({ slug: ["types", "Situational"] });
 
-  // 🚀 CỨU NGUY TUYỆT ĐỐI: Khai báo sẵn bẫy "favicon.ico" giả lập để Next.js không ném lỗi 500 khi trình duyệt cào ngầm
-  paths.push({ slug: ["favicon.ico"] });
-
   return paths;
 }
 
@@ -165,7 +162,7 @@ export default async function DynamicCategoryPage({ params }: Props) {
   const resolvedParams = await params;
   const [segment, value] = resolvedParams.slug || [];
 
-  if (!segment || !value) {
+if (segment === "favicon.ico" || !segment) {
     notFound();
   }
 

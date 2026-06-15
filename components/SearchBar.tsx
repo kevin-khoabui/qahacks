@@ -50,7 +50,7 @@ export default function SearchBar() {
           group-hover:border-emerald-500/30 
           transition-colors shadow-sm
         ">
-          Ctrl K
+          Ctrl K / ⌘K
         </span>
       </div>
     </div>
