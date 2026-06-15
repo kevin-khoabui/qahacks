@@ -15,7 +15,7 @@ export default function Icon() {
       <div
         style={{
           fontSize: 18,
-          background: "linear-gradient(to bottom right, #34d399, #059669)", // Màu xanh Emerald cực hợp với header tối của bạn
+          background: "linear-gradient(to bottom right, #34d399, #059669)", /// Màu xanh Emerald cực hợp với header tối của bạn
           width: "100%",
           height: "100%",
           display: "flex",

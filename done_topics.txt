@@ -98,3 +98,4 @@ Manual QA Engineer | Foundations Methodology - What is your technique for testin
 Manual QA Engineer | Analytical Behavioral - How do you investigate a defect where an application works perfectly in the QA environment but fails immediately in Staging?
 Manual QA Engineer | Foundations Methodology - What specific test cases do you write to ensure session tokens invalidate completely upon explicit user logout?
 Manual QA Engineer | Foundations Methodology - What test cases do you write to validate custom filtering views that users can save, edit, and delete?
+Manual_QA_Engineer | Analytical_Behavioral - Strategy - How would you prioritize validation efforts when a real-time order synchronization failure intermittently duplicates customer transactions across multiple regions three days before a regulatory audit?

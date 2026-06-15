@@ -2,6 +2,7 @@ name: 🤖 Auto Generate QA Posts
 
 on:
   schedule:
+    # Chạy tự động tại phút thứ 17 hằng giờ
     - cron: '17 * * * *'  
   workflow_dispatch: # Cho phép sếp chủ động bấm chạy bằng tay trên GitHub
 
@@ -21,10 +22,11 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22' # 🚀 TỐI ƯU: Đồng bộ lên Node 22 cho mượt mà
+          cache: 'npm'
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci # 🚀 TỐI ƯU: Thay thế npm install bằng npm ci để tăng tốc độ cài đặt
 
       - name: 🔑 Create .env.local from GitHub Secrets
         env:
@@ -44,10 +46,12 @@ jobs:
           # 3. Nén lại file JSON để cập nhật thanh tìm kiếm trên giao diện web
           node scripts/generate-posts.mjs
 
-      - name: 💾 Commit and Push changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "🤖 Auto-generated a batch of new QA posts [skip ci]" || echo "No changes to commit"
-          git push
+      # 🚀 TỐI ƯU: Chuyển sang dùng bot commit chuyên dụng. 
+      # Nếu giờ đó AI không đẻ ra bài nào mới, bot tự động bỏ qua êm đẹp chứ không gây báo lỗi đỏ workflow.
+      - name: 💾 Auto Commit & Push generated posts
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-generated a batch of new QA posts [skip ci]"
+          file_pattern: 'content/posts/*.md public/content/posts.generated.json'
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
