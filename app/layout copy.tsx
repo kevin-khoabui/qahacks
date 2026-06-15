@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </span>
             </Link>
 
-            {/* 🎯 HỆ THỐNG MENU SIÊU LỌC ĐÃ CHUYỂN ĐỔI THÀNH SEO STATIC URL */}
+            {/* HỆ THỐNG MENU SIÊU LỌC BAO PHỦ TOÀN BỘ 9 THUỘC TÍNH */}
             <nav className="hidden md:flex items-center gap-5 text-xs font-semibold text-slate-400">
               <Link href="/" className="hover:text-emerald-400 transition-colors">Dashboard</Link>
               
@@ -60,13 +60,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl space-y-1">
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Question Type</div>
-                    <Link href="/types/Compilation" className="block px-2.5 py-1.5 text-xs rounded-lg text-amber-400 hover:bg-slate-800 transition-colors">⭐ Mega Compilations</Link>
-                    <Link href="/types/Situational" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Situational Cases</Link>
+                    <Link href="/#question_type=Compilation" className="block px-2.5 py-1.5 text-xs rounded-lg text-amber-400 hover:bg-slate-800 transition-colors">⭐ Mega Compilations</Link>
+                    <Link href="/#question_type=Situational" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Situational Cases</Link>
                     <div className="h-px bg-slate-800 my-1"></div>
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Target Roles</div>
-                    <Link href="/roles/Manual_QA_Engineer" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Manual QA Engineer</Link>
-                    <Link href="/roles/Automation_QA_Engineer" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Automation QA (SDET)</Link>
-                    <Link href="/roles/QA_Lead" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">QA Lead / Manager</Link>
+                    <Link href="/#target_role=Manual_QA_Engineer" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Manual QA Engineer</Link>
+                    <Link href="/#target_role=Automation_QA_Engineer" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Automation QA (SDET)</Link>
+                    <Link href="/#target_role=QA_Lead" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">QA Lead / Manager</Link>
                   </div>
                 </div>
               </div>
@@ -80,12 +80,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="absolute left-0 top-full pt-2 w-52 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl space-y-1">
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Category</div>
-                    <Link href="/categories/Analytical_Behavioral" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Analytical & Behavioral</Link>
-                    <Link href="/categories/Technical" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Technical Architecture</Link>
+                    <Link href="/#category=Analytical_Behavioral" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Analytical & Behavioral</Link>
+                    <Link href="/#category=Technical" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Technical Architecture</Link>
                     <div className="h-px bg-slate-800 my-1"></div>
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Sub Category</div>
-                    <Link href="/sub-categories/Strategy" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Test Strategy & Planning</Link>
-                    <Link href="/sub-categories/Automation" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Automation execution</Link>
+                    <Link href="/#sub_category=Strategy" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Test Strategy & Planning</Link>
+                    <Link href="/#sub_category=Automation" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Automation execution</Link>
                   </div>
                 </div>
               </div>
@@ -99,16 +99,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="absolute left-0 top-full pt-2 w-56 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl space-y-1">
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Core Testing Type</div>
-                    <Link href="/testing-types/Manual" className="block px-2.5 py-1.5 text-xs rounded-lg text-teal-400 hover:bg-slate-800 transition-colors">Manual Execution</Link>
-                    <Link href="/testing-types/Automation" className="block px-2.5 py-1.5 text-xs rounded-lg text-sky-400 hover:bg-slate-800 transition-colors">Automated Scripts</Link>
+                    <Link href="/#core_testing_type=Manual" className="block px-2.5 py-1.5 text-xs rounded-lg text-teal-400 hover:bg-slate-800 transition-colors">Manual Execution</Link>
+                    <Link href="/#core_testing_type=Automation" className="block px-2.5 py-1.5 text-xs rounded-lg text-sky-400 hover:bg-slate-800 transition-colors">Automated Scripts</Link>
                     <div className="h-px bg-slate-800 my-1"></div>
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Domain</div>
-                    <Link href="/domains/Enterprise-Software" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Enterprise Software</Link>
-                    <Link href="/domains/Banking_Finance" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Banking & Finance</Link>
+                    <Link href="/#domain=Enterprise-Software" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Enterprise Software</Link>
+                    <Link href="/#domain=Banking_Finance" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Banking & Finance</Link>
                     <div className="h-px bg-slate-800 my-1"></div>
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Platform</div>
-                    <Link href="/platforms/Cross-platform" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Cross-platform</Link>
-                    <Link href="/platforms/Web" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Web Applications</Link>
+                    <Link href="/#platform=Cross-platform" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Cross-platform</Link>
+                    <Link href="/#platform=Web" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Web Applications</Link>
                   </div>
                 </div>
               </div>
@@ -122,13 +122,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl space-y-1">
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Tool Stack</div>
-                    <Link href="/tools/Playwright" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Playwright</Link>
-                    <Link href="/tools/Cypress" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Cypress</Link>
-                    <Link href="/tools/None" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Generic (No Tool)</Link>
+                    <Link href="/#tool_stack=Playwright" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Playwright</Link>
+                    <Link href="/#tool_stack=Cypress" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Cypress</Link>
+                    <Link href="/#tool_stack=None" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Generic (No Tool)</Link>
                     <div className="h-px bg-slate-800 my-1"></div>
                     <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Difficulty</div>
-                    <Link href="/difficulties/Intermediate" className="block px-2.5 py-1.5 text-xs rounded-lg text-yellow-500 hover:bg-slate-800 transition-colors">Intermediate</Link>
-                    <Link href="/difficulties/Advanced" className="block px-2.5 py-1.5 text-xs rounded-lg text-rose-500 hover:bg-slate-800 transition-colors">Advanced / Expert</Link>
+                    <Link href="/#difficulty=Intermediate" className="block px-2.5 py-1.5 text-xs rounded-lg text-yellow-500 hover:bg-slate-800 transition-colors">Intermediate</Link>
+                    <Link href="/#difficulty=Advanced" className="block px-2.5 py-1.5 text-xs rounded-lg text-rose-500 hover:bg-slate-800 transition-colors">Advanced / Expert</Link>
                   </div>
                 </div>
               </div>
@@ -145,7 +145,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CommandPalette posts={searchData} />
         {children}
 
-        {/* FOOTER ĐẦY ĐỦ LINK CHO GOOGLE ADSENSE */}
+        {/* ==========================================
+            🚀 UPDATE: FOOTER ĐẦY ĐỦ LINK CHO GOOGLE ADSENSE
+            ========================================== */}
         <footer className="border-t border-slate-900 bg-slate-950 py-10 mt-20">
           <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             
