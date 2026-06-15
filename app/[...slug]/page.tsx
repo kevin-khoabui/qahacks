@@ -12,7 +12,7 @@ interface Props {
 function cleanAndExtractArray(fieldData: any): string[] {
   if (!fieldData) return [];
   if (Array.isArray(fieldData)) {
-    return fieldData.map(item => 
+    return fieldData.map(item =>
       String(item).toLowerCase().replace(/[^a-z0-9]/g, "")
     );
   }
@@ -44,17 +44,17 @@ export async function generateStaticParams() {
   const types = new Set<string>();
 
   allPosts.forEach((post) => {
-    const rawRoles: string[] = Array.isArray((post as any).target_role) 
-      ? (post as any).target_role 
+    const rawRoles: string[] = Array.isArray((post as any).target_role)
+      ? (post as any).target_role
       : [String((post as any).target_role || "")];
-      
-    const rawCats: string[] = Array.isArray(post.category) 
-      ? post.category 
+
+    const rawCats: string[] = Array.isArray(post.category)
+      ? post.category
       : [String(post.category || "")];
 
     rawRoles.forEach(r => r && roles.add(r.replace(/[\[\]"'\\]/g, "").trim().replace(/\s+/g, "_")));
     rawCats.forEach(c => c && categories.add(c.replace(/[\[\]"'\\]/g, "").trim().replace(/\s+/g, "_")));
-    
+
     if ((post as any).sub_category) subCategories.add(cleanSingleString((post as any).sub_category));
     if ((post as any).core_testing_type) testingTypes.add(cleanSingleString((post as any).core_testing_type));
     if ((post as any).domain) domains.add(cleanSingleString((post as any).domain));
@@ -174,10 +174,10 @@ export default async function DynamicCategoryPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
       <section className="max-w-6xl mx-auto">
-        
+
         {/* Tiêu đề danh mục luôn cố định đầu trang để bot SEO quét dữ liệu */}
         <div className="border-b border-slate-900 pb-6 mb-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 capitalize">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             {displaySegment}
           </span>
           <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-1">
@@ -199,8 +199,8 @@ export default async function DynamicCategoryPage({ params }: Props) {
             <p className="text-xs text-slate-400 mt-2 max-w-md leading-relaxed">
               Our automated QA knowledge engine is currently generating production-grade solutions and speaking blueprints for this specific segment. Please check back shortly!
             </p>
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="mt-8 px-4 py-2 text-xs font-bold text-emerald-400 border border-emerald-500/20 bg-emerald-500/5 hover:bg-emerald-500/10 rounded-xl transition-all duration-200 cursor-pointer"
             >
               ← Return to Dashboard
@@ -211,8 +211,8 @@ export default async function DynamicCategoryPage({ params }: Props) {
             {filteredPosts.map((post) => {
               const pTool = (post as any).tool_stack;
               return (
-                <Link 
-                  key={post.slug} 
+                <Link
+                  key={post.slug}
                   href={`/posts/${post.slug}`}
                   className="group block p-6 bg-slate-900/40 rounded-2xl border border-slate-900/60 hover:border-emerald-500/40 hover:bg-slate-900/80 transition-all duration-200"
                 >

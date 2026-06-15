@@ -11,7 +11,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div 
+    <div
       onClick={openCommandPalette}
       className="max-w-xl mx-auto relative group cursor-pointer"
     >
@@ -38,7 +38,7 @@ export default function SearchBar() {
           Search frameworks, roles, or topics...
         </span>
       </div>
-      
+
       {/* PHÍM TẮT DỰ PHÒNG Ở BÊN PHẢI */}
       <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
         <span className="

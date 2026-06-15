@@ -26,7 +26,7 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
     <div className="flex items-center justify-center gap-4 mt-12 pt-8 border-t border-slate-800/60">
       {/* Nút Previous */}
       {currentPage > 1 ? (
-        <Link 
+        <Link
           href={createPageURL(currentPage - 1)}
           className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-300 bg-slate-900 border border-slate-700 rounded-lg hover:bg-slate-800 hover:text-emerald-400 hover:border-emerald-500/50 transition-all"
         >
@@ -47,7 +47,7 @@ export default function Pagination({ totalPages, currentPage }: PaginationProps)
 
       {/* Nút Next */}
       {currentPage < totalPages ? (
-        <Link 
+        <Link
           href={createPageURL(currentPage + 1)}
           className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-300 bg-slate-900 border border-slate-700 rounded-lg hover:bg-slate-800 hover:text-emerald-400 hover:border-emerald-500/50 transition-all"
         >

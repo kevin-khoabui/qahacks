@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const allPosts = getAllPosts();
-  
+
   const searchData = allPosts.map(post => {
     const rawCategory = post.category;
     const cleanCategoryString = Array.isArray(rawCategory) ? (rawCategory[0] || "General") : (rawCategory || "General");
@@ -33,10 +33,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased`}>
-        
+
         <header className="sticky top-0 z-50 border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
           <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            
+
             {/* LOGO */}
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 group-hover:border-emerald-500/50 transition-colors p-1">
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* 🎯 HỆ THỐNG MENU SIÊU LỌC ĐÃ CHUYỂN ĐỔI THÀNH SEO STATIC URL */}
             <nav className="hidden md:flex items-center gap-5 text-xs font-semibold text-slate-400">
               <Link href="/" className="hover:text-emerald-400 transition-colors">Dashboard</Link>
-              
+
               {/* 1. DROPDOWN: ROLES & TYPES */}
               <div className="relative group py-2">
                 <button className="hover:text-emerald-400 transition-colors flex items-center gap-1 cursor-pointer">
@@ -148,7 +148,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* FOOTER ĐẦY ĐỦ LINK CHO GOOGLE ADSENSE */}
         <footer className="border-t border-slate-900 bg-slate-950 py-10 mt-20">
           <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-            
+
             {/* Bản quyền */}
             <div className="text-xs text-slate-500">
               <p>© {new Date().getFullYear()} QAHacks.com. All rights reserved.</p>

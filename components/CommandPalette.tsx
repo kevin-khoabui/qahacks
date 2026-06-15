@@ -45,7 +45,7 @@ export default function CommandPalette({ posts }: { posts: SearchPost[] }) {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       // Đợi modal render xong mới focus để tránh lỗi
-      setTimeout(() => inputRef.current?.focus(), 100); 
+      setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = 'unset';
       setQuery(''); // Xóa từ khóa khi đóng
@@ -55,13 +55,13 @@ export default function CommandPalette({ posts }: { posts: SearchPost[] }) {
   if (!isOpen) return null;
 
   // LỌC TỨC THÌ (Instant Search)
-  const filteredPosts = query.trim() === '' 
-    ? [] 
-    : posts.filter((post) => 
-        post.title.toLowerCase().includes(query.toLowerCase()) || 
-        post.tool.toLowerCase().includes(query.toLowerCase()) ||
-        post.category.toLowerCase().includes(query.toLowerCase())
-      ).slice(0, 8); // Chỉ hiện tối đa 8 kết quả cho đẹp
+  const filteredPosts = query.trim() === ''
+    ? []
+    : posts.filter((post) =>
+      post.title.toLowerCase().includes(query.toLowerCase()) ||
+      post.tool.toLowerCase().includes(query.toLowerCase()) ||
+      post.category.toLowerCase().includes(query.toLowerCase())
+    ).slice(0, 8); // Chỉ hiện tối đa 8 kết quả cho đẹp
 
   return (
     <div className="relative z-[100]">
@@ -71,18 +71,18 @@ export default function CommandPalette({ posts }: { posts: SearchPost[] }) {
       {/* SỬA TẠI ĐÂY: Thêm onClick vào container fixed bao ngoài. 
         Bất kỳ cú click nào trượt ra khỏi khung nội dung xám sẽ tóm vào đây và ĐÓNG MODAL.
       */}
-      <div 
+      <div
         className="fixed inset-0 z-[101] overflow-y-auto p-4 sm:p-6 md:p-20 pt-[10vh]"
         onClick={() => setIsOpen(false)}
       >
         {/* SỬA TẠI ĐÂY: Thêm e.stopPropagation() vào khung nội dung màu xám.
           Mục đích: Khi click chọn bài viết hoặc gõ chữ bên trong khung này, modal sẽ KHÔNG bị đóng nhầm.
         */}
-        <div 
+        <div
           className="mx-auto max-w-2xl transform divide-y divide-slate-800 overflow-hidden rounded-2xl bg-slate-900 shadow-2xl ring-1 ring-slate-800/50 transition-all"
           onClick={(e) => e.stopPropagation()}
         >
-          
+
           {/* Ô nhập liệu */}
           <div className="relative">
             <svg className="pointer-events-none absolute left-4 top-4 h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,7 +97,7 @@ export default function CommandPalette({ posts }: { posts: SearchPost[] }) {
               onChange={(e) => setQuery(e.target.value)}
               autoComplete="off"
             />
-            <button 
+            <button
               onClick={() => setIsOpen(false)}
               className="absolute right-4 top-4 rounded bg-slate-800 px-2 py-1 text-xs font-semibold text-slate-400 hover:bg-slate-700 transition-colors"
             >

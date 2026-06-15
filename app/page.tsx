@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import HeroBanner from "@/components/HeroBanner";
@@ -8,184 +8,157 @@ import HeroBanner from "@/components/HeroBanner";
 export default function HomePage() {
   const allPosts = getAllPosts();
 
-  // 9 Trạng thái quản lý bộ lọc tương ứng với 9 thuộc tính frontmatter dữ liệu
-  const [filterTargetRole, setFilterTargetRole] = useState<string | null>(null);
+  // 🎯 1. QUẢN LÝ BỘ LỌC QUA STATE (HỖ TRỢ LỌC ĐỘNG TẠI TRANG CHỦ)
+  const [filterRole, setFilterRole] = useState<string | null>(null);
   const [filterCategory, setFilterCategory] = useState<string | null>(null);
-  const [filterSubCategory, setFilterSubCategory] = useState<string | null>(null);
-  const [filterQuestionType, setFilterQuestionType] = useState<string | null>(null);
-  const [filterCoreTestingType, setFilterCoreTestingType] = useState<string | null>(null);
-  const [filterDomain, setFilterDomain] = useState<string | null>(null);
-  const [filterPlatform, setFilterPlatform] = useState<string | null>(null);
-  const [filterToolStack, setFilterToolStack] = useState<string | null>(null);
-  const [filterDifficulty, setFilterDifficulty] = useState<string | null>(null);
+  const [filterTool, setFilterTool] = useState<string | null>(null);
+  const [filterType, setFilterType] = useState<string | null>(null);
 
-  // ============================================================================
-  // ⚡ BỘ PHÂN TÍCH HASH URL 9 TẦNG (MATRIX URL PARSER - ANTI BUG VERSION)
-  // ============================================================================
+  // 🎯 2. QUẢN LÝ PHÂN TRANG (24 BÀI / TRANG)
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 24;
+
+  // Lắng nghe URL Query Parameters để đồng bộ bộ lọc
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      
-      // Reset sạch sẽ toàn bộ tiêu chí lọc trước khi nạp lượt quét mới
-      setFilterTargetRole(null);
-      setFilterCategory(null);
-      setFilterSubCategory(null);
-      setFilterQuestionType(null);
-      setFilterCoreTestingType(null);
-      setFilterDomain(null);
-      setFilterPlatform(null);
-      setFilterToolStack(null);
-      setFilterDifficulty(null);
-
-      if (!hash || hash === "#") return;
-
-      // 🚀 VÁ LỖI CHÍ MẠNG: Gọt sạch dấu # thừa, ép về chuỗi param chuẩn cấu trúc &
-      const cleanHash = hash.startsWith("#") ? hash.substring(1) : hash;
-      const normalizedHash = cleanHash.replace(/#/g, "&"); 
-
-      const params = new URLSearchParams(normalizedHash);
-
-      if (params.get("target_role")) setFilterTargetRole(params.get("target_role"));
-      if (params.get("category")) setFilterCategory(params.get("category"));
-      if (params.get("sub_category")) setFilterSubCategory(params.get("sub_category"));
-      if (params.get("question_type")) setFilterQuestionType(params.get("question_type"));
-      if (params.get("core_testing_type")) setFilterCoreTestingType(params.get("core_testing_type"));
-      if (params.get("domain")) setFilterDomain(params.get("domain"));
-      if (params.get("platform")) setFilterPlatform(params.get("platform"));
-      if (params.get("tool_stack")) setFilterToolStack(params.get("tool_stack"));
-      if (params.get("difficulty")) setFilterDifficulty(params.get("difficulty"));
-
-      // Đẩy góc nhìn lên đỉnh đầu trang chuẩn chỉ không lệch pha UI
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 50);
-    };
-
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-    const interval = setInterval(handleHashChange, 200);
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-      clearInterval(interval);
-    };
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setFilterRole(params.get("role"));
+      setFilterCategory(params.get("category"));
+      setFilterTool(params.get("tool"));
+      setFilterType(params.get("type"));
+      setCurrentPage(1); 
+    }
   }, []);
 
   const clearFilters = () => {
-    window.location.hash = "";
+    setFilterRole(null);
+    setFilterCategory(null);
+    setFilterTool(null);
+    setFilterType(null);
+    setCurrentPage(1);
+    if (typeof window !== "undefined") {
+      window.history.pushState({}, "", "/");
+    }
   };
 
   // ============================================================================
-  // 🔍 HÀM LỌC MA TRẬN DỮ LIỆU CHỮ THƯỜNG KHÔNG SỢ LỆCH DẤU GẠCH DƯỚI
+  // 🔍 BỘ LỌC MA TRẬN ĐÃ SỬA LỖI IMPLICIT ANY TYPESCRIPT
   // ============================================================================
-  const filteredPosts = allPosts.filter((post) => {
-    // Trích xuất an toàn và chuẩn hóa toàn bộ các mảng/chuỗi từ file .md
-    const postRoles: string[] = Array.isArray((post as any).target_role) ? (post as any).target_role : [(post as any).target_role || ""];
-    const postCategories: string[] = Array.isArray(post.category) ? post.category : [post.category || ""];
-    
-    const postSub = ((post as any).sub_category || "").toLowerCase();
-    const postQType = ((post as any).question_type || "").toLowerCase();
-    const postCoreType = ((post as any).core_testing_type || "").toLowerCase();
-    const postDomain = ((post as any).domain || "").toLowerCase();
-    const postPlatform = ((post as any).platform || "").toLowerCase();
-    const postTool = ((post as any).tool_stack || "").toLowerCase();
-    const postDiff = (post.difficulty || "").toLowerCase();
+  const filteredPosts = useMemo(() => {
+    return allPosts.filter((post) => {
+      const postRoles: string[] = (
+        Array.isArray((post as any).target_role)
+          ? (post as any).target_role
+          : [(post as any).target_role || ""]
+      ).map((r: string) => r.toLowerCase().replace(/[^a-z0-9]/g, ""));
 
-    // 1. Kiểm tra Target Role
-    if (filterTargetRole && !postRoles.some(r => r.toLowerCase().includes(filterTargetRole.toLowerCase()))) return false;
-    
-    // 2. Kiểm tra Category
-    if (filterCategory && !postCategories.some(c => c.toLowerCase().includes(filterCategory.toLowerCase()))) return false;
-    
-    // 3. Kiểm tra Sub Category
-    if (filterSubCategory && !postSub.includes(filterSubCategory.toLowerCase())) return false;
-    
-    // 4. Kiểm tra Question Type
-    if (filterQuestionType && !postQType.includes(filterQuestionType.toLowerCase())) return false;
-    
-    // 5. Kiểm tra Core Testing Type
-    if (filterCoreTestingType && !postCoreType.includes(filterCoreTestingType.toLowerCase())) return false;
-    
-    // 6. Kiểm tra Domain
-    if (filterDomain && !postDomain.includes(filterDomain.toLowerCase())) return false;
-    
-    // 7. Kiểm tra Platform
-    if (filterPlatform && !postPlatform.includes(filterPlatform.toLowerCase())) return false;
-    
-// 8. Kiểm tra Tool Stack - ĐÃ ĐỒNG BỘ THÔNG MINH GIỮA GENERIC VÀ NONE
-if (filterToolStack) {
-  const cleanFilter = filterToolStack.toLowerCase();
-  
-  if (cleanFilter === "generic") {
-    // Nếu URL là Generic, bốc những bài có tool_stack là none
-    if (postTool !== "none") return false;
-  } else {
-    // Các trường hợp tool khác (playwright, cypress...) giữ nguyên logic
-    if (!postTool.includes(cleanFilter)) return false;
-  }
-}
-    
-    // 9. Kiểm tra Difficulty
-    if (filterDifficulty && !postDiff.includes(filterDifficulty.toLowerCase())) return false;
+      const postCategories: string[] = (
+        Array.isArray(post.category)
+          ? post.category
+          : [post.category || ""]
+      ).map((c: string) => c.toLowerCase().replace(/[^a-z0-9]/g, ""));
 
-    return true;
-  });
+      const postTool = ((post as any).tool_stack || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      const postType = ((post as any).question_type || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+      if (filterRole && !postRoles.includes(filterRole.toLowerCase().replace(/[^a-z0-9]/g, ""))) return false;
+      if (filterCategory && !postCategories.includes(filterCategory.toLowerCase().replace(/[^a-z0-9]/g, ""))) return false;
+      if (filterType && postType !== filterType.toLowerCase().replace(/[^a-z0-9]/g, "")) return false;
+
+      if (filterTool) {
+        const cleanToolFilter = filterTool.toLowerCase().replace(/[^a-z0-9]/g, "");
+        if (cleanToolFilter === "generic" && (postTool === "none" || postTool === "")) {
+          return true;
+        }
+        if (postTool !== cleanToolFilter) return false;
+      }
+
+      return true;
+    });
+  }, [allPosts, filterRole, filterCategory, filterTool, filterType]);
 
   // ============================================================================
-  // 📍 TÍNH TOÁN TIÊU ĐỀ DỘNG CHO UI (CLEAN TITLE DISPATCHER)
+  // 📐 LOGIC ĐO ĐẠC VÀ HÀM CUỘN TỌA ĐỘ OFFSET CHUẨN XÁC
   // ============================================================================
-  let activeFilterValue = filterTargetRole || filterCategory || filterSubCategory || filterQuestionType || filterCoreTestingType || filterDomain || filterPlatform || filterToolStack || filterDifficulty;
-  
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  const currentPosts = useMemo(() => {
+    return filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  }, [filteredPosts, indexOfFirstPost, indexOfLastPost]);
+
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    
+    // Tìm phần tử tiêu đề của danh sách bài viết
+    const element = document.getElementById("main-hub");
+    if (element) {
+      const offset = 90; // Khoảng cách bù trừ độ dày của thanh Navbar cố định
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  // Tính toán tiêu đề động tinh gọn cho UI
+  const activeFilterValue = filterRole || filterCategory || filterTool || filterType;
+  const isDefaultHome = !activeFilterValue;
+
   let pageTitle = "All Interview Guides";
   let pageDesc = "Deep-dive technical questions and production-grade solutions for QA Professionals.";
 
   if (activeFilterValue) {
-    const cleanActiveName = activeFilterValue.replace(/_/g, " ");
-    pageTitle = `${cleanActiveName} Filtered Guides`;
-    pageDesc = `Showing validated software testing blueprints targeted specifically for ${cleanActiveName}.`;
+    pageTitle = `${activeFilterValue.replace(/_/g, " ")} Filtered Hub`;
+    pageDesc = `Showing validated software testing blueprints targeted for ${activeFilterValue.replace(/_/g, " ")}.`;
   }
-
-  const isDefaultHome = !activeFilterValue;
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 scroll-mt-20">
-      {/* {isDefaultHome && <HeroBanner />} */}
+      <HeroBanner />
 
-<section 
-  id="main-hub" 
-  className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-10 ${
-    isDefaultHome ? "py-12" : "pt-4 pb-12"
-  }`}
->        
+      <section id="main-hub" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-20">
+
+        {/* Header Thanh trạng thái bộ lọc */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-900 pb-6 mb-8 gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-              <span className="inline-block w-2.5 h-6 bg-emerald-400 rounded-full"></span>
-              {pageTitle}
+            <h1 className="text-xl font-black text-white flex items-center gap-2 tracking-tight">
+              <span className="inline-block w-2 h-5 bg-emerald-400 rounded-sm"></span>
+              {pageTitle} <span className="text-slate-500 font-normal">({filteredPosts.length})</span>
             </h1>
             <p className="text-xs text-slate-400 mt-1">{pageDesc}</p>
           </div>
 
           {!isDefaultHome && (
-            <button 
+            <button
               onClick={clearFilters}
-              className="text-xs text-emerald-400 hover:text-emerald-300 border border-slate-800 bg-slate-900/30 px-3 py-1.5 rounded-lg transition-colors cursor-pointer select-none font-semibold"
+              className="text-xs text-emerald-400 hover:text-emerald-300 border border-slate-800 bg-slate-900/30 px-3 py-1.5 rounded-lg transition-colors cursor-pointer font-semibold"
             >
               Clear Filter ✕
             </button>
           )}
         </div>
 
-        {filteredPosts.length === 0 ? (
+        {/* Lưới Render Bài viết (Giới hạn tối đa 24 bài) */}
+        {currentPosts.length === 0 ? (
           <div className="text-center py-16 border border-dashed border-slate-900 rounded-2xl bg-slate-900/10">
             <p className="text-slate-500 text-sm">No items found matching your criteria.</p>
           </div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.map((post) => {
+          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {currentPosts.map((post) => {
               const qType = (post as any).question_type;
               const pTool = (post as any).tool_stack;
-              const postRoles: string[] = Array.isArray((post as any).target_role) ? (post as any).target_role : [(post as any).target_role || ""];
+              const postRoles: string[] = Array.isArray((post as any).target_role)
+                ? (post as any).target_role
+                : [(post as any).target_role || ""];
 
               return (
                 <Link
@@ -213,11 +186,11 @@ if (filterToolStack) {
                         {post.title}
                       </h2>
 
-                      <div className="flex flex-wrap gap-1.5 mt-4" onClick={(e) => e.preventDefault()}>
+                      <div className="flex flex-wrap gap-1 mt-4" onClick={(e) => e.preventDefault()}>
                         {postRoles.map((role: string) => {
                           if (!role) return null;
                           return (
-                            <span key={role} className="text-[10px] text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded border border-slate-800/60 tracking-wide normal-case font-normal whitespace-nowrap">
+                            <span key={role} className="text-[9px] text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded border border-slate-800/40 tracking-wide">
                               {role.replace(/_/g, " ")}
                             </span>
                           );
@@ -237,6 +210,70 @@ if (filterToolStack) {
             })}
           </div>
         )}
+
+        {/* ==========================================
+            🎯 COMPONENT ĐIỀU HƯỚNG PHÂN TRANG (CHẶN EVENT HOÀN TOÀN)
+            ========================================== */}
+        {totalPages > 1 && (
+          <div className="mt-16 flex items-center justify-center gap-1.5 border-t border-slate-900 pt-8">
+            
+            {/* NÚT PREV (LÙI TRANG) */}
+            <button
+              onClick={() => {
+                // Nếu đang ở trang 1, chặn đứng hành động, không cuộn lên đỉnh nữa
+                if (currentPage === 1) return;
+                handlePageChange(currentPage - 1);
+              }}
+              className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
+                currentPage === 1 
+                  ? "opacity-20 text-slate-600 cursor-not-allowed" 
+                  : "hover:text-emerald-400 cursor-pointer"
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* DANH SÁCH CÁC SỐ TRANG */}
+            <div className="flex items-center gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                const isActive = page === currentPage;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`min-w-[36px] h-[36px] text-xs font-bold rounded-xl border transition-all cursor-pointer ${isActive
+                      ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
+                      : "bg-slate-900/30 border-slate-900 text-slate-400 hover:text-slate-200"
+                      }`}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* NÚT NEXT (TIẾN TRANG) */}
+            <button
+              onClick={() => {
+                // Nếu đang ở trang cuối cùng, chặn đứng hành động, không cuộn lên đỉnh nữa
+                if (currentPage === totalPages) return;
+                handlePageChange(currentPage + 1);
+              }}
+              className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
+                currentPage === totalPages 
+                  ? "opacity-20 text-slate-600 cursor-not-allowed" 
+                  : "hover:text-emerald-400 cursor-pointer"
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        )}
+
       </section>
     </main>
   );
