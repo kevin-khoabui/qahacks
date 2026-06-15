@@ -112,8 +112,18 @@ export default function HomePage() {
     // 7. Kiểm tra Platform
     if (filterPlatform && !postPlatform.includes(filterPlatform.toLowerCase())) return false;
     
-    // 8. Kiểm tra Tool Stack
-    if (filterToolStack && !postTool.includes(filterToolStack.toLowerCase())) return false;
+// 8. Kiểm tra Tool Stack - ĐÃ ĐỒNG BỘ THÔNG MINH GIỮA GENERIC VÀ NONE
+if (filterToolStack) {
+  const cleanFilter = filterToolStack.toLowerCase();
+  
+  if (cleanFilter === "generic") {
+    // Nếu URL là Generic, bốc những bài có tool_stack là none
+    if (postTool !== "none") return false;
+  } else {
+    // Các trường hợp tool khác (playwright, cypress...) giữ nguyên logic
+    if (!postTool.includes(cleanFilter)) return false;
+  }
+}
     
     // 9. Kiểm tra Difficulty
     if (filterDifficulty && !postDiff.includes(filterDifficulty.toLowerCase())) return false;
@@ -139,7 +149,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 scroll-mt-20">
-      {isDefaultHome && <HeroBanner />}
+      {/* {isDefaultHome && <HeroBanner />} */}
 
 <section 
   id="main-hub" 

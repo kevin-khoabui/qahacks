@@ -20,7 +20,7 @@ interface Props {
 // ============================================================================
 export async function generateStaticParams() {
   const jsonPath = path.resolve(process.cwd(), "public", "content", "posts.generated.json");
-  
+
   if (!fs.existsSync(jsonPath)) {
     console.warn("⚠️ Cảnh báo: Chưa tìm thấy tệp posts.generated.json lúc biên dịch!");
     return [];
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
   try {
     const fileContents = fs.readFileSync(jsonPath, "utf8");
     const posts = JSON.parse(fileContents);
-    
+
     return posts.map((post: { slug: string }) => ({
       slug: post.slug,
     }));
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const rolesArray = Array.isArray(post.target_role) ? post.target_role : [post.target_role || ""];
   const categoriesArray = Array.isArray(post.category) ? post.category : [post.category || ""];
-  
+
   const displayRoles = rolesArray.map(r => r.replace(/_/g, " ")).join(", ");
 
   const cleanTitle = `${post.title} | QA Hacks`;
@@ -203,21 +203,21 @@ export default async function PostPage({ params }: Props) {
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-800/80 pb-2">
                       📋 Interview Context
                     </h3>
-                    
+
                     {/* Target Roles (Mobile) - Truyền Hash động bảo mật, không sợ sập Cloudflare */}
                     <div className="flex justify-between items-start text-xs gap-4 bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
                       <span className="text-slate-400 pt-0.5 whitespace-nowrap">Target Roles:</span>
                       <div className="flex flex-wrap gap-1.5 justify-end">
-{roles.map((role) => (
-  <Link
-    key={role}
-    // CHUYỂN HƯỚNG SANG TRANG CATEGORY THẬT: Tự động nhảy sang /roles/Manual_QA_Engineer chuẩn SEO
-    href={`/roles/${role}`} 
-    className="text-teal-400 font-semibold text-xs border border-teal-500/20 bg-teal-500/5 hover:bg-teal-500/10 hover:border-teal-400 px-2 py-0.5 rounded whitespace-nowrap transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 inline-block select-none"
-  >
-    {role.replace(/_/g, " ")}
-  </Link>
-))}
+                        {roles.map((role) => (
+                          <Link
+                            key={role}
+                            // CHUYỂN HƯỚNG SANG TRANG CATEGORY THẬT: Tự động nhảy sang /roles/Manual_QA_Engineer chuẩn SEO
+                            href={`/roles/${role}`}
+                            className="text-teal-400 font-semibold text-xs border border-teal-500/20 bg-teal-500/5 hover:bg-teal-500/10 hover:border-teal-400 px-2 py-0.5 rounded whitespace-nowrap transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 inline-block select-none"
+                          >
+                            {role.replace(/_/g, " ")}
+                          </Link>
+                        ))}
                       </div>
                     </div>
 
@@ -225,7 +225,8 @@ export default async function PostPage({ params }: Props) {
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-slate-400">Tool Stack:</span>
                       <Link
-                        href={`/#tool=${post.tool_stack}`}
+                        // 🚀 ĐỒNG BỘ SEO TUYỆT ĐỐI: Chuyển sang route trang tĩnh thật /tools/... cho cả thiết bị di động
+                        href={`/tools/${post.tool_stack === "None" || !post.tool_stack ? "Generic" : post.tool_stack}`}
                         className="text-emerald-400 hover:text-emerald-300 border border-emerald-500/20 hover:border-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 whitespace-nowrap inline-block select-none"
                       >
                         {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
@@ -270,15 +271,16 @@ export default async function PostPage({ params }: Props) {
                 <div>
                   <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">📋 Interview Context</h3>
                   <div className="space-y-3">
-                    
-                    {/* Target Roles (Desktop Sidebar) - Chuyển sang định dạng Hash tĩnh siêu an toàn */}
+
+                    {/* Target Roles (Desktop Sidebar) - Đồng bộ đồng nhất sang Dynamic Route sạch giống Mobile */}
                     <div className="flex flex-col gap-2">
                       <span className="text-xs text-slate-400">Target Roles:</span>
                       <div className="flex flex-wrap gap-1.5">
                         {roles.map((role) => (
                           <Link
                             key={role}
-                            href={`/#role=${role}`}
+                            // ĐỒNG BỘ: Chuyển hẳn sang trang chuyên mục thật thay vì bám đuôi #role cũ kỹ
+                            href={`/roles/${role}`}
                             className="text-teal-400 font-semibold text-xs border border-teal-500/20 bg-teal-500/5 hover:bg-teal-500/10 hover:border-teal-400 px-2 py-0.5 rounded whitespace-nowrap transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 inline-block select-none"
                           >
                             {role.replace(/_/g, " ")}
@@ -291,7 +293,8 @@ export default async function PostPage({ params }: Props) {
                     <div className="flex justify-between items-center text-xs pt-2.5 border-t border-slate-900">
                       <span className="text-slate-400">Tool Stack:</span>
                       <Link
-                        href={`/#tool=${post.tool_stack}`}
+                        // 🚀 ĐỒNG BỘ SEO TUYỆT ĐỐI: Chuyển hẳn sang route trang tĩnh thật /tools/... thay vì dùng # 
+                        href={`/tools/${post.tool_stack === "None" || !post.tool_stack ? "Generic" : post.tool_stack}`}
                         className="text-emerald-400 hover:text-emerald-300 border border-emerald-500/20 hover:border-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded transition-all duration-150 cursor-pointer hover:scale-105 active:scale-95 whitespace-nowrap inline-block select-none"
                       >
                         {post.tool_stack !== "None" ? post.tool_stack : "Generic"}
