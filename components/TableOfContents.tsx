@@ -33,10 +33,12 @@ export default function TableOfContents() {
 
       if (!id) return;
 
-      // 🚀 SỬA LỖI 2: Bộ lọc thông minh - Ăn cả bài Mega Compilation lẫn bài đơn lẻ (Context, Solution, Blueprint...)
+      // 🚀 TỐI ƯU: Gọt sạch dấu hai chấm ":" ở cuối chuỗi tiêu đề nếu có
+      const cleanLabel = text.trim().replace(/:$/, "");
+
       dynamicMenuItems.push({
         id,
-        label: text,
+        label: cleanLabel,
         level: el.tagName === "H2" ? 2 : 3
       });
       validIds.push(id);
@@ -85,8 +87,9 @@ export default function TableOfContents() {
   if (menuItems.length <= 1) return null;
 
   return (
-    // 🚀 SỬA LỖI 1: Giới hạn độ rộng tối đa max-w-[260px] và chống tràn text (break-words)
-    <div className="bg-slate-900/30 lg:bg-transparent p-4 lg:p-0 rounded-xl border border-slate-800/60 lg:border-none space-y-3 w-full sticky top-28 hierarchy-toc">      {/* HEADER MỤC LỤC */}
+    <div className="bg-slate-900/30 lg:bg-transparent p-4 lg:p-0 rounded-xl border border-slate-800/60 lg:border-none space-y-3 w-full sticky top-28 hierarchy-toc">
+      
+      {/* HEADER MỤC LỤC */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full lg:cursor-default flex items-center justify-between lg:justify-start gap-1.5 border-b border-slate-900 pb-2.5 text-left focus:outline-none group"
@@ -118,9 +121,16 @@ export default function TableOfContents() {
 
                 const targetElement = document.getElementById(item.id);
                 if (targetElement) {
-                  targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
+                  // Cuộn mượt và bù trừ khoảng cách Y hợp lý cho menu
+                  const offset = 100;
+                  const bodyRect = document.body.getBoundingClientRect().top;
+                  const elementRect = targetElement.getBoundingClientRect().top;
+                  const elementPosition = elementRect - bodyRect;
+                  const offsetPosition = elementPosition - offset;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
                   });
                 }
 
@@ -130,12 +140,14 @@ export default function TableOfContents() {
 
                 if (window.innerWidth < 1024) setIsOpen(false);
               }}
-              // Thêm pl-4 cho level 3 để thụt lề phân cấp, dùng break-words chống tràn chữ
-              className={`block transition-all duration-150 rounded-lg tracking-wide text-xs py-1.5 font-semibold text-slate-400 hover:text-slate-200 break-words ${item.level === 3 ? "pl-5 text-[11px] text-slate-500" : "pl-2"
-                } ${isActive
-                  ? "text-teal-400 font-bold bg-teal-500/5 border-l-2 border-teal-400 rounded-l-none"
+              // 🚀 ĐỒNG BỘ: Chuyển hẳn từ màu Teal cũ sang màu Emerald chuẩn thương hiệu
+              className={`block transition-all duration-150 rounded-lg tracking-wide text-xs py-1.5 font-semibold break-words ${
+                item.level === 3 ? "pl-5 text-[11px] text-slate-500" : "pl-2 text-slate-400 hover:text-slate-200"
+              } ${
+                isActive
+                  ? "text-emerald-400 font-bold bg-emerald-500/5 border-l-2 border-emerald-400 rounded-l-none!"
                   : ""
-                }`}
+              }`}
             >
               {item.label}
             </a>

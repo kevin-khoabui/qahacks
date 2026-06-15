@@ -26,7 +26,7 @@ export default function HomePage() {
       setFilterCategory(params.get("category"));
       setFilterTool(params.get("tool"));
       setFilterType(params.get("type"));
-      setCurrentPage(1); 
+      setCurrentPage(1); // 🚀 TỐI ƯU: Đảm bảo reset về trang 1 khi đổi bộ lọc
     }
   }, []);
 
@@ -42,7 +42,7 @@ export default function HomePage() {
   };
 
   // ============================================================================
-  // 🔍 BỘ LỌC MA TRẬN ĐÃ SỬA LỖI IMPLICIT ANY TYPESCRIPT
+  // 🔍 BỘ LỌC MA TRẬN KHÔNG SỢ LỆCH CHỮ HOA/THƯỜNG VÀ DẤU GẠCH DƯỚI
   // ============================================================================
   const filteredPosts = useMemo(() => {
     return allPosts.filter((post) => {
@@ -220,7 +220,6 @@ export default function HomePage() {
             {/* NÚT PREV (LÙI TRANG) */}
             <button
               onClick={() => {
-                // Nếu đang ở trang 1, chặn đứng hành động, không cuộn lên đỉnh nữa
                 if (currentPage === 1) return;
                 handlePageChange(currentPage - 1);
               }}
@@ -257,7 +256,6 @@ export default function HomePage() {
             {/* NÚT NEXT (TIẾN TRANG) */}
             <button
               onClick={() => {
-                // Nếu đang ở trang cuối cùng, chặn đứng hành động, không cuộn lên đỉnh nữa
                 if (currentPage === totalPages) return;
                 handlePageChange(currentPage + 1);
               }}

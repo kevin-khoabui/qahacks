@@ -1,10 +1,14 @@
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import CategoryPaginationClient from "./CategoryPaginationClient";
 
 interface Props {
   params: Promise<{ slug: string[] }>;
 }
+
+// ÉP NEXT.JS BIÊN DỊCH FILE ROUTER THÀNH FILE TĨNH ĐỂ KHÔNG BỊ BẮT LỖI KHI BUILD
+export const dynamic = "force-static";
 
 // ============================================================================
 // 🛠️ HÀM PHỤ TRỢ: CHUẨN HÓA DỮ LIỆU ĐA THẺ TUYỆT ĐỐI (ROBUST ARRAY CLEANER)
@@ -96,13 +100,14 @@ export async function generateStaticParams() {
   platforms.forEach(p => paths.push({ slug: ["platforms", p] }));
   tools.forEach(t => paths.push({ slug: ["tools", t] }));
   difficulties.forEach(df => paths.push({ slug: ["difficulties", df] }));
-  types.forEach(tp => paths.push({ slug: ["types", tp] }));
+  paths.push({ slug: ["types", "compilation"] });
+  paths.push({ slug: ["types", "situational"] });
 
   return paths;
 }
 
 // ============================================================================
-// 🔍 2. DYNAMIC METADATA CHO TỪNG TRANG DANH MỤC
+// 🔍 2. DYNAMIC METADATA CHO TỪNG TRANG DANH MỤC (BỌC GIÁP CANONICAL LINK)
 // ============================================================================
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
@@ -110,9 +115,36 @@ export async function generateMetadata({ params }: Props) {
   if (!segment || !value) return {};
 
   const cleanValue = value.replace(/_/g, " ");
+  const currentUrl = `https://qahacks.com/${segment}/${value}`;
+  const pageTitle = `${cleanValue} Interview Questions & Strategic Blueprints | QAHacks`;
+  const pageDesc = `Deep-dive production-grade software testing question banks and vetted interview answers filtered by ${segment}: ${cleanValue}.`;
+
   return {
-    title: `${cleanValue} Interview Questions & Handbooks | QAHacks`,
-    description: `Browse production-grade QA interview solutions and strategic technical blueprints filtered by ${segment}: ${cleanValue}.`,
+    title: pageTitle,
+    description: pageDesc,
+    alternates: {
+      canonical: currentUrl, // 🚀 KHÓA LINK CHÍNH CHỦ: Chống bẫy trùng lặp content của Google Bot
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDesc,
+      url: currentUrl,
+      siteName: "QAHacks",
+      type: "website",
+      images: [
+        {
+          url: "https://qahacks.com/og-image.png", // Bạn có thể thêm file ảnh og mặc định trong thư mục public
+          width: 1200,
+          height: 630,
+          alt: "QAHacks Knowledge Hub Dashboard",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDesc,
+    },
   };
 }
 
@@ -175,8 +207,8 @@ export default async function DynamicCategoryPage({ params }: Props) {
     <main className="min-h-screen bg-slate-950 text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
       <section className="max-w-6xl mx-auto">
 
-        {/* Tiêu đề danh mục luôn cố định đầu trang để bot SEO quét dữ liệu */}
-        <div className="border-b border-slate-900 pb-6 mb-8">
+        {/* Tiêu đề danh mục phục vụ Bot SEO */}
+        <div id="category-hub-top" className="border-b border-slate-900 pb-6 mb-8 scroll-mt-20">
           <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             {displaySegment}
           </span>
@@ -185,7 +217,6 @@ export default async function DynamicCategoryPage({ params }: Props) {
           </h1>
         </div>
 
-        {/* 📋 CHỐT THAY THẾ: NẾU MẢNG RỖNG THÌ HIỂN THỊ EMPTY STATE, NẾU CÓ BÀI THÌ LÊN LƯỚI */}
         {filteredPosts.length === 0 ? (
           <div className="flex flex-col items-center justify-center text-center py-20 px-4 border border-dashed border-slate-900 rounded-2xl bg-slate-900/10 max-w-2xl mx-auto mt-10">
             <div className="p-4 bg-slate-900 border border-slate-800 rounded-full text-slate-500 mb-5 animate-pulse">
@@ -207,45 +238,8 @@ export default async function DynamicCategoryPage({ params }: Props) {
             </Link>
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.map((post) => {
-              const pTool = (post as any).tool_stack;
-              return (
-                <Link
-                  key={post.slug}
-                  href={`/posts/${post.slug}`}
-                  className="group block p-6 bg-slate-900/40 rounded-2xl border border-slate-900/60 hover:border-emerald-500/40 hover:bg-slate-900/80 transition-all duration-200"
-                >
-                  <div className="flex flex-col h-full justify-between">
-                    <div>
-                      <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider mb-3">
-                        <span className="text-emerald-400 bg-emerald-950/40 border-emerald-900/30 px-2 py-0.5 rounded border">
-                          {post.sub_category || "General"}
-                        </span>
-                        <span className="bg-slate-900/50 text-slate-400 px-2 py-0.5 rounded border border-slate-800/30">
-                          {post.difficulty}
-                        </span>
-                        {pTool && pTool !== "None" && (
-                          <span className="bg-sky-950/40 text-sky-400 px-2 py-0.5 rounded border border-sky-900/30">
-                            {pTool}
-                          </span>
-                        )}
-                      </div>
-                      <h2 className="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition-colors line-clamp-3 leading-snug">
-                        {post.title}
-                      </h2>
-                    </div>
-                    <div className="mt-5 flex items-center text-xs font-semibold text-slate-500 group-hover:text-emerald-400 transition-colors pt-2 border-t border-slate-900/40">
-                      Practice Solution
-                      <svg className="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          /* ĐẨY SANG COMPONENT CLIENT ĐỂ XỬ LÝ PHÂN TRANG 24 BÀI */
+          <CategoryPaginationClient posts={filteredPosts} />
         )}
       </section>
     </main>
