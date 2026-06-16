@@ -140,10 +140,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
 }
 
 async function generateInterviewQuestion(topic: string, keyNumber: number) {
-  // ============================================================================
-  // ⚡ BỘ TRÍCH XUẤT ĐA THẺ THÔNG MINH (MULTI-TAG EXTRACTION LOGIC)
-  // ============================================================================
-  let targetRoles: string[] = ["Manual_QA_Engineer"]; // Giá trị mặc định an toàn
+  let targetRoles: string[] = ["Manual_QA_Engineer"];
   let coreCategories: string[] = ["Leadership"];
   let actualQuestion = topic;
 
@@ -154,21 +151,11 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
       actualQuestion = topic.substring(dashIndex + 1).trim();
 
       const pipeParts = metadataPart.split("|").map(p => p.trim());
-
-      // 1. Trích xuất Đa Role (Thay thế khoảng trắng bằng dấu gạch dưới)
       if (pipeParts[0]) {
-        targetRoles = pipeParts[0]
-          .split(",")
-          .map(r => r.trim().replace(/\s+/g, "_"))
-          .filter(r => r.length > 0);
+        targetRoles = pipeParts[0].split(",").map(r => r.trim().replace(/\s+/g, "_")).filter(r => r.length > 0);
       }
-
-      // 2. Trích xuất Đa Category
       if (pipeParts[1]) {
-        coreCategories = pipeParts[1]
-          .split(",")
-          .map(c => c.trim().replace(/\s+/g, "_"))
-          .filter(c => c.length > 0);
+        coreCategories = pipeParts[1].split(",").map(c => c.trim().replace(/\s+/g, "_")).filter(c => c.length > 0);
       }
     } catch (e) {
       console.warn("⚠️ Lỗi bốc tách chuỗi đa thẻ, dùng cấu hình mặc định.");
@@ -176,19 +163,33 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
   }
 
   // ============================================================================
-  // 🔍 TỰ ĐỘNG NHẬN DIỆN CHIẾN LƯỢC: CHỌN PROMPT AUTOMATION HAY MANUAL
-  // Nếu trong mảng targetRoles có chữ "Automation", hệ thống kích hoạt prompt Technical ngay lập tức.
+  // 🛡️ [KIỂM TRA TRÙNG LẶP SỚM] - KIỂM TRA TRƯỚC KHI GỌI API GEMINI
+  // ============================================================================
+  const coreSlug = actualQuestion
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]+/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
+  const outputDir = path.join(process.cwd(), "content", "posts");
+  const fileName = `${coreSlug}.md`;
+  const outputPath = path.join(outputDir, fileName);
+
+  if (fs.existsSync(outputPath)) {
+    console.log(`🛑 [BỎ QUA] File bài viết đã tồn tại: ${fileName}. Không tạo file mới, không thêm số.`);
+    // Trả về true để hệ thống tự động kích hoạt bộ lọc xóa dòng này ra khỏi topics.txt
+    return true; 
+  }
+
+  // ============================================================================
+  // Lấy API key và gọi Gemini (Giữ nguyên logic cũ nhưng bỏ đoạn kiểm tra file ở cuối)
   // ============================================================================
   const isAutomation = targetRoles.some(role => role.toLowerCase().includes("automation"));
-
   const rolesString = JSON.stringify(targetRoles);
   const categoriesString = JSON.stringify(coreCategories);
 
   console.log(`🏷️  [Nhận Diện Động] Nhóm: [${isAutomation ? "AUTOMATION" : "MANUAL"}] | Roles: ${rolesString} | Categories: ${categoriesString}`);
 
-  // ============================================================================
-  // 🤖 TIẾN HÀNH KHỞI TẠO AI VÀ GENERATE NỘI DUNG
-  // ============================================================================
   const apiKey = getTargetApiKey(keyNumber);
   if (!apiKey) {
     console.error(`❌ Không tìm thấy API Key số: ${keyNumber}`);
@@ -197,8 +198,6 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-  // Chọn chiến lược sinh prompt dựa trên loại role đã phân tích động
   const prompt = getPromptByStrategy(actualQuestion, isAutomation, rolesString, categoriesString);
 
   try {
@@ -206,31 +205,12 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
     
-    // Dọn dẹp sạch sẽ mọi loại thẻ bọc rác (```markdown, ```yaml, ```) ở đầu và cuối file do AI tự sinh
     const cleanMarkdown = responseText
-      .replace(/^```[a-zA-Z]*\n/, "") // Xóa thẻ bọc mở đầu kèm tên ngôn ngữ bất kỳ
-      .replace(/\n```$/, "")           // Xóa thẻ bọc đóng ở cuối
+      .replace(/^```[a-zA-Z]*\n/, "") 
+      .replace(/\n```$/, "")           
       .trim();
 
-    // Ép trọn vẹn câu hỏi gạch nối thành tên file vật lý để tối ưu SEO URL
-    const coreSlug = actualQuestion
-      .toLowerCase()
-      .replace(/[^a-z0-9\s]+/g, "")
-      .trim()
-      .replace(/\s+/g, "-");
-
-    const outputDir = path.join(process.cwd(), "content", "posts");
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-
-    const fileName = `${coreSlug}.md`;
-    const outputPath = path.join(outputDir, fileName);
-
-    // 🛡️ TỐI ƯU CHỐNG TRÙNG LẶP RÁC: 
-    // Thay vì chạy vòng lặp tạo đuôi tăng tiến (-1, -2, -10), ta kiểm tra và ghi đè thẳng 
-    // nhằm đồng bộ chuẩn xác với cấu trúc slug nguyên bản.
-    if (fs.existsSync(outputPath)) {
-      console.log(`⚠️  [CẢNH BÁO] Bài viết đã tồn tại ở local. Tiến hành ghi đè cập nhật nội dung mới: ${fileName}`);
-    }
 
     fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
     console.log(`✅ [PASS] Xuất URL nguyên bản thành công: ${fileName}`);
