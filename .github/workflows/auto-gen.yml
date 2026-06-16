@@ -47,11 +47,12 @@ jobs:
           node scripts/generate-posts.mjs
 
       # 🚀 TỐI ƯU: Chuyển sang dùng bot commit chuyên dụng. 
-      # Nếu giờ đó AI không đẻ ra bài nào mới, bot tự động bỏ qua êm đẹp chứ không gây báo lỗi đỏ workflow.
+          # 💾 Auto Commit & Push generated posts
       - name: 💾 Auto Commit & Push generated posts
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Auto-generated a batch of new QA posts [skip ci]"
-          file_pattern: 'content/posts/*.md public/content/posts.generated.json'
+          # SỬA TẠI ĐÂY: Thêm topics.txt và done_topics.txt vào cuối pattern
+          file_pattern: 'content/posts/*.md public/content/posts.generated.json topics.txt done_topics.txt'
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"

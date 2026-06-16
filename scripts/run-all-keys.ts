@@ -29,22 +29,22 @@ async function runAll() {
     return;
   }
 
-  // Tạo mảng để lưu vết trạng thái thành công/thất bại của từng lượt trong mẻ
-  const runResults: { topic: string; success: boolean }[] = [];
-
   const filePath = path.join(process.cwd(), "topics.txt");
   if (!fs.existsSync(filePath)) {
     console.error("❌ Lỗi: Không tìm thấy file topics.txt!");
     return;
   }
 
-  // Tách dòng chính xác theo ký tự xuống dòng (\n) để giữ nguyên vẹn câu dài
-  const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
-  const validTopics = lines.filter(line => line.length > 0);
+  // Tạo mảng lưu vết các dòng đã xử lý thành công để gọt bỏ cuối mẻ
+  const successfulTopics: string[] = [];
 
-  // Vòng lặp bắn đạn tịnh tiến: Key nào xử lý dòng nấy, không tranh chấp dòng đầu
+  // Vòng lặp bắn đạn tịnh tiến: Key nào xử lý dòng nấy
   for (let i = 1; i <= TARGET_COUNT; i++) {
-    if (i > validTopics.length) {
+    // Đọc lại file liên tục ở mỗi vòng lặp để cập nhật kho bài viết mới nhất
+    const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
+    const validTopics = lines.filter(line => line.length > 0);
+
+    if (validTopics.length === 0 || (i - 1) >= validTopics.length) {
       console.log("🎉 Hết bài trong kho topics.txt để cấu hình lượt này.");
       break;
     }
@@ -54,9 +54,9 @@ async function runAll() {
     
     let isSuccess = false;
     await new Promise<void>((resolve) => {
-      // 🛠️ SỬA LỖI CHIẾN LƯỢC: Bọc targetTopic bằng dấu nháy kép trốn thoát (\"...\") 
-      // Việc này ép shell phải đọc toàn bộ câu dài chứa dấu cách làm 1 tham số duy nhất
-      const child = spawn("npx", ["tsx", "scripts/generate.ts", String(i), `"${targetTopic}"`], { 
+      // 🛡️ FIX LỖI CHÍ MẠNG: Không tự ý cộng chuỗi nháy kép vật lý ở đây nữa.
+      // Bản thân tham số của mảng spawn khi đi kèm shell: true đã tự động trốn thoát dấu cách an toàn.
+      const child = spawn("npx", ["tsx", "scripts/generate.ts", String(i), targetTopic], { 
         stdio: "inherit", 
         shell: true 
       });
@@ -67,7 +67,10 @@ async function runAll() {
       });
     });
 
-    runResults.push({ topic: targetTopic, success: isSuccess });
+    if (isSuccess) {
+      // Lưu chính xác chuỗi gốc không dính nháy kép rác để phục vụ bộ lọc xóa dòng
+      successfulTopics.push(targetTopic);
+    }
 
     if (i < TARGET_COUNT && i < validTopics.length) {
       await sleep(DELAY_MS);
@@ -75,16 +78,24 @@ async function runAll() {
   }
 
   // ============================================================================
-  // BƯỚC QUÉT DỌN CUỐI MẺ CHẠY: CHỈ XÓA NHỮNG DÒNG ĐÃ THÀNH CÔNG KHỎI TOPICS.TXT
+  // 🔥 BỘ LỌC XÓA DÒNG TUYỆT ĐỐI: ĐỒNG BỘ SẠCH SẼ LẠI FILE TOPICS.TXT
   // ============================================================================
-  console.log(`\n🧹 Đang tiến hành quét dọn và đồng bộ file topics.txt...`);
-  const freshLines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
-  
-  const successfulTopics = runResults.filter(r => r.success).map(r => r.topic);
-  const updatedLines = freshLines.filter(line => !successfulTopics.includes(line) && line.length > 0);
-  
-  fs.writeFileSync(filePath, updatedLines.join("\n"), "utf-8");
-  console.log(`✅ Đã đồng bộ sạch sẽ! Đã cắt ${successfulTopics.length} dòng thành công. Còn lại: ${updatedLines.length} chủ đề.`);
+  if (successfulTopics.length > 0) {
+    console.log(`\n🧹 Đang tiến hành quét dọn và gọt bỏ các dòng thành công khỏi topics.txt...`);
+    
+    // Đọc lại trạng thái mới nhất của file phòng trường hợp bạn vừa edit tay lúc script đang chạy
+    const freshLines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
+    
+    // Chỉ giữ lại những dòng KHÔNG nằm trong mảng đã tạo bài thành công
+    const updatedLines = freshLines.filter(line => !successfulTopics.includes(line) && line.length > 0);
+    
+    // Ghi đè khóa cứng lại file tĩnh
+    fs.writeFileSync(filePath, updatedLines.join("\n"), "utf-8");
+    console.log(`✅ Đã gọt dòng xong! Đã cắt sạch ${successfulTopics.length} chủ đề ra khỏi kho. Còn lại: ${updatedLines.length} chủ đề chờ mẻ tiếp theo.`);
+  } else {
+    console.log("\n⚠️ Không có chủ đề nào được xuất thành công trong mẻ này, giữ nguyên file topics.txt.");
+  }
+
   console.log(`\n🎉 HOÀN TẤT MẺ CHẠY CỦA GIỜ NÀY!`);
 }
 

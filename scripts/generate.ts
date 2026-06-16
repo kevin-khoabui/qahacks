@@ -154,7 +154,7 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
       actualQuestion = topic.substring(dashIndex + 1).trim();
 
       const pipeParts = metadataPart.split("|").map(p => p.trim());
-      
+
       // 1. Trích xuất Đa Role (Thay thế khoảng trắng bằng dấu gạch dưới)
       if (pipeParts[0]) {
         targetRoles = pipeParts[0]
@@ -162,7 +162,7 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
           .map(r => r.trim().replace(/\s+/g, "_"))
           .filter(r => r.length > 0);
       }
-      
+
       // 2. Trích xuất Đa Category
       if (pipeParts[1]) {
         coreCategories = pipeParts[1]
@@ -189,7 +189,7 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
   // ============================================================================
   // 🤖 TIẾN HÀNH KHỞI TẠO AI VÀ GENERATE NỘI DUNG
   // ============================================================================
-  const apiKey = getTargetApiKey(keyNumber); 
+  const apiKey = getTargetApiKey(keyNumber);
   if (!apiKey) {
     console.error(`❌ Không tìm thấy API Key số: ${keyNumber}`);
     return false;
@@ -205,7 +205,12 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
     console.log(`🤖 Đang gửi câu hỏi lên Gemini: "${actualQuestion.slice(0, 60)}..."`);
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
-    const cleanMarkdown = responseText.replace(/^```markdown\n/, "").replace(/\n```$/, "");
+    
+    // Dọn dẹp sạch sẽ mọi loại thẻ bọc rác (```markdown, ```yaml, ```) ở đầu và cuối file do AI tự sinh
+    const cleanMarkdown = responseText
+      .replace(/^```[a-zA-Z]*\n/, "") // Xóa thẻ bọc mở đầu kèm tên ngôn ngữ bất kỳ
+      .replace(/\n```$/, "")           // Xóa thẻ bọc đóng ở cuối
+      .trim();
 
     // Ép trọn vẹn câu hỏi gạch nối thành tên file vật lý để tối ưu SEO URL
     const coreSlug = actualQuestion
@@ -213,18 +218,18 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
       .replace(/[^a-z0-9\s]+/g, "")
       .trim()
       .replace(/\s+/g, "-");
-    
+
     const outputDir = path.join(process.cwd(), "content", "posts");
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-    let fileName = `${coreSlug}.md`;
-    let outputPath = path.join(outputDir, fileName);
-    let counter = 1;
+    const fileName = `${coreSlug}.md`;
+    const outputPath = path.join(outputDir, fileName);
 
-    while (fs.existsSync(outputPath)) {
-      fileName = `${coreSlug}-${counter}.md`;
-      outputPath = path.join(outputDir, fileName);
-      counter++;
+    // 🛡️ TỐI ƯU CHỐNG TRÙNG LẶP RÁC: 
+    // Thay vì chạy vòng lặp tạo đuôi tăng tiến (-1, -2, -10), ta kiểm tra và ghi đè thẳng 
+    // nhằm đồng bộ chuẩn xác với cấu trúc slug nguyên bản.
+    if (fs.existsSync(outputPath)) {
+      console.log(`⚠️  [CẢNH BÁO] Bài viết đã tồn tại ở local. Tiến hành ghi đè cập nhật nội dung mới: ${fileName}`);
     }
 
     fs.writeFileSync(outputPath, cleanMarkdown, "utf-8");
