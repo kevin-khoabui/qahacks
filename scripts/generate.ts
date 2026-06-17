@@ -9,15 +9,14 @@ function getTargetApiKey(keyNumber: number): string {
   return process.env[`GEMINI_API_KEY_${keyNumber}`] || "";
 }
 
-// ============================================================================
-// 🤖 BỘ PHÁT SINH PROMPT ĐỘNG THEO TỪNG THỂ LOẠI (STRATEGY PATTERN)
-// ============================================================================
 function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: string, categoriesString: string): string {
+  // Chuẩn hóa tiêu đề, loại bỏ các dấu ngoặc kép có thể làm vỡ cấu trúc YAML Frontmatter
+  const safeTopic = topic.replace(/"/g, '\\"');
+
   if (isAutomation) {
-    // ⚡ PROMPT DÀNH CHO CÁC VAI TRÒ AUTOMATION (ENGINEER & LEADER)
     return `
       You are an elite Technical Interviewer and a Principal Automation Architect specializing in Automation Testing frameworks.
-      Generate a high-yield, tech-heavy interview Q&A post based on this technical automation topic: "${topic}".
+      Generate a high-yield, tech-heavy interview Q&A post based on this technical automation topic: "${safeTopic}".
       
       CRITICAL REQUIREMENT 1 (STRICT LENGTH & CODE STYLE):
       - The "Interview Question" must be a sharp, technical, or architecture-challenge question.
@@ -36,19 +35,19 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
       - "category": ${categoriesString}
 
       CRITICAL REQUIREMENT 4 (QUESTION DESIGN)
-      - IMPORTANT: Use the exact raw input "${topic}" as your primary Interview Question. Do not invent a different scenario or rewrite it.
+      - IMPORTANT: Use the exact raw input "${safeTopic}" as your primary Interview Question. Do not invent a different scenario or rewrite it.
 
       CRITICAL REQUIREMENT 5 (OUTPUT FORMAT):
       The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in markdown code blocks.
-      THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${topic}").
+      THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${safeTopic}").
 
       CRITICAL REQUIREMENT 6 (TOOL STACK DETECTION):
-      Analyze the topic "${topic}" to detect the core testing tool or framework being used (e.g., "Cypress", "Playwright", "Selenium", "Appium", "Postman", "JMeter").
-      - Write the exact tool name into the "tool_stack" field in the Frontmatter (capitalized properly like "Cypress", "Playwright").
-      - If no specific tool or framework is mentioned or can be inferred from the topic, strictly write "Generic".
+      Analyze the topic "${safeTopic}" to detect the core testing tool or framework being used (e.g., "Cypress", "Playwright", "Selenium", "Appium", "Postman", "JMeter").
+      - Change the value of "tool_stack" in the Frontmatter to the exact tool name (capitalized properly like "Cypress", "Playwright").
+      - If no specific tool or framework is mentioned, leave it as "Generic".
 
       ---
-      title: "${topic}"
+      title: "${safeTopic}"
       difficulty: "Advanced"
       target_role: ${rolesString}
       category: ${categoriesString}
@@ -57,7 +56,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
       core_testing_type: "Automation"
       domain: "Enterprise-Software"
       platform: "Cross-platform"
-      tool_stack: "[Insert Detected Tool Stack Here]"
+      tool_stack: "Generic"
       tags: ["automation", "coding-challenge", "interview-prep", "tech-strategy"]
       ---
       
@@ -65,7 +64,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
       [Provide a brief 2-sentence technical introduction highlighting the core automation framework challenge of this specific topic]
       
       ### Interview Question:
-      ${topic}
+      ${safeTopic}
       
       ### Expert Answer:
       [Insert the structured written automation answer here. Focus on code quality, design patterns like Page Object Model or Appium strategies, and execution velocity]
@@ -75,10 +74,9 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     `;
   }
 
-  // 📋 PROMPT DÀNH CHO CÁC VAI TRÒ MANUAL (ENGINEER & LEADER)
   return `
     You are an elite QA Software Test Lead and a Senior Engineering Interviewer specialized in Manual Testing & Quality Strategies.
-    Generate a high-quality interview Q&A post tailored specifically for this manual testing topic: "${topic}".
+    Generate a high-quality interview Q&A post tailored specifically for this manual testing topic: "${safeTopic}".
     
     CRITICAL REQUIREMENT 1 (MANUAL & LEADERSHIP FOCUS)
     The response must evaluate a candidate's ability to:
@@ -87,7 +85,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     - Collaborate with Developers, Product Managers, and Business Analysts to handle delivery pressure.
     
     CRITICAL REQUIREMENT 2 (QUESTION DESIGN)
-    - IMPORTANT: Use the exact raw input "${topic}" as your primary Interview Question. Do not invent a different scenario or rewrite it.
+    - IMPORTANT: Use the exact raw input "${safeTopic}" as your primary Interview Question. Do not invent a different scenario or rewrite it.
     
     CRITICAL REQUIREMENT 3 (EXPERT ANSWER)
     The Expert Answer must:
@@ -112,15 +110,15 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     
     CRITICAL REQUIREMENT 7 (OUTPUT FORMAT)
     Return raw Markdown beginning with frontmatter. Do not wrap the frontmatter or the whole response in markdown code blocks.
-    THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${topic}").
+    THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${safeTopic}").
 
     CRITICAL REQUIREMENT 8 (TOOL STACK DETECTION):
-    Analyze the topic "${topic}" to detect if a specific tool or platform is mentioned (e.g., "Jira", "TestRail", "Postman", "Excel").
-    - Write the exact tool name into the "tool_stack" field in the Frontmatter.
-    - If no specific tool is explicitly mentioned, strictly write "Generic".
+    Analyze the topic "${safeTopic}" to detect if a specific tool or platform is mentioned (e.g., "Jira", "TestRail", "Postman", "Excel").
+    - Change the value of "tool_stack" in the Frontmatter to the exact tool name.
+    - If no specific tool is explicitly mentioned, leave it as "Generic".
 
     ---
-    title: "${topic}"
+    title: "${safeTopic}"
     difficulty: "Advanced"
     target_role: ${rolesString}
     category: ${categoriesString}
@@ -129,7 +127,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     core_testing_type: "Manual"
     domain: "Enterprise-Software"
     platform: "Cross-platform"
-    tool_stack: "[Insert Detected Tool Stack Here]"
+    tool_stack: "Generic"
     leadership_competency: "Risk Mitigation"
     interview_focus: "Delivery Pressure"
     tags: ["manual-testing", "qa-lead", "interview-prep", "test-leadership"]
@@ -139,7 +137,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     [Provide a brief 2-sentence executive summary highlighting the testing risk and strategic challenge]
     
     ### Interview Question:
-    ${topic}
+    ${safeTopic}
     
     ### Expert Answer:
     [Insert the structured, strategic framework answer here focusing on manual QA execution, coverage, and validation metrics]
