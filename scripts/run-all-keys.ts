@@ -52,14 +52,15 @@ async function runAll() {
     const targetTopic = validTopics[i - 1];
     console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Khởi động lượt bằng Key số ${i}...`);
     
-    let isSuccess = false;
+let isSuccess = false;
     await new Promise<void>((resolve) => {
-      // 🚀 GIẢI PHÁP AN TOÀN TUYỆT ĐỐI CHO LINUX/CI:
-      // Gọi trực tiếp "node" kết hợp với loader của tsx qua đối số '--import' hoặc thông qua command thuần.
-      // Tắt hoàn toàn 'shell: true' để chặn đứng lỗi diễn giải Pipe rác '|' của shell Linux.
-      const child = spawn("node", ["--import", "tsx", "scripts/generate.ts", String(i), targetTopic], { 
+      // 🚀 GIẢI PHÁP ĐƯỜNG DẪN TUYỆT ĐỐI AN TOÀN CHO CẢ WINDOWS LẪN LINUX/CI:
+      // Tìm chính xác file thực thi của tsx trong node_modules cục bộ thay vì gọi thông qua cơ chế import tự động của node
+      const tsxExecutable = path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs");
+
+      const child = spawn("node", [tsxExecutable, "scripts/generate.ts", String(i), targetTopic], { 
         stdio: "inherit", 
-        shell: false 
+        shell: false // Khóa chặt false để Linux không bao giờ phá hỏng chuỗi chứa dấu "|"
       });
 
       child.on("close", (code) => {
