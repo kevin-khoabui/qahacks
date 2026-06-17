@@ -1,27 +1,5 @@
-Automation_QA_Engineer | Analytical_Behavioral - How do you recover from a failed automation rollout?
-Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams on automation best practices?
 QA_Lead | Foundations_Methodology - How do you define a quality strategy for a platform migration?
-Automation_QA_Engineer | Technical - How do you automate MFA authentication in Cypress?
-QA_Lead | Foundations_Methodology - How do you build quality ownership beyond the QA team?
-Manual_QA_Engineer | Analytical_Behavioral - How do you handle bugs that cannot be reproduced?
-Automation_QA_Engineer | Technical - How do you test WebSocket reconnection in Playwright?
-QA_Lead | Foundations_Methodology - How do you plan testing for a large legacy modernization?
-Manual_QA_Engineer | Analytical_Behavioral - How do you isolate defects in integrated environments?
-Automation_QA_Engineer | Technical - How do you validate browser permissions in Cypress tests?
-QA_Lead | Foundations_Methodology - How do you establish testing standards for new teams?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate user reports lacking evidence?
-Automation_QA_Engineer | Technical - How do you automate network failure scenarios in Playwright?
 QA_Lead | Foundations_Methodology - How do you improve release confidence without adding delays?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify a defect affecting only one customer?
-Automation_QA_Engineer | Technical - How do you validate session persistence in Cypress?
-QA_Lead | Foundations_Methodology - How do you standardize defect severity across products?
-Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot missing audit records?
-Automation_QA_Engineer | Technical - How do you test browser storage corruption in Playwright?
-QA_Lead | Foundations_Methodology - How do you assess quality risks during acquisitions?
-Manual_QA_Engineer | Analytical_Behavioral - How do you identify hidden impacts of a small change?
-Automation_QA_Engineer | Technical - How do you automate accessibility checks in Cypress?
-QA_Lead | Foundations_Methodology - How do you evaluate testing maturity across departments?
-Manual_QA_Engineer | Analytical_Behavioral - How do you validate fixes without production access?
 Automation_QA_Engineer | Technical - How do you test API throttling behavior in Playwright?
 QA_Lead | Foundations_Methodology - How do you manage quality during parallel releases?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate incorrect reporting metrics?
