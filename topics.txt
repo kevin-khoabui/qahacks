@@ -1,27 +1,6 @@
-QA_Lead | Technical - How do you validate distributed transactions across services?
-Manual_QA_Engineer | Foundations_Methodology - How do you approach exploratory testing sessions?
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover from a failed automation rollout?
 Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams on automation best practices?
-QA_Lead | Technical - How do you validate service dependencies during releases?
-Manual_QA_Engineer | Foundations_Methodology - How do you ensure coverage for hidden workflows?
-Automation_QA_Engineer | Analytical_Behavioral - How do you address repeated flaky test complaints?
-QA_Lead | Technical - How do you verify data synchronization across environments?
-Manual_QA_Engineer | Foundations_Methodology - How do you adapt testing when scope changes daily?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation work across multiple teams?
-QA_Lead | Technical - How do you evaluate risk in complex integration environments?
-Manual_QA_Engineer | Foundations_Methodology - How do you build test cases from user journeys?
-Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation investment to leadership?
-QA_Lead | Technical - How do you validate rollback procedures before deployment?
-Manual_QA_Engineer | Foundations_Methodology - How do you test feature interactions across modules?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation gaps found late in testing?
-QA_Lead | Technical - How do you ensure monitoring covers critical business flows?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify missing requirements during testing?
-Automation_QA_Engineer | Analytical_Behavioral - How do you balance innovation and automation stability?
 QA_Lead | Foundations_Methodology - How do you define a quality strategy for a platform migration?
-Manual_QA_Engineer | Analytical_Behavioral - How did you uncover a defect missed by automation?
-Automation_QA_Engineer | Technical - How do you validate GraphQL APIs using Playwright?
-QA_Lead | Foundations_Methodology - How do you align testing goals across multiple squads?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate inconsistent search results?
 Automation_QA_Engineer | Technical - How do you automate MFA authentication in Cypress?
 QA_Lead | Foundations_Methodology - How do you build quality ownership beyond the QA team?
 Manual_QA_Engineer | Analytical_Behavioral - How do you handle bugs that cannot be reproduced?
