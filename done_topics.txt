@@ -99,3 +99,27 @@ Manual QA Engineer | Analytical Behavioral - How do you investigate a defect whe
 Manual QA Engineer | Foundations Methodology - What specific test cases do you write to ensure session tokens invalidate completely upon explicit user logout?
 Manual QA Engineer | Foundations Methodology - What test cases do you write to validate custom filtering views that users can save, edit, and delete?
 Manual_QA_Engineer | Analytical_Behavioral - Strategy - How would you prioritize validation efforts when a real-time order synchronization failure intermittently duplicates customer transactions across multiple regions three days before a regulatory audit?
+Manual_QA_Engineer | Analytical_Behavioral - How did you isolate a production bug caused by a zero-data state?
+Automation_QA_Engineer | Technical - How do you stabilize flaky Playwright tests after a UI redesign?
+QA_Lead | Foundations_Methodology - How do you define exit criteria for a multi-team release?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing records returned from a SQL query?
+Automation_QA_Engineer | Technical - How do you validate WebSocket events using Cypress?
+QA_Lead | Foundations_Methodology - How do you prioritize testing when requirements change mid-sprint?
+Manual_QA_Engineer | Analytical_Behavioral - How do you reproduce an intermittent mobile crash seen once?
+Automation_QA_Engineer | Technical - How do you mock third-party APIs in Playwright?
+QA_Lead | Foundations_Methodology - How do you measure QA effectiveness across multiple products?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify a bug without direct database access?
+Automation_QA_Engineer | Technical - How do you handle dynamic locators in Cypress frameworks?
+QA_Lead | Foundations_Methodology - How do you build a risk-based testing strategy?
+Manual_QA_Engineer | Analytical_Behavioral - How do you debug failed API calls using Browser DevTools?
+Automation_QA_Engineer | Technical - How do you reduce test runtime in a large Playwright suite?
+QA_Lead | Foundations_Methodology - How do you align QA goals with business priorities?
+Manual_QA_Engineer | Analytical_Behavioral - How do you validate data consistency across services?
+Automation_QA_Engineer | Technical - How do you test role-based access with Cypress?
+QA_Lead | Foundations_Methodology - How do you introduce quality gates into CI pipelines?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate duplicate transactions in production?
+Automation_QA_Engineer | Technical - How do you manage test data in Playwright automation?
+QA_Lead | Foundations_Methodology - How do you scale regression coverage with limited resources?
+Manual_QA_Engineer | Analytical_Behavioral - How do you analyze a failed payment with Postman and logs?
+Automation_QA_Engineer | Technical - How do you validate file downloads in Cypress tests?
+QA_Lead | Foundations_Methodology - How do you ensure requirement traceability in testing?
