@@ -7,14 +7,14 @@ dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
 // Thu thập danh sách các API Key hợp lệ từ file cấu hình .env.local
 const activeKeys = Object.keys(process.env).filter(
-  (key) => 
-    key.startsWith("GEMINI_API_KEY_") && 
-    !key.endsWith("_25") && 
+  (key) =>
+    key.startsWith("GEMINI_API_KEY_") &&
+    !key.endsWith("_25") &&
     process.env[key]?.trim() !== ""
 );
 
 const TARGET_COUNT = activeKeys.length;
-const DELAY_MS = 3000; 
+const DELAY_MS = 3000;
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -23,7 +23,7 @@ async function runAll() {
   console.log(`🔍 PHÁT HIỆN ${TARGET_COUNT}/24 API KEYS HỢP LỆ CHO BÀI LẺ.`);
   console.log(`🚀 BẮT ĐẦU CHẠY MẺ TỔNG LỰC ${TARGET_COUNT} BÀI...`);
   console.log(`==================================================\n`);
-  
+
   if (TARGET_COUNT === 0) {
     console.log("❌ Lỗi: Không tìm thấy Key nào hợp lệ. Dừng hoạt động.");
     return;
@@ -51,26 +51,32 @@ async function runAll() {
 
     const targetTopic = validTopics[i - 1];
     console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Khởi động lượt bằng Key số ${i}...`);
-    
-let isSuccess = false;
-    await new Promise<void>((resolve) => {
-      // 🚀 GIẢI PHÁP ĐƯỜNG DẪN TUYỆT ĐỐI AN TOÀN CHO CẢ WINDOWS LẪN LINUX/CI:
-      // Tìm chính xác file thực thi của tsx trong node_modules cục bộ thay vì gọi thông qua cơ chế import tự động của node
-      const tsxExecutable = path.join(process.cwd(), "node_modules", "tsx", "dist", "cli.mjs");
 
-      const child = spawn("node", [tsxExecutable, "scripts/generate.ts", String(i), targetTopic], { 
-        stdio: "inherit", 
-        shell: false // Khóa chặt false để Linux không bao giờ phá hỏng chuỗi chứa dấu "|"
-      });
+    let exitCode: number | null = null;
+    await new Promise<void>((resolve) => {
+      // 🚀 GIẢI PHÁP KIẾN TRÚC BẤT TỬ (CROSS-PLATFORM SOLUTION):
+      // - Gọi trực tiếp chính executable của Node.js đang chạy hệ thống (process.execPath)
+      // - Sử dụng cờ '--import' để nạp module tsx một cách chính thống từ node_modules cục bộ.
+      // - Cách này loại bỏ hoàn toàn việc đoán đường dẫn file mjs hay dùng thư mục .bin rác.
+      // - Tắt shell: false an toàn tuyệt đối, không bao giờ lo sập luồng do dấu gạch đứng "|" nữa.
+
+      const child = spawn(
+        process.execPath,
+        ["--import", "tsx", "scripts/generate.ts", String(i), targetTopic],
+        {
+          stdio: "inherit",
+          shell: false
+        }
+      );
 
       child.on("close", (code) => {
-        if (code === 0) isSuccess = true;
-        resolve(); 
+        exitCode = code;
+        resolve();
       });
     });
 
-    if (isSuccess) {
-      // Lưu chính xác chuỗi gốc không dính nháy kép rác để phục vụ bộ lọc xóa dòng
+    // Code 0: Thành công tạo mới | Code 2: Bị trùng lặp nhưng vẫn gọt dòng an toàn
+    if (exitCode === 0 || exitCode === 2) {
       successfulTopics.push(targetTopic);
     }
 
@@ -84,14 +90,10 @@ let isSuccess = false;
   // ============================================================================
   if (successfulTopics.length > 0) {
     console.log(`\n🧹 Đang tiến hành quét dọn và gọt bỏ các dòng thành công khỏi topics.txt...`);
-    
-    // Đọc lại trạng thái mới nhất của file phòng trường hợp bạn vừa edit tay lúc script đang chạy
+
     const freshLines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
-    
-    // Chỉ giữ lại những dòng KHÔNG nằm trong mảng đã tạo bài thành công
     const updatedLines = freshLines.filter(line => !successfulTopics.includes(line) && line.length > 0);
-    
-    // Ghi đè khóa cứng lại file tĩnh.
+
     fs.writeFileSync(filePath, updatedLines.join("\n"), "utf-8");
     console.log(`✅ Đã gọt dòng xong! Đã cắt sạch ${successfulTopics.length} chủ đề ra khỏi kho. Còn lại: ${updatedLines.length} chủ đề chờ mẻ tiếp theo.`);
   } else {
