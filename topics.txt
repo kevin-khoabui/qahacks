@@ -7,17 +7,11 @@ Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for a
 Automation_QA_Engineer | Analytical_Behavioral - How did you resolve disagreements on automation priorities?
 QA_Lead | Technical - How do you evaluate API health across enterprise systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you design tests for unknown edge cases?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond when automation blocks delivery?
 QA_Lead | Technical - How do you audit production incidents using logs and metrics?
-Manual_QA_Engineer | Foundations_Methodology - How do you build a regression suite from scratch?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage frequent framework migration requests?
-QA_Lead | Technical - How do you validate observability coverage for critical services?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify high-risk testing areas early?
-Automation_QA_Engineer | Analytical_Behavioral - How do you influence teams to adopt automation?
 QA_Lead | Technical - How do you verify data pipelines with SQL validation?
 Manual_QA_Engineer | Foundations_Methodology - How do you prioritize tests for a hotfix release?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle failed automation ownership disputes?
-QA_Lead | Technical - How do you assess release readiness using quality metrics?
 Manual_QA_Engineer | Foundations_Methodology - How do you select test scenarios for MVP launches?
 Automation_QA_Engineer | Analytical_Behavioral - How did you reduce resistance to automation adoption?
 QA_Lead | Technical - How do you validate distributed transactions across services?
