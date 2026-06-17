@@ -2,26 +2,8 @@ QA_Lead | Foundations_Methodology - How do you plan testing for a phased migrati
 Manual_QA_Engineer | Analytical_Behavioral - How do you validate real-time updates over WebSockets?
 Automation_QA_Engineer | Technical - How do you test retry mechanisms with Playwright?
 QA_Lead | Analytical_Behavioral - How did you handle a release blocked by unresolved critical defects?
-Manual_QA_Engineer | Technical - How do you validate API rate limits using Postman?
-Automation_QA_Engineer | Foundations_Methodology - How do you choose candidates for Playwright automation?
 QA_Lead | Analytical_Behavioral - How do you resolve conflicts between QA and development teams?
-Manual_QA_Engineer | Technical - How do you verify data integrity across replicated databases?
-Automation_QA_Engineer | Foundations_Methodology - How do you design maintainable Cypress test architecture?
-QA_Lead | Analytical_Behavioral - How do you manage quality during aggressive delivery deadlines?
-Manual_QA_Engineer | Technical - How do you inspect failed network requests in DevTools?
-Automation_QA_Engineer | Foundations_Methodology - How do you define automation coverage goals?
-QA_Lead | Analytical_Behavioral - How do you justify delaying a high-risk release?
-Manual_QA_Engineer | Technical - How do you test session expiration across multiple tabs?
-Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation ROI for a project?
 QA_Lead | Analytical_Behavioral - How do you recover trust after a major production defect?
-Manual_QA_Engineer | Technical - How do you validate database triggers using SQL?
-Automation_QA_Engineer | Foundations_Methodology - How do you organize reusable Playwright components?
-QA_Lead | Analytical_Behavioral - How do you mentor low-performing QA team members?
-Manual_QA_Engineer | Technical - How do you verify offline behavior on mobile devices?
-Automation_QA_Engineer | Foundations_Methodology - How do you prevent brittle Cypress test suites?
-QA_Lead | Analytical_Behavioral - How do you manage testing during organizational restructuring?
-Manual_QA_Engineer | Technical - How do you test API version compatibility with Postman?
-Automation_QA_Engineer | Foundations_Methodology - How do you maintain test stability after UI changes?
 QA_Lead | Analytical_Behavioral - How do you handle repeated requirement ambiguities from stakeholders?
 Manual_QA_Engineer | Technical - How do you validate browser storage using DevTools?
 Automation_QA_Engineer | Foundations_Methodology - How do you structure automation reviews and approvals?
