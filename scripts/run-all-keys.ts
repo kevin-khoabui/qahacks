@@ -52,20 +52,18 @@ async function runAll() {
     const targetTopic = validTopics[i - 1];
     console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Khởi động lượt bằng Key số ${i}...`);
 
-let exitCode: number | null = null;
+    let exitCode: number | null = null;
     await new Promise<void>((resolve) => {
-      // 🚀 GIẢI PHÁP ĐƯỜNG DẪN LOADER TUYỆT ĐỐI CHUẨN NATIVE ESM:
-      // Tìm chính xác file cấu hình export của gói tsx trong node_modules cục bộ.
-      // Việc truyền đường dẫn file vật lý này giúp câu lệnh "node --import" tìm thấy loader ngay lập tức
-      // mà không phụ thuộc vào cơ chế phân giải package tự động của hệ điều hành CI.
-      const tsxLoaderPath = path.join(process.cwd(), "node_modules", "tsx", "dist", "index.js");
-
+      // 🚀 GIẢI PHÁP THỰC CHIẾN BẤT TỬ TRÊN GITHUB ACTIONS:
+      // - Gọi trực tiếp lệnh "npx" dưới dạng một chương trình độc lập toàn cục của hệ thống (PATH)
+      // - Truyền "tsx" làm tham số nạp loader đầu tiên.
+      // - Khóa chặt "shell: false" để bảo vệ 100% các ký tự đặc biệt như "|", ",", "-" không bị Linux diễn giải thành câu lệnh điều hướng rác.
       const child = spawn(
-        process.execPath, 
-        ["--import", tsxLoaderPath, "scripts/generate.ts", String(i), targetTopic], 
+        "npx", 
+        ["tsx", "scripts/generate.ts", String(i), targetTopic], 
         { 
           stdio: "inherit", 
-          shell: false // Khóa chặt false để Linux không bao giờ phá hỏng chuỗi chứa dấu "|"
+          shell: false 
         }
       );
 
