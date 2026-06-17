@@ -52,26 +52,26 @@ async function runAll() {
     const targetTopic = validTopics[i - 1];
     console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Khởi động lượt bằng Key số ${i}...`);
 
-    let exitCode: number | null = null;
+let exitCode: number | null = null;
     await new Promise<void>((resolve) => {
-      // 🚀 GIẢI PHÁP KIẾN TRÚC BẤT TỬ (CROSS-PLATFORM SOLUTION):
-      // - Gọi trực tiếp chính executable của Node.js đang chạy hệ thống (process.execPath)
-      // - Sử dụng cờ '--import' để nạp module tsx một cách chính thống từ node_modules cục bộ.
-      // - Cách này loại bỏ hoàn toàn việc đoán đường dẫn file mjs hay dùng thư mục .bin rác.
-      // - Tắt shell: false an toàn tuyệt đối, không bao giờ lo sập luồng do dấu gạch đứng "|" nữa.
+      // 🚀 GIẢI PHÁP ĐƯỜNG DẪN LOADER TUYỆT ĐỐI CHUẨN NATIVE ESM:
+      // Tìm chính xác file cấu hình export của gói tsx trong node_modules cục bộ.
+      // Việc truyền đường dẫn file vật lý này giúp câu lệnh "node --import" tìm thấy loader ngay lập tức
+      // mà không phụ thuộc vào cơ chế phân giải package tự động của hệ điều hành CI.
+      const tsxLoaderPath = path.join(process.cwd(), "node_modules", "tsx", "dist", "index.js");
 
       const child = spawn(
-        process.execPath,
-        ["--import", "tsx", "scripts/generate.ts", String(i), targetTopic],
-        {
-          stdio: "inherit",
-          shell: false
+        process.execPath, 
+        ["--import", tsxLoaderPath, "scripts/generate.ts", String(i), targetTopic], 
+        { 
+          stdio: "inherit", 
+          shell: false // Khóa chặt false để Linux không bao giờ phá hỏng chuỗi chứa dấu "|"
         }
       );
 
       child.on("close", (code) => {
         exitCode = code;
-        resolve();
+        resolve(); 
       });
     });
 
