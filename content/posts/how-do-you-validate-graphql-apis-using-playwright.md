@@ -8,7 +8,7 @@ question_type: "Code-challenge"
 core_testing_type: "Automation"
 domain: "Enterprise-Software"
 platform: "Cross-platform"
-tool_stack: "Playwright"
+tool_stack: "Cypress"
 tags: ["automation", "coding-challenge", "interview-prep", "tech-strategy"]
 ---
 

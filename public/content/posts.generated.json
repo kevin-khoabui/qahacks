@@ -42,7 +42,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Playwright",
     "tags": [
       "automation",
       "coding-challenge",
@@ -94,7 +94,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -119,7 +119,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -441,7 +441,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -468,7 +468,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -655,7 +655,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Playwright",
     "tags": [
       "automation",
       "coding-challenge",
@@ -808,7 +808,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -860,7 +860,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Playwright",
     "tags": [
       "automation",
       "coding-challenge",
@@ -1099,7 +1099,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -1334,7 +1334,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -1519,7 +1519,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -1787,7 +1787,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Postman",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -1920,7 +1920,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -1972,7 +1972,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -2155,7 +2155,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -2369,7 +2369,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Postman",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -2504,7 +2504,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -2610,7 +2610,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -2664,7 +2664,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -2880,7 +2880,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3036,7 +3036,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3061,7 +3061,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3086,7 +3086,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3217,7 +3217,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3294,7 +3294,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -3348,7 +3348,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -3716,7 +3716,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3876,7 +3876,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Playwright",
     "tags": [
       "automation",
       "coding-challenge",
@@ -3978,7 +3978,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -4032,7 +4032,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -4271,7 +4271,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -4323,7 +4323,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -4588,7 +4588,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -4640,7 +4640,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -4958,7 +4958,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -5326,7 +5326,7 @@
     "core_testing_type": "Automation",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Playwright",
+    "tool_stack": "Cypress",
     "tags": [
       "automation",
       "coding-challenge",
@@ -5459,7 +5459,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -5642,7 +5642,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Postman",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -5966,7 +5966,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Generic",
+    "tool_stack": "Postman",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -6128,7 +6128,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -6560,7 +6560,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -6668,7 +6668,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -6803,7 +6803,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -6938,7 +6938,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -6992,7 +6992,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [
@@ -7019,7 +7019,7 @@
     "core_testing_type": "Manual",
     "domain": "Enterprise-Software",
     "platform": "Cross-platform",
-    "tool_stack": "Cypress",
+    "tool_stack": "Generic",
     "leadership_competency": "Risk Mitigation",
     "interview_focus": "Delivery Pressure",
     "tags": [

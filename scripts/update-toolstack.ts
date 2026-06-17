@@ -2,96 +2,80 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// 🌐 GIẢ LẬP __DIRNAME CHO MÔI TRƯỜNG ES MODULE
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 📂 ĐƯỜNG DẪN TỚI THƯ MỤC CHỨA FILE .MD CỦA BẠN
 const POSTS_DIR = path.join(__dirname, '../content/posts'); 
-const BACKUP_DIR = path.join(__dirname, '../content/posts_backup_safe'); 
 
-// 🎯 BẢN ĐỒ TỪ KHÓA NHẬN DIỆN TOOL STACK
-const TOOL_KEYWORDS: { [key: string]: string[] } = {
+// ⚡ 1. BỘ TỪ KHÓA CHỈ DÀNH CHO CÁC BÀI AUTOMATION
+const AUTOMATION_TOOLS: { [key: string]: string[] } = {
   'Cypress': ['cypress', 'cy.', 'cy.visit', 'cy.get'],
   'Playwright': ['playwright', 'page.goto', 'await page.'],
   'Selenium': ['selenium', 'webdriver', 'chromedriver', 'driver.find'],
-  'Postman': ['postman', 'newman', 'pm.test', 'pm.expect'],
-  'Jira': ['jira', 'zephyr', 'xray'],
-  'TestRail': ['testrail'],
   'JMeter': ['jmeter', '.jmx', 'thread group']
 };
 
-// 🛡️ HÀM TỰ ĐỘNG SAO LƯU PHÒNG HỜ SỰ CỐ
-function backupFolder(src: string, dest: string) {
-  if (fs.existsSync(dest)) {
-    fs.rmSync(dest, { recursive: true, force: true });
-  }
-  fs.mkdirSync(dest, { recursive: true });
-  const files = fs.readdirSync(src);
-  files.forEach(file => {
-    fs.copyFileSync(path.join(src, file), path.join(dest, file));
-  });
-  console.log(`🛡️  [AN TOÀN] Đã tạo bản sao lưu dữ liệu tại: ${dest}`);
-}
+// 📋 2. BỘ TỪ KHÓA CHỈ DÀNH CHO CÁC BÀI MANUAL STRATEGY
+const MANUAL_TOOLS: { [key: string]: string[] } = {
+  'Postman': ['postman', 'newman', 'pm.test', 'pm.expect'],
+  'Jira': ['jira', 'zephyr', 'xray'],
+  'TestRail': ['testrail']
+};
 
-function detectToolStack(content: string): string {
+function detectToolStack(content: string, isAutomation: boolean): string {
   const lowerContent = content.toLowerCase();
-  for (const [tool, keywords] of Object.entries(TOOL_KEYWORDS)) {
+  
+  // Áp bộ lọc tương ứng với thể loại bài viết
+  const keywordsMap = isAutomation ? AUTOMATION_TOOLS : MANUAL_TOOLS;
+
+  for (const [tool, keywords] of Object.entries(keywordsMap)) {
     for (const keyword of keywords) {
       if (lowerContent.includes(keyword.toLowerCase())) {
         return tool;
       }
     }
   }
-  return 'Generic';
+  return 'Generic'; // Trả về mặc định nếu không tìm thấy công cụ đặc trưng phù hợp
 }
 
-function migrateToolStack() {
+function migrateToolStackSecurely() {
   if (!fs.existsSync(POSTS_DIR)) {
-    console.error(`❌ Không tìm thấy thư mục bài viết tại: ${POSTS_DIR}`);
+    console.error(`❌ Không tìm thấy thư mục: ${POSTS_DIR}`);
     return;
   }
 
-  // 1. Sao lưu an toàn trước khi chạy
-  backupFolder(POSTS_DIR, BACKUP_DIR);
-
   const files = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith('.md'));
-  console.log(`🔍 Tìm thấy tổng cộng ${files.length} file .md. Tiến hành quét dữ liệu...`);
+  console.log(`🔍 Quét ${files.length} file .md với bộ lọc phân tách Automation/Manual...`);
 
   let updatedCount = 0;
-  let skippedCount = 0;
 
-  try {
-    files.forEach(file => {
-      const filePath = path.join(POSTS_DIR, file);
-      let fileContent = fs.readFileSync(filePath, 'utf8');
+  files.forEach(file => {
+    const filePath = path.join(POSTS_DIR, file);
+    let fileContent = fs.readFileSync(filePath, 'utf8');
 
-      const hasNoneToolStack = /tool_stack:\s*["']None["']/g.test(fileContent);
+    // Kiểm tra xem bài viết này thuộc thể loại nào bằng cách đọc Frontmatter
+    const isAutomationPost = fileContent.includes('core_testing_type: "Automation"') || 
+                             fileContent.includes('sub_category: "Automation"');
 
-      if (hasNoneToolStack) {
-        const exactTool = detectToolStack(fileContent);
-        fileContent = fileContent.replace(/tool_stack:\s*["']None["']/g, `tool_stack: "${exactTool}"`);
-        
-        fs.writeFileSync(filePath, fileContent, 'utf8');
-        console.log(`✅ Đã cập nhật [${file}] ➡️ tool_stack: "${exactTool}"`);
-        updatedCount++;
-      } else {
-        skippedCount++;
-      }
-    });
+    // Chấp nhận quét lại cả những bài đang hiển thị sai tool_stack
+    // Tìm và thay thế bất kể giá trị tool_stack cũ là gì để sửa lỗi nhiễm chéo
+    const toolStackRegex = /tool_stack:\s*["'][^"']+["']/g;
 
-    console.log(`\n==================================================`);
-    console.log(`📊 BÁO CÁO HOÀN THÀNH MIGRATION:`);
-    console.log(`- Đã sửa lỗi thành công: ${updatedCount} file.`);
-    console.log(`- Bỏ qua (đã có sẵn hoặc không bị lỗi None): ${skippedCount} file.`);
-    console.log(`💡 Mẹo: Dữ liệu gốc an toàn đã được backup ở thư mục 'posts_backup_safe'.`);
-    console.log(`==================================================`);
+    if (toolStackRegex.test(fileContent)) {
+      const exactTool = detectToolStack(fileContent, isAutomationPost);
+      
+      // Tiến hành cập nhật/ghi đè lại giá trị chuẩn xác
+      fileContent = fileContent.replace(toolStackRegex, `tool_stack: "${exactTool}"`);
+      fs.writeFileSync(filePath, fileContent, 'utf8');
+      updatedCount++;
+    }
+  });
 
-  } catch (error) {
-    console.error(`\n❌ SỰ CỐ XẢY RA KHI ĐANG CHẠY:`, error);
-    console.log(`🚨 HƯỚNG DẪN ROLLBACK HỦY BỎ THAO TÁC:`);
-    console.log(`Hãy xóa thư mục 'posts' và đổi tên thư mục 'posts_backup_safe' thành 'posts' để khôi phục.`);
-  }
+  console.log(`\n==================================================`);
+  console.log(`📊 ĐÃ CHUẨN HÓA THÀNH CÔNG:`);
+  console.log(`- Đã ép lọc và sửa lỗi nhiễm chéo cho: ${updatedCount} file.`);
+  console.log(`- Các bài Manual đã được bóc tách hoàn toàn khỏi Cypress/Playwright/Selenium.`);
+  console.log(`==================================================`);
 }
 
-migrateToolStack();
+migrateToolStackSecurely();
