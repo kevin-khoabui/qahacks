@@ -148,3 +148,27 @@ Automation_QA_Engineer | Technical - How do you validate file upload failures in
 QA_Lead | Foundations_Methodology - How do you balance governance with team autonomy?
 Manual_QA_Engineer | Analytical_Behavioral - How do you prioritize testing under severe time pressure?
 Automation_QA_Engineer | Technical - How do you test cross-origin workflows in Playwright?
+Manual_QA_Engineer | Technical - How do you validate API pagination edge cases with Postman?
+Automation_QA_Engineer | Foundations_Methodology - How do you decide between Cypress and Playwright?
+QA_Lead | Analytical_Behavioral - How do you handle quality concerns ignored by leadership?
+Manual_QA_Engineer | Technical - How do you verify SQL joins returning unexpected results?
+Automation_QA_Engineer | Foundations_Methodology - How do you structure automation for microservices?
+QA_Lead | Analytical_Behavioral - How do you manage a release after a customer escalation?
+Manual_QA_Engineer | Technical - How do you test browser caching after configuration changes?
+Automation_QA_Engineer | Foundations_Methodology - How do you prevent duplicate automation coverage?
+QA_Lead | Analytical_Behavioral - How do you respond when quality targets are repeatedly missed?
+Manual_QA_Engineer | Technical - How do you validate API retries under network instability?
+Automation_QA_Engineer | Foundations_Methodology - How do you review automation code quality?
+QA_Lead | Analytical_Behavioral - How do you manage testing across competing priorities?
+Manual_QA_Engineer | Technical - How do you inspect failed redirects using DevTools?
+Automation_QA_Engineer | Foundations_Methodology - How do you identify automation maintenance risks?
+QA_Lead | Analytical_Behavioral - How do you influence teams resisting process improvements?
+Manual_QA_Engineer | Technical - How do you validate database updates after API calls?
+Automation_QA_Engineer | Foundations_Methodology - How do you scale automation for rapid releases?
+QA_Lead | Analytical_Behavioral - How do you handle disagreements on defect severity?
+Manual_QA_Engineer | Technical - How do you test mobile notifications across OS versions?
+Automation_QA_Engineer | Foundations_Methodology - How do you choose stable automation locators?
+QA_Lead | Analytical_Behavioral - How do you recover after an unsuccessful release?
+Manual_QA_Engineer | Technical - How do you validate authorization using Postman collections?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage automation framework upgrades?
+QA_Lead | Analytical_Behavioral - How do you motivate teams during high-pressure releases?
