@@ -9,7 +9,9 @@ interface CategoryPaginationClientProps {
 
 export default function CategoryPaginationClient({ posts }: CategoryPaginationClientProps) {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 24;
+  
+  // 💡 Bạn có thể chỉnh số này (ví dụ: 3, 6, 24) tùy theo số bài muốn hiện trên 1 trang
+  const postsPerPage = 3; 
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -19,6 +21,40 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
   }, [posts, indexOfFirstPost, indexOfLastPost]);
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
+
+  // ============================================================================
+  // 🧠 THUẬT TOÁN CO GỌN SỐ TRANG (SLIDING WINDOW) - CHỐNG TRÀN UI
+  // ============================================================================
+  const pageNumbers = useMemo(() => {
+    const delta = 1; // Số lượng trang hiển thị kề bên trang hiện tại
+    const range: number[] = [];
+    const rangeWithDots: (number | string)[] = [];
+    let prevPage: number | undefined;
+
+    for (let i = 1; i <= totalPages; i++) {
+      if (
+        i === 1 || 
+        i === totalPages || 
+        (i >= currentPage - delta && i <= currentPage + delta)
+      ) {
+        range.push(i);
+      }
+    }
+
+    for (const i of range) {
+      if (prevPage !== undefined) {
+        if (i - prevPage === 2) {
+          rangeWithDots.push(prevPage + 1);
+        } else if (i - prevPage > 2) {
+          rangeWithDots.push("...");
+        }
+      }
+      rangeWithDots.push(i);
+      prevPage = i;
+    }
+
+    return rangeWithDots;
+  }, [currentPage, totalPages]);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -39,6 +75,7 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
 
   return (
     <>
+      {/* DANH SÁCH BÀI VIẾT (GRID CARD) */}
       <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {currentPosts.map((post) => {
           const pTool = (post as any).tool_stack;
@@ -79,14 +116,14 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
         })}
       </div>
 
-      {/* THANH PHÂN TRANG BẢO HIỂM CLICK VÀ CON TRỎ CHUỘT CHỐNG RÁC EVENT */}
+      {/* 🎯 THANH PHÂN TRANG THÔNG MINH - ĐÃ CO GỌN DẤU BA CHẤM */}
       {totalPages > 1 && (
         <div className="mt-16 flex items-center justify-center gap-1.5 border-t border-slate-900 pt-8">
+          
+          {/* Nút Quay lại (Previous) */}
           <button
-            onClick={() => {
-              if (currentPage === 1) return;
-              handlePageChange(currentPage - 1);
-            }}
+            onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
             className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
               currentPage === 1 
                 ? "opacity-20 text-slate-600 cursor-not-allowed" 
@@ -98,13 +135,26 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
             </svg>
           </button>
 
+          {/* Dải số đã bọc giáp thu gọn */}
           <div className="flex items-center gap-1">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+            {pageNumbers.map((page, index) => {
+              // Nếu là dấu ba chấm "...", hiển thị text tĩnh không click được
+              if (page === "...") {
+                return (
+                  <span
+                    key={`dots-${index}`}
+                    className="min-w-[36px] h-[36px] flex items-center justify-center text-xs font-bold text-slate-600 select-none"
+                  >
+                    ...
+                  </span>
+                );
+              }
+
               const isActive = page === currentPage;
               return (
                 <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
+                  key={`page-${page}`}
+                  onClick={() => handlePageChange(page as number)}
                   className={`min-w-[36px] h-[36px] text-xs font-bold rounded-xl border transition-all cursor-pointer ${
                     isActive
                       ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
@@ -117,11 +167,10 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
             })}
           </div>
 
+          {/* Nút Kế tiếp (Next) */}
           <button
-            onClick={() => {
-              if (currentPage === totalPages) return;
-              handlePageChange(currentPage + 1);
-            }}
+            onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
             className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
               currentPage === totalPages 
                 ? "opacity-20 text-slate-600 cursor-not-allowed" 

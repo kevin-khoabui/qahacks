@@ -89,40 +89,6 @@ export default function HomePage() {
 
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
-  // ============================================================================
-  // 🧠 THUẬT TOÁN CO GỌN SỐ TRANG (SLIDING WINDOW) - CHỐNG TRÀN UI TRANG CHỦ
-  // ============================================================================
-  const pageNumbers = useMemo(() => {
-    const delta = 1; // Số lượng số hiển thị kề hai bên trang hiện tại
-    const range: number[] = [];
-    const rangeWithDots: (number | string)[] = [];
-    let prevPage: number | undefined;
-
-    for (let i = 1; i <= totalPages; i++) {
-      if (
-        i === 1 || 
-        i === totalPages || 
-        (i >= currentPage - delta && i <= currentPage + delta)
-      ) {
-        range.push(i);
-      }
-    }
-
-    for (const i of range) {
-      if (prevPage !== undefined) {
-        if (i - prevPage === 2) {
-          rangeWithDots.push(prevPage + 1);
-        } else if (i - prevPage > 2) {
-          rangeWithDots.push("...");
-        }
-      }
-      rangeWithDots.push(i);
-      prevPage = i;
-    }
-
-    return rangeWithDots;
-  }, [currentPage, totalPages]);
-
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
     
@@ -246,7 +212,7 @@ export default function HomePage() {
         )}
 
         {/* ==========================================
-            🎯 COMPONENT ĐIỀU HƯỚNG PHÂN TRANG THÔNG MINH (SLIDING WINDOW)
+            🎯 COMPONENT ĐIỀU HƯỚNG PHÂN TRANG (CHẶN EVENT HOÀN TOÀN)
             ========================================== */}
         {totalPages > 1 && (
           <div className="mt-16 flex items-center justify-center gap-1.5 border-t border-slate-900 pt-8">
@@ -257,7 +223,6 @@ export default function HomePage() {
                 if (currentPage === 1) return;
                 handlePageChange(currentPage - 1);
               }}
-              disabled={currentPage === 1}
               className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
                 currentPage === 1 
                   ? "opacity-20 text-slate-600 cursor-not-allowed" 
@@ -269,26 +234,14 @@ export default function HomePage() {
               </svg>
             </button>
 
-            {/* DANH SÁCH CÁC SỐ TRANG ĐÃ ĐƯỢC THU GỌN CHỐNG TRÀN */}
+            {/* DANH SÁCH CÁC SỐ TRANG */}
             <div className="flex items-center gap-1">
-              {pageNumbers.map((page, index) => {
-                // Nếu là dấu ba chấm "...", render thẻ span tĩnh rỗng
-                if (page === "...") {
-                  return (
-                    <span
-                      key={`dots-${index}`}
-                      className="min-w-[36px] h-[36px] flex items-center justify-center text-xs font-bold text-slate-600 select-none"
-                    >
-                      ...
-                    </span>
-                  );
-                }
-
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
                 const isActive = page === currentPage;
                 return (
                   <button
-                    key={`page-${page}`}
-                    onClick={() => handlePageChange(page as number)}
+                    key={page}
+                    onClick={() => handlePageChange(page)}
                     className={`min-w-[36px] h-[36px] text-xs font-bold rounded-xl border transition-all cursor-pointer ${isActive
                       ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
                       : "bg-slate-900/30 border-slate-900 text-slate-400 hover:text-slate-200"
@@ -306,7 +259,6 @@ export default function HomePage() {
                 if (currentPage === totalPages) return;
                 handlePageChange(currentPage + 1);
               }}
-              disabled={currentPage === totalPages}
               className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
                 currentPage === totalPages 
                   ? "opacity-20 text-slate-600 cursor-not-allowed" 

@@ -7,11 +7,10 @@ interface Props {
   params: Promise<{ slug: string[] }>;
 }
 
-// ÉP NEXT.JS BIÊN DỊCH FILE ROUTER THÀNH FILE TĨNH ĐỂ KHÔNG BỊ BẮT LỖI KHI BUILD
 export const dynamic = "force-static";
 
 // ============================================================================
-// 🛠️ HÀM PHỤ TRỢ: CHUẨN HÓA DỮ LIỆU ĐA THẺ TUYỆT ĐỐI (ROBUST ARRAY CLEANER)
+// 🛠️ HÀM PHỤ TRỢ: CHUẨN HÓA DỮ LIỆU ĐỂ SO SÁNH VẠN NĂNG (CASE-INSENSITIVE)
 // ============================================================================
 function cleanAndExtractArray(fieldData: any): string[] {
   if (!fieldData) return [];
@@ -30,11 +29,14 @@ function cleanSingleString(fieldData: any): string {
   return String(fieldData).toLowerCase().replace(/[\[\]"'\\]/g, "").replace(/[^a-z0-9]/g, "");
 }
 
+// Hàm phụ trợ giữ nguyên chuỗi gốc thô để làm sạch ký tự lạ trong Frontmatter
+function sanitizeRawFrontmatter(fieldData: any): string {
+  if (!fieldData) return "";
+  return String(fieldData).replace(/[\[\]"'\\]/g, "").trim();
+}
+
 // ============================================================================
-// 🎯 1. BỘ GENERATE TĨNH CHỐNG SẬP BUILD (ĐÃ FIX KHỚP REN DẤU GẠCH DƯỚI)
-// ============================================================================
-// ============================================================================
-// 🎯 1. BỘ GENERATE TĨNH CHỐNG SẬP BUILD (ĐÃ FIX KHỚP REN DẤU GẠCH DƯỚI & FAVICON)
+// 🎯 1. BỘ GENERATE TĨNH CHUẨN HÓA KHỚP 100% VỚI CAPS/LOWER NAVBAR
 // ============================================================================
 export async function generateStaticParams() {
   const allPosts = getAllPosts();
@@ -48,9 +50,9 @@ export async function generateStaticParams() {
   const platforms = new Set<string>();
   const tools = new Set<string>();
   const difficulties = new Set<string>();
-  const types = new Set<string>();
 
   allPosts.forEach((post) => {
+    // Trích xuất mảng dữ liệu gốc, không hạ chữ thường bừa bãi làm mất định dạng
     const rawRoles: string[] = Array.isArray((post as any).target_role)
       ? (post as any).target_role
       : [String((post as any).target_role || "")];
@@ -59,42 +61,53 @@ export async function generateStaticParams() {
       ? post.category
       : [String(post.category || "")];
 
-    rawRoles.forEach(r => r && roles.add(r.replace(/[\[\]"'\\]/g, "").trim().replace(/\s+/g, "_")));
-    rawCats.forEach(c => c && categories.add(c.replace(/[\[\]"'\\]/g, "").trim().replace(/\s+/g, "_")));
+    rawRoles.forEach(r => {
+      const cleanR = sanitizeRawFrontmatter(r);
+      if (cleanR) roles.add(cleanR.replace(/\s+/g, "_"));
+    });
 
-    if ((post as any).sub_category) subCategories.add(cleanSingleString((post as any).sub_category));
-    if ((post as any).core_testing_type) testingTypes.add(cleanSingleString((post as any).core_testing_type));
-    if ((post as any).domain) domains.add(cleanSingleString((post as any).domain));
-    if ((post as any).platform) platforms.add(cleanSingleString((post as any).platform));
-    if ((post as any).tool_stack) tools.add(cleanSingleString((post as any).tool_stack));
-    if ((post as any).difficulty) difficulties.add(cleanSingleString((post as any).difficulty));
-    if ((post as any).question_type) types.add(cleanSingleString((post as any).question_type));
+    rawCats.forEach(c => {
+      const cleanC = sanitizeRawFrontmatter(c);
+      if (cleanC) categories.add(cleanC.replace(/\s+/g, "_"));
+    });
+
+    if ((post as any).sub_category) subCategories.add(sanitizeRawFrontmatter((post as any).sub_category));
+    if ((post as any).core_testing_type) testingTypes.add(sanitizeRawFrontmatter((post as any).core_testing_type));
+    if ((post as any).domain) domains.add(sanitizeRawFrontmatter((post as any).domain));
+    if ((post as any).platform) platforms.add(sanitizeRawFrontmatter((post as any).platform));
+    if ((post as any).tool_stack) tools.add(sanitizeRawFrontmatter((post as any).tool_stack));
+    if ((post as any).difficulty) difficulties.add(sanitizeRawFrontmatter((post as any).difficulty));
   });
 
-  // Hàng rào bảo vệ hệ thống Menu không dính lỗi 500 khi kho bài trống
-  types.add("Compilation");
-  types.add("Situational");
+  // 🔥 BỘ ĐỆM DỰ PHÒNG CHUẨN HOÀN HẢO THEO ĐÚNG ĐỊNH DẠNG URL TRÊN NAVBAR
   roles.add("Manual_QA_Engineer");
   roles.add("Automation_QA_Engineer");
   roles.add("QA_Lead");
+  
   categories.add("Analytical_Behavioral");
   categories.add("Technical");
+  
   subCategories.add("Strategy");
   subCategories.add("Automation");
+  
   testingTypes.add("Manual");
   testingTypes.add("Automation");
+  
   domains.add("Enterprise-Software");
   domains.add("Banking_Finance");
+  
   platforms.add("Cross-platform");
   platforms.add("Web");
+  
   tools.add("Playwright");
   tools.add("Cypress");
   tools.add("Generic");
   tools.add("None");
+  
   difficulties.add("Intermediate");
   difficulties.add("Advanced");
 
-  // Đóng gói mảng URL tĩnh cho các phân loại đơn lẻ
+  // Đóng gói mảng URL tĩnh đồng bộ hoa thường
   roles.forEach(r => paths.push({ slug: ["roles", r] }));
   categories.forEach(c => paths.push({ slug: ["categories", c] }));
   subCategories.forEach(sc => paths.push({ slug: ["sub-categories", sc] }));
@@ -104,17 +117,15 @@ export async function generateStaticParams() {
   tools.forEach(t => paths.push({ slug: ["tools", t] }));
   difficulties.forEach(df => paths.push({ slug: ["difficulties", df] }));
 
-  // 🚀 BỌC GIÁP ĐỆM CHỮ HOA/THƯỜNG CHO PHÂN LOẠI TYPES CHỐNG LỖI 404/500
-  paths.push({ slug: ["types", "compilation"] });
+  // Đồng bộ cấu trúc cứng cho trang Types
   paths.push({ slug: ["types", "Compilation"] });
-  paths.push({ slug: ["types", "situational"] });
   paths.push({ slug: ["types", "Situational"] });
 
   return paths;
 }
 
 // ============================================================================
-// 🔍 2. DYNAMIC METADATA CHO TỪNG TRANG DANH MỤC (BỌC GIÁP CANONICAL LINK)
+// 🔍 2. DYNAMIC METADATA CHO TỪNG TRANG DANH MỤC
 // ============================================================================
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params;
@@ -130,7 +141,7 @@ export async function generateMetadata({ params }: Props) {
     title: pageTitle,
     description: pageDesc,
     alternates: {
-      canonical: currentUrl, // 🚀 KHÓA LINK CHÍNH CHỦ: Chống bẫy trùng lặp content của Google Bot
+      canonical: currentUrl,
     },
     openGraph: {
       title: pageTitle,
@@ -140,7 +151,7 @@ export async function generateMetadata({ params }: Props) {
       type: "website",
       images: [
         {
-          url: "https://qahacks.com/og-image.png", // Bạn có thể thêm file ảnh og mặc định trong thư mục public
+          url: "https://qahacks.com/og-image.png",
           width: 1200,
           height: 630,
           alt: "QAHacks Knowledge Hub Dashboard",
@@ -156,17 +167,19 @@ export async function generateMetadata({ params }: Props) {
 }
 
 // ============================================================================
-// 🚀 3. BỘ LỌC VẠN NĂNG SIÊU CẤP (ANTI-404 ENGINE)
+// 🚀 3. BỘ LỌC VẠN NĂNG SIÊU CẤP (CASE-INSENSITIVE)
 // ============================================================================
 export default async function DynamicCategoryPage({ params }: Props) {
   const resolvedParams = await params;
   const [segment, value] = resolvedParams.slug || [];
 
-if (segment === "favicon.ico" || !segment) {
+  if (segment === "favicon.ico" || !segment || !value) {
     notFound();
   }
 
   const allPosts = getAllPosts();
+  
+  // Biến đổi URL param thành chữ thường, sạch ký tự đặc biệt để đối chiếu an toàn
   const cleanUrlValue = value.toLowerCase().replace(/[^a-z0-9]/g, "");
 
   const filteredPosts = allPosts.filter((post) => {
@@ -194,6 +207,7 @@ if (segment === "favicon.ico" || !segment) {
       case "platforms":
         return postPlatform === cleanUrlValue;
       case "tools":
+        // Gom cụm thông minh: none, generic hoặc chuỗi rỗng đều map về trang Generic/None
         if ((cleanUrlValue === "generic" || cleanUrlValue === "none") && (postTool === "none" || postTool === "generic" || postTool === "")) {
           return true;
         }
