@@ -172,3 +172,27 @@ QA_Lead | Analytical_Behavioral - How do you recover after an unsuccessful relea
 Manual_QA_Engineer | Technical - How do you validate authorization using Postman collections?
 Automation_QA_Engineer | Foundations_Methodology - How do you manage automation framework upgrades?
 QA_Lead | Analytical_Behavioral - How do you motivate teams during high-pressure releases?
+Manual_QA_Engineer | Technical - How do you test fallback APIs during service degradation?
+Automation_QA_Engineer | Foundations_Methodology - How do you reduce automation onboarding time?
+QA_Lead | Analytical_Behavioral - How do you address recurring customer quality complaints?
+Manual_QA_Engineer | Technical - How do you verify encrypted fields stored in databases?
+Automation_QA_Engineer | Foundations_Methodology - How do you prioritize automation backlog items?
+QA_Lead | Analytical_Behavioral - How do you balance product speed with quality concerns?
+Manual_QA_Engineer | Technical - How do you test synchronization after offline usage?
+Automation_QA_Engineer | Foundations_Methodology - How do you ensure automation supports scalability?
+QA_Lead | Analytical_Behavioral - How do you manage testing during company mergers?
+Manual_QA_Engineer | Technical - How do you validate API schemas against specifications?
+Automation_QA_Engineer | Foundations_Methodology - How do you track automation effectiveness over time?
+QA_Lead | Analytical_Behavioral - How do you handle resource shortages before releases?
+Manual_QA_Engineer | Technical - How do you verify browser cookie behavior across domains?
+Automation_QA_Engineer | Foundations_Methodology - How do you establish automation review processes?
+QA_Lead | Analytical_Behavioral - How do you improve collaboration between QA and product?
+Manual_QA_Engineer | Technical - How do you test reporting accuracy with SQL validation?
+Automation_QA_Engineer | Foundations_Methodology - How do you maintain automation documentation?
+QA_Lead | Analytical_Behavioral - How do you address declining team engagement levels?
+Manual_QA_Engineer | Technical - How do you validate API behavior during peak traffic?
+Automation_QA_Engineer | Foundations_Methodology - How do you phase out obsolete automation tests?
+QA_Lead | Analytical_Behavioral - How do you handle unexpected quality issues before launch?
+Manual_QA_Engineer | Technical - How do you inspect CORS issues using Browser DevTools?
+Automation_QA_Engineer | Foundations_Methodology - How do you ensure automation remains business focused?
+QA_Lead | Analytical_Behavioral - How do you manage stakeholders after missed commitments?
