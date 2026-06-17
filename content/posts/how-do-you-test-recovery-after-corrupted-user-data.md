@@ -8,7 +8,7 @@ question_type: "Situational"
 core_testing_type: "Manual"
 domain: "Enterprise-Software"
 platform: "Cross-platform"
-tool_stack: "None"
+tool_stack: "Postman"
 leadership_competency: "Risk Mitigation"
 interview_focus: "Delivery Pressure"
 tags: ["manual-testing", "qa-lead", "interview-prep", "test-leadership"]
