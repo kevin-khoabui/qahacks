@@ -24,7 +24,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-align-qa-goals-with-business-priorities",
@@ -51,7 +51,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-analyze-a-failed-payment-with-postman-and-logs",
@@ -78,7 +78,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-analyze-log-files-inside-the-browser-console-to-add-more-technical-context-to-your-bug-reports",
@@ -105,7 +105,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-approach-mobile-hardware-integration-testing-like-verifying-biometric-login-fallback-sequences-to-pin-entry",
@@ -132,7 +132,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-approach-smoke-testing-a-new-environment-after-a-major-infrastructure-migration-by-the-devops-team",
@@ -159,7 +159,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-approach-testing-a-banking-transfer-feature-to-prevent-race-conditions-or-doublespending-using-manual-coordination",
@@ -186,7 +186,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-approach-testing-an-endofyear-data-archiving-process-without-damaging-active-production-lookalike-structures",
@@ -213,7 +213,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-balance-structure-and-creativity-when-executing-a-dedicated-timeboxed-exploratory-testing-session",
@@ -240,7 +240,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-build-a-riskbased-testing-strategy",
@@ -267,7 +267,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-challenge-an-ambiguous-requirement-statement-during-a-sprint-refinement-meeting-to-prevent-defect-injection",
@@ -294,7 +294,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-debug-failed-api-calls-using-browser-devtools",
@@ -321,7 +321,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-define-exit-criteria-for-a-multiteam-release",
@@ -348,7 +348,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-design-positive-and-negative-test-cases-for-an-address-validation-feature-utilizing-zip-code-lookups",
@@ -375,7 +375,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-document-a-critical-defect-to-ensure-the-development-team-can-reproduce-and-fix-it-without-backandforth-communication",
@@ -402,7 +402,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-ensure-requirement-traceability-in-testing",
@@ -429,7 +429,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-ensure-testing-neutrality-when-validating-a-feature-that-was-built-by-a-close-personal-friend-on-the-dev-team",
@@ -456,7 +456,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-evaluate-whether-a-reported-bug-is-a-duplicate-ticket-or-a-unique-edge-case-with-different-root-causes",
@@ -483,7 +483,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-handle-a-dispute-with-a-developer-who-claims-a-functional-flaw-you-found-is-an-enhancement-request",
@@ -510,7 +510,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-handle-a-situation-where-business-requirements-change-completely-fortyeight-hours-before-a-scheduled-production-deploy",
@@ -537,7 +537,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-handle-dynamic-locators-in-cypress-frameworks",
@@ -562,7 +562,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-handle-testing-a-backend-calculation-algorithm-when-the-frontend-ui-for-it-has-not-been-built-yet",
@@ -589,7 +589,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-handle-testing-a-hotfix-branch-while-simultaneously-executing-regression-testing-on-the-main-release-branch",
@@ -616,7 +616,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-handle-testing-a-mobile-app-when-a-new-os-beta-version-breaks-the-current-production-application-build",
@@ -643,7 +643,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-introduce-quality-gates-into-ci-pipelines",
@@ -670,7 +670,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-investigate-a-defect-where-an-application-works-perfectly-in-the-qa-environment-but-fails-immediately-in-staging",
@@ -697,7 +697,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-investigate-a-defect-where-data-is-saved-correctly-in-the-database-but-renders-corrupted-on-the-web-page",
@@ -724,7 +724,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-investigate-duplicate-transactions-in-production",
@@ -751,7 +751,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-investigate-missing-records-returned-from-a-sql-query",
@@ -778,7 +778,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-maintain-testing-focus-and-objectivity-when-retesting-the-same-bug-fix-for-the-fourth-time-in-a-row",
@@ -805,7 +805,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-manage-test-data-in-playwright-automation",
@@ -830,7 +830,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-manage-your-bug-backlog-when-a-single-feature-rewrite-breaks-ten-unrelated-historical-test-cases",
@@ -857,7 +857,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-measure-qa-effectiveness-across-multiple-products",
@@ -884,7 +884,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-mock-thirdparty-apis-in-playwright",
@@ -909,7 +909,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-perform-comparative-testing-between-a-staging-database-and-a-production-database-schema-to-catch-drift-manually",
@@ -936,7 +936,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-perform-crossdevice-functional-testing-for-a-responsive-web-layout-on-nonstandard-screen-aspect-ratios",
@@ -963,7 +963,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-perform-securityfocused-manual-testing-to-identify-visible-vulnerabilities-like-plaintext-passwords-in-url-strings",
@@ -990,7 +990,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-prioritize-testing-when-requirements-change-midsprint",
@@ -1017,7 +1017,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-prioritize-your-testing-efforts-when-a-sprint-backlog-contains-twenty-features-but-only-five-days-of-qa-time-remain",
@@ -1044,7 +1044,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-reduce-test-runtime-in-a-large-playwright-suite",
@@ -1069,7 +1069,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-reproduce-an-intermittent-mobile-crash-seen-once",
@@ -1096,7 +1096,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-scale-regression-coverage-with-limited-resources",
@@ -1123,7 +1123,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-stabilize-flaky-playwright-tests-after-a-ui-redesign",
@@ -1148,7 +1148,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-structure-a-highcoverage-test-suite-for-an-esignature-document-workflow-involving-multiple-external-signers",
@@ -1175,7 +1175,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-test-a-media-streaming-platform-to-verify-behavior-during-audio-routing-changes-like-plugging-in-headphones",
@@ -1202,7 +1202,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-test-a-peertopeer-messaging-system-to-verify-message-ordering-and-delivery-statuses-over-poor-connections",
@@ -1229,7 +1229,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-test-a-realtime-multiplayer-lobby-system-to-verify-user-disconnects-and-automatic-slot-reassignments",
@@ -1256,7 +1256,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-test-an-applications-behavior-when-multiple-modal-dialogs-and-alerts-are-triggered-concurrently",
@@ -1283,7 +1283,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-test-rolebased-access-with-cypress",
@@ -1308,7 +1308,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-test-the-error-handling-of-a-system-when-it-receives-malformed-data-payloads-from-an-upstream-system",
@@ -1335,7 +1335,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-validate-a-dark-mode-toggle-to-ensure-all-ui-components-adjust-their-contrast-and-visibility-correctly",
@@ -1362,7 +1362,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-validate-an-interactive-notification-center-to-ensure-unread-counts-sync-accurately-across-multiple-open-tabs",
@@ -1389,7 +1389,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-validate-data-consistency-across-services",
@@ -1416,7 +1416,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-validate-file-downloads-in-cypress-tests",
@@ -1441,7 +1441,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-validate-websocket-events-using-cypress",
@@ -1466,7 +1466,7 @@
       "interview-prep",
       "tech-strategy"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-verify-a-bug-without-direct-database-access",
@@ -1493,7 +1493,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-verify-an-enterprise-dashboard-behaves-correctly-when-a-user-logs-in-with-zero-historical-data-assets",
@@ -1520,7 +1520,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-verify-that-an-app-update-preserves-existing-user-data-and-local-settings-without-forcing-a-logout",
@@ -1547,7 +1547,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-verify-that-background-location-tracking-features-do-not-cause-excessive-battery-drain-during-manual-mobile-testing",
@@ -1574,7 +1574,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-verify-that-sensitive-customer-data-is-properly-masked-in-log-files-and-user-profiles-during-manual-review",
@@ -1601,7 +1601,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "how-do-you-verify-the-performance-degradation-of-an-application-from-a-user-perspective-during-lowbandwidth-throttling",
@@ -1628,7 +1628,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "strategy-how-would-you-prioritize-validation-efforts-when-a-realtime-order-synchronization-failure-intermittently-duplicates-customer-transactions-across-multiple-regions-three-days-before-a-regulatory-audit",
@@ -1655,7 +1655,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-criteria-do-you-use-to-select-a-subset-of-test-cases-for-a-quick-patchrelease-smoke-validation",
@@ -1682,7 +1682,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-approach-to-testing-an-advanced-charting-module-to-ensure-data-points-plot-correctly-across-logarithmic-scales",
@@ -1709,7 +1709,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-approach-to-testing-data-validation-messages-to-ensure-they-are-userfriendly-descriptive-and-accurate",
@@ -1736,7 +1736,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-approach-to-validating-a-content-management-systems-audit-logs-to-track-changes-made-by-different-admins",
@@ -1763,7 +1763,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-checklist-for-executing-a-comprehensive-postrelease-verification-sweep-in-the-live-production-environment",
@@ -1790,7 +1790,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-checklist-for-verifying-a-complex-shipping-calculator-that-factors-in-weight-dimensions-and-zip-zones",
@@ -1817,7 +1817,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-methodology-for-testing-a-shopping-apps-offline-mode-to-ensure-cart-updates-sync-when-online",
@@ -1844,7 +1844,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-methodology-for-testing-database-constraints-like-unique-keys-and-null-values-through-the-application-ui",
@@ -1871,7 +1871,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-process-for-conducting-user-acceptance-testing-support-when-client-testers-lack-formal-qa-knowledge",
@@ -1898,7 +1898,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-process-for-mapping-test-cases-to-user-stories-in-jira-to-ensure-100-requirement-traceability",
@@ -1925,7 +1925,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-process-for-testing-a-state-machine-system-like-an-order-fulfillment-lifecycle-from-pending-to-delivered",
@@ -1952,7 +1952,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-process-for-verifying-that-deeplinked-promotional-urls-bypass-login-walls-correctly-for-authenticated-users",
@@ -1979,7 +1979,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-stepbystep-approach-to-validating-a-multicurrency-payment-gateway-using-only-blackbox-testing-techniques",
@@ -2006,7 +2006,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-strategy-for-sanity-testing-a-microfrontend-block-that-was-updated-independently-of-the-main-platform",
@@ -2033,7 +2033,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-strategy-for-validating-a-referral-code-program-with-complex-reward-triggers-and-expiration-rules",
@@ -2060,7 +2060,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-strategy-for-validating-complex-filtering-logic-where-ten-different-parameters-can-be-combined-simultaneously",
@@ -2087,7 +2087,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-technique-for-testing-data-rollbacks-when-a-multistage-wizard-transaction-fails-at-the-final-step",
@@ -2114,7 +2114,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-is-your-technique-for-validating-a-inventory-management-system-when-quantities-are-updated-by-sales-in-real-time",
@@ -2141,7 +2141,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-manual-verification-steps-do-you-take-to-confirm-data-persistence-after-an-application-server-restarts-midsession",
@@ -2168,7 +2168,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-scenarios-do-you-design-to-test-a-multitenant-application-where-data-leakage-between-clients-is-a-high-risk",
@@ -2195,7 +2195,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-scenarios-do-you-design-to-test-an-autosave-feature-to-guarantee-no-user-input-is-lost-during-typing-delays",
@@ -2222,7 +2222,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-scenarios-do-you-design-to-validate-a-video-player-modules-behavior-during-scrubbing-buffering-and-quality-switches",
@@ -2249,7 +2249,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-scenarios-do-you-prioritize-when-executing-adhoc-or-exploratory-testing-on-a-competitors-application-for-benchmarking",
@@ -2276,7 +2276,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-scenarios-do-you-prioritize-when-testing-a-password-reset-flow-to-prevent-account-takeover-vulnerabilities-manually",
@@ -2303,7 +2303,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-specific-test-cases-do-you-write-to-ensure-session-tokens-invalidate-completely-upon-explicit-user-logout",
@@ -2330,7 +2330,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-specific-test-scenarios-do-you-write-to-validate-an-api-payload-contract-using-manual-tool-setups-like-postman",
@@ -2357,7 +2357,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-strategy-do-you-employ-to-test-an-applications-behavior-when-the-devices-storage-is-completely-full",
@@ -2384,7 +2384,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-cases-do-you-design-to-verify-an-applications-behavior-when-system-permissions-like-camera-access-are-denied",
@@ -2411,7 +2411,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-cases-do-you-design-to-verify-an-applications-handling-of-special-characters-and-emoji-inputs-in-text-fields",
@@ -2438,7 +2438,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-cases-do-you-write-to-check-system-recovery-when-a-user-forces-an-application-to-close-during-a-save-operation",
@@ -2465,7 +2465,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-cases-do-you-write-to-ensure-a-printing-feature-renders-layouts-correctly-across-different-paper-sizes-and-margins",
@@ -2492,7 +2492,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-cases-do-you-write-to-validate-a-singlesignon-integration-across-three-separate-enterprise-applications",
@@ -2519,7 +2519,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-cases-do-you-write-to-validate-custom-filtering-views-that-users-can-save-edit-and-delete",
@@ -2546,7 +2546,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-criteria-do-you-use-to-evaluate-if-a-user-interface-meets-established-corporate-branding-and-styling-guidelines",
@@ -2573,7 +2573,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-scenarios-do-you-create-to-validate-a-subscription-billing-model-with-free-trials-upgrades-and-downgrades",
@@ -2600,7 +2600,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-scenarios-do-you-design-to-verify-session-recovery-when-a-browser-crashes-during-an-ongoing-questionnaire",
@@ -2627,7 +2627,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-scenarios-do-you-use-to-validate-an-interactive-calendar-reservation-module-with-complex-overlapping-conflicts",
@@ -2654,7 +2654,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-test-scenarios-do-you-write-to-validate-a-dynamic-form-generator-that-renders-inputs-based-on-user-profile-settings",
@@ -2681,7 +2681,7 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   },
   {
     "slug": "what-testing-techniques-do-you-use-to-validate-the-precision-of-geolocations-and-map-rendering-in-a-delivery-app",
@@ -2708,6 +2708,6 @@
       "interview-prep",
       "test-leadership"
     ],
-    "date": "2026-06-16"
+    "date": "2026-06-17"
   }
 ]
