@@ -1,27 +1,8 @@
-QA_Lead | Foundations_Methodology - How do you plan testing for a phased migration project?
-Manual_QA_Engineer | Analytical_Behavioral - How do you validate real-time updates over WebSockets?
 Automation_QA_Engineer | Technical - How do you test retry mechanisms with Playwright?
-QA_Lead | Analytical_Behavioral - How did you handle a release blocked by unresolved critical defects?
-QA_Lead | Analytical_Behavioral - How do you resolve conflicts between QA and development teams?
-QA_Lead | Analytical_Behavioral - How do you recover trust after a major production defect?
-QA_Lead | Analytical_Behavioral - How do you handle repeated requirement ambiguities from stakeholders?
-Manual_QA_Engineer | Technical - How do you validate browser storage using DevTools?
 Automation_QA_Engineer | Foundations_Methodology - How do you structure automation reviews and approvals?
-QA_Lead | Analytical_Behavioral - How do you prioritize defects from multiple business units?
 Manual_QA_Engineer | Technical - How do you verify event ordering in WebSocket messages?
 Automation_QA_Engineer | Foundations_Methodology - How do you manage test data dependencies in automation?
-QA_Lead | Analytical_Behavioral - How do you respond when quality metrics decline unexpectedly?
-Manual_QA_Engineer | Technical - How do you test localization with missing translations?
-Automation_QA_Engineer | Foundations_Methodology - How do you define automation coding standards?
-QA_Lead | Analytical_Behavioral - How do you influence quality without direct authority?
-Manual_QA_Engineer | Technical - How do you validate search accuracy on large datasets?
-Automation_QA_Engineer | Foundations_Methodology - How do you phase automation into legacy systems?
-QA_Lead | Analytical_Behavioral - How do you manage stakeholder expectations after missed deadlines?
-Manual_QA_Engineer | Technical - How do you verify cache invalidation after data updates?
 Automation_QA_Engineer | Foundations_Methodology - How do you balance API and UI automation coverage?
-QA_Lead | Analytical_Behavioral - How do you address recurring defects from one team?
-Manual_QA_Engineer | Technical - How do you test permissions across multiple user roles?
-Automation_QA_Engineer | Foundations_Methodology - How do you create scalable Cypress frameworks?
 QA_Lead | Analytical_Behavioral - How do you drive quality culture during rapid growth?
 Manual_QA_Engineer | Technical - How do you validate synchronization between frontend and backend?
 Automation_QA_Engineer | Foundations_Methodology - How do you reduce maintenance costs in Playwright?
