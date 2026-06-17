@@ -60,3 +60,24 @@ Automation_QA_Engineer | Analytical_Behavioral - How do you manage frequent fram
 QA_Lead | Technical - How do you validate observability coverage for critical services?
 Automation_QA_Engineer | Analytical_Behavioral - How do you influence teams to adopt automation?
 QA_Lead | Technical - How do you assess release readiness using quality metrics?
+Automation_QA_Engineer | Technical - How do you test retry mechanisms with Playwright?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage test data dependencies in automation?
+Automation_QA_Engineer | Foundations_Methodology - How do you reduce maintenance costs in Playwright?
+Manual_QA_Engineer | Technical - How do you validate zero-data dashboards and reports?
+Manual_QA_Engineer | Foundations_Methodology - How do you estimate testing effort with limited requirements?
+Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for a greenfield application?
+Automation_QA_Engineer | Analytical_Behavioral - How did you resolve disagreements on automation priorities?
+QA_Lead | Technical - How do you evaluate API health across enterprise systems?
+Manual_QA_Engineer | Foundations_Methodology - How do you design tests for unknown edge cases?
+QA_Lead | Technical - How do you audit production incidents using logs and metrics?
+Manual_QA_Engineer | Foundations_Methodology - How do you identify high-risk testing areas early?
+QA_Lead | Technical - How do you verify data pipelines with SQL validation?
+Manual_QA_Engineer | Foundations_Methodology - How do you prioritize tests for a hotfix release?
+Automation_QA_Engineer | Analytical_Behavioral - How do you handle failed automation ownership disputes?
+Manual_QA_Engineer | Foundations_Methodology - How do you select test scenarios for MVP launches?
+Automation_QA_Engineer | Analytical_Behavioral - How did you reduce resistance to automation adoption?
+Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation debt over time?
+QA_Lead | Technical - How do you investigate recurring production performance issues?
+Manual_QA_Engineer | Foundations_Methodology - How do you test requirements with conflicting expectations?
+QA_Lead | Technical - How do you review test architecture across multiple products?
+Manual_QA_Engineer | Foundations_Methodology - How do you determine regression scope for a patch?
