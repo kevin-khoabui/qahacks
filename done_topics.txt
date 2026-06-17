@@ -124,3 +124,27 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you identify hidden impacts 
 Automation_QA_Engineer | Technical - How do you automate accessibility checks in Cypress?
 QA_Lead | Foundations_Methodology - How do you evaluate testing maturity across departments?
 Manual_QA_Engineer | Analytical_Behavioral - How do you validate fixes without production access?
+QA_Lead | Foundations_Methodology - How do you define a quality strategy for a platform migration?
+QA_Lead | Foundations_Methodology - How do you improve release confidence without adding delays?
+Automation_QA_Engineer | Technical - How do you test API throttling behavior in Playwright?
+QA_Lead | Foundations_Methodology - How do you manage quality during parallel releases?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate incorrect reporting metrics?
+Automation_QA_Engineer | Technical - How do you validate drag-and-drop workflows in Cypress?
+QA_Lead | Foundations_Methodology - How do you create a roadmap for QA transformation?
+Manual_QA_Engineer | Analytical_Behavioral - How do you test a feature with incomplete requirements?
+Automation_QA_Engineer | Technical - How do you automate browser crash recovery scenarios?
+QA_Lead | Foundations_Methodology - How do you scale exploratory testing across teams?
+Manual_QA_Engineer | Analytical_Behavioral - How do you detect data loss after migrations?
+Automation_QA_Engineer | Technical - How do you validate streaming responses in Playwright?
+QA_Lead | Foundations_Methodology - How do you integrate QA into product discovery phases?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate intermittent sync failures?
+Automation_QA_Engineer | Technical - How do you test complex filters in Cypress efficiently?
+QA_Lead | Foundations_Methodology - How do you measure the value of exploratory testing?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify backend fixes through the UI?
+Automation_QA_Engineer | Technical - How do you automate timezone validation in Playwright?
+QA_Lead | Foundations_Methodology - How do you improve regression efficiency across products?
+Manual_QA_Engineer | Analytical_Behavioral - How do you analyze defects found after deployment?
+Automation_QA_Engineer | Technical - How do you validate file upload failures in Cypress?
+QA_Lead | Foundations_Methodology - How do you balance governance with team autonomy?
+Manual_QA_Engineer | Analytical_Behavioral - How do you prioritize testing under severe time pressure?
+Automation_QA_Engineer | Technical - How do you test cross-origin workflows in Playwright?
