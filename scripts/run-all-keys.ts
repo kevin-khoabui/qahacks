@@ -54,11 +54,12 @@ async function runAll() {
     
     let isSuccess = false;
     await new Promise<void>((resolve) => {
-      // 🛡️ FIX LỖI CHÍ MẠNG: Không tự ý cộng chuỗi nháy kép vật lý ở đây nữa.
-      // Bản thân tham số của mảng spawn khi đi kèm shell: true đã tự động trốn thoát dấu cách an toàn.
-      const child = spawn("npx", ["tsx", "scripts/generate.ts", String(i), targetTopic], { 
+      // 🚀 GIẢI PHÁP AN TOÀN TUYỆT ĐỐI CHO LINUX/CI:
+      // Gọi trực tiếp "node" kết hợp với loader của tsx qua đối số '--import' hoặc thông qua command thuần.
+      // Tắt hoàn toàn 'shell: true' để chặn đứng lỗi diễn giải Pipe rác '|' của shell Linux.
+      const child = spawn("node", ["--import", "tsx", "scripts/generate.ts", String(i), targetTopic], { 
         stdio: "inherit", 
-        shell: true 
+        shell: false 
       });
 
       child.on("close", (code) => {
