@@ -1,27 +1,8 @@
 Automation_QA_Engineer | Technical - How do you test retry mechanisms with Playwright?
-Automation_QA_Engineer | Foundations_Methodology - How do you structure automation reviews and approvals?
-Manual_QA_Engineer | Technical - How do you verify event ordering in WebSocket messages?
 Automation_QA_Engineer | Foundations_Methodology - How do you manage test data dependencies in automation?
-Automation_QA_Engineer | Foundations_Methodology - How do you balance API and UI automation coverage?
-QA_Lead | Analytical_Behavioral - How do you drive quality culture during rapid growth?
-Manual_QA_Engineer | Technical - How do you validate synchronization between frontend and backend?
 Automation_QA_Engineer | Foundations_Methodology - How do you reduce maintenance costs in Playwright?
-QA_Lead | Analytical_Behavioral - How do you handle conflicting quality metrics from leaders?
-Manual_QA_Engineer | Technical - How do you verify retry behavior for failed API requests?
-Automation_QA_Engineer | Foundations_Methodology - How do you manage flaky test triage processes?
-QA_Lead | Analytical_Behavioral - How do you lead testing across distributed global teams?
 Manual_QA_Engineer | Technical - How do you validate zero-data dashboards and reports?
-Automation_QA_Engineer | Foundations_Methodology - How do you establish automation success metrics?
-QA_Lead | Analytical_Behavioral - How do you handle executive pressure to release early?
-Manual_QA_Engineer | Foundations_Methodology - How do you create test coverage for a newly built microservice?
-Automation_QA_Engineer | Analytical_Behavioral - How did you handle automation failures before a release?
-QA_Lead | Technical - How do you monitor quality trends using SQL dashboards?
 Manual_QA_Engineer | Foundations_Methodology - How do you estimate testing effort with limited requirements?
-Automation_QA_Engineer | Analytical_Behavioral - How do you gain trust after unstable test automation?
-QA_Lead | Technical - How do you validate CI quality gates before deployment?
-Manual_QA_Engineer | Foundations_Methodology - How do you test business rules without documentation?
-Automation_QA_Engineer | Analytical_Behavioral - How do you prioritize automation during tight deadlines?
-QA_Lead | Technical - How do you analyze defect leakage across releases?
 Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for a greenfield application?
 Automation_QA_Engineer | Analytical_Behavioral - How did you resolve disagreements on automation priorities?
 QA_Lead | Technical - How do you evaluate API health across enterprise systems?

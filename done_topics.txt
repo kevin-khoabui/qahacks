@@ -35,3 +35,22 @@ Manual_QA_Engineer | Technical - How do you verify cache invalidation after data
 QA_Lead | Analytical_Behavioral - How do you address recurring defects from one team?
 Manual_QA_Engineer | Technical - How do you test permissions across multiple user roles?
 Automation_QA_Engineer | Foundations_Methodology - How do you create scalable Cypress frameworks?
+Automation_QA_Engineer | Foundations_Methodology - How do you structure automation reviews and approvals?
+Manual_QA_Engineer | Technical - How do you verify event ordering in WebSocket messages?
+Automation_QA_Engineer | Foundations_Methodology - How do you balance API and UI automation coverage?
+QA_Lead | Analytical_Behavioral - How do you drive quality culture during rapid growth?
+Manual_QA_Engineer | Technical - How do you validate synchronization between frontend and backend?
+QA_Lead | Analytical_Behavioral - How do you handle conflicting quality metrics from leaders?
+Manual_QA_Engineer | Technical - How do you verify retry behavior for failed API requests?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage flaky test triage processes?
+QA_Lead | Analytical_Behavioral - How do you lead testing across distributed global teams?
+Automation_QA_Engineer | Foundations_Methodology - How do you establish automation success metrics?
+QA_Lead | Analytical_Behavioral - How do you handle executive pressure to release early?
+Manual_QA_Engineer | Foundations_Methodology - How do you create test coverage for a newly built microservice?
+Automation_QA_Engineer | Analytical_Behavioral - How did you handle automation failures before a release?
+QA_Lead | Technical - How do you monitor quality trends using SQL dashboards?
+Automation_QA_Engineer | Analytical_Behavioral - How do you gain trust after unstable test automation?
+QA_Lead | Technical - How do you validate CI quality gates before deployment?
+Manual_QA_Engineer | Foundations_Methodology - How do you test business rules without documentation?
+Automation_QA_Engineer | Analytical_Behavioral - How do you prioritize automation during tight deadlines?
+QA_Lead | Technical - How do you analyze defect leakage across releases?
