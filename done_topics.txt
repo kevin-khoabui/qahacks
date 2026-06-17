@@ -123,3 +123,26 @@ QA_Lead | Foundations_Methodology - How do you scale regression coverage with li
 Manual_QA_Engineer | Analytical_Behavioral - How do you analyze a failed payment with Postman and logs?
 Automation_QA_Engineer | Technical - How do you validate file downloads in Cypress tests?
 QA_Lead | Foundations_Methodology - How do you ensure requirement traceability in testing?
+Manual_QA_Engineer | Analytical_Behavioral - How do you identify root causes of sporadic API failures?
+Automation_QA_Engineer | Technical - How do you automate WebSocket validation in Playwright?
+Manual_QA_Engineer | Analytical_Behavioral - How do you validate cache behavior using DevTools?
+Automation_QA_Engineer | Technical - How do you test feature flags in Cypress pipelines?
+QA_Lead | Foundations_Methodology - How do you decide what not to automate?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify audit logs after a security incident?
+Automation_QA_Engineer | Technical - How do you handle authentication flows in Playwright?
+QA_Lead | Foundations_Methodology - How do you improve defect prevention across teams?
+Manual_QA_Engineer | Analytical_Behavioral - How do you test fallback behavior during service outages?
+Automation_QA_Engineer | Technical - How do you validate API contracts in Cypress automation?
+QA_Lead | Foundations_Methodology - How do you establish quality metrics for executives?
+Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot delayed notifications on mobile OS?
+Automation_QA_Engineer | Technical - How do you parallelize Playwright tests without conflicts?
+QA_Lead | Foundations_Methodology - How do you manage testing during continuous deployment?
+Manual_QA_Engineer | Analytical_Behavioral - How do you validate pagination with large datasets?
+Automation_QA_Engineer | Technical - How do you automate visual checks in Cypress?
+QA_Lead | Foundations_Methodology - How do you balance speed and quality before release?
+Manual_QA_Engineer | Analytical_Behavioral - How do you test recovery after corrupted user data?
+Automation_QA_Engineer | Technical - How do you detect hidden flakiness in Playwright tests?
+QA_Lead | Foundations_Methodology - How do you assess testing readiness for new teams?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify mocked service responses are realistic?
+Automation_QA_Engineer | Technical - How do you manage secrets in Cypress CI environments?
+QA_Lead | Foundations_Methodology - How do you standardize QA processes across departments?
