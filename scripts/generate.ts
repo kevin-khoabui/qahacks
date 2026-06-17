@@ -42,6 +42,11 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
       The entire output MUST be in raw Markdown format and MUST start with the exact Frontmatter structure below. Do not wrap the frontmatter or the whole response in markdown code blocks.
       THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${topic}").
 
+      CRITICAL REQUIREMENT 6 (TOOL STACK DETECTION):
+      Analyze the topic "${topic}" to detect the core testing tool or framework being used (e.g., "Cypress", "Playwright", "Selenium", "Appium", "Postman", "JMeter").
+      - Write the exact tool name into the "tool_stack" field in the Frontmatter (capitalized properly like "Cypress", "Playwright").
+      - If no specific tool or framework is mentioned or can be inferred from the topic, strictly write "Generic".
+
       ---
       title: "${topic}"
       difficulty: "Advanced"
@@ -52,7 +57,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
       core_testing_type: "Automation"
       domain: "Enterprise-Software"
       platform: "Cross-platform"
-      tool_stack: "None"
+      tool_stack: "[Insert Detected Tool Stack Here]"
       tags: ["automation", "coding-challenge", "interview-prep", "tech-strategy"]
       ---
       
@@ -109,6 +114,11 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     Return raw Markdown beginning with frontmatter. Do not wrap the frontmatter or the whole response in markdown code blocks.
     THE "title" IN THE FRONTMATTER MUST BE THE EXACT SAME TEXT AS THE INTERVIEW QUESTION ("${topic}").
 
+    CRITICAL REQUIREMENT 8 (TOOL STACK DETECTION):
+    Analyze the topic "${topic}" to detect if a specific tool or platform is mentioned (e.g., "Jira", "TestRail", "Postman", "Excel").
+    - Write the exact tool name into the "tool_stack" field in the Frontmatter.
+    - If no specific tool is explicitly mentioned, strictly write "Generic".
+
     ---
     title: "${topic}"
     difficulty: "Advanced"
@@ -119,7 +129,7 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     core_testing_type: "Manual"
     domain: "Enterprise-Software"
     platform: "Cross-platform"
-    tool_stack: "None"
+    tool_stack: "[Insert Detected Tool Stack Here]"
     leadership_competency: "Risk Mitigation"
     interview_focus: "Delivery Pressure"
     tags: ["manual-testing", "qa-lead", "interview-prep", "test-leadership"]
