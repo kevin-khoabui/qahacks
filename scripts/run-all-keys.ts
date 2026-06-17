@@ -90,7 +90,7 @@ async function runAll() {
     // Chỉ giữ lại những dòng KHÔNG nằm trong mảng đã tạo bài thành công
     const updatedLines = freshLines.filter(line => !successfulTopics.includes(line) && line.length > 0);
     
-    // Ghi đè khóa cứng lại file tĩnh
+    // Ghi đè khóa cứng lại file tĩnh.
     fs.writeFileSync(filePath, updatedLines.join("\n"), "utf-8");
     console.log(`✅ Đã gọt dòng xong! Đã cắt sạch ${successfulTopics.length} chủ đề ra khỏi kho. Còn lại: ${updatedLines.length} chủ đề chờ mẻ tiếp theo.`);
   } else {
