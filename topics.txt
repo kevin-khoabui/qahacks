@@ -3,7 +3,6 @@ Automation_QA_Engineer | Analytical_Behavioral - How do you recover from failed 
 QA_Lead | Technical - How do you verify database consistency across environments?
 QA_Lead | Technical - How do you validate service-level objectives through QA activities?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation debt during fast growth?
-Automation_QA_Engineer | Analytical_Behavioral - How do you address burnout in automation teams?
 QA_Lead | Technical - How do you verify API observability during incident investigations?
 Manual_QA_Engineer | Foundations_Methodology - How do you ensure regression coverage remains relevant?
 Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation investment during budget cuts?
@@ -12,9 +11,7 @@ Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for b
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation priorities across products?
 QA_Lead | Technical - How do you verify production readiness of distributed systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you build risk-based test plans quickly?
-Automation_QA_Engineer | Analytical_Behavioral - How do you regain trust after unstable automation results?
 QA_Lead | Technical - How do you validate integration health across dependent platforms?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify hidden requirements during testing?
 Automation_QA_Engineer | Analytical_Behavioral - How do you balance innovation with automation stability?
 QA_Lead | Technical - How do you assess quality signals before major launches?
 Manual_QA_Engineer | Foundations_Methodology - How do you create tests for cross-functional workflows?

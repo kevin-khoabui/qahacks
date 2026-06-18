@@ -401,3 +401,6 @@ Automation_QA_Engineer | Analytical_Behavioral - How do you influence teams to a
 Manual_QA_Engineer | Foundations_Methodology - How do you design exploratory testing for new features?
 QA_Lead | Technical - How do you assess risks in event-driven architectures?
 Manual_QA_Engineer | Foundations_Methodology - How do you define testing scope for MVP releases?
+Automation_QA_Engineer | Analytical_Behavioral - How do you address burnout in automation teams?
+Automation_QA_Engineer | Analytical_Behavioral - How do you regain trust after unstable automation results?
+Manual_QA_Engineer | Foundations_Methodology - How do you identify hidden requirements during testing?
