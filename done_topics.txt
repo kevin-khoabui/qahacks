@@ -533,3 +533,26 @@ Manual_QA_Engineer | Technical - How do you verify mobile app behavior after OS 
 Automation_QA_Engineer | Foundations_Methodology - How do you manage automation lifecycle planning?
 QA_Lead | Analytical_Behavioral - How do you influence product teams to prioritize quality?
 Manual_QA_Engineer | Technical - How do you test API backward compatibility across versions?
+Automation_QA_Engineer | Foundations_Methodology - How do you design automation for event-driven architectures?
+Automation_QA_Engineer | Foundations_Methodology - How do you select automation candidates in legacy systems?
+Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation scalability risks?
+QA_Lead | Analytical_Behavioral - How do you address recurring production defect patterns?
+Manual_QA_Engineer | Technical - How do you validate audit logs after permission changes?
+Automation_QA_Engineer | Foundations_Methodology - How do you define automation quality standards?
+QA_Lead | Analytical_Behavioral - How do you manage quality during aggressive release schedules?
+Manual_QA_Engineer | Technical - How do you verify data synchronization after service recovery?
+Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation maintenance effort?
+QA_Lead | Analytical_Behavioral - How do you handle stakeholder disputes over defect priorities?
+Automation_QA_Engineer | Foundations_Methodology - How do you structure automation for shared platforms?
+QA_Lead | Analytical_Behavioral - How do you build trust after severe customer escalations?
+Manual_QA_Engineer | Technical - How do you validate API pagination under large datasets?
+Automation_QA_Engineer | Foundations_Methodology - How do you balance automation speed and reliability?
+QA_Lead | Analytical_Behavioral - How do you improve accountability for release quality?
+Manual_QA_Engineer | Technical - How do you verify event processing order across services?
+Automation_QA_Engineer | Foundations_Methodology - How do you identify automation bottlenecks early?
+QA_Lead | Analytical_Behavioral - How do you manage quality across globally distributed teams?
+Manual_QA_Engineer | Technical - How do you test search indexing after bulk updates?
+Automation_QA_Engineer | Foundations_Methodology - How do you align automation strategy with architecture?
+QA_Lead | Analytical_Behavioral - How do you respond to missed quality objectives?
+Manual_QA_Engineer | Technical - How do you validate reporting accuracy using SQL queries?
+Automation_QA_Engineer | Foundations_Methodology - How do you maintain automation through redesigns?
