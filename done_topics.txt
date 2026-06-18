@@ -556,3 +556,14 @@ Automation_QA_Engineer | Foundations_Methodology - How do you align automation s
 QA_Lead | Analytical_Behavioral - How do you respond to missed quality objectives?
 Manual_QA_Engineer | Technical - How do you validate reporting accuracy using SQL queries?
 Automation_QA_Engineer | Foundations_Methodology - How do you maintain automation through redesigns?
+QA_Lead | Analytical_Behavioral - How do you address quality concerns during acquisitions?
+Automation_QA_Engineer | Foundations_Methodology - How do you create automation adoption roadmaps?
+QA_Lead | Analytical_Behavioral - How do you handle conflicting priorities across business units?
+Automation_QA_Engineer | Foundations_Methodology - How do you future-proof automation architectures?
+QA_Lead | Analytical_Behavioral - How do you improve stakeholder confidence in QA outcomes?
+Manual_QA_Engineer | Technical - How do you verify API security controls with Postman?
+QA_Lead | Analytical_Behavioral - How do you balance innovation with quality discipline?
+Automation_QA_Engineer | Foundations_Methodology - How do you establish automation ownership models?
+QA_Lead | Analytical_Behavioral - How do you handle quality risks discovered late?
+Automation_QA_Engineer | Foundations_Methodology - How do you reduce technical debt in frameworks?
+Manual_QA_Engineer | Technical - How do you verify API throttling protections under load?

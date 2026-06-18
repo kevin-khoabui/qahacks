@@ -1,27 +1,16 @@
 Manual_QA_Engineer | Technical - How do you test database failover in enterprise environments?
-QA_Lead | Analytical_Behavioral - How do you address quality concerns during acquisitions?
 Manual_QA_Engineer | Technical - How do you verify browser storage after account switching?
-Automation_QA_Engineer | Foundations_Methodology - How do you create automation adoption roadmaps?
 QA_Lead | Analytical_Behavioral - How do you motivate teams after release setbacks?
 Manual_QA_Engineer | Technical - How do you validate API behavior under concurrent requests?
 Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation return on investment?
-QA_Lead | Analytical_Behavioral - How do you handle conflicting priorities across business units?
 Manual_QA_Engineer | Technical - How do you test notification delivery across mobile platforms?
-Automation_QA_Engineer | Foundations_Methodology - How do you future-proof automation architectures?
-QA_Lead | Analytical_Behavioral - How do you improve stakeholder confidence in QA outcomes?
 Manual_QA_Engineer | Technical - How do you validate data archival and restoration workflows?
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation success indicators?
 QA_Lead | Analytical_Behavioral - How do you manage testing during enterprise restructures?
-Manual_QA_Engineer | Technical - How do you verify API security controls with Postman?
 Automation_QA_Engineer | Foundations_Methodology - How do you scale automation across product lines?
-QA_Lead | Analytical_Behavioral - How do you balance innovation with quality discipline?
 Manual_QA_Engineer | Technical - How do you test transaction recovery after service failures?
-Automation_QA_Engineer | Foundations_Methodology - How do you establish automation ownership models?
-QA_Lead | Analytical_Behavioral - How do you handle quality risks discovered late?
 Manual_QA_Engineer | Technical - How do you validate permissions across nested user roles?
-Automation_QA_Engineer | Foundations_Methodology - How do you reduce technical debt in frameworks?
 QA_Lead | Analytical_Behavioral - How do you drive quality culture in fast-growing teams?
-Manual_QA_Engineer | Technical - How do you verify API throttling protections under load?
 Automation_QA_Engineer | Foundations_Methodology - How do you manage automation during cloud migrations?
 QA_Lead | Analytical_Behavioral - How do you communicate testing tradeoffs to leadership?
 Manual_QA_Engineer | Technical - How do you validate data consistency across replicas?
