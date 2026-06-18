@@ -1,26 +1,12 @@
 QA_Lead | Technical - How do you verify observability for critical user journeys?
-Automation_QA_Engineer | Technical - How do you test offline browser behavior in Cypress?
-Manual_QA_Engineer | Technical - How do you validate SQL stored procedures after schema changes?
 Manual_QA_Engineer | Technical - How do you verify event processing across message brokers?
-Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation maintainability?
 QA_Lead | Analytical_Behavioral - How do you improve accountability for recurring defects?
-Manual_QA_Engineer | Technical - How do you validate browser compatibility using DevTools?
-QA_Lead | Analytical_Behavioral - How do you align quality goals with aggressive roadmaps?
 QA_Lead | Analytical_Behavioral - How do you handle disagreements over release readiness?
-Manual_QA_Engineer | Technical - How do you verify cache synchronization across environments?
-QA_Lead | Analytical_Behavioral - How do you manage quality during rapid organizational growth?
 Manual_QA_Engineer | Technical - How do you verify reporting accuracy after data migrations?
 Automation_QA_Engineer | Foundations_Methodology - How do you establish automation ownership boundaries?
-QA_Lead | Analytical_Behavioral - How do you address quality concerns raised by customers?
-Manual_QA_Engineer | Technical - How do you validate retry mechanisms in distributed systems?
-Automation_QA_Engineer | Foundations_Methodology - How do you balance automation depth and cost?
-QA_Lead | Analytical_Behavioral - How do you communicate testing limitations to leadership?
 Manual_QA_Engineer | Technical - How do you verify API versioning compatibility across clients?
-Automation_QA_Engineer | Foundations_Methodology - How do you ensure automation supports risk coverage?
-QA_Lead | Analytical_Behavioral - How do you manage testing when priorities change weekly?
 Manual_QA_Engineer | Technical - How do you validate data retention and archival rules?
 Automation_QA_Engineer | Foundations_Methodology - How do you scale automation without increasing debt?
-QA_Lead | Analytical_Behavioral - How do you address conflicts between quality and delivery goals?
 Manual_QA_Engineer | Technical - How do you test WebSocket recovery after connection loss?
 Automation_QA_Engineer | Foundations_Methodology - How do you maintain automation during platform changes?
 QA_Lead | Analytical_Behavioral - How do you improve cross-team collaboration on quality?
