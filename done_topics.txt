@@ -382,3 +382,22 @@ Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing dur
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation expectations during rewrites?
 QA_Lead | Technical - How do you assess platform readiness after infrastructure changes?
 Manual_QA_Engineer | Foundations_Methodology - How do you create regression suites for legacy systems?
+QA_Lead | Technical - How do you verify observability for critical user journeys?
+QA_Lead | Analytical_Behavioral - How do you improve accountability for recurring defects?
+Automation_QA_Engineer | Foundations_Methodology - How do you establish automation ownership boundaries?
+Manual_QA_Engineer | Technical - How do you verify API versioning compatibility across clients?
+Manual_QA_Engineer | Technical - How do you validate data retention and archival rules?
+Automation_QA_Engineer | Foundations_Methodology - How do you scale automation without increasing debt?
+Manual_QA_Engineer | Technical - How do you test WebSocket recovery after connection loss?
+Manual_QA_Engineer | Technical - How do you verify audit logs after bulk data updates?
+Automation_QA_Engineer | Analytical_Behavioral - How do you respond when automation misses critical defects?
+QA_Lead | Technical - How do you validate deployment pipelines before production releases?
+Automation_QA_Engineer | Analytical_Behavioral - How do you handle stakeholder doubts about automation value?
+Automation_QA_Engineer | Analytical_Behavioral - How do you resolve disputes over flaky test ownership?
+QA_Lead | Technical - How do you validate disaster recovery through testing?
+Manual_QA_Engineer | Foundations_Methodology - How do you determine testing depth for integrations?
+Manual_QA_Engineer | Foundations_Methodology - How do you test requirements with unclear acceptance criteria?
+Automation_QA_Engineer | Analytical_Behavioral - How do you influence teams to adopt test automation?
+Manual_QA_Engineer | Foundations_Methodology - How do you design exploratory testing for new features?
+QA_Lead | Technical - How do you assess risks in event-driven architectures?
+Manual_QA_Engineer | Foundations_Methodology - How do you define testing scope for MVP releases?
