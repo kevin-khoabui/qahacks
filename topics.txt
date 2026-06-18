@@ -1,27 +1,3 @@
-Automation_QA_Engineer | Technical - How do you validate GraphQL subscriptions in Cypress?
-QA_Lead | Foundations_Methodology - How do you integrate QA into strategic planning cycles?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing notifications for users?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify fixes when environments differ greatly?
-Automation_QA_Engineer | Technical - How do you test concurrent checkout workflows in Cypress?
-QA_Lead | Foundations_Methodology - How do you define release readiness across programs?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate authorization anomalies in production?
-Automation_QA_Engineer | Technical - How do you test browser recovery after network failures?
-QA_Lead | Foundations_Methodology - How do you scale exploratory testing across organizations?
-QA_Lead | Foundations_Methodology - How do you evaluate quality risks before acquisitions?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures after configuration updates?
-Automation_QA_Engineer | Technical - How do you validate distributed tracing data automatically?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues caused by stale caches?
-Automation_QA_Engineer | Technical - How do you automate testing of complex approval workflows?
-QA_Lead | Foundations_Methodology - How do you manage testing across multiple release trains?
-Manual_QA_Engineer | Analytical_Behavioral - How do you analyze inconsistent search indexing behavior?
-Automation_QA_Engineer | Technical - How do you validate API resiliency under service failures?
-QA_Lead | Foundations_Methodology - How do you improve decision quality using QA insights?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving asynchronous jobs?
-Automation_QA_Engineer | Technical - How do you test browser tab synchronization in Cypress?
-QA_Lead | Foundations_Methodology - How do you build long-term quality transformation strategies?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate data retention policy violations?
-Automation_QA_Engineer | Technical - How do you validate event ordering in Playwright tests?
-QA_Lead | Foundations_Methodology - How do you assess readiness for enterprise-scale releases?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify reporting accuracy after hotfixes?
 Automation_QA_Engineer | Technical - How do you automate validation of role-based permissions?
 QA_Lead | Foundations_Methodology - How do you ensure quality scales with organizational growth?
@@ -468,7 +444,6 @@ QA_Lead | Foundations_Methodology - How do you prioritize quality initiatives ac
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues caused by stale replicas?
 Automation_QA_Engineer | Technical - How do you automate validation of distributed cache behavior?
 QA_Lead | Foundations_Methodology - How do you build quality roadmaps for enterprise growth?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving asynchronous jobs?
 Automation_QA_Engineer | Technical - How do you test browser storage recovery after corruption?
 QA_Lead | Foundations_Methodology - How do you align release criteria across departments?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures during schema migrations?
