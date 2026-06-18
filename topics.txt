@@ -1,27 +1,7 @@
 QA_Lead | Analytical_Behavioral - How do you improve accountability for product quality?
 Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
-Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution costs?
 QA_Lead | Technical - How do you verify observability for critical user journeys?
-Manual_QA_Engineer | Foundations_Methodology - How do you design tests for business-critical flows?
-QA_Lead | Technical - How do you evaluate integration points across platforms?
 Manual_QA_Engineer | Foundations_Methodology - How do you ensure edge cases are not overlooked?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation expectations with executives?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond to criticism of automation value?
-Automation_QA_Engineer | Technical - How do you test browser context isolation in Cypress?
-QA_Lead | Foundations_Methodology - How do you establish release quality checkpoints?
-Automation_QA_Engineer | Technical - How do you test interrupted uploads in Cypress?
-QA_Lead | Foundations_Methodology - How do you define risk thresholds for releases?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate performance complaints from customers?
-QA_Lead | Foundations_Methodology - How do you align test strategies across departments?
-Automation_QA_Engineer | Technical - How do you automate validation of audit events?
-QA_Lead | Foundations_Methodology - How do you evaluate test effectiveness across portfolios?
-Automation_QA_Engineer | Technical - How do you test browser refresh during transactions?
-QA_Lead | Foundations_Methodology - How do you build governance for enterprise QA practices?
-Automation_QA_Engineer | Technical - How do you automate testing of feature toggles?
-QA_Lead | Foundations_Methodology - How do you assess testing gaps before audits?
-Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot failures in integrated environments?
-Automation_QA_Engineer | Technical - How do you validate rate limiting with Playwright tests?
-QA_Lead | Foundations_Methodology - How do you ensure consistency across QA processes?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify data corruption reports from users?
 Automation_QA_Engineer | Technical - How do you test concurrent user workflows in Cypress?
 QA_Lead | Foundations_Methodology - How do you define enterprise-wide defect management standards?
@@ -597,7 +577,6 @@ Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for 
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover trust after repeated flaky failures?
 QA_Lead | Technical - How do you validate API governance across enterprise teams?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify business-critical regression scenarios?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation expectations with executives?
 QA_Lead | Technical - How do you verify quality signals from observability platforms?
 Manual_QA_Engineer | Foundations_Methodology - How do you create risk-based testing for microservices?
 Automation_QA_Engineer | Analytical_Behavioral - How do you balance automation quality and delivery speed?
