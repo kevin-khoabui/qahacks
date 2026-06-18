@@ -12,14 +12,11 @@ QA_Lead | Foundations_Methodology - How do you establish release quality checkpo
 Automation_QA_Engineer | Technical - How do you test interrupted uploads in Cypress?
 QA_Lead | Foundations_Methodology - How do you define risk thresholds for releases?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate performance complaints from customers?
-Automation_QA_Engineer | Technical - How do you validate API caching behavior in Playwright?
 QA_Lead | Foundations_Methodology - How do you align test strategies across departments?
 Automation_QA_Engineer | Technical - How do you automate validation of audit events?
 QA_Lead | Foundations_Methodology - How do you evaluate test effectiveness across portfolios?
-Manual_QA_Engineer | Analytical_Behavioral - How do you identify hidden dependencies causing failures?
 Automation_QA_Engineer | Technical - How do you test browser refresh during transactions?
 QA_Lead | Foundations_Methodology - How do you build governance for enterprise QA practices?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues appearing after deployments?
 Automation_QA_Engineer | Technical - How do you automate testing of feature toggles?
 QA_Lead | Foundations_Methodology - How do you assess testing gaps before audits?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot failures in integrated environments?

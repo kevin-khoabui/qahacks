@@ -293,3 +293,6 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you reproduce bugs with inco
 QA_Lead | Foundations_Methodology - How do you manage quality risks in distributed teams?
 Manual_QA_Engineer | Analytical_Behavioral - How do you validate customer-reported data discrepancies?
 Automation_QA_Engineer | Technical - How do you verify token expiration handling in Cypress?
+Automation_QA_Engineer | Technical - How do you validate API caching behavior in Playwright?
+Manual_QA_Engineer | Analytical_Behavioral - How do you identify hidden dependencies causing failures?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues appearing after deployments?
