@@ -8,7 +8,6 @@ Manual_QA_Engineer | Foundations_Methodology - How do you ensure regression cove
 Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation investment during budget cuts?
 QA_Lead | Technical - How do you validate rollback safety across microservices?
 Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for business continuity?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation priorities across products?
 QA_Lead | Technical - How do you verify production readiness of distributed systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you build risk-based test plans quickly?
 QA_Lead | Technical - How do you validate integration health across dependent platforms?
@@ -17,7 +16,6 @@ QA_Lead | Technical - How do you assess quality signals before major launches?
 Manual_QA_Engineer | Foundations_Methodology - How do you create tests for cross-functional workflows?
 Automation_QA_Engineer | Analytical_Behavioral - How do you respond to repeated automation failures?
 QA_Lead | Technical - How do you validate infrastructure changes impacting application quality?
-Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing after architectural changes?
 Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams adopting Playwright frameworks?
 QA_Lead | Technical - How do you verify resilience in highly available systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you structure test scenarios for integrations?
@@ -227,7 +225,6 @@ QA_Lead | Technical - How do you validate service recovery after outages?
 Manual_QA_Engineer | Foundations_Methodology - How do you structure exploratory testing for APIs?
 Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation costs to leadership?
 QA_Lead | Technical - How do you verify event-driven architecture reliability?
-Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing after architectural changes?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle repeated flaky automation failures?
 QA_Lead | Technical - How do you validate quality metrics used in executive reporting?
 Manual_QA_Engineer | Foundations_Methodology - How do you create risk-based testing matrices?
