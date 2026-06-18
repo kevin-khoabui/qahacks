@@ -2,26 +2,11 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot intermitten
 Automation_QA_Engineer | Technical - How do you validate GraphQL subscriptions in Cypress?
 QA_Lead | Foundations_Methodology - How do you integrate QA into strategic planning cycles?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing notifications for users?
-Automation_QA_Engineer | Technical - How do you test browser crashes during transactions?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify fixes when environments differ greatly?
 QA_Lead | Foundations_Methodology - How do you establish quality ownership across departments?
-QA_Lead | Foundations_Methodology - How do you assess testing maturity across business units?
-Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot data mismatches in reports?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues tied to specific browsers?
 QA_Lead | Foundations_Methodology - How do you manage quality during platform migrations?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving external vendors?
-QA_Lead | Foundations_Methodology - How do you balance governance and delivery speed?
-Manual_QA_Engineer | Analytical_Behavioral - How do you analyze failures spanning multiple systems?
-Automation_QA_Engineer | Technical - How do you validate file corruption handling automatically?
-QA_Lead | Foundations_Methodology - How do you define quality KPIs for leadership reviews?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate duplicate records in production?
 Automation_QA_Engineer | Technical - How do you test concurrent checkout workflows in Cypress?
-QA_Lead | Foundations_Methodology - How do you improve quality culture across engineering?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer data migration accuracy?
-Automation_QA_Engineer | Technical - How do you automate timezone-sensitive scenarios in Playwright?
-QA_Lead | Foundations_Methodology - How do you align QA investments with business priorities?
-Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot delayed event processing issues?
-Automation_QA_Engineer | Technical - How do you validate API fallback behavior automatically?
 QA_Lead | Foundations_Methodology - How do you define release readiness across programs?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate authorization anomalies in production?
 Automation_QA_Engineer | Technical - How do you test browser recovery after network failures?
