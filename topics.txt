@@ -9,13 +9,6 @@ Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation ex
 Automation_QA_Engineer | Analytical_Behavioral - How do you respond to criticism of automation value?
 Automation_QA_Engineer | Technical - How do you test browser context isolation in Cypress?
 QA_Lead | Foundations_Methodology - How do you establish release quality checkpoints?
-Manual_QA_Engineer | Analytical_Behavioral - How do you identify root causes without application logs?
-Automation_QA_Engineer | Technical - How do you automate validation of real-time dashboards?
-QA_Lead | Foundations_Methodology - How do you create a quality roadmap for scaling teams?
-Manual_QA_Engineer | Analytical_Behavioral - How do you handle conflicting bug reports from users?
-Automation_QA_Engineer | Technical - How do you validate OAuth flows using Playwright?
-QA_Lead | Foundations_Methodology - How do you standardize testing across multiple products?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues affecting only specific regions?
 Automation_QA_Engineer | Technical - How do you test interrupted uploads in Cypress?
 QA_Lead | Foundations_Methodology - How do you define risk thresholds for releases?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate performance complaints from customers?

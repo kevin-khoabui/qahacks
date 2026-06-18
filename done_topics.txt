@@ -282,3 +282,10 @@ Manual_QA_Engineer | Foundations_Methodology - How do you select acceptance crit
 Automation_QA_Engineer | Technical - How do you validate API mocking behavior in Playwright?
 QA_Lead | Foundations_Methodology - How do you define quality objectives for enterprise programs?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects reported only in production?
+Manual_QA_Engineer | Analytical_Behavioral - How do you identify root causes without application logs?
+Automation_QA_Engineer | Technical - How do you automate validation of real-time dashboards?
+QA_Lead | Foundations_Methodology - How do you create a quality roadmap for scaling teams?
+Manual_QA_Engineer | Analytical_Behavioral - How do you handle conflicting bug reports from users?
+Automation_QA_Engineer | Technical - How do you validate OAuth flows using Playwright?
+QA_Lead | Foundations_Methodology - How do you standardize testing across multiple products?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues affecting only specific regions?
