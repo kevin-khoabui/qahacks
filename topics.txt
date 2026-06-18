@@ -2,26 +2,11 @@ QA_Lead | Analytical_Behavioral - How do you improve accountability for product 
 Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
 Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution costs?
 QA_Lead | Technical - How do you verify observability for critical user journeys?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle missed automation commitments?
 Manual_QA_Engineer | Foundations_Methodology - How do you design tests for business-critical flows?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond to automation framework failures?
 QA_Lead | Technical - How do you evaluate integration points across platforms?
 Manual_QA_Engineer | Foundations_Methodology - How do you ensure edge cases are not overlooked?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation expectations with executives?
-QA_Lead | Technical - How do you validate security controls through testing?
-Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing when requirements conflict?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle competing automation priorities?
-QA_Lead | Technical - How do you verify message delivery across event-driven systems?
-Manual_QA_Engineer | Foundations_Methodology - How do you determine regression scope after refactoring?
-Automation_QA_Engineer | Analytical_Behavioral - How do you maintain morale during automation setbacks?
-QA_Lead | Technical - How do you validate audit compliance through QA processes?
-Manual_QA_Engineer | Foundations_Methodology - How do you structure exploratory testing charters?
 Automation_QA_Engineer | Analytical_Behavioral - How do you respond to criticism of automation value?
-QA_Lead | Technical - How do you evaluate platform stability before major releases?
-Manual_QA_Engineer | Foundations_Methodology - How do you select acceptance criteria for testing?
-Automation_QA_Engineer | Technical - How do you validate API mocking behavior in Playwright?
-QA_Lead | Foundations_Methodology - How do you define quality objectives for enterprise programs?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects reported only in production?
 Automation_QA_Engineer | Technical - How do you test browser context isolation in Cypress?
 QA_Lead | Foundations_Methodology - How do you establish release quality checkpoints?
 Manual_QA_Engineer | Analytical_Behavioral - How do you identify root causes without application logs?
