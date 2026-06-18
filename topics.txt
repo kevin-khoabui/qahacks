@@ -1,27 +1,3 @@
-Manual_QA_Engineer | Technical - How do you verify event processing across message brokers?
-Automation_QA_Engineer | Analytical_Behavioral - How do you recover from failed automation migrations?
-QA_Lead | Technical - How do you verify database consistency across environments?
-QA_Lead | Technical - How do you validate service-level objectives through QA activities?
-QA_Lead | Technical - How do you verify API observability during incident investigations?
-Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation investment during budget cuts?
-Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for business continuity?
-QA_Lead | Technical - How do you verify production readiness of distributed systems?
-Manual_QA_Engineer | Foundations_Methodology - How do you build risk-based test plans quickly?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond to repeated automation failures?
-Manual_QA_Engineer | Analytical_Behavioral - How do you isolate root causes in shared environments?
-Automation_QA_Engineer | Technical - How do you test WebSocket disconnections in Cypress?
-QA_Lead | Foundations_Methodology - How do you align QA metrics with business outcomes?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify production-only authentication issues?
-Automation_QA_Engineer | Technical - How do you automate validation of server-sent events?
-QA_Lead | Foundations_Methodology - How do you scale risk-based testing across portfolios?
-Manual_QA_Engineer | Analytical_Behavioral - How do you analyze customer complaints lacking logs?
-Automation_QA_Engineer | Technical - How do you validate session hijacking protections automatically?
-QA_Lead | Foundations_Methodology - How do you evolve QA processes during hypergrowth?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate inconsistent API responses?
-Automation_QA_Engineer | Technical - How do you test browser storage persistence in Playwright?
-QA_Lead | Foundations_Methodology - How do you create quality dashboards for executives?
-Manual_QA_Engineer | Analytical_Behavioral - How do you confirm data issues across microservices?
-Automation_QA_Engineer | Technical - How do you automate verification of audit trail events?
 QA_Lead | Foundations_Methodology - How do you define enterprise defect triage standards?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot intermittent mobile sync failures?
 Automation_QA_Engineer | Technical - How do you validate GraphQL subscriptions in Cypress?
