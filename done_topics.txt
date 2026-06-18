@@ -477,3 +477,13 @@ Automation_QA_Engineer | Technical - How do you automate timezone-sensitive scen
 QA_Lead | Foundations_Methodology - How do you align QA investments with business priorities?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot delayed event processing issues?
 Automation_QA_Engineer | Technical - How do you validate API fallback behavior automatically?
+Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot intermittent mobile sync failures?
+QA_Lead | Foundations_Methodology - How do you establish quality ownership across departments?
+QA_Lead | Foundations_Methodology - How do you manage quality during platform migrations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate duplicate records in production?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects reported from archived data?
+Automation_QA_Engineer | Technical - How do you automate validation of bulk data operations?
+QA_Lead | Foundations_Methodology - How do you create enterprise testing playbooks?
+Manual_QA_Engineer | Analytical_Behavioral - How do you identify hidden impacts of schema changes?
+Automation_QA_Engineer | Technical - How do you test large file uploads in Playwright?
+QA_Lead | Foundations_Methodology - How do you ensure QA remains customer focused?

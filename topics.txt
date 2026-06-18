@@ -1,25 +1,15 @@
-Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot intermittent mobile sync failures?
 Automation_QA_Engineer | Technical - How do you validate GraphQL subscriptions in Cypress?
 QA_Lead | Foundations_Methodology - How do you integrate QA into strategic planning cycles?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing notifications for users?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify fixes when environments differ greatly?
-QA_Lead | Foundations_Methodology - How do you establish quality ownership across departments?
-QA_Lead | Foundations_Methodology - How do you manage quality during platform migrations?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate duplicate records in production?
 Automation_QA_Engineer | Technical - How do you test concurrent checkout workflows in Cypress?
 QA_Lead | Foundations_Methodology - How do you define release readiness across programs?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate authorization anomalies in production?
 Automation_QA_Engineer | Technical - How do you test browser recovery after network failures?
 QA_Lead | Foundations_Methodology - How do you scale exploratory testing across organizations?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects reported from archived data?
-Automation_QA_Engineer | Technical - How do you automate validation of bulk data operations?
-QA_Lead | Foundations_Methodology - How do you create enterprise testing playbooks?
-Manual_QA_Engineer | Analytical_Behavioral - How do you identify hidden impacts of schema changes?
-Automation_QA_Engineer | Technical - How do you test large file uploads in Playwright?
 QA_Lead | Foundations_Methodology - How do you evaluate quality risks before acquisitions?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures after configuration updates?
 Automation_QA_Engineer | Technical - How do you validate distributed tracing data automatically?
-QA_Lead | Foundations_Methodology - How do you ensure QA remains customer focused?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues caused by stale caches?
 Automation_QA_Engineer | Technical - How do you automate testing of complex approval workflows?
 QA_Lead | Foundations_Methodology - How do you manage testing across multiple release trains?
