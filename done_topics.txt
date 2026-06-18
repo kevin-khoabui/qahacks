@@ -316,3 +316,11 @@ QA_Lead | Foundations_Methodology - How do you assess testing gaps before audits
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot failures in integrated environments?
 Automation_QA_Engineer | Technical - How do you validate rate limiting with Playwright tests?
 QA_Lead | Foundations_Methodology - How do you ensure consistency across QA processes?
+QA_Lead | Foundations_Methodology - How do you define enterprise-wide defect management standards?
+Automation_QA_Engineer | Technical - How do you automate recovery testing after API failures?
+QA_Lead | Foundations_Methodology - How do you plan testing for strategic business initiatives?
+Manual_QA_Engineer | Analytical_Behavioral - How do you isolate defects across shared environments?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate intermittent reporting inaccuracies?
+QA_Lead | Foundations_Methodology - How do you mature QA capabilities across organizations?
+QA_Lead | Analytical_Behavioral - How do you handle executive pressure to reduce testing scope?
+Automation_QA_Engineer | Foundations_Methodology - How do you define automation readiness criteria?
