@@ -324,3 +324,21 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you investigate intermittent
 QA_Lead | Foundations_Methodology - How do you mature QA capabilities across organizations?
 QA_Lead | Analytical_Behavioral - How do you handle executive pressure to reduce testing scope?
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation readiness criteria?
+QA_Lead | Analytical_Behavioral - How do you improve accountability for product quality?
+Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
+Manual_QA_Engineer | Foundations_Methodology - How do you ensure edge cases are not overlooked?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify data corruption reports from users?
+Automation_QA_Engineer | Technical - How do you test concurrent user workflows in Cypress?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues involving multiple systems?
+Automation_QA_Engineer | Technical - How do you validate browser permission prompts automatically?
+QA_Lead | Foundations_Methodology - How do you measure quality improvements over time?
+Manual_QA_Engineer | Analytical_Behavioral - How do you confirm defects in unstable environments?
+Automation_QA_Engineer | Technical - How do you validate session renewal in Playwright?
+QA_Lead | Foundations_Methodology - How do you create sustainable quality practices?
+QA_Lead | Analytical_Behavioral - How do you manage quality after a high-profile outage?
+Manual_QA_Engineer | Technical - How do you verify API behavior with malformed requests?
+Automation_QA_Engineer | Foundations_Methodology - How do you identify unstable automation patterns?
+QA_Lead | Analytical_Behavioral - How do you address declining confidence in QA processes?
+Manual_QA_Engineer | Technical - How do you test synchronization between mobile and web clients?
+Automation_QA_Engineer | Foundations_Methodology - How do you organize automation assets at scale?
+QA_Lead | Analytical_Behavioral - How do you respond to repeated release quality failures?
