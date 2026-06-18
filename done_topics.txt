@@ -511,3 +511,25 @@ QA_Lead | Foundations_Methodology - How do you build long-term quality transform
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate data retention policy violations?
 Automation_QA_Engineer | Technical - How do you validate event ordering in Playwright tests?
 QA_Lead | Foundations_Methodology - How do you assess readiness for enterprise-scale releases?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify reporting accuracy after hotfixes?
+Automation_QA_Engineer | Technical - How do you automate validation of role-based permissions?
+QA_Lead | Foundations_Methodology - How do you ensure quality scales with organizational growth?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects triggered by edge-case data?
+Automation_QA_Engineer | Technical - How do you test API behavior during dependency outages?
+QA_Lead | Foundations_Methodology - How do you define success criteria for QA transformation?
+QA_Lead | Analytical_Behavioral - How do you respond when executives challenge quality metrics?
+Manual_QA_Engineer | Technical - How do you validate SQL data after bulk imports?
+QA_Lead | Analytical_Behavioral - How do you handle resistance to quality initiatives?
+Manual_QA_Engineer | Technical - How do you verify API responses during network degradation?
+Automation_QA_Engineer | Foundations_Methodology - How do you measure automation coverage effectiveness?
+QA_Lead | Analytical_Behavioral - How do you manage quality after major organizational changes?
+Manual_QA_Engineer | Technical - How do you test browser cache invalidation after deployments?
+Automation_QA_Engineer | Foundations_Methodology - How do you avoid automation duplication across teams?
+QA_Lead | Analytical_Behavioral - How do you communicate release risks to nontechnical leaders?
+Manual_QA_Engineer | Technical - How do you validate WebSocket payload integrity under load?
+Automation_QA_Engineer | Foundations_Methodology - How do you establish automation governance standards?
+QA_Lead | Analytical_Behavioral - How do you recover from a failed quality initiative?
+Manual_QA_Engineer | Technical - How do you verify mobile app behavior after OS upgrades?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage automation lifecycle planning?
+QA_Lead | Analytical_Behavioral - How do you influence product teams to prioritize quality?
+Manual_QA_Engineer | Technical - How do you test API backward compatibility across versions?
