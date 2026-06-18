@@ -11,7 +11,7 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
   const [currentPage, setCurrentPage] = useState(1);
   
   // 💡 Bạn có thể chỉnh số này (ví dụ: 3, 6, 24) tùy theo số bài muốn hiện trên 1 trang
-  const postsPerPage = 3; 
+  const postsPerPage = 24; 
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
