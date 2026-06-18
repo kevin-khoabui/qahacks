@@ -342,3 +342,17 @@ QA_Lead | Analytical_Behavioral - How do you address declining confidence in QA 
 Manual_QA_Engineer | Technical - How do you test synchronization between mobile and web clients?
 Automation_QA_Engineer | Foundations_Methodology - How do you organize automation assets at scale?
 QA_Lead | Analytical_Behavioral - How do you respond to repeated release quality failures?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify fixes for customer escalation issues?
+Manual_QA_Engineer | Technical - How do you validate database rollback after failed transactions?
+Automation_QA_Engineer | Foundations_Methodology - How do you define automation standards for teams?
+QA_Lead | Analytical_Behavioral - How do you manage stakeholder concerns during release freezes?
+Automation_QA_Engineer | Foundations_Methodology - How do you choose automation layers strategically?
+Manual_QA_Engineer | Technical - How do you test API failover between redundant services?
+Automation_QA_Engineer | Foundations_Methodology - How do you prevent duplication across test suites?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage automation growth sustainably?
+QA_Lead | Analytical_Behavioral - How do you recover team morale after critical incidents?
+Manual_QA_Engineer | Technical - How do you validate permissions in hierarchical role models?
+Automation_QA_Engineer | Foundations_Methodology - How do you measure automation reliability trends?
+QA_Lead | Analytical_Behavioral - How do you influence quality culture across engineering teams?
+Manual_QA_Engineer | Technical - How do you test API behavior under partial service outages?
+Automation_QA_Engineer | Foundations_Methodology - How do you build automation for long-term reuse?

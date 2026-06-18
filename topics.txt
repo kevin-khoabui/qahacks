@@ -1,27 +1,13 @@
 QA_Lead | Technical - How do you verify observability for critical user journeys?
 Automation_QA_Engineer | Technical - How do you test offline browser behavior in Cypress?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify fixes for customer escalation issues?
-Manual_QA_Engineer | Technical - How do you validate database rollback after failed transactions?
 Manual_QA_Engineer | Technical - How do you validate SQL stored procedures after schema changes?
-Automation_QA_Engineer | Foundations_Methodology - How do you define automation standards for teams?
-QA_Lead | Analytical_Behavioral - How do you manage stakeholder concerns during release freezes?
 Manual_QA_Engineer | Technical - How do you verify event processing across message brokers?
 Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation maintainability?
 QA_Lead | Analytical_Behavioral - How do you improve accountability for recurring defects?
 Manual_QA_Engineer | Technical - How do you validate browser compatibility using DevTools?
-Automation_QA_Engineer | Foundations_Methodology - How do you choose automation layers strategically?
 QA_Lead | Analytical_Behavioral - How do you align quality goals with aggressive roadmaps?
-Manual_QA_Engineer | Technical - How do you test API failover between redundant services?
-Automation_QA_Engineer | Foundations_Methodology - How do you prevent duplication across test suites?
 QA_Lead | Analytical_Behavioral - How do you handle disagreements over release readiness?
 Manual_QA_Engineer | Technical - How do you verify cache synchronization across environments?
-Automation_QA_Engineer | Foundations_Methodology - How do you manage automation growth sustainably?
-QA_Lead | Analytical_Behavioral - How do you recover team morale after critical incidents?
-Manual_QA_Engineer | Technical - How do you validate permissions in hierarchical role models?
-Automation_QA_Engineer | Foundations_Methodology - How do you measure automation reliability trends?
-QA_Lead | Analytical_Behavioral - How do you influence quality culture across engineering teams?
-Manual_QA_Engineer | Technical - How do you test API behavior under partial service outages?
-Automation_QA_Engineer | Foundations_Methodology - How do you build automation for long-term reuse?
 QA_Lead | Analytical_Behavioral - How do you manage quality during rapid organizational growth?
 Manual_QA_Engineer | Technical - How do you verify reporting accuracy after data migrations?
 Automation_QA_Engineer | Foundations_Methodology - How do you establish automation ownership boundaries?
@@ -494,7 +480,6 @@ Manual_QA_Engineer | Technical - How do you verify browser behavior after config
 Automation_QA_Engineer | Foundations_Methodology - How do you align automation with CI objectives?
 QA_Lead | Analytical_Behavioral - How do you respond to repeated customer escalations?
 Manual_QA_Engineer | Technical - How do you test integration reliability with external vendors?
-Automation_QA_Engineer | Foundations_Methodology - How do you measure automation reliability trends?
 QA_Lead | Analytical_Behavioral - How do you build trust after production quality failures?
 Manual_QA_Engineer | Technical - How do you validate data accuracy after platform migrations?
 Automation_QA_Engineer | Foundations_Methodology - How do you structure automation for enterprise scale?
