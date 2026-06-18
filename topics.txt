@@ -6,21 +6,15 @@ Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation de
 QA_Lead | Technical - How do you verify API observability during incident investigations?
 Manual_QA_Engineer | Foundations_Methodology - How do you ensure regression coverage remains relevant?
 Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation investment during budget cuts?
-QA_Lead | Technical - How do you validate rollback safety across microservices?
 Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for business continuity?
 QA_Lead | Technical - How do you verify production readiness of distributed systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you build risk-based test plans quickly?
 QA_Lead | Technical - How do you validate integration health across dependent platforms?
-Automation_QA_Engineer | Analytical_Behavioral - How do you balance innovation with automation stability?
 QA_Lead | Technical - How do you assess quality signals before major launches?
-Manual_QA_Engineer | Foundations_Methodology - How do you create tests for cross-functional workflows?
 Automation_QA_Engineer | Analytical_Behavioral - How do you respond to repeated automation failures?
 QA_Lead | Technical - How do you validate infrastructure changes impacting application quality?
 Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams adopting Playwright frameworks?
 QA_Lead | Technical - How do you verify resilience in highly available systems?
-Manual_QA_Engineer | Foundations_Methodology - How do you structure test scenarios for integrations?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage conflicting automation requests?
-QA_Lead | Technical - How do you validate enterprise reporting accuracy using SQL?
 Manual_QA_Engineer | Foundations_Methodology - How do you assess regression impact after refactoring?
 Automation_QA_Engineer | Analytical_Behavioral - How do you improve collaboration with development teams?
 QA_Lead | Technical - How do you verify data integrity during platform migrations?
