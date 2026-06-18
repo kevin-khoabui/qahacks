@@ -1,25 +1,4 @@
-Manual_QA_Engineer | Technical - How do you validate event delivery across message queues?
-Automation_QA_Engineer | Foundations_Methodology - How do you balance depth and breadth in automation?
-QA_Lead | Analytical_Behavioral - How do you lead teams through major process changes?
-Manual_QA_Engineer | Technical - How do you verify API response consistency across environments?
-Automation_QA_Engineer | Foundations_Methodology - How do you avoid over-automation of tests?
-QA_Lead | Analytical_Behavioral - How do you communicate quality risks to executives?
-Manual_QA_Engineer | Technical - How do you test account lockout functionality securely?
-Automation_QA_Engineer | Foundations_Methodology - How do you design automation for maintainability?
-QA_Lead | Analytical_Behavioral - How do you manage quality during rapid team expansion?
-Manual_QA_Engineer | Technical - How do you validate exports containing millions of records?
-Automation_QA_Engineer | Foundations_Methodology - How do you align automation with release goals?
-QA_Lead | Analytical_Behavioral - How do you resolve conflicts between product and QA?
-Manual_QA_Engineer | Technical - How do you verify audit trails after bulk operations?
-Automation_QA_Engineer | Foundations_Methodology - How do you measure automation coverage quality?
-QA_Lead | Analytical_Behavioral - How do you respond to severe post-release incidents?
-Manual_QA_Engineer | Technical - How do you test service failover during outages?
-Automation_QA_Engineer | Foundations_Methodology - How do you manage automation across repositories?
-QA_Lead | Analytical_Behavioral - How do you handle testing during organizational change?
-Manual_QA_Engineer | Technical - How do you validate complex search ranking algorithms?
-Automation_QA_Engineer | Foundations_Methodology - How do you ensure automation supports CI goals?
 QA_Lead | Analytical_Behavioral - How do you improve accountability for product quality?
-Manual_QA_Engineer | Technical - How do you test mobile upgrades without losing user data?
 Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation framework success?
 QA_Lead | Analytical_Behavioral - How do you address gaps found during retrospectives?
 Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
