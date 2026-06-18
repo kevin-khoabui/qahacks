@@ -1,27 +1,15 @@
-QA_Lead | Foundations_Methodology - How do you define enterprise defect triage standards?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot intermittent mobile sync failures?
 Automation_QA_Engineer | Technical - How do you validate GraphQL subscriptions in Cypress?
 QA_Lead | Foundations_Methodology - How do you integrate QA into strategic planning cycles?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing notifications for users?
 Automation_QA_Engineer | Technical - How do you test browser crashes during transactions?
-QA_Lead | Foundations_Methodology - How do you improve release predictability through QA?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify fixes when environments differ greatly?
-Automation_QA_Engineer | Technical - How do you automate API contract drift detection?
 QA_Lead | Foundations_Methodology - How do you establish quality ownership across departments?
-Manual_QA_Engineer | Analytical_Behavioral - How do you identify regression causes after deployments?
-Automation_QA_Engineer | Technical - How do you validate feature flag rollouts in Playwright?
 QA_Lead | Foundations_Methodology - How do you assess testing maturity across business units?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot data mismatches in reports?
-Automation_QA_Engineer | Technical - How do you automate browser permission validation in Cypress?
-QA_Lead | Foundations_Methodology - How do you build sustainable quality governance models?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues tied to specific browsers?
-Automation_QA_Engineer | Technical - How do you test token refresh workflows in Playwright?
 QA_Lead | Foundations_Methodology - How do you manage quality during platform migrations?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects affecting one tenant only?
-Automation_QA_Engineer | Technical - How do you validate retry logic under API throttling?
-QA_Lead | Foundations_Methodology - How do you measure quality improvements objectively?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving external vendors?
-Automation_QA_Engineer | Technical - How do you automate offline-first application testing?
 QA_Lead | Foundations_Methodology - How do you balance governance and delivery speed?
 Manual_QA_Engineer | Analytical_Behavioral - How do you analyze failures spanning multiple systems?
 Automation_QA_Engineer | Technical - How do you validate file corruption handling automatically?

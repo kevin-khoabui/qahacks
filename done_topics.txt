@@ -450,3 +450,15 @@ Automation_QA_Engineer | Technical - How do you test browser storage persistence
 QA_Lead | Foundations_Methodology - How do you create quality dashboards for executives?
 Manual_QA_Engineer | Analytical_Behavioral - How do you confirm data issues across microservices?
 Automation_QA_Engineer | Technical - How do you automate verification of audit trail events?
+QA_Lead | Foundations_Methodology - How do you define enterprise defect triage standards?
+QA_Lead | Foundations_Methodology - How do you improve release predictability through QA?
+Automation_QA_Engineer | Technical - How do you automate API contract drift detection?
+Manual_QA_Engineer | Analytical_Behavioral - How do you identify regression causes after deployments?
+Automation_QA_Engineer | Technical - How do you validate feature flag rollouts in Playwright?
+Automation_QA_Engineer | Technical - How do you automate browser permission validation in Cypress?
+QA_Lead | Foundations_Methodology - How do you build sustainable quality governance models?
+Automation_QA_Engineer | Technical - How do you test token refresh workflows in Playwright?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects affecting one tenant only?
+Automation_QA_Engineer | Technical - How do you validate retry logic under API throttling?
+QA_Lead | Foundations_Methodology - How do you measure quality improvements objectively?
+Automation_QA_Engineer | Technical - How do you automate offline-first application testing?
