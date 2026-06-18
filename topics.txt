@@ -1,27 +1,7 @@
 QA_Lead | Analytical_Behavioral - How do you improve accountability for product quality?
-Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation framework success?
 QA_Lead | Analytical_Behavioral - How do you address gaps found during retrospectives?
 Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
 Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution costs?
-QA_Lead | Analytical_Behavioral - How do you handle leadership requests that increase risk?
-Manual_QA_Engineer | Technical - How do you verify WebSocket message ordering under load?
-Automation_QA_Engineer | Foundations_Methodology - How do you manage automation ownership models?
-QA_Lead | Analytical_Behavioral - How do you build trust after recurring production defects?
-Manual_QA_Engineer | Technical - How do you test configuration changes across environments?
-Automation_QA_Engineer | Foundations_Methodology - How do you select automation KPIs for reporting?
-QA_Lead | Analytical_Behavioral - How do you align quality strategy with business objectives?
-Manual_QA_Engineer | Technical - How do you validate data archival and retrieval processes?
-Automation_QA_Engineer | Foundations_Methodology - How do you future-proof automation frameworks?
-QA_Lead | Analytical_Behavioral - How do you manage quality during platform consolidation?
-Manual_QA_Engineer | Technical - How do you verify API error handling for invalid payloads?
-Automation_QA_Engineer | Foundations_Methodology - How do you reduce technical debt in automation?
-QA_Lead | Analytical_Behavioral - How do you improve decision making using quality metrics?
-Manual_QA_Engineer | Technical - How do you test role inheritance across permission hierarchies?
-Automation_QA_Engineer | Foundations_Methodology - How do you balance automation innovation and stability?
-QA_Lead | Analytical_Behavioral - How do you ensure quality remains a shared responsibility?
-QA_Lead | Technical - How do you validate data lineage across enterprise systems?
-Manual_QA_Engineer | Foundations_Methodology - How do you define coverage for undocumented features?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle pressure to automate everything?
 QA_Lead | Technical - How do you verify observability for critical user journeys?
 Manual_QA_Engineer | Foundations_Methodology - How do you build test scenarios from support tickets?
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover confidence after flaky releases?
