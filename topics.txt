@@ -1,25 +1,13 @@
 QA_Lead | Analytical_Behavioral - How do you improve accountability for product quality?
-QA_Lead | Analytical_Behavioral - How do you address gaps found during retrospectives?
 Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
 Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution costs?
 QA_Lead | Technical - How do you verify observability for critical user journeys?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle missed automation commitments?
-Automation_QA_Engineer | Analytical_Behavioral - How do you balance feature work and automation debt?
-QA_Lead | Technical - How do you validate database replication health?
 Manual_QA_Engineer | Foundations_Methodology - How do you design tests for business-critical flows?
 Automation_QA_Engineer | Analytical_Behavioral - How do you respond to automation framework failures?
 QA_Lead | Technical - How do you evaluate integration points across platforms?
 Manual_QA_Engineer | Foundations_Methodology - How do you ensure edge cases are not overlooked?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation expectations with executives?
-QA_Lead | Technical - How do you verify service contracts between teams?
-Manual_QA_Engineer | Foundations_Methodology - How do you create risk matrices for testing?
-Automation_QA_Engineer | Analytical_Behavioral - How do you influence developers to support automation?
-QA_Lead | Technical - How do you validate production monitoring after releases?
-Manual_QA_Engineer | Foundations_Methodology - How do you estimate testing for unknown complexity?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation failures during demos?
-QA_Lead | Technical - How do you assess readiness for blue-green deployments?
-Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for integration testing?
-Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams through framework migrations?
 QA_Lead | Technical - How do you validate security controls through testing?
 Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing when requirements conflict?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle competing automation priorities?

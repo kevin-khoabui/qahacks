@@ -255,3 +255,15 @@ QA_Lead | Technical - How do you verify rollback readiness across dependent serv
 Manual_QA_Engineer | Foundations_Methodology - How do you identify critical paths for testing?
 QA_Lead | Technical - How do you assess deployment risk using quality metrics?
 Manual_QA_Engineer | Foundations_Methodology - How do you determine testing depth for hotfixes?
+QA_Lead | Analytical_Behavioral - How do you address gaps found during retrospectives?
+Automation_QA_Engineer | Analytical_Behavioral - How do you balance feature work and automation debt?
+QA_Lead | Technical - How do you validate database replication health?
+QA_Lead | Technical - How do you verify service contracts between teams?
+Manual_QA_Engineer | Foundations_Methodology - How do you create risk matrices for testing?
+Automation_QA_Engineer | Analytical_Behavioral - How do you influence developers to support automation?
+QA_Lead | Technical - How do you validate production monitoring after releases?
+Manual_QA_Engineer | Foundations_Methodology - How do you estimate testing for unknown complexity?
+Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation failures during demos?
+QA_Lead | Technical - How do you assess readiness for blue-green deployments?
+Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for integration testing?
+Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams through framework migrations?
