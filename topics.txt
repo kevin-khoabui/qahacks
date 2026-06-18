@@ -3,25 +3,7 @@ QA_Lead | Analytical_Behavioral - How do you address gaps found during retrospec
 Manual_QA_Engineer | Technical - How do you validate transactional integrity using SQL?
 Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution costs?
 QA_Lead | Technical - How do you verify observability for critical user journeys?
-Manual_QA_Engineer | Foundations_Methodology - How do you build test scenarios from support tickets?
-Automation_QA_Engineer | Analytical_Behavioral - How do you recover confidence after flaky releases?
-QA_Lead | Technical - How do you assess API dependencies before deployment?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify gaps in regression coverage?
-Automation_QA_Engineer | Analytical_Behavioral - How do you resolve conflicts over automation ownership?
-QA_Lead | Technical - How do you validate service resilience during failovers?
-Manual_QA_Engineer | Foundations_Methodology - How do you prioritize exploratory testing targets?
-Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation delays to stakeholders?
-QA_Lead | Technical - How do you verify monitoring alerts are actionable?
-Manual_QA_Engineer | Foundations_Methodology - How do you create tests for complex workflows?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage teams with different automation skills?
-QA_Lead | Technical - How do you validate data consistency after system migrations?
-Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for regulatory requirements?
-Automation_QA_Engineer | Analytical_Behavioral - How do you address automation adoption resistance?
-QA_Lead | Technical - How do you verify rollback readiness across dependent services?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify critical paths for testing?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle missed automation commitments?
-QA_Lead | Technical - How do you assess deployment risk using quality metrics?
-Manual_QA_Engineer | Foundations_Methodology - How do you determine testing depth for hotfixes?
 Automation_QA_Engineer | Analytical_Behavioral - How do you balance feature work and automation debt?
 QA_Lead | Technical - How do you validate database replication health?
 Manual_QA_Engineer | Foundations_Methodology - How do you design tests for business-critical flows?

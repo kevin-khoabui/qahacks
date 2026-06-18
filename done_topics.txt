@@ -237,3 +237,21 @@ QA_Lead | Analytical_Behavioral - How do you ensure quality remains a shared res
 QA_Lead | Technical - How do you validate data lineage across enterprise systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you define coverage for undocumented features?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle pressure to automate everything?
+Manual_QA_Engineer | Foundations_Methodology - How do you build test scenarios from support tickets?
+Automation_QA_Engineer | Analytical_Behavioral - How do you recover confidence after flaky releases?
+QA_Lead | Technical - How do you assess API dependencies before deployment?
+Manual_QA_Engineer | Foundations_Methodology - How do you identify gaps in regression coverage?
+Automation_QA_Engineer | Analytical_Behavioral - How do you resolve conflicts over automation ownership?
+QA_Lead | Technical - How do you validate service resilience during failovers?
+Manual_QA_Engineer | Foundations_Methodology - How do you prioritize exploratory testing targets?
+Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation delays to stakeholders?
+QA_Lead | Technical - How do you verify monitoring alerts are actionable?
+Manual_QA_Engineer | Foundations_Methodology - How do you create tests for complex workflows?
+Automation_QA_Engineer | Analytical_Behavioral - How do you manage teams with different automation skills?
+QA_Lead | Technical - How do you validate data consistency after system migrations?
+Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for regulatory requirements?
+Automation_QA_Engineer | Analytical_Behavioral - How do you address automation adoption resistance?
+QA_Lead | Technical - How do you verify rollback readiness across dependent services?
+Manual_QA_Engineer | Foundations_Methodology - How do you identify critical paths for testing?
+QA_Lead | Technical - How do you assess deployment risk using quality metrics?
+Manual_QA_Engineer | Foundations_Methodology - How do you determine testing depth for hotfixes?
