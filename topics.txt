@@ -1,27 +1,10 @@
 Manual_QA_Engineer | Foundations_Methodology - How do you create test plans with evolving requirements?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation ownership ambiguity?
-QA_Lead | Technical - How do you validate distributed transaction consistency?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage pressure to automate unstable features?
-QA_Lead | Technical - How do you verify monitoring for critical business transactions?
-Manual_QA_Engineer | Foundations_Methodology - How do you determine risk levels for new features?
-Manual_QA_Engineer | Foundations_Methodology - How do you determine coverage for legacy applications?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation debt during expansion?
-QA_Lead | Technical - How do you assess database integrity after migrations?
 Manual_QA_Engineer | Foundations_Methodology - How do you define acceptance coverage for releases?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond when automation blocks deployments?
 QA_Lead | Technical - How do you validate platform health after infrastructure upgrades?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify hidden dependencies in testing?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle conflicting automation priorities?
-QA_Lead | Technical - How do you verify cross-service authentication mechanisms?
-Manual_QA_Engineer | Foundations_Methodology - How do you test workflows spanning multiple domains?
-Automation_QA_Engineer | Analytical_Behavioral - How do you maintain morale during framework transitions?
 QA_Lead | Technical - How do you validate backup and recovery effectiveness?
-Manual_QA_Engineer | Foundations_Methodology - How do you evaluate testing completeness before launch?
 Automation_QA_Engineer | Analytical_Behavioral - How do you improve collaboration with manual testers?
-QA_Lead | Technical - How do you verify auditability of business-critical systems?
-Manual_QA_Engineer | Foundations_Methodology - How do you plan testing for feature deprecations?
 Automation_QA_Engineer | Analytical_Behavioral - How do you address skepticism toward automation results?
-QA_Lead | Technical - How do you assess quality risks in cloud-native platforms?
 Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for exception scenarios?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation across distributed teams?
 QA_Lead | Technical - How do you validate service mesh behavior during failures?
