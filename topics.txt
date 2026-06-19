@@ -2,26 +2,9 @@ Automation_QA_Engineer | Technical - How do you automate validation of streaming
 QA_Lead | Foundations_Methodology - How do you standardize release quality reviews?
 QA_Lead | Foundations_Methodology - How do you improve quality transparency for leadership?
 Automation_QA_Engineer | Technical - How do you validate event deduplication logic in Playwright?
-QA_Lead | Foundations_Methodology - How do you sustain long-term quality improvements?
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation scope for platform services?
-QA_Lead | Analytical_Behavioral - How do you respond when leadership questions release delays?
-Manual_QA_Engineer | Technical - How do you validate SQL data after rollback operations?
-QA_Lead | Analytical_Behavioral - How do you handle quality concerns during reorganizations?
 Manual_QA_Engineer | Technical - How do you verify API consistency across deployment regions?
-Automation_QA_Engineer | Foundations_Methodology - How do you prioritize automation for critical workflows?
 QA_Lead | Analytical_Behavioral - How do you address declining confidence in release quality?
-Manual_QA_Engineer | Technical - How do you test browser session recovery after crashes?
-Automation_QA_Engineer | Foundations_Methodology - How do you measure automation effectiveness objectively?
-Manual_QA_Engineer | Technical - How do you validate data synchronization between replicas?
-QA_Lead | Analytical_Behavioral - How do you communicate quality risks before launches?
-Manual_QA_Engineer | Technical - How do you verify API behavior under intermittent failures?
-Manual_QA_Engineer | Technical - How do you test WebSocket stability during network switching?
-Manual_QA_Engineer | Technical - How do you validate reporting accuracy after data archival?
-Automation_QA_Engineer | Foundations_Methodology - How do you balance coverage and execution speed?
-Manual_QA_Engineer | Technical - How do you verify API throttling under peak demand?
-Automation_QA_Engineer | Foundations_Methodology - How do you align automation with quality goals?
-Manual_QA_Engineer | Technical - How do you test notification delivery during outages?
-Automation_QA_Engineer | Foundations_Methodology - How do you reduce automation maintenance overhead?
 QA_Lead | Analytical_Behavioral - How do you address recurring quality issues across products?
 Manual_QA_Engineer | Technical - How do you validate cache coherence across distributed systems?
 Automation_QA_Engineer | Foundations_Methodology - How do you identify automation gaps proactively?
