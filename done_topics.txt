@@ -872,3 +872,15 @@ QA_Lead | Technical - How do you verify authentication reliability across servic
 QA_Lead | Technical - How do you validate distributed tracing during incident analysis?
 Manual_QA_Engineer | Foundations_Methodology - How do you assess testing readiness for large releases?
 QA_Lead | Technical - How do you verify operational readiness before production cutovers?
+Manual_QA_Engineer | Foundations_Methodology - How do you define testing boundaries for shared services?
+Manual_QA_Engineer | Foundations_Methodology - How do you create test plans for evolving requirements?
+Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation debt across products?
+Manual_QA_Engineer | Foundations_Methodology - How do you build regression coverage for legacy systems?
+Automation_QA_Engineer | Analytical_Behavioral - How do you handle resistance to automation standards?
+Manual_QA_Engineer | Foundations_Methodology - How do you define acceptance testing for integrations?
+Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for shared infrastructure changes?
+Automation_QA_Engineer | Analytical_Behavioral - How do you recover trust after repeated flaky failures?
+Manual_QA_Engineer | Foundations_Methodology - How do you create risk-based testing for microservices?
+QA_Lead | Technical - How do you validate resilience of cloud-native architectures?
+Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for exception handling paths?
+Automation_QA_Engineer | Analytical_Behavioral - How do you address recurring automation ownership conflicts?
