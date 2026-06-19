@@ -846,3 +846,21 @@ Automation_QA_Engineer | Foundations_Methodology - How do you improve automation
 Manual_QA_Engineer | Technical - How do you test workflow reliability under heavy concurrency?
 Automation_QA_Engineer | Foundations_Methodology - How do you establish automation governance frameworks?
 QA_Lead | Analytical_Behavioral - How do you align quality strategy with organizational goals?
+QA_Lead | Technical - How do you validate service health across distributed environments?
+QA_Lead | Technical - How do you verify platform resilience during dependency failures?
+Manual_QA_Engineer | Foundations_Methodology - How do you create test coverage for event-driven workflows?
+Automation_QA_Engineer | Analytical_Behavioral - How do you gain support for automation modernization efforts?
+QA_Lead | Technical - How do you validate enterprise monitoring against customer journeys?
+Manual_QA_Engineer | Foundations_Methodology - How do you identify hidden quality risks before releases?
+Automation_QA_Engineer | Analytical_Behavioral - How do you manage competing automation priorities effectively?
+QA_Lead | Technical - How do you verify rollback effectiveness during deployment failures?
+QA_Lead | Technical - How do you assess API reliability through production telemetry?
+Manual_QA_Engineer | Foundations_Methodology - How do you structure exploratory testing for integrations?
+Automation_QA_Engineer | Analytical_Behavioral - How do you address concerns about automation maintenance costs?
+QA_Lead | Technical - How do you validate database consistency across regions?
+Manual_QA_Engineer | Foundations_Methodology - How do you build test strategies for platform migrations?
+Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation instability during releases?
+QA_Lead | Technical - How do you verify event processing reliability under peak loads?
+Manual_QA_Engineer | Foundations_Methodology - How do you define quality risks for new platforms?
+Automation_QA_Engineer | Analytical_Behavioral - How do you influence teams to improve testability?
+QA_Lead | Technical - How do you validate backup recovery under realistic conditions?
