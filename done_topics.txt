@@ -796,3 +796,27 @@ Manual_QA_Engineer | Technical - How do you verify search accuracy after index r
 Automation_QA_Engineer | Foundations_Methodology - How do you future-proof automation investments?
 QA_Lead | Analytical_Behavioral - How do you recover after failed enterprise releases?
 Manual_QA_Engineer | Technical - How do you test permission inheritance across complex roles?
+Automation_QA_Engineer | Technical - How do you automate validation of streaming API responses?
+QA_Lead | Foundations_Methodology - How do you standardize release quality reviews?
+QA_Lead | Foundations_Methodology - How do you improve quality transparency for leadership?
+Automation_QA_Engineer | Technical - How do you validate event deduplication logic in Playwright?
+Automation_QA_Engineer | Foundations_Methodology - How do you define automation scope for platform services?
+Manual_QA_Engineer | Technical - How do you verify API consistency across deployment regions?
+Manual_QA_Engineer | Technical - How do you validate cache coherence across distributed systems?
+Automation_QA_Engineer | Foundations_Methodology - How do you identify automation gaps proactively?
+QA_Lead | Analytical_Behavioral - How do you manage stakeholder expectations during delays?
+Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation framework scalability?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage automation in shared platforms?
+Manual_QA_Engineer | Technical - How do you validate transactional consistency using SQL?
+QA_Lead | Analytical_Behavioral - How do you handle conflicting priorities among stakeholders?
+Automation_QA_Engineer | Foundations_Methodology - How do you improve automation onboarding efficiency?
+QA_Lead | Analytical_Behavioral - How do you manage quality concerns from major customers?
+Manual_QA_Engineer | Technical - How do you validate data retention policies through testing?
+Automation_QA_Engineer | Foundations_Methodology - How do you prevent automation silos across teams?
+QA_Lead | Analytical_Behavioral - How do you build a culture of continuous quality improvement?
+Manual_QA_Engineer | Technical - How do you verify asynchronous processing after service restarts?
+Automation_QA_Engineer | Foundations_Methodology - How do you assess automation risks before scaling?
+QA_Lead | Analytical_Behavioral - How do you communicate testing limitations effectively?
+Manual_QA_Engineer | Technical - How do you test mobile synchronization after offline activity?
+Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution pipelines?
+QA_Lead | Analytical_Behavioral - How do you address quality issues discovered post-release?
