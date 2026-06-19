@@ -699,3 +699,9 @@ QA_Lead | Foundations_Methodology - How do you assess quality readiness before e
 QA_Lead | Foundations_Methodology - How do you manage quality during cloud transformations?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects tied to data migrations?
 Automation_QA_Engineer | Technical - How do you automate testing of approval chain workflows?
+Automation_QA_Engineer | Technical - How do you test API behavior during service restarts?
+QA_Lead | Foundations_Methodology - How do you build sustainable quality governance programs?
+Automation_QA_Engineer | Technical - How do you test distributed cache invalidation automatically?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify data discrepancies across reports?
+Automation_QA_Engineer | Technical - How do you automate verification of audit compliance events?
+QA_Lead | Foundations_Methodology - How do you assess organizational testing maturity?

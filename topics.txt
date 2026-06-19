@@ -5,7 +5,6 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you isolate environment-spec
 Automation_QA_Engineer | Technical - How do you validate browser permission revocations automatically?
 QA_Lead | Foundations_Methodology - How do you build quality roadmaps across business units?
 Manual_QA_Engineer | Analytical_Behavioral - How do you analyze defects triggered by rare user actions?
-Automation_QA_Engineer | Technical - How do you test API behavior during service restarts?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving delayed batch jobs?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate unexpected data duplication issues?
 Automation_QA_Engineer | Technical - How do you validate session sharing across browser contexts?
@@ -15,13 +14,8 @@ Automation_QA_Engineer | Technical - How do you test browser recovery after memo
 QA_Lead | Foundations_Methodology - How do you improve quality predictability across releases?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer complaints about performance?
 Automation_QA_Engineer | Technical - How do you validate API fallback chains in Playwright?
-QA_Lead | Foundations_Methodology - How do you build sustainable quality governance programs?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot inconsistent mobile notifications?
-Automation_QA_Engineer | Technical - How do you test distributed cache invalidation automatically?
 QA_Lead | Foundations_Methodology - How do you define enterprise defect escalation policies?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify data discrepancies across reports?
-Automation_QA_Engineer | Technical - How do you automate verification of audit compliance events?
-QA_Lead | Foundations_Methodology - How do you assess organizational testing maturity?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing records after deployments?
 Automation_QA_Engineer | Technical - How do you validate API idempotency with Cypress tests?
 QA_Lead | Foundations_Methodology - How do you align QA objectives with strategic goals?
