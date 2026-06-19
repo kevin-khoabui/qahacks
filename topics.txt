@@ -1,6 +1,4 @@
-Automation_QA_Engineer | Technical - How do you test browser notifications in Cypress?
 QA_Lead | Foundations_Methodology - How do you align release criteria across product groups?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures involving third-party APIs?
 Automation_QA_Engineer | Technical - How do you automate validation of streaming API responses?
 QA_Lead | Foundations_Methodology - How do you scale quality practices after acquisitions?
 Manual_QA_Engineer | Analytical_Behavioral - How do you isolate environment-specific production issues?
@@ -8,18 +6,12 @@ Automation_QA_Engineer | Technical - How do you validate browser permission revo
 QA_Lead | Foundations_Methodology - How do you build quality roadmaps across business units?
 Manual_QA_Engineer | Analytical_Behavioral - How do you analyze defects triggered by rare user actions?
 Automation_QA_Engineer | Technical - How do you test API behavior during service restarts?
-QA_Lead | Foundations_Methodology - How do you integrate quality metrics into planning cycles?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving delayed batch jobs?
-Automation_QA_Engineer | Technical - How do you automate validation of API schema evolution?
-QA_Lead | Foundations_Methodology - How do you assess quality readiness before expansions?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate unexpected data duplication issues?
 Automation_QA_Engineer | Technical - How do you validate session sharing across browser contexts?
 QA_Lead | Foundations_Methodology - How do you standardize release quality reviews?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify production incidents across regions?
 Automation_QA_Engineer | Technical - How do you test browser recovery after memory exhaustion?
-QA_Lead | Foundations_Methodology - How do you manage quality during cloud transformations?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects tied to data migrations?
-Automation_QA_Engineer | Technical - How do you automate testing of approval chain workflows?
 QA_Lead | Foundations_Methodology - How do you improve quality predictability across releases?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer complaints about performance?
 Automation_QA_Engineer | Technical - How do you validate API fallback chains in Playwright?
