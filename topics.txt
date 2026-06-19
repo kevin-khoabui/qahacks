@@ -2,26 +2,17 @@ Automation_QA_Engineer | Technical - How do you automate validation of streaming
 Automation_QA_Engineer | Technical - How do you validate session sharing across browser contexts?
 QA_Lead | Foundations_Methodology - How do you standardize release quality reviews?
 QA_Lead | Foundations_Methodology - How do you improve quality predictability across releases?
-QA_Lead | Foundations_Methodology - How do you create enterprise quality scorecards?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects involving archived records?
 Automation_QA_Engineer | Technical - How do you test API resiliency during dependency outages?
 QA_Lead | Foundations_Methodology - How do you prioritize quality initiatives across portfolios?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues linked to feature toggles?
-Automation_QA_Engineer | Technical - How do you automate testing of large export workflows?
-QA_Lead | Foundations_Methodology - How do you ensure quality scales with rapid growth?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate unexpected workflow terminations?
 Automation_QA_Engineer | Technical - How do you validate browser crash recovery in Playwright?
 QA_Lead | Foundations_Methodology - How do you build quality strategies for platform ecosystems?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify failures across integrated platforms?
-Automation_QA_Engineer | Technical - How do you test token revocation handling automatically?
 QA_Lead | Foundations_Methodology - How do you measure business impact of QA investments?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate delayed data synchronization issues?
 Automation_QA_Engineer | Technical - How do you automate validation of tenant isolation?
 QA_Lead | Foundations_Methodology - How do you manage enterprise quality transformation programs?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues affecting historical data?
-Automation_QA_Engineer | Technical - How do you test browser storage corruption scenarios?
-QA_Lead | Foundations_Methodology - How do you define success metrics for QA organizations?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures in asynchronous workflows?
 Automation_QA_Engineer | Technical - How do you validate service degradation handling automatically?
 QA_Lead | Foundations_Methodology - How do you improve quality transparency for leadership?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer-impacting data anomalies?

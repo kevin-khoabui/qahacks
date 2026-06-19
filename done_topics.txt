@@ -730,3 +730,12 @@ Automation_QA_Engineer | Technical - How do you automate validation of access co
 QA_Lead | Foundations_Methodology - How do you improve testing consistency across teams?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify data integrity after hotfix releases?
 Automation_QA_Engineer | Technical - How do you validate event replay mechanisms automatically?
+QA_Lead | Foundations_Methodology - How do you create enterprise quality scorecards?
+Automation_QA_Engineer | Technical - How do you automate testing of large export workflows?
+QA_Lead | Foundations_Methodology - How do you ensure quality scales with rapid growth?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify failures across integrated platforms?
+Automation_QA_Engineer | Technical - How do you test token revocation handling automatically?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues affecting historical data?
+Automation_QA_Engineer | Technical - How do you test browser storage corruption scenarios?
+QA_Lead | Foundations_Methodology - How do you define success metrics for QA organizations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures in asynchronous workflows?
