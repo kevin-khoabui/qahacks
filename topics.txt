@@ -1,27 +1,9 @@
-Manual_QA_Engineer | Technical - How do you test database failover in enterprise environments?
-Manual_QA_Engineer | Technical - How do you verify browser storage after account switching?
-QA_Lead | Analytical_Behavioral - How do you motivate teams after release setbacks?
-Manual_QA_Engineer | Technical - How do you validate API behavior under concurrent requests?
-Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation return on investment?
-Manual_QA_Engineer | Technical - How do you validate data archival and restoration workflows?
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation success indicators?
-QA_Lead | Analytical_Behavioral - How do you manage testing during enterprise restructures?
-Automation_QA_Engineer | Foundations_Methodology - How do you manage automation during cloud migrations?
-QA_Lead | Analytical_Behavioral - How do you communicate testing tradeoffs to leadership?
-Automation_QA_Engineer | Foundations_Methodology - How do you choose between UI and API automation?
-QA_Lead | Analytical_Behavioral - How do you address burnout during critical release cycles?
-Automation_QA_Engineer | Foundations_Methodology - How do you assess framework upgrade readiness?
-QA_Lead | Analytical_Behavioral - How do you improve quality visibility across organizations?
 Manual_QA_Engineer | Technical - How do you verify audit compliance through testing activities?
 Automation_QA_Engineer | Foundations_Methodology - How do you maintain automation consistency globally?
-Manual_QA_Engineer | Technical - How do you validate schema migrations without data loss?
-Automation_QA_Engineer | Foundations_Methodology - How do you build automation around business risks?
-QA_Lead | Analytical_Behavioral - How do you align quality initiatives with company strategy?
 Manual_QA_Engineer | Technical - How do you verify asynchronous job completion accurately?
 Automation_QA_Engineer | Foundations_Methodology - How do you track automation reliability metrics?
-QA_Lead | Analytical_Behavioral - How do you recover after a high-impact production defect?
 Manual_QA_Engineer | Technical - How do you validate integration points during platform upgrades?
-Automation_QA_Engineer | Foundations_Methodology - How do you sustain automation quality over time?
 QA_Lead | Analytical_Behavioral - How do you ensure quality remains a strategic priority?
 Manual_QA_Engineer | Technical - How do you test API resilience during downstream failures?
 Automation_QA_Engineer | Foundations_Methodology - How do you improve automation maintainability at scale?
@@ -200,7 +182,6 @@ Manual_QA_Engineer | Technical - How do you test browser session recovery after 
 Automation_QA_Engineer | Foundations_Methodology - How do you measure automation effectiveness objectively?
 QA_Lead | Analytical_Behavioral - How do you manage quality during rapid product expansion?
 Manual_QA_Engineer | Technical - How do you validate data synchronization between replicas?
-Automation_QA_Engineer | Foundations_Methodology - How do you build automation around business risks?
 QA_Lead | Analytical_Behavioral - How do you communicate quality risks before launches?
 Manual_QA_Engineer | Technical - How do you verify API behavior under intermittent failures?
 Automation_QA_Engineer | Foundations_Methodology - How do you prevent framework complexity from growing?

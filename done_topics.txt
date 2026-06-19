@@ -575,3 +575,21 @@ QA_Lead | Analytical_Behavioral - How do you drive quality culture in fast-growi
 Manual_QA_Engineer | Technical - How do you validate data consistency across replicas?
 Manual_QA_Engineer | Technical - How do you test WebSocket reconnections after outages?
 QA_Lead | Analytical_Behavioral - How do you manage competing quality priorities effectively?
+Manual_QA_Engineer | Technical - How do you test database failover in enterprise environments?
+Manual_QA_Engineer | Technical - How do you verify browser storage after account switching?
+QA_Lead | Analytical_Behavioral - How do you motivate teams after release setbacks?
+Manual_QA_Engineer | Technical - How do you validate API behavior under concurrent requests?
+Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation return on investment?
+Manual_QA_Engineer | Technical - How do you validate data archival and restoration workflows?
+QA_Lead | Analytical_Behavioral - How do you manage testing during enterprise restructures?
+Automation_QA_Engineer | Foundations_Methodology - How do you manage automation during cloud migrations?
+QA_Lead | Analytical_Behavioral - How do you communicate testing tradeoffs to leadership?
+Automation_QA_Engineer | Foundations_Methodology - How do you choose between UI and API automation?
+QA_Lead | Analytical_Behavioral - How do you address burnout during critical release cycles?
+Automation_QA_Engineer | Foundations_Methodology - How do you assess framework upgrade readiness?
+QA_Lead | Analytical_Behavioral - How do you improve quality visibility across organizations?
+Manual_QA_Engineer | Technical - How do you validate schema migrations without data loss?
+Automation_QA_Engineer | Foundations_Methodology - How do you build automation around business risks?
+QA_Lead | Analytical_Behavioral - How do you align quality initiatives with company strategy?
+QA_Lead | Analytical_Behavioral - How do you recover after a high-impact production defect?
+Automation_QA_Engineer | Foundations_Methodology - How do you sustain automation quality over time?
