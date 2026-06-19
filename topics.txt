@@ -1,26 +1,9 @@
-Automation_QA_Engineer | Foundations_Methodology - How do you define automation success indicators?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify high-value exploratory testing areas?
-QA_Lead | Technical - How do you verify platform resilience under dependency failures?
 Manual_QA_Engineer | Foundations_Methodology - How do you create test plans with evolving requirements?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation ownership ambiguity?
 QA_Lead | Technical - How do you validate distributed transaction consistency?
-Manual_QA_Engineer | Foundations_Methodology - How do you ensure regression suites remain effective?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage pressure to automate unstable features?
 QA_Lead | Technical - How do you verify monitoring for critical business transactions?
 Manual_QA_Engineer | Foundations_Methodology - How do you determine risk levels for new features?
-Automation_QA_Engineer | Analytical_Behavioral - How do you balance innovation with framework stability?
-QA_Lead | Technical - How do you assess production readiness through QA evidence?
-Manual_QA_Engineer | Foundations_Methodology - How do you build tests from customer workflows?
-Automation_QA_Engineer | Analytical_Behavioral - How do you address low automation adoption rates?
-QA_Lead | Technical - How do you validate service recovery after outages?
-Manual_QA_Engineer | Foundations_Methodology - How do you structure exploratory testing for APIs?
-Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation costs to leadership?
-QA_Lead | Technical - How do you verify event-driven architecture reliability?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle repeated flaky automation failures?
-QA_Lead | Technical - How do you validate quality metrics used in executive reporting?
-Manual_QA_Engineer | Foundations_Methodology - How do you create risk-based testing matrices?
-Automation_QA_Engineer | Analytical_Behavioral - How do you influence developers to improve testability?
-QA_Lead | Technical - How do you verify API resiliency under peak traffic?
 Manual_QA_Engineer | Foundations_Methodology - How do you determine coverage for legacy applications?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation debt during expansion?
 QA_Lead | Technical - How do you assess database integrity after migrations?
