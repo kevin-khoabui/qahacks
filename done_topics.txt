@@ -760,3 +760,9 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects caus
 Automation_QA_Engineer | Technical - How do you test cross-origin authentication in Cypress?
 QA_Lead | Foundations_Methodology - How do you ensure QA adapts to organizational scaling?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify production issues after schema updates?
+Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation readiness of features?
+QA_Lead | Analytical_Behavioral - How do you manage quality during rapid product expansion?
+Automation_QA_Engineer | Foundations_Methodology - How do you prevent framework complexity from growing?
+QA_Lead | Analytical_Behavioral - How do you recover trust after quality incidents?
+Automation_QA_Engineer | Foundations_Methodology - How do you structure automation for maintainability?
+QA_Lead | Analytical_Behavioral - How do you influence teams to improve quality ownership?

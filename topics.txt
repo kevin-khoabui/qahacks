@@ -6,22 +6,16 @@ QA_Lead | Foundations_Methodology - How do you sustain long-term quality improve
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation scope for platform services?
 QA_Lead | Analytical_Behavioral - How do you respond when leadership questions release delays?
 Manual_QA_Engineer | Technical - How do you validate SQL data after rollback operations?
-Automation_QA_Engineer | Foundations_Methodology - How do you evaluate automation readiness of features?
 QA_Lead | Analytical_Behavioral - How do you handle quality concerns during reorganizations?
 Manual_QA_Engineer | Technical - How do you verify API consistency across deployment regions?
 Automation_QA_Engineer | Foundations_Methodology - How do you prioritize automation for critical workflows?
 QA_Lead | Analytical_Behavioral - How do you address declining confidence in release quality?
 Manual_QA_Engineer | Technical - How do you test browser session recovery after crashes?
 Automation_QA_Engineer | Foundations_Methodology - How do you measure automation effectiveness objectively?
-QA_Lead | Analytical_Behavioral - How do you manage quality during rapid product expansion?
 Manual_QA_Engineer | Technical - How do you validate data synchronization between replicas?
 QA_Lead | Analytical_Behavioral - How do you communicate quality risks before launches?
 Manual_QA_Engineer | Technical - How do you verify API behavior under intermittent failures?
-Automation_QA_Engineer | Foundations_Methodology - How do you prevent framework complexity from growing?
-QA_Lead | Analytical_Behavioral - How do you recover trust after quality incidents?
 Manual_QA_Engineer | Technical - How do you test WebSocket stability during network switching?
-Automation_QA_Engineer | Foundations_Methodology - How do you structure automation for maintainability?
-QA_Lead | Analytical_Behavioral - How do you influence teams to improve quality ownership?
 Manual_QA_Engineer | Technical - How do you validate reporting accuracy after data archival?
 Automation_QA_Engineer | Foundations_Methodology - How do you balance coverage and execution speed?
 QA_Lead | Analytical_Behavioral - How do you handle disagreements on release readiness?
