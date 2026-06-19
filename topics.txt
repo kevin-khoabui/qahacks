@@ -18,10 +18,8 @@ Manual_QA_Engineer | Technical - How do you verify API behavior under intermitte
 Manual_QA_Engineer | Technical - How do you test WebSocket stability during network switching?
 Manual_QA_Engineer | Technical - How do you validate reporting accuracy after data archival?
 Automation_QA_Engineer | Foundations_Methodology - How do you balance coverage and execution speed?
-QA_Lead | Analytical_Behavioral - How do you handle disagreements on release readiness?
 Manual_QA_Engineer | Technical - How do you verify API throttling under peak demand?
 Automation_QA_Engineer | Foundations_Methodology - How do you align automation with quality goals?
-QA_Lead | Analytical_Behavioral - How do you manage testing under severe time constraints?
 Manual_QA_Engineer | Technical - How do you test notification delivery during outages?
 Automation_QA_Engineer | Foundations_Methodology - How do you reduce automation maintenance overhead?
 QA_Lead | Analytical_Behavioral - How do you address recurring quality issues across products?
