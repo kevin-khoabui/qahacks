@@ -8,9 +8,6 @@ Automation_QA_Engineer | Analytical_Behavioral - How do you address skepticism t
 Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for exception scenarios?
 Manual_QA_Engineer | Foundations_Methodology - How do you define priorities during release crunches?
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover trust after unstable automation runs?
-QA_Lead | Technical - How do you verify data consistency across regional deployments?
-Automation_QA_Engineer | Analytical_Behavioral - How do you balance quality goals and delivery speed?
-QA_Lead | Technical - How do you verify scalability of critical business workflows?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify missing scenarios from requirements?
 QA_Lead | Technical - How do you validate API governance across multiple teams?
 Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for platform migrations?
@@ -19,7 +16,6 @@ Manual_QA_Engineer | Foundations_Methodology - How do you build test strategies 
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage quality concerns raised by automation?
 QA_Lead | Technical - How do you validate resilience of third-party integrations?
 Manual_QA_Engineer | Foundations_Methodology - How do you determine testing priorities with limited time?
-Automation_QA_Engineer | Analytical_Behavioral - How do you address recurring automation maintenance issues?
 QA_Lead | Technical - How do you verify consistency of enterprise reporting platforms?
 Manual_QA_Engineer | Foundations_Methodology - How do you create regression plans for major rewrites?
 Automation_QA_Engineer | Analytical_Behavioral - How do you maintain automation value during reorganizations?
