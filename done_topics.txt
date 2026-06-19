@@ -710,3 +710,23 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you investigate unexpected d
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing records after deployments?
 QA_Lead | Foundations_Methodology - How do you align QA objectives with strategic goals?
 Automation_QA_Engineer | Technical - How do you test offline synchronization in Playwright?
+QA_Lead | Foundations_Methodology - How do you align release criteria across product groups?
+QA_Lead | Foundations_Methodology - How do you scale quality practices after acquisitions?
+Manual_QA_Engineer | Analytical_Behavioral - How do you isolate environment-specific production issues?
+QA_Lead | Foundations_Methodology - How do you build quality roadmaps across business units?
+Manual_QA_Engineer | Analytical_Behavioral - How do you analyze defects triggered by rare user actions?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving delayed batch jobs?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify production incidents across regions?
+Automation_QA_Engineer | Technical - How do you test browser recovery after memory exhaustion?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer complaints about performance?
+Automation_QA_Engineer | Technical - How do you validate API fallback chains in Playwright?
+Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot inconsistent mobile notifications?
+QA_Lead | Foundations_Methodology - How do you define enterprise defect escalation policies?
+Automation_QA_Engineer | Technical - How do you validate API idempotency with Cypress tests?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues occurring during peak traffic?
+QA_Lead | Foundations_Methodology - How do you manage quality during digital transformations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate intermittent authentication failures?
+Automation_QA_Engineer | Technical - How do you automate validation of access control changes?
+QA_Lead | Foundations_Methodology - How do you improve testing consistency across teams?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify data integrity after hotfix releases?
+Automation_QA_Engineer | Technical - How do you validate event replay mechanisms automatically?
