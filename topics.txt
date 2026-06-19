@@ -1,27 +1,6 @@
 Automation_QA_Engineer | Technical - How do you automate validation of streaming API responses?
-Automation_QA_Engineer | Technical - How do you validate session sharing across browser contexts?
 QA_Lead | Foundations_Methodology - How do you standardize release quality reviews?
-QA_Lead | Foundations_Methodology - How do you improve quality predictability across releases?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects involving archived records?
-Automation_QA_Engineer | Technical - How do you test API resiliency during dependency outages?
-QA_Lead | Foundations_Methodology - How do you prioritize quality initiatives across portfolios?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues linked to feature toggles?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate unexpected workflow terminations?
-Automation_QA_Engineer | Technical - How do you validate browser crash recovery in Playwright?
-QA_Lead | Foundations_Methodology - How do you build quality strategies for platform ecosystems?
-QA_Lead | Foundations_Methodology - How do you measure business impact of QA investments?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate delayed data synchronization issues?
-Automation_QA_Engineer | Technical - How do you automate validation of tenant isolation?
-QA_Lead | Foundations_Methodology - How do you manage enterprise quality transformation programs?
-Automation_QA_Engineer | Technical - How do you validate service degradation handling automatically?
 QA_Lead | Foundations_Methodology - How do you improve quality transparency for leadership?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer-impacting data anomalies?
-Automation_QA_Engineer | Technical - How do you automate validation of retry exhaustion logic?
-QA_Lead | Foundations_Methodology - How do you align quality initiatives across global teams?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects caused by race conditions?
-Automation_QA_Engineer | Technical - How do you test cross-origin authentication in Cypress?
-QA_Lead | Foundations_Methodology - How do you ensure QA adapts to organizational scaling?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify production issues after schema updates?
 Automation_QA_Engineer | Technical - How do you validate event deduplication logic in Playwright?
 QA_Lead | Foundations_Methodology - How do you sustain long-term quality improvements?
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation scope for platform services?
