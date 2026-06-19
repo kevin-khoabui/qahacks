@@ -931,3 +931,27 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects invo
 Automation_QA_Engineer | Technical - How do you validate cross-browser consistency in Playwright?
 QA_Lead | Foundations_Methodology - How do you establish release governance across portfolios?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues reported from archived environments?
+Automation_QA_Engineer | Technical - How do you test API retries during cascading failures?
+QA_Lead | Foundations_Methodology - How do you scale QA practices across global organizations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you analyze production issues without reproduction steps?
+Automation_QA_Engineer | Technical - How do you automate validation of OAuth token refreshes?
+QA_Lead | Foundations_Methodology - How do you align quality strategy with transformation programs?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer complaints about missing data?
+Automation_QA_Engineer | Technical - How do you test browser recovery after session expiration?
+QA_Lead | Foundations_Methodology - How do you create sustainable defect management frameworks?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures across dependent services?
+Automation_QA_Engineer | Technical - How do you validate API resilience during throttling events?
+QA_Lead | Foundations_Methodology - How do you improve testing consistency across business units?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects triggered by rare timing issues?
+Automation_QA_Engineer | Technical - How do you automate testing of tenant-specific permissions?
+QA_Lead | Foundations_Methodology - How do you measure quality maturity across organizations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate reporting discrepancies after releases?
+Automation_QA_Engineer | Technical - How do you validate event replay handling in Playwright?
+QA_Lead | Foundations_Methodology - How do you integrate quality metrics into executive planning?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify intermittent failures affecting one region?
+Automation_QA_Engineer | Technical - How do you test offline synchronization in Cypress applications?
+QA_Lead | Foundations_Methodology - How do you prioritize quality initiatives across product lines?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues caused by stale replicas?
+Automation_QA_Engineer | Technical - How do you automate validation of distributed cache behavior?
+QA_Lead | Foundations_Methodology - How do you build quality roadmaps for enterprise growth?
+Automation_QA_Engineer | Technical - How do you test browser storage recovery after corruption?
