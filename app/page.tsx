@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import HeroBanner from "@/components/HeroBanner";
+import { SITE_CONFIG } from "@/lib/config";
 
 export default function HomePage() {
   const allPosts = getAllPosts();
@@ -100,8 +101,8 @@ export default function HomePage() {
 
     for (let i = 1; i <= totalPages; i++) {
       if (
-        i === 1 || 
-        i === totalPages || 
+        i === 1 ||
+        i === totalPages ||
         (i >= currentPage - delta && i <= currentPage + delta)
       ) {
         range.push(i);
@@ -125,7 +126,7 @@ export default function HomePage() {
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    
+
     // Tìm phần tử tiêu đề của danh sách bài viết
     const element = document.getElementById("main-hub");
     if (element) {
@@ -246,11 +247,39 @@ export default function HomePage() {
         )}
 
         {/* ==========================================
+            🚀 PREMIUM EBOOK INLINE BANNER
+            ========================================== */}
+        <div className="mt-16 p-6 rounded-2xl border border-amber-500/10 bg-gradient-to-br from-slate-950 via-[#0E1626] to-slate-950 text-center relative overflow-hidden">
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-80 h-24 bg-amber-500/5 blur-[60px] rounded-full pointer-events-none"></div>
+
+          <span className="inline-block text-[9px] font-extrabold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-md uppercase tracking-wider mb-3 border border-amber-500/20">
+            Premium Resource
+          </span>
+
+          <h3 className="text-base font-bold text-white mb-1.5 tracking-tight">
+            Level up your management mindset and crush your next QA Lead interview
+          </h3>
+
+          <p className="text-xs text-slate-400 max-w-xl mx-auto mb-4 leading-relaxed">
+            Get exclusive access to the comprehensive <strong>QA Lead Interview Master Pack</strong> from QAHacks. A curated collection of 50 deep, real-world scenarios covering quality governance, conflict resolution, and process optimization.
+          </p>
+
+          <a
+            href={SITE_CONFIG.links.gumroadProduct}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-xl transition-all shadow-md shadow-amber-500/5 cursor-pointer"
+          >
+            Buy & Download PDF Now
+          </a>
+        </div>
+
+        {/* ==========================================
             🎯 COMPONENT ĐIỀU HƯỚNG PHÂN TRANG THÔNG MINH (SLIDING WINDOW)
             ========================================== */}
         {totalPages > 1 && (
           <div className="mt-16 flex items-center justify-center gap-1.5 border-t border-slate-900 pt-8">
-            
+
             {/* NÚT PREV (LÙI TRANG) */}
             <button
               onClick={() => {
@@ -258,11 +287,10 @@ export default function HomePage() {
                 handlePageChange(currentPage - 1);
               }}
               disabled={currentPage === 1}
-              className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
-                currentPage === 1 
-                  ? "opacity-20 text-slate-600 cursor-not-allowed" 
+              className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${currentPage === 1
+                  ? "opacity-20 text-slate-600 cursor-not-allowed"
                   : "hover:text-emerald-400 cursor-pointer"
-              }`}
+                }`}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -307,11 +335,10 @@ export default function HomePage() {
                 handlePageChange(currentPage + 1);
               }}
               disabled={currentPage === totalPages}
-              className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${
-                currentPage === totalPages 
-                  ? "opacity-20 text-slate-600 cursor-not-allowed" 
+              className={`p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 transition-colors ${currentPage === totalPages
+                  ? "opacity-20 text-slate-600 cursor-not-allowed"
                   : "hover:text-emerald-400 cursor-pointer"
-              }`}
+                }`}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />

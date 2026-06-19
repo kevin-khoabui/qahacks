@@ -3,12 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import NavbarSearchButton from "./NavbarSearchButton";
+import { SITE_CONFIG } from "../lib/config";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Helper để tự động đóng menu sau khi click chọn link
   const closeMenu = () => setIsMobileMenuOpen(false);
+
+  // 🎯 Gán biến lấy trực tiếp từ file cấu hình tập trung
+  const GUMROAD_LINK = SITE_CONFIG.links.gumroadProduct;
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
@@ -24,7 +28,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* 🖥️ DESKTOP NAV (Giữ nguyên logic cũ của bạn) */}
+        {/* 🖥️ DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-5 text-xs font-semibold text-slate-400">
           <Link href="/" className="hover:text-emerald-400 transition-colors">Dashboard</Link>
 
@@ -38,7 +42,7 @@ export default function Navbar() {
               <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl space-y-1">
                 <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Question Type</div>
                 <Link href="/types/Compilation" className="block px-2.5 py-1.5 text-xs rounded-lg text-amber-400 hover:bg-slate-800 transition-colors">⭐ Mega Compilations</Link>
-                <Link href="/types/Situational" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Situational Cases</Link>
+                <Link href="/types/Situational" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Sub-category Cases</Link>
                 <div className="h-px bg-slate-800 my-1"></div>
                 <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Target Roles</div>
                 <Link href="/roles/Manual_QA_Engineer" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Manual QA Engineer</Link>
@@ -109,6 +113,16 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
+          {/* 🚀 NÚT PREMIUM PACK NỔI BẬT TRÊN DESKTOP */}
+          <a
+            href={GUMROAD_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 px-3 py-1.5 text-[11px] font-black tracking-wide text-slate-950 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 rounded-lg shadow-md shadow-amber-500/5 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+          >
+            Premium Pack 🔥
+          </a>
         </nav>
 
         {/* RIGHT CONTROLS: SEARCH & HAMBURGER */}
@@ -130,11 +144,24 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 📱 MOBILE DROPDOWN DRAWER (Giao diện scannable xếp lớp dọc cực đẹp) */}
+      {/* 📱 MOBILE DROPDOWN DRAWER */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-slate-900 bg-slate-950/95 backdrop-blur-lg animate-fadeIn max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="space-y-4 px-4 py-6 text-sm font-semibold text-slate-300">
             
+            {/* 🚀 BANNER CTA ĐẶT RIÊNG CHO MOBILE Ở TRÊN CÙNG */}
+            <div className="pb-2">
+              <a
+                href={GUMROAD_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="w-full flex items-center justify-center p-3 text-xs font-black text-slate-950 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 rounded-xl shadow-lg shadow-amber-500/10 transition-all text-center"
+              >
+                🔥 GET QA LEAD INTERVIEW MASTER PACK ($49)
+              </a>
+            </div>
+
             <Link href="/" onClick={closeMenu} className="block text-slate-100 hover:text-emerald-400 py-1 border-b border-slate-900/50">Dashboard</Link>
 
             {/* Khối 1: Roles & Types */}
@@ -142,7 +169,7 @@ export default function Navbar() {
               <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500">Roles & Types</div>
               <div className="grid grid-cols-2 gap-2 pl-2">
                 <Link href="/types/Compilation" onClick={closeMenu} className="text-amber-400 hover:text-amber-300 text-xs py-1">⭐ Compilations</Link>
-                <Link href="/types/Situational" onClick={closeMenu} className="text-slate-400 text-xs py-1">Situational Cases</Link>
+                <Link href="/types/Situational" onClick={closeMenu} className="text-slate-400 text-xs py-1">Sub-category Cases</Link>
                 <Link href="/roles/Manual_QA_Engineer" onClick={closeMenu} className="text-slate-400 text-xs py-1">Manual Engineer</Link>
                 <Link href="/roles/Automation_QA_Engineer" onClick={closeMenu} className="text-slate-400 text-xs py-1">Automation (SDET)</Link>
                 <Link href="/roles/QA_Lead" onClick={closeMenu} className="text-slate-400 text-xs py-1">QA Lead / Manager</Link>

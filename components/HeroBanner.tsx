@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SearchBar from "./SearchBar";
+import { SITE_CONFIG } from "../lib/config";
 
 export default function HeroBanner() {
   return (
@@ -29,7 +30,22 @@ export default function HeroBanner() {
           <SearchBar />
         </div>
 
-        <div className="mt-6 flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 text-xs text-slate-400">
+        {/* 🚀 BANNER CTA BÁN PDF INTERVIEW PACK */}
+        <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+          <a 
+            href={SITE_CONFIG.links.gumroadProduct}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 transition-all shadow-lg shadow-amber-500/10 cursor-pointer transform hover:-translate-y-0.5"
+          >
+            🔥 GET THE QA LEAD MASTER PACK ($49)
+          </a>
+          <span className="text-[10px] text-slate-500 font-medium">
+            50+ Real-World Scenarios & Answers PDF
+          </span>
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 text-xs text-slate-400">
           <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Trending:</span>
           
           <Link 
