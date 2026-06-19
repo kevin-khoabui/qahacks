@@ -820,3 +820,5 @@ QA_Lead | Analytical_Behavioral - How do you communicate testing limitations eff
 Manual_QA_Engineer | Technical - How do you test mobile synchronization after offline activity?
 Automation_QA_Engineer | Foundations_Methodology - How do you optimize automation execution pipelines?
 QA_Lead | Analytical_Behavioral - How do you address quality issues discovered post-release?
+Automation_QA_Engineer | Foundations_Methodology - How do you balance innovation with stability?
+QA_Lead | Analytical_Behavioral - How do you ensure quality remains a business priority?

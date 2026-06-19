@@ -8,7 +8,6 @@ Manual_QA_Engineer | Technical - How do you test database migrations without los
 Automation_QA_Engineer | Foundations_Methodology - How do you prioritize automation debt reduction?
 QA_Lead | Analytical_Behavioral - How do you improve quality visibility for executives?
 Manual_QA_Engineer | Technical - How do you validate cross-system data consistency reliably?
-Automation_QA_Engineer | Foundations_Methodology - How do you balance innovation with stability?
 QA_Lead | Analytical_Behavioral - How do you manage quality during technology transitions?
 Manual_QA_Engineer | Technical - How do you verify browser behavior after configuration updates?
 Automation_QA_Engineer | Foundations_Methodology - How do you align automation with CI objectives?
@@ -20,7 +19,6 @@ Automation_QA_Engineer | Foundations_Methodology - How do you structure automati
 QA_Lead | Analytical_Behavioral - How do you balance delivery commitments with quality standards?
 Manual_QA_Engineer | Technical - How do you verify API resilience during dependency failures?
 Automation_QA_Engineer | Foundations_Methodology - How do you improve automation sustainability over time?
-QA_Lead | Analytical_Behavioral - How do you ensure quality remains a business priority?
 Manual_QA_Engineer | Technical - How do you test workflow reliability under heavy concurrency?
 Automation_QA_Engineer | Foundations_Methodology - How do you establish automation governance frameworks?
 QA_Lead | Analytical_Behavioral - How do you align quality strategy with organizational goals?
