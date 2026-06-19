@@ -1,27 +1,5 @@
 Automation_QA_Engineer | Foundations_Methodology - How do you define automation success indicators?
-Manual_QA_Engineer | Technical - How do you verify audit compliance through testing activities?
-Automation_QA_Engineer | Foundations_Methodology - How do you maintain automation consistency globally?
-Manual_QA_Engineer | Technical - How do you verify asynchronous job completion accurately?
-Automation_QA_Engineer | Foundations_Methodology - How do you track automation reliability metrics?
-Manual_QA_Engineer | Technical - How do you validate integration points during platform upgrades?
-QA_Lead | Analytical_Behavioral - How do you ensure quality remains a strategic priority?
-Manual_QA_Engineer | Technical - How do you test API resilience during downstream failures?
-Automation_QA_Engineer | Foundations_Methodology - How do you improve automation maintainability at scale?
-QA_Lead | Analytical_Behavioral - How do you handle executive demands conflicting with quality goals?
-Manual_QA_Engineer | Foundations_Methodology - How do you define test scope for cross-system integrations?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond when automation creates false confidence?
-QA_Lead | Technical - How do you validate observability across microservice ecosystems?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify high-value exploratory testing areas?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation failures before executive demos?
-QA_Lead | Technical - How do you verify deployment safety in canary releases?
-Manual_QA_Engineer | Foundations_Methodology - How do you prioritize tests for customer-critical workflows?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage disagreements on automation direction?
-QA_Lead | Technical - How do you assess API dependency risks before releases?
-Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for asynchronous processes?
-Automation_QA_Engineer | Analytical_Behavioral - How do you gain support for automation investments?
-QA_Lead | Technical - How do you validate rollback mechanisms across services?
-Manual_QA_Engineer | Foundations_Methodology - How do you approach testing for large data migrations?
-Automation_QA_Engineer | Analytical_Behavioral - How do you recover after automation framework failures?
 QA_Lead | Technical - How do you verify platform resilience under dependency failures?
 Manual_QA_Engineer | Foundations_Methodology - How do you create test plans with evolving requirements?
 Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation ownership ambiguity?
