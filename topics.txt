@@ -2,11 +2,9 @@ QA_Lead | Foundations_Methodology - How do you align release criteria across pro
 Automation_QA_Engineer | Technical - How do you automate validation of streaming API responses?
 QA_Lead | Foundations_Methodology - How do you scale quality practices after acquisitions?
 Manual_QA_Engineer | Analytical_Behavioral - How do you isolate environment-specific production issues?
-Automation_QA_Engineer | Technical - How do you validate browser permission revocations automatically?
 QA_Lead | Foundations_Methodology - How do you build quality roadmaps across business units?
 Manual_QA_Engineer | Analytical_Behavioral - How do you analyze defects triggered by rare user actions?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects involving delayed batch jobs?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate unexpected data duplication issues?
 Automation_QA_Engineer | Technical - How do you validate session sharing across browser contexts?
 QA_Lead | Foundations_Methodology - How do you standardize release quality reviews?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify production incidents across regions?
@@ -16,11 +14,8 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer complain
 Automation_QA_Engineer | Technical - How do you validate API fallback chains in Playwright?
 Manual_QA_Engineer | Analytical_Behavioral - How do you troubleshoot inconsistent mobile notifications?
 QA_Lead | Foundations_Methodology - How do you define enterprise defect escalation policies?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate missing records after deployments?
 Automation_QA_Engineer | Technical - How do you validate API idempotency with Cypress tests?
-QA_Lead | Foundations_Methodology - How do you align QA objectives with strategic goals?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues occurring during peak traffic?
-Automation_QA_Engineer | Technical - How do you test offline synchronization in Playwright?
 QA_Lead | Foundations_Methodology - How do you manage quality during digital transformations?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate intermittent authentication failures?
 Automation_QA_Engineer | Technical - How do you automate validation of access control changes?
