@@ -1,27 +1,4 @@
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond when automation misses a critical outage?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle pressure to accelerate automation delivery?
-Automation_QA_Engineer | Analytical_Behavioral - How do you recover after a failed framework migration?
-QA_Lead | Technical - How do you verify service-level objectives through testing evidence?
-Automation_QA_Engineer | Analytical_Behavioral - How do you justify automation investments during uncertainty?
-QA_Lead | Technical - How do you assess resilience of third-party dependencies?
 Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing with limited environment access?
-QA_Lead | Technical - How do you validate platform scalability before major launches?
-QA_Lead | Technical - How do you validate API governance across enterprise teams?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify business-critical regression scenarios?
-QA_Lead | Technical - How do you verify quality signals from observability platforms?
-Automation_QA_Engineer | Analytical_Behavioral - How do you balance automation quality and delivery speed?
-QA_Lead | Technical - How do you verify consistency across enterprise reporting systems?
-Manual_QA_Engineer | Foundations_Methodology - How do you determine testing priorities after hotfixes?
-Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams through automation transformations?
-QA_Lead | Technical - How do you validate data integrity during system consolidations?
-Manual_QA_Engineer | Foundations_Methodology - How do you assess release risks without complete requirements?
-Automation_QA_Engineer | Analytical_Behavioral - How do you respond to automation failures in production?
-QA_Lead | Technical - How do you verify deployment readiness across multiple environments?
-Manual_QA_Engineer | Foundations_Methodology - How do you create testing strategies for platform ecosystems?
-QA_Lead | Technical - How do you validate service mesh reliability under failures?
-Manual_QA_Engineer | Foundations_Methodology - How do you identify missing coverage from user journeys?
-Automation_QA_Engineer | Analytical_Behavioral - How do you maintain morale during framework rewrites?
-QA_Lead | Technical - How do you verify quality metrics align with business outcomes?
 Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for enterprise integrations?
 Automation_QA_Engineer | Analytical_Behavioral - How do you prioritize automation work with scarce resources?
 QA_Lead | Technical - How do you validate disaster recovery plans through QA exercises?
