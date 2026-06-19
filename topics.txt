@@ -6,22 +6,14 @@ QA_Lead | Technical - How do you validate backup and recovery effectiveness?
 Automation_QA_Engineer | Analytical_Behavioral - How do you improve collaboration with manual testers?
 Automation_QA_Engineer | Analytical_Behavioral - How do you address skepticism toward automation results?
 Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for exception scenarios?
-Automation_QA_Engineer | Analytical_Behavioral - How do you manage automation across distributed teams?
-QA_Lead | Technical - How do you validate service mesh behavior during failures?
 Manual_QA_Engineer | Foundations_Methodology - How do you define priorities during release crunches?
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover trust after unstable automation runs?
 QA_Lead | Technical - How do you verify data consistency across regional deployments?
-Manual_QA_Engineer | Foundations_Methodology - How do you create tests for regulatory compliance?
 Automation_QA_Engineer | Analytical_Behavioral - How do you balance quality goals and delivery speed?
-QA_Lead | Technical - How do you validate enterprise search accuracy at scale?
-Manual_QA_Engineer | Foundations_Methodology - How do you assess testing effectiveness post-release?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation requests with limited resources?
 QA_Lead | Technical - How do you verify scalability of critical business workflows?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify missing scenarios from requirements?
-Automation_QA_Engineer | Analytical_Behavioral - How do you prioritize framework improvements over features?
 QA_Lead | Technical - How do you validate API governance across multiple teams?
 Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for platform migrations?
-Automation_QA_Engineer | Analytical_Behavioral - How do you coach teams through automation adoption?
 QA_Lead | Technical - How do you verify quality signals from production telemetry?
 Manual_QA_Engineer | Foundations_Methodology - How do you build test strategies for shared services?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage quality concerns raised by automation?
