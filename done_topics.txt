@@ -661,3 +661,9 @@ QA_Lead | Technical - How do you verify data consistency across regional deploym
 Automation_QA_Engineer | Analytical_Behavioral - How do you balance quality goals and delivery speed?
 QA_Lead | Technical - How do you verify scalability of critical business workflows?
 Automation_QA_Engineer | Analytical_Behavioral - How do you address recurring automation maintenance issues?
+QA_Lead | Technical - How do you validate API governance across multiple teams?
+Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for platform migrations?
+QA_Lead | Technical - How do you validate resilience of third-party integrations?
+Manual_QA_Engineer | Foundations_Methodology - How do you create regression plans for major rewrites?
+Automation_QA_Engineer | Analytical_Behavioral - How do you maintain automation value during reorganizations?
+Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation setbacks during critical releases?

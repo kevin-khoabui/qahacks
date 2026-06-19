@@ -9,19 +9,13 @@ Manual_QA_Engineer | Foundations_Methodology - How do you build coverage for exc
 Manual_QA_Engineer | Foundations_Methodology - How do you define priorities during release crunches?
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover trust after unstable automation runs?
 Manual_QA_Engineer | Foundations_Methodology - How do you identify missing scenarios from requirements?
-QA_Lead | Technical - How do you validate API governance across multiple teams?
-Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for platform migrations?
 QA_Lead | Technical - How do you verify quality signals from production telemetry?
 Manual_QA_Engineer | Foundations_Methodology - How do you build test strategies for shared services?
 Automation_QA_Engineer | Analytical_Behavioral - How do you manage quality concerns raised by automation?
-QA_Lead | Technical - How do you validate resilience of third-party integrations?
 Manual_QA_Engineer | Foundations_Methodology - How do you determine testing priorities with limited time?
 QA_Lead | Technical - How do you verify consistency of enterprise reporting platforms?
-Manual_QA_Engineer | Foundations_Methodology - How do you create regression plans for major rewrites?
-Automation_QA_Engineer | Analytical_Behavioral - How do you maintain automation value during reorganizations?
 QA_Lead | Technical - How do you validate end-to-end data flow across systems?
 Manual_QA_Engineer | Foundations_Methodology - How do you define quality risks before implementation?
-Automation_QA_Engineer | Analytical_Behavioral - How do you handle automation setbacks during critical releases?
 QA_Lead | Technical - How do you verify operational readiness before enterprise launches?
 QA_Lead | Foundations_Methodology - How do you establish quality standards for enterprise platforms?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects caused by stale configurations?
@@ -222,7 +216,6 @@ QA_Lead | Technical - How do you verify authentication reliability across servic
 Manual_QA_Engineer | Foundations_Methodology - How do you define acceptance testing for integrations?
 QA_Lead | Technical - How do you validate distributed tracing during incident analysis?
 Manual_QA_Engineer | Foundations_Methodology - How do you assess testing readiness for large releases?
-Automation_QA_Engineer | Analytical_Behavioral - How do you maintain automation value during reorganizations?
 QA_Lead | Technical - How do you verify operational readiness before production cutovers?
 Manual_QA_Engineer | Foundations_Methodology - How do you structure testing for shared infrastructure changes?
 Automation_QA_Engineer | Analytical_Behavioral - How do you recover trust after repeated flaky failures?
