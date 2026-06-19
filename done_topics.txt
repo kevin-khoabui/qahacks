@@ -864,3 +864,11 @@ QA_Lead | Technical - How do you verify event processing reliability under peak 
 Manual_QA_Engineer | Foundations_Methodology - How do you define quality risks for new platforms?
 Automation_QA_Engineer | Analytical_Behavioral - How do you influence teams to improve testability?
 QA_Lead | Technical - How do you validate backup recovery under realistic conditions?
+Manual_QA_Engineer | Foundations_Methodology - How do you prioritize testing for revenue-critical features?
+Manual_QA_Engineer | Foundations_Methodology - How do you determine regression scope after architecture changes?
+Manual_QA_Engineer | Foundations_Methodology - How do you identify gaps in exploratory testing coverage?
+Automation_QA_Engineer | Analytical_Behavioral - How do you respond when automation blocks critical releases?
+QA_Lead | Technical - How do you verify authentication reliability across services?
+QA_Lead | Technical - How do you validate distributed tracing during incident analysis?
+Manual_QA_Engineer | Foundations_Methodology - How do you assess testing readiness for large releases?
+QA_Lead | Technical - How do you verify operational readiness before production cutovers?
