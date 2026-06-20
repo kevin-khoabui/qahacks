@@ -955,3 +955,12 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues cause
 Automation_QA_Engineer | Technical - How do you automate validation of distributed cache behavior?
 QA_Lead | Foundations_Methodology - How do you build quality roadmaps for enterprise growth?
 Automation_QA_Engineer | Technical - How do you test browser storage recovery after corruption?
+QA_Lead | Foundations_Methodology - How do you improve governance for quality decision making?
+Automation_QA_Engineer | Technical - How do you automate testing of approval workflow escalations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer-impacting synchronization issues?
+QA_Lead | Foundations_Methodology - How do you manage quality during enterprise integrations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects caused by race conditions?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate data inconsistencies after rollbacks?
+Automation_QA_Engineer | Technical - How do you validate event ordering during service recovery?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues involving delayed notifications?
+Automation_QA_Engineer | Technical - How do you automate validation of role inheritance models?

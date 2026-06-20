@@ -1,26 +1,17 @@
 QA_Lead | Foundations_Methodology - How do you align release criteria across departments?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures during schema migrations?
 Automation_QA_Engineer | Technical - How do you validate file integrity after automated downloads?
-QA_Lead | Foundations_Methodology - How do you improve governance for quality decision making?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify production incidents tied to feature flags?
-Automation_QA_Engineer | Technical - How do you automate testing of approval workflow escalations?
 QA_Lead | Foundations_Methodology - How do you define quality KPIs for strategic programs?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects involving historical records?
 Automation_QA_Engineer | Technical - How do you validate API behavior during dependency degradation?
 QA_Lead | Foundations_Methodology - How do you assess testing effectiveness across portfolios?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify customer-impacting synchronization issues?
 Automation_QA_Engineer | Technical - How do you test token revocation across active sessions?
-QA_Lead | Foundations_Methodology - How do you manage quality during enterprise integrations?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures across multi-tenant systems?
 Automation_QA_Engineer | Technical - How do you automate validation of audit logging workflows?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects caused by race conditions?
 Automation_QA_Engineer | Technical - How do you test browser behavior under constrained resources?
 QA_Lead | Foundations_Methodology - How do you build long-term quality transformation plans?
-Manual_QA_Engineer | Analytical_Behavioral - How do you investigate data inconsistencies after rollbacks?
-Automation_QA_Engineer | Technical - How do you validate event ordering during service recovery?
 QA_Lead | Foundations_Methodology - How do you align QA investments with business value?
-Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues involving delayed notifications?
-Automation_QA_Engineer | Technical - How do you automate validation of role inheritance models?
 QA_Lead | Foundations_Methodology - How do you establish quality ownership across engineering?
 Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures affecting archived datasets?
 Automation_QA_Engineer | Technical - How do you test browser tab recovery after crashes?
