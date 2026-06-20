@@ -964,3 +964,24 @@ Manual_QA_Engineer | Analytical_Behavioral - How do you investigate data inconsi
 Automation_QA_Engineer | Technical - How do you validate event ordering during service recovery?
 Manual_QA_Engineer | Analytical_Behavioral - How do you verify issues involving delayed notifications?
 Automation_QA_Engineer | Technical - How do you automate validation of role inheritance models?
+QA_Lead | Foundations_Methodology - How do you align release criteria across departments?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures during schema migrations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate defects involving historical records?
+Automation_QA_Engineer | Technical - How do you validate API behavior during dependency degradation?
+QA_Lead | Foundations_Methodology - How do you assess testing effectiveness across portfolios?
+Automation_QA_Engineer | Technical - How do you test token revocation across active sessions?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures across multi-tenant systems?
+Automation_QA_Engineer | Technical - How do you automate validation of audit logging workflows?
+Automation_QA_Engineer | Technical - How do you test browser behavior under constrained resources?
+QA_Lead | Foundations_Methodology - How do you build long-term quality transformation plans?
+QA_Lead | Foundations_Methodology - How do you align QA investments with business value?
+QA_Lead | Foundations_Methodology - How do you establish quality ownership across engineering?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate failures affecting archived datasets?
+Automation_QA_Engineer | Technical - How do you test browser tab recovery after crashes?
+QA_Lead | Foundations_Methodology - How do you sustain quality improvements after transformations?
+Manual_QA_Engineer | Analytical_Behavioral - How do you verify defects linked to external integrations?
+Automation_QA_Engineer | Technical - How do you validate API fallback behavior during outages?
+QA_Lead | Foundations_Methodology - How do you improve quality transparency for stakeholders?
+Manual_QA_Engineer | Analytical_Behavioral - How do you investigate issues involving duplicate transactions?
+Automation_QA_Engineer | Technical - How do you automate testing of large-scale data exports?
+QA_Lead | Foundations_Methodology - How do you define release readiness for enterprise programs?
