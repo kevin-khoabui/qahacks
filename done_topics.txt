@@ -1100,3 +1100,5 @@ Automation_QA_Engineer | Technical - (Senior) How do you use Docker to run Playw
 Automation_QA_Engineer | Technical - (Senior) How do you perform testing for Web Socket applications with Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you perform assertions for the number of elements in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you configure the default timeout in the Playwright config?
+Automation_QA_Engineer | Technical - (Senior) How do you optimize memory usage when running thousands of test cases with Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you get the text of all elements in a list (Cypress)?

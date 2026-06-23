@@ -1,2 +1,0 @@
-Automation_QA_Engineer | Technical - (Senior) How do you optimize memory usage when running thousands of test cases with Playwright?
-Automation_QA_Engineer | Technical - (Junior) How do you get the text of all elements in a list (Cypress)?
