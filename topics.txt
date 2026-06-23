@@ -1,8 +1,6 @@
-Automation_QA_Engineer | Technical - (Junior) What are the most basic selectors used in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you implement parallel execution in Playwright to optimize execution time?
 Automation_QA_Engineer | Technical - (Junior) Explain the auto-waiting mechanism in Playwright?
 Automation_QA_Engineer | Technical - (Senior) What is the strategy for designing custom commands in Cypress to improve code reusability?
-Automation_QA_Engineer | Technical - (Junior) How do you verify if an element is visible on the screen in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you handle complex asynchronous scenarios (Promises) in Playwright?
 Automation_QA_Engineer | Technical - (Junior) What is the difference between `cy.get()` and `cy.find()` in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you integrate Playwright into a CI/CD pipeline using GitHub Actions?
@@ -18,7 +16,6 @@ Automation_QA_Engineer | Technical - (Junior) How do you extract data from an in
 Automation_QA_Engineer | Technical - (Senior) How do you build a Hybrid framework combining Playwright and Cucumber?
 Automation_QA_Engineer | Technical - (Junior) What is the difference between `click()` and `force: true` in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you mock API requests to isolate UI tests in Playwright?
-Automation_QA_Engineer | Technical - (Junior) How do you verify the text of an element in Playwright?
 Automation_QA_Engineer | Technical - (Senior) What are the techniques for handling shadow DOM in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you read a JSON file for test data in Playwright?
 Automation_QA_Engineer | Technical - (Senior) Designing a retry logic mechanism for test cases in Playwright?
