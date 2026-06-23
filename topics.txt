@@ -1,9 +1,2 @@
-Automation_QA_Engineer | Technical - (Senior) Strategies for organizing the folder structure of a large Playwright framework?
-Automation_QA_Engineer | Technical - (Senior) How do you optimize selectors to avoid breaking changes in the DOM (Playwright)?
 Automation_QA_Engineer | Technical - (Senior) How do you optimize memory usage when running thousands of test cases with Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you get the text of all elements in a list (Cypress)?
-Automation_QA_Engineer | Technical - (Senior) How do you build a Playwright framework that supports internationalization (i18n)?
-Automation_QA_Engineer | Technical - (Senior) How do you use Docker to run Playwright in a CI/CD environment?
-Automation_QA_Engineer | Technical - (Senior) How do you perform testing for Web Socket applications with Playwright?
-Automation_QA_Engineer | Technical - (Junior) How do you perform assertions for the number of elements in Cypress?
-Automation_QA_Engineer | Technical - (Junior) How do you configure the default timeout in the Playwright config?
