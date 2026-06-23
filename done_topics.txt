@@ -1030,3 +1030,13 @@ Automation_QA_Engineer | Technical - (Senior) Strategies for logging and reporti
 Automation_QA_Engineer | Technical - (Senior) Designing a Data-Driven framework architecture with Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you manage session state (authentication) to avoid repeated logins in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you handle iframes in Cypress?
+Automation_QA_Engineer | Technical - (Junior) What is the difference between `click()` and `force: true` in Cypress?
+Automation_QA_Engineer | Technical - (Junior) What is the difference between `should` and `expect` in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you handle race conditions when testing real-time applications with Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you perform drag and drop for an element in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you combine API and UI tests in the same Playwright scenario?
+Automation_QA_Engineer | Technical - (Junior) How do you scroll to an element in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you build a CI/CD process for Cypress using Cypress Cloud?
+Automation_QA_Engineer | Technical - (Junior) How do you debug test cases using built-in tools in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you handle OAuth/JWT authentication in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you extract content from a table in Cypress?

@@ -3,7 +3,6 @@ Automation_QA_Engineer | Technical - (Junior) What is the difference between `cy
 Automation_QA_Engineer | Technical - (Junior) How do you handle popups or alerts in Playwright?
 Automation_QA_Engineer | Technical - (Senior) Optimizing suite execution time using Sharding in Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you extract data from an input field in Cypress?
-Automation_QA_Engineer | Technical - (Junior) What is the difference between `click()` and `force: true` in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you mock API requests to isolate UI tests in Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you run tests on different browsers in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you get a list of elements in Playwright?
@@ -12,16 +11,7 @@ Automation_QA_Engineer | Technical - (Junior) How do you set a timeout for a spe
 Automation_QA_Engineer | Technical - (Senior) How do you handle test cases that require interacting with multiple tabs in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you verify the attribute of an HTML tag in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you optimize test data management using API calls in Playwright?
-Automation_QA_Engineer | Technical - (Junior) What is the difference between `should` and `expect` in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you trigger hover effects in Playwright?
-Automation_QA_Engineer | Technical - (Senior) How do you handle race conditions when testing real-time applications with Cypress?
-Automation_QA_Engineer | Technical - (Junior) How do you perform drag and drop for an element in Cypress?
-Automation_QA_Engineer | Technical - (Senior) How do you combine API and UI tests in the same Playwright scenario?
-Automation_QA_Engineer | Technical - (Junior) How do you scroll to an element in Playwright?
-Automation_QA_Engineer | Technical - (Senior) How do you build a CI/CD process for Cypress using Cypress Cloud?
-Automation_QA_Engineer | Technical - (Junior) How do you debug test cases using built-in tools in Cypress?
-Automation_QA_Engineer | Technical - (Senior) How do you handle OAuth/JWT authentication in Playwright?
-Automation_QA_Engineer | Technical - (Junior) How do you extract content from a table in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you build custom reporting (Allure report) for Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you perform file uploads in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you manage global state in a large Cypress test suite?
