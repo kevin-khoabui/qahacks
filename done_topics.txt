@@ -1074,3 +1074,6 @@ Automation_QA_Engineer | Technical - (Senior) How do you handle tests that requi
 Automation_QA_Engineer | Technical - (Junior) How do you reload a webpage in Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you perform conditional waiting in Cypress?
 Automation_QA_Engineer | Technical - (Senior) Basic security testing strategies using Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you use `contains` to find an element in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you manage framework dependency versions (npm/yarn)?
+Automation_QA_Engineer | Technical - (Senior) Compare the isolation strategy in Cypress vs Playwright?
