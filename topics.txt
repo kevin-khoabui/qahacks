@@ -1,25 +1,9 @@
 Automation_QA_Engineer | Technical - (Senior) Strategies for organizing the folder structure of a large Playwright framework?
 Automation_QA_Engineer | Technical - (Senior) How do you optimize selectors to avoid breaking changes in the DOM (Playwright)?
-Automation_QA_Engineer | Technical - (Senior) How do you perform cross-domain testing in Cypress?
-Automation_QA_Engineer | Technical - (Junior) How do you run tests by tags or groups in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you optimize memory usage when running thousands of test cases with Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you get the text of all elements in a list (Cypress)?
-Automation_QA_Engineer | Technical - (Senior) How do you configure retries only for failed test cases in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you build a Playwright framework that supports internationalization (i18n)?
-Automation_QA_Engineer | Technical - (Junior) What is the difference between `request` (API) in Cypress and Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you use Docker to run Playwright in a CI/CD environment?
-Automation_QA_Engineer | Technical - (Junior) How do you use `within()` in Cypress?
-Automation_QA_Engineer | Technical - (Junior) How do you work with multiple windows in Playwright?
-Automation_QA_Engineer | Technical - (Senior) How do you handle flaky tests due to network latencies in Cypress?
-Automation_QA_Engineer | Technical - (Junior) How do you take a screenshot of a specific element in Cypress?
-Automation_QA_Engineer | Technical - (Senior) How do you design an automated test report sent via Slack/Email from Playwright?
-Automation_QA_Engineer | Technical - (Junior) How do you use `invoke` in Cypress to call functions?
-Automation_QA_Engineer | Technical - (Senior) How do you optimize running Playwright on headless server environments?
-Automation_QA_Engineer | Technical - (Junior) How do you check the visibility property of an element in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you perform testing for Web Socket applications with Playwright?
-Automation_QA_Engineer | Technical - (Junior) How do you use `each` to iterate over elements in Cypress?
-Automation_QA_Engineer | Technical - (Junior) How do you inject cookies into the browser in Playwright?
-Automation_QA_Engineer | Technical - (Senior) How do you integrate SonarQube into a Playwright test framework?
 Automation_QA_Engineer | Technical - (Junior) How do you perform assertions for the number of elements in Cypress?
-Automation_QA_Engineer | Technical - (Senior) How do you handle tests for applications that use Service Workers in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you configure the default timeout in the Playwright config?
