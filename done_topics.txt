@@ -1026,3 +1026,5 @@ Automation_QA_Engineer | Technical - (Junior) How do you check checkboxes or rad
 Automation_QA_Engineer | Technical - (Senior) Compare the performance between Playwright and Cypress for SPA applications?
 Automation_QA_Engineer | Technical - (Senior) How do you build a shared Helper library in a Cypress framework?
 Automation_QA_Engineer | Technical - (Senior) Explain the Playwright Trace Viewer mechanism and its debugging benefits?
+Automation_QA_Engineer | Technical - (Senior) Strategies for logging and reporting when running tests on Docker with Playwright?
+Automation_QA_Engineer | Technical - (Senior) Designing a Data-Driven framework architecture with Playwright?
