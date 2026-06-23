@@ -1040,3 +1040,26 @@ Automation_QA_Engineer | Technical - (Senior) How do you build a CI/CD process f
 Automation_QA_Engineer | Technical - (Junior) How do you debug test cases using built-in tools in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you handle OAuth/JWT authentication in Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you extract content from a table in Cypress?
+Automation_QA_Engineer | Technical - (Junior) Explain the auto-waiting mechanism in Playwright?
+Automation_QA_Engineer | Technical - (Junior) What is the difference between `cy.get()` and `cy.find()` in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you handle popups or alerts in Playwright?
+Automation_QA_Engineer | Technical - (Senior) Optimizing suite execution time using Sharding in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you extract data from an input field in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you mock API requests to isolate UI tests in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you run tests on different browsers in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you get a list of elements in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you use aliases in Cypress to optimize queries?
+Automation_QA_Engineer | Technical - (Junior) How do you set a timeout for a specific command in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you handle test cases that require interacting with multiple tabs in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you verify the attribute of an HTML tag in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you optimize test data management using API calls in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you trigger hover effects in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you build custom reporting (Allure report) for Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you manage global state in a large Cypress test suite?
+Automation_QA_Engineer | Technical - (Junior) How do you use `then()` in Cypress to work with returned values?
+Automation_QA_Engineer | Technical - (Senior) Compare error handling strategies in Playwright and Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you check the current URL in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you implement tests for Mobile Web applications with Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you work with command chains in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you use the Playwright Test Generator to optimize scenarios?
+Automation_QA_Engineer | Technical - (Junior) How do you verify the CSS style of an element in Playwright?
