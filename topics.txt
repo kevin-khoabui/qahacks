@@ -13,7 +13,6 @@ Automation_QA_Engineer | Technical - (Senior) Optimizing suite execution time us
 Automation_QA_Engineer | Technical - (Junior) What is the syntax to click an element in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you manage environment configurations for multiple environments in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you extract data from an input field in Cypress?
-Automation_QA_Engineer | Technical - (Senior) How do you build a Hybrid framework combining Playwright and Cucumber?
 Automation_QA_Engineer | Technical - (Junior) What is the difference between `click()` and `force: true` in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you mock API requests to isolate UI tests in Playwright?
 Automation_QA_Engineer | Technical - (Senior) What are the techniques for handling shadow DOM in Cypress?

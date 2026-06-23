@@ -1006,3 +1006,4 @@ QA_Lead | Foundations_Methodology - How do you ensure quality remains central to
 Automation_QA_Engineer | Technical - (Junior) What are the most basic selectors used in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you verify if an element is visible on the screen in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you verify the text of an element in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you build a Hybrid framework combining Playwright and Cucumber?
