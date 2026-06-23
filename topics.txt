@@ -5,7 +5,6 @@ Automation_QA_Engineer | Technical - (Senior) How do you handle complex asynchro
 Automation_QA_Engineer | Technical - (Junior) What is the difference between `cy.get()` and `cy.find()` in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you integrate Playwright into a CI/CD pipeline using GitHub Actions?
 Automation_QA_Engineer | Technical - (Junior) How do you take screenshots when a test fails in Playwright?
-Automation_QA_Engineer | Technical - (Senior) Why should you choose Page Object Model over App Actions in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you handle popups or alerts in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you resolve flaky tests in Cypress?
 Automation_QA_Engineer | Technical - (Junior) How do you handle page navigation in Cypress?
