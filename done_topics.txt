@@ -1015,3 +1015,14 @@ Automation_QA_Engineer | Technical - (Senior) How do you implement parallel exec
 Automation_QA_Engineer | Technical - (Senior) How do you integrate Playwright into a CI/CD pipeline using GitHub Actions?
 Automation_QA_Engineer | Technical - (Junior) How do you read a JSON file for test data in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you perform Visual Regression Testing with Playwright?
+Automation_QA_Engineer | Technical - (Senior) What is the strategy for designing custom commands in Cypress to improve code reusability?
+Automation_QA_Engineer | Technical - (Junior) How do you take screenshots when a test fails in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you resolve flaky tests in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you handle page navigation in Cypress?
+Automation_QA_Engineer | Technical - (Junior) What is the syntax to click an element in Playwright?
+Automation_QA_Engineer | Technical - (Senior) What are the techniques for handling shadow DOM in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you use hooks (beforeEach, afterEach) in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you check checkboxes or radio buttons in Cypress?
+Automation_QA_Engineer | Technical - (Senior) Compare the performance between Playwright and Cypress for SPA applications?
+Automation_QA_Engineer | Technical - (Senior) How do you build a shared Helper library in a Cypress framework?
+Automation_QA_Engineer | Technical - (Senior) Explain the Playwright Trace Viewer mechanism and its debugging benefits?
