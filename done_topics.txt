@@ -1011,3 +1011,7 @@ Automation_QA_Engineer | Technical - (Senior) Why should you choose Page Object 
 Automation_QA_Engineer | Technical - (Senior) How do you handle complex asynchronous scenarios (Promises) in Playwright?
 Automation_QA_Engineer | Technical - (Senior) How do you manage environment configurations for multiple environments in Cypress?
 Automation_QA_Engineer | Technical - (Senior) Designing a retry logic mechanism for test cases in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you implement parallel execution in Playwright to optimize execution time?
+Automation_QA_Engineer | Technical - (Senior) How do you integrate Playwright into a CI/CD pipeline using GitHub Actions?
+Automation_QA_Engineer | Technical - (Junior) How do you read a JSON file for test data in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you perform Visual Regression Testing with Playwright?
