@@ -1028,3 +1028,5 @@ Automation_QA_Engineer | Technical - (Senior) How do you build a shared Helper l
 Automation_QA_Engineer | Technical - (Senior) Explain the Playwright Trace Viewer mechanism and its debugging benefits?
 Automation_QA_Engineer | Technical - (Senior) Strategies for logging and reporting when running tests on Docker with Playwright?
 Automation_QA_Engineer | Technical - (Senior) Designing a Data-Driven framework architecture with Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you manage session state (authentication) to avoid repeated logins in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you handle iframes in Cypress?
