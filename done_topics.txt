@@ -1063,3 +1063,14 @@ Automation_QA_Engineer | Technical - (Senior) How do you implement tests for Mob
 Automation_QA_Engineer | Technical - (Junior) How do you work with command chains in Cypress?
 Automation_QA_Engineer | Technical - (Senior) How do you use the Playwright Test Generator to optimize scenarios?
 Automation_QA_Engineer | Technical - (Junior) How do you verify the CSS style of an element in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you perform file uploads in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you handle dynamic data in Cypress when the server returns random results?
+Automation_QA_Engineer | Technical - (Junior) How do you trigger keyboard strokes with Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you perform setup before testing (global setup) in Cypress?
+Automation_QA_Engineer | Technical - (Senior) How do you use Workers in Playwright to handle independent tasks?
+Automation_QA_Engineer | Technical - (Junior) How do you check if an element is disabled in Cypress?
+Automation_QA_Engineer | Technical - (Junior) How do you handle obscured elements in Playwright?
+Automation_QA_Engineer | Technical - (Senior) How do you handle tests that require Camera/Microphone access in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you reload a webpage in Playwright?
+Automation_QA_Engineer | Technical - (Junior) How do you perform conditional waiting in Cypress?
+Automation_QA_Engineer | Technical - (Senior) Basic security testing strategies using Playwright?
