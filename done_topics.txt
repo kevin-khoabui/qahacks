@@ -1104,3 +1104,7 @@ Automation_QA_Engineer | Technical - (Senior) How do you optimize memory usage w
 Automation_QA_Engineer | Technical - (Junior) How do you get the text of all elements in a list (Cypress)?
 Automation_QA_Engineer | Technical | Junior - How do you handle element selection when using Playwright locators for dynamic web content?
 Automation_QA_Engineer | Technical | Advanced - Describe your strategy for implementing parallel execution in Cypress to reduce total test suite duration.
+Automation_QA_Engineer | Technical | Junior - How do you handle element selection when using Playwright selectors?
+AI_Software_Engineer | Technical | Intermediate - Explain the core architecture of a Retrieval-Augmented Generation pipeline.
+QA_Lead | Leadership | Advanced - How do you align quality goals with fast-paced product delivery deadlines?
+Manual_QA_Engineer | Strategic | Junior - What are the primary differences between black-box and white-box testing?

@@ -1,7 +1,3 @@
-Automation_QA_Engineer | Technical | Junior - How do you handle element selection when using Playwright selectors?
-AI_Software_Engineer | Technical | Intermediate - Explain the core architecture of a Retrieval-Augmented Generation pipeline.
-QA_Lead | Leadership | Advanced - How do you align quality goals with fast-paced product delivery deadlines?
-Manual_QA_Engineer | Strategic | Junior - What are the primary differences between black-box and white-box testing?
 Automation_QA_Engineer | Technical | Advanced - Describe how to implement parallel execution in a Cypress test suite.
 AI_Software_Engineer | Strategic | Intermediate - How do you determine the appropriate evaluation metrics for a fine-tuned model?
 QA_Lead | Technical | Intermediate - What strategies do you use to optimize a CI/CD pipeline for rapid feedback?
