@@ -1115,3 +1115,13 @@ Manual_QA_Engineer | Technical | Advanced - Design a testing strategy for a lega
 Automation_QA_Engineer | Strategic | Intermediate - How do you decide which test cases are best suited for automated versus manual testing?
 AI_Software_Engineer | Technical | Advanced - What techniques do you use to mitigate hallucination in Large Language Model outputs?
 QA_Lead | Leadership | Junior - How do you foster a culture of quality within a small development team?
+Manual_QA_Engineer | Technical | Junior - What constitutes a well-written bug report in an agile environment?
+Automation_QA_Engineer | Technical | Intermediate - Explain the benefits of using fixtures in Playwright.
+AI_Software_Engineer | Leadership | Advanced - How do you communicate the risks of AI model bias to non-technical stakeholders?
+QA_Lead | Strategic | Advanced - How do you build a long-term quality roadmap for a scaling organization?
+Manual_QA_Engineer | Leadership | Intermediate - How do you mentor testers to improve their exploratory testing skills?
+Automation_QA_Engineer | Technical | Advanced - Describe how to integrate Playwright tests into a GitHub Actions CI workflow.
+AI_Software_Engineer | Technical | Junior - What are the main components of a prompt design for a chatbot?
+QA_Lead | Strategic | Junior - How do you prioritize defect backlogs during a critical release phase?
+Manual_QA_Engineer | Strategic | Advanced - How do you perform root cause analysis for intermittent production issues?
+Automation_QA_Engineer | Strategic | Advanced - How do you handle flaky tests in an automated framework?
