@@ -1,27 +1,3 @@
-QA_Lead | Strategic | Junior - How do you balance speed and quality in an MVP development phase?
-Manual_QA_Engineer | Leadership | Intermediate - How do you help junior team members improve their analytical thinking?
-Automation_QA_Engineer | Strategic | Intermediate - How do you manage browser compatibility testing at scale?
-AI_Software_Engineer | Technical | Advanced - How do you tune retrieval parameters to reduce noise in RAG?
-QA_Lead | Technical | Junior - How do you implement automated documentation for testing processes?
-Manual_QA_Engineer | Technical | Advanced - How do you approach testing distributed microservices architectures?
-Automation_QA_Engineer | Technical | Intermediate - How do you handle authentication via OAuth in automated tests?
-AI_Software_Engineer | Leadership | Intermediate - How do you communicate AI model performance metrics to product managers?
-QA_Lead | Strategic | Advanced - How do you develop a disaster recovery testing plan?
-Manual_QA_Engineer | Strategic | Junior - How do you handle test data management for sensitive user environments?
-Automation_QA_Engineer | Technical | Intermediate - How do you handle shadow DOM elements in your automation scripts?
-AI_Software_Engineer | Technical | Advanced - What strategies do you use for efficient chunking in RAG pipelines?
-QA_Lead | Leadership | Advanced - How do you handle team transitions when moving from legacy systems to cloud-native platforms?
-Manual_QA_Engineer | Strategic | Junior - What are the key stages in the software testing lifecycle?
-Automation_QA_Engineer | Strategic | Advanced - How do you define a cost-benefit analysis for adopting new test automation frameworks?
-AI_Software_Engineer | Strategic | Intermediate - How do you measure the latency impact of an LLM in a user-facing application?
-QA_Lead | Technical | Intermediate - How do you enforce code quality standards across an automation team?
-Manual_QA_Engineer | Technical | Advanced - How do you design comprehensive test scenarios for financial transaction systems?
-Automation_QA_Engineer | Technical | Advanced - Describe how to implement Visual Regression Testing in your workflow.
-AI_Software_Engineer | Technical | Junior - What is the function of temperature in generating diverse LLM responses?
-QA_Lead | Leadership | Junior - How do you onboard new team members to a complex project?
-Manual_QA_Engineer | Technical | Junior - What is the difference between a bug and a feature request?
-Automation_QA_Engineer | Technical | Intermediate - Explain the difference between fixture teardown and setup in Playwright.
-AI_Software_Engineer | Leadership | Advanced - How do you manage the lifecycle of a large-scale AI project?
 QA_Lead | Strategic | Advanced - How do you ensure high availability in testing environments?
 Manual_QA_Engineer | Leadership | Intermediate - How do you conduct an effective peer review of test cases?
 Automation_QA_Engineer | Technical | Advanced - How do you simulate network latency in your automated test environment?
