@@ -1,6 +1,3 @@
-AI_Software_Engineer | Technical | Intermediate - How do you evaluate the retrieval quality in a RAG application?
-QA_Lead | Strategic | Intermediate - How do you report quality metrics to upper management effectively?
-Manual_QA_Engineer | Leadership | Advanced - Describe your approach to building a diverse and effective testing team.
 Automation_QA_Engineer | Technical | Advanced - How do you deal with dynamic elements in modern web applications using Playwright?
 AI_Software_Engineer | Technical | Advanced - Describe the process of implementing Guardrails for LLM interactions.
 QA_Lead | Technical | Junior - What are the key performance indicators for a successful QA process?
