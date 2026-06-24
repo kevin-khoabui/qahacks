@@ -1159,3 +1159,14 @@ Manual_QA_Engineer | Technical | Intermediate - How do you test mobile responsiv
 Automation_QA_Engineer | Leadership | Advanced - How do you lead a team migration from manual to automated testing?
 AI_Software_Engineer | Strategic | Advanced - How do you assess the ROI of implementing an AI-driven solution?
 QA_Lead | Leadership | Junior - How do you manage relationships with external QA vendors?
+Manual_QA_Engineer | Strategic | Advanced - How do you determine the scope for UAT in a complex release?
+Automation_QA_Engineer | Technical | Advanced - Describe how to use API mocking in your automated tests.
+AI_Software_Engineer | Technical | Junior - What is the difference between few-shot and zero-shot prompting?
+QA_Lead | Technical | Advanced - How do you implement automated performance testing in the pipeline?
+Manual_QA_Engineer | Technical | Junior - What is the significance of the test data setup phase?
+Automation_QA_Engineer | Strategic | Intermediate - How do you choose the right automation framework for a project?
+AI_Software_Engineer | Leadership | Advanced - How do you build a team culture focused on responsible AI practices?
+QA_Lead | Strategic | Intermediate - How do you ensure compliance requirements are met during the testing phase?
+Manual_QA_Engineer | Leadership | Advanced - How do you handle high-level stakeholder expectations during a system failure?
+Automation_QA_Engineer | Technical | Junior - What is the difference between explicit and implicit waits?
+AI_Software_Engineer | Technical | Intermediate - How do you handle context window limitations in LLM applications?

@@ -1,14 +1,3 @@
-Manual_QA_Engineer | Strategic | Advanced - How do you determine the scope for UAT in a complex release?
-Automation_QA_Engineer | Technical | Advanced - Describe how to use API mocking in your automated tests.
-AI_Software_Engineer | Technical | Junior - What is the difference between few-shot and zero-shot prompting?
-QA_Lead | Technical | Advanced - How do you implement automated performance testing in the pipeline?
-Manual_QA_Engineer | Technical | Junior - What is the significance of the test data setup phase?
-Automation_QA_Engineer | Strategic | Intermediate - How do you choose the right automation framework for a project?
-AI_Software_Engineer | Leadership | Advanced - How do you build a team culture focused on responsible AI practices?
-QA_Lead | Strategic | Intermediate - How do you ensure compliance requirements are met during the testing phase?
-Manual_QA_Engineer | Leadership | Advanced - How do you handle high-level stakeholder expectations during a system failure?
-Automation_QA_Engineer | Technical | Junior - What is the difference between explicit and implicit waits?
-AI_Software_Engineer | Technical | Intermediate - How do you handle context window limitations in LLM applications?
 QA_Lead | Technical | Junior - How do you manage tool licensing and budget for a team?
 Manual_QA_Engineer | Strategic | Junior - When is exploratory testing most effective in the SDLC?
 Automation_QA_Engineer | Leadership | Junior - How do you train team members on new automation tools?
