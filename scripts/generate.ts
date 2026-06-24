@@ -220,21 +220,9 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
     .trim()
     .replace(/\s+/g, "-");
 
-  // --- BẮT ĐẦU ĐOẠN SỬA ĐỔI (Phân tách theo Năm/Tháng) ---
-  const now = new Date();
-  const year = now.getFullYear().toString();
-  const month = String(now.getMonth() + 1).padStart(2, '0'); // Đảm bảo định dạng 01, 02...
-
-  // Tạo đường dẫn động: content/posts/YYYY/MM
-  const outputDir = path.join(process.cwd(), "content", "posts", year, month);
+  const outputDir = path.join(process.cwd(), "content", "posts");
   const fileName = `${coreSlug}.md`;
   const outputPath = path.join(outputDir, fileName);
-  // --- KẾT THÚC ĐOẠN SỬA ĐỔI ---
-
-  /*  Nếu lỗi thì phục hồi đọan này và xoá đoạn trên
-const outputDir = path.join(process.cwd(), "content", "posts");
-const fileName = `${coreSlug}.md`;
-const outputPath = path.join(outputDir, fileName); */
 
   if (fs.existsSync(outputPath)) {
     console.log(`🛑 [BỎ QUA] File bài viết đã tồn tại: ${fileName}. Không tạo file mới, không thêm số.`);
