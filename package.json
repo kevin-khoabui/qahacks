@@ -17,6 +17,7 @@
     "@next/third-parties": "^16.2.7",
     "@tailwindcss/typography": "^0.5.19",
     "dotenv": "^17.4.2",
+    "grammy": "^1.44.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "lucide-react": "^1.17.0",

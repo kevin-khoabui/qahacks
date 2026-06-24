@@ -9,9 +9,44 @@ function getTargetApiKey(keyNumber: number): string {
   return process.env[`GEMINI_API_KEY_${keyNumber}`] || "";
 }
 
-function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: string, categoriesString: string): string {
-  // Chuẩn hóa tiêu đề, loại bỏ các dấu ngoặc kép có thể làm vỡ cấu trúc YAML Frontmatter
+function getPromptByStrategy(topic: string, isAutomation: boolean, isAI: boolean, rolesString: string, categoriesString: string, difficulty: string): string {
   const safeTopic = topic.replace(/"/g, '\\"');
+
+
+  if (isAI) {
+    return `
+      You are a Principal AI Engineer and Tech Lead. 
+      Generate a high-level interview Q&A post for the topic: "${safeTopic}".
+      
+      CRITICAL REQUIREMENT:
+      - Focus on model architecture, RAG, fine-tuning, or LLM evaluation metrics.
+      - Expert Answer: Focus on technical implementation, infrastructure, and scalability (under 2500 characters).
+      - Speaking Blueprint: Explain to a CTO the trade-offs between different models or integration strategies.
+      
+      ---
+title: "${safeTopic}"
+      difficulty: "${difficulty}" 
+      target_role: ${rolesString}
+      category: ${categoriesString}
+      sub_category: "AI-Engineering"
+      core_testing_type: "AI-Performance"
+      tool_stack: "Generic"
+      tags: ["ai-engineering", "llm", "interview-prep"]
+      ---
+      
+      ## Overview
+      [2-sentence intro about the AI technical challenge]
+      
+      ### Interview Question:
+      ${safeTopic}
+      
+      ### Expert Answer:
+      [Technical explanation focusing on AI engineering]
+
+      ### Speaking Blueprint (3-Minute Verbal Response):
+      [Conversational response structured with Hook, Core Execution, and Punchline]
+    `;
+  }
 
   if (isAutomation) {
     return `
@@ -47,8 +82,8 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
       - If no specific tool or framework is mentioned, leave it as "Generic".
 
       ---
-      title: "${safeTopic}"
-      difficulty: "Advanced"
+title: "${safeTopic}"
+      difficulty: "${difficulty}" 
       target_role: ${rolesString}
       category: ${categoriesString}
       sub_category: "Automation"
@@ -118,8 +153,8 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
     - If no specific tool is explicitly mentioned, leave it as "Generic".
 
     ---
-    title: "${safeTopic}"
-    difficulty: "Advanced"
+title: "${safeTopic}"
+    difficulty: "${difficulty}" 
     target_role: ${rolesString}
     category: ${categoriesString}
     sub_category: "Strategy"
@@ -148,25 +183,31 @@ function getPromptByStrategy(topic: string, isAutomation: boolean, rolesString: 
 }
 
 async function generateInterviewQuestion(topic: string, keyNumber: number) {
-  let targetRoles: string[] = ["Manual_QA_Engineer"];
-  let coreCategories: string[] = ["Leadership"];
+  let targetRoles: string[] = ["Automation_QA_Engineer"];
+  let coreCategories: string[] = ["Technical"];
+  let difficulty = "Advanced"; // Mặc định
   let actualQuestion = topic;
 
-  if (topic.includes("-") && topic.includes("|")) {
+  /*   let targetRoles: string[] = ["Manual_QA_Engineer"];
+    let coreCategories: string[] = ["Leadership"];
+    let actualQuestion = topic;
+   */
+
+
+  if (topic.includes("-")) {
     try {
       const dashIndex = topic.indexOf("-");
-      const metadataPart = topic.substring(0, dashIndex).trim();
-      actualQuestion = topic.substring(dashIndex + 1).trim();
+      const metadataPart = topic.substring(0, dashIndex).trim(); // "Role | Category | Difficulty"
+      actualQuestion = topic.substring(dashIndex + 1).trim();   // "Question"
 
-      const pipeParts = metadataPart.split("|").map(p => p.trim());
-      if (pipeParts[0]) {
-        targetRoles = pipeParts[0].split(",").map(r => r.trim().replace(/\s+/g, "_")).filter(r => r.length > 0);
-      }
-      if (pipeParts[1]) {
-        coreCategories = pipeParts[1].split(",").map(c => c.trim().replace(/\s+/g, "_")).filter(c => c.length > 0);
-      }
+      const parts = metadataPart.split("|").map(p => p.trim());
+
+      if (parts[0]) targetRoles = parts[0].split(",").map(r => r.trim());
+      if (parts[1]) coreCategories = parts[1].split(",").map(c => c.trim());
+      if (parts[2]) difficulty = parts[2].trim(); // Bóc tách độ khó
+
     } catch (e) {
-      console.warn("⚠️ Lỗi bốc tách chuỗi đa thẻ, dùng cấu hình mặc định.");
+      console.warn("⚠️ Lỗi bốc tách chuỗi, dùng mặc định.");
     }
   }
 
@@ -179,20 +220,33 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
     .trim()
     .replace(/\s+/g, "-");
 
-  const outputDir = path.join(process.cwd(), "content", "posts");
+  // --- BẮT ĐẦU ĐOẠN SỬA ĐỔI (Phân tách theo Năm/Tháng) ---
+  const now = new Date();
+  const year = now.getFullYear().toString();
+  const month = String(now.getMonth() + 1).padStart(2, '0'); // Đảm bảo định dạng 01, 02...
+
+  // Tạo đường dẫn động: content/posts/YYYY/MM
+  const outputDir = path.join(process.cwd(), "content", "posts", year, month);
   const fileName = `${coreSlug}.md`;
   const outputPath = path.join(outputDir, fileName);
+  // --- KẾT THÚC ĐOẠN SỬA ĐỔI ---
+
+  /*  Nếu lỗi thì phục hồi đọan này và xoá đoạn trên
+const outputDir = path.join(process.cwd(), "content", "posts");
+const fileName = `${coreSlug}.md`;
+const outputPath = path.join(outputDir, fileName); */
 
   if (fs.existsSync(outputPath)) {
     console.log(`🛑 [BỎ QUA] File bài viết đã tồn tại: ${fileName}. Không tạo file mới, không thêm số.`);
     // Trả về true để hệ thống tự động kích hoạt bộ lọc xóa dòng này ra khỏi topics.txt
-    return true; 
+    return true;
   }
 
   // ============================================================================
   // Lấy API key và gọi Gemini (Giữ nguyên logic cũ nhưng bỏ đoạn kiểm tra file ở cuối)
   // ============================================================================
   const isAutomation = targetRoles.some(role => role.toLowerCase().includes("automation"));
+  const isAI = targetRoles.some(role => role.toLowerCase().includes("ai software engineer") || role.toLowerCase().includes("ai_software_engineer") || role.toLowerCase().includes("ai"));
   const rolesString = JSON.stringify(targetRoles);
   const categoriesString = JSON.stringify(coreCategories);
 
@@ -206,16 +260,17 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-  const prompt = getPromptByStrategy(actualQuestion, isAutomation, rolesString, categoriesString);
+  // Cập nhật dòng gọi hàm prompt
+  const prompt = getPromptByStrategy(actualQuestion, isAutomation, isAI, rolesString, categoriesString, difficulty);
 
   try {
     console.log(`🤖 Đang gửi câu hỏi lên Gemini: "${actualQuestion.slice(0, 60)}..."`);
     const result = await model.generateContent(prompt);
     const responseText = result.response.text();
-    
+
     const cleanMarkdown = responseText
-      .replace(/^```[a-zA-Z]*\n/, "") 
-      .replace(/\n```$/, "")           
+      .replace(/^```[a-zA-Z]*\n/, "")
+      .replace(/\n```$/, "")
       .trim();
 
     if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
