@@ -1,8 +1,3 @@
-QA_Lead | Technical | Intermediate - What strategies do you use to optimize a CI/CD pipeline for rapid feedback?
-Manual_QA_Engineer | Technical | Advanced - Design a testing strategy for a legacy application without existing documentation.
-Automation_QA_Engineer | Strategic | Intermediate - How do you decide which test cases are best suited for automated versus manual testing?
-AI_Software_Engineer | Technical | Advanced - What techniques do you use to mitigate hallucination in Large Language Model outputs?
-QA_Lead | Leadership | Junior - How do you foster a culture of quality within a small development team?
 Manual_QA_Engineer | Technical | Junior - What constitutes a well-written bug report in an agile environment?
 Automation_QA_Engineer | Technical | Intermediate - Explain the benefits of using fixtures in Playwright.
 AI_Software_Engineer | Leadership | Advanced - How do you communicate the risks of AI model bias to non-technical stakeholders?

@@ -1110,3 +1110,8 @@ QA_Lead | Leadership | Advanced - How do you align quality goals with fast-paced
 Manual_QA_Engineer | Strategic | Junior - What are the primary differences between black-box and white-box testing?
 Automation_QA_Engineer | Technical | Advanced - Describe how to implement parallel execution in a Cypress test suite.
 AI_Software_Engineer | Strategic | Intermediate - How do you determine the appropriate evaluation metrics for a fine-tuned model?
+QA_Lead | Technical | Intermediate - What strategies do you use to optimize a CI/CD pipeline for rapid feedback?
+Manual_QA_Engineer | Technical | Advanced - Design a testing strategy for a legacy application without existing documentation.
+Automation_QA_Engineer | Strategic | Intermediate - How do you decide which test cases are best suited for automated versus manual testing?
+AI_Software_Engineer | Technical | Advanced - What techniques do you use to mitigate hallucination in Large Language Model outputs?
+QA_Lead | Leadership | Junior - How do you foster a culture of quality within a small development team?
