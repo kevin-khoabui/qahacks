@@ -1102,3 +1102,5 @@ Automation_QA_Engineer | Technical - (Junior) How do you perform assertions for 
 Automation_QA_Engineer | Technical - (Junior) How do you configure the default timeout in the Playwright config?
 Automation_QA_Engineer | Technical - (Senior) How do you optimize memory usage when running thousands of test cases with Playwright?
 Automation_QA_Engineer | Technical - (Junior) How do you get the text of all elements in a list (Cypress)?
+Automation_QA_Engineer | Technical | Junior - How do you handle element selection when using Playwright locators for dynamic web content?
+Automation_QA_Engineer | Technical | Advanced - Describe your strategy for implementing parallel execution in Cypress to reduce total test suite duration.

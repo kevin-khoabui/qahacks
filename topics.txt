@@ -1,2 +1,0 @@
-Automation_QA_Engineer | Technical | Junior - How do you handle element selection when using Playwright locators for dynamic web content?
-Automation_QA_Engineer | Technical | Advanced - Describe your strategy for implementing parallel execution in Cypress to reduce total test suite duration.
