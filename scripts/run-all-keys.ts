@@ -18,10 +18,62 @@ const DELAY_MS = 3000;
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
+// ============================================================================
+// 🔥 HÀM CUỐN CHIẾU: TỰ ĐỘNG THỬ LẠI BẰNG KEY KHÁC NẾU FAIL
+// ============================================================================
+async function runTopicWithFallback(topic: string, startKeyIndex: number): Promise<{ success: boolean, nextKeyIndex: number }> {
+  let currentKeyIndex = startKeyIndex;
+
+  // Thử tối đa số lượng key hiện có (ví dụ 24 lần) cho 1 chủ đề
+  for (let attempt = 0; attempt < TARGET_COUNT; attempt++) {
+    console.log(`\n🚀 Đang nạp Key số ${currentKeyIndex}...`);
+
+    let exitCode: number | null = null;
+    await new Promise<void>((resolve) => {
+      const child = spawn(
+        "npx",
+        ["tsx", "scripts/generate.ts", String(currentKeyIndex), topic],
+        {
+          stdio: "inherit",
+          shell: false
+        }
+      );
+
+      child.on("close", (code) => {
+        exitCode = code;
+        resolve();
+      });
+    });
+
+    // Tính toán Key cho vòng lặp tiếp theo (nếu vượt quá TARGET_COUNT thì quay về 1)
+    let nextKeyIndex = currentKeyIndex + 1;
+    if (nextKeyIndex > TARGET_COUNT) {
+      nextKeyIndex = 1;
+    }
+
+    // Nếu tạo bài mới thành công (0) hoặc bài đã tồn tại (2)
+    if (exitCode === 0 || exitCode === 2) {
+      console.log(`✅ Thành công! Topic này đã chốt xong bằng Key ${currentKeyIndex}.`);
+      return { success: true, nextKeyIndex: nextKeyIndex }; // Trả về nextKeyIndex để topic sau dùng
+    }
+
+    // Nếu fail (ví dụ 503), tiếp tục vòng lặp để dùng key tiếp theo cho topic CŨ này
+    console.warn(`⚠️ Key ${currentKeyIndex} thất bại (có thể do 503 limit). Xoay vòng sang Key ${nextKeyIndex} để thử lại ngay...`);
+    currentKeyIndex = nextKeyIndex;
+    await sleep(2000); // Nghỉ 2 giây trước khi thử Key mới
+  }
+
+  // Nếu chạy hết 24 keys mà vẫn fail
+  return { success: false, nextKeyIndex: startKeyIndex };
+}
+
+// ============================================================================
+// HÀM ĐIỀU PHỐI CHÍNH
+// ============================================================================
 async function runAll() {
   console.log(`\n==================================================`);
-  console.log(`🔍 PHÁT HIỆN ${TARGET_COUNT}/24 API KEYS HỢP LỆ CHO BÀI LẺ.`);
-  console.log(`🚀 BẮT ĐẦU CHẠY MẺ TỔNG LỰC ${TARGET_COUNT} BÀI...`);
+  console.log(`🔍 PHÁT HIỆN ${TARGET_COUNT}/${TARGET_COUNT} API KEYS HỢP LỆ CHO BÀI LẺ.`);
+  console.log(`🚀 BẮT ĐẦU CHẠY MẺ TỔNG LỰC THEO CHIẾN THUẬT CUỐN CHIẾU...`);
   console.log(`==================================================\n`);
 
   if (TARGET_COUNT === 0) {
@@ -35,50 +87,41 @@ async function runAll() {
     return;
   }
 
-  // Tạo mảng lưu vết các dòng đã xử lý thành công để gọt bỏ cuối mẻ
+  // Lọc lấy danh sách chủ đề sạch
+  const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
+  const validTopics = lines.filter(line => line.length > 0);
+
+  if (validTopics.length === 0) {
+    console.log("🎉 Hết bài trong kho topics.txt để cấu hình lượt này.");
+    return;
+  }
+
+  // Lấy ra số lượng bài tương ứng với số key cho mẻ này
+  const topicsToProcess = validTopics.slice(0, TARGET_COUNT);
   const successfulTopics: string[] = [];
+  
+  // Biến lưu trữ Key hiện tại đang đứng ở đâu (Bắt đầu từ Key 1)
+  let currentKeyPointer = 1;
 
-  // Vòng lặp bắn đạn tịnh tiến: Key nào xử lý dòng nấy
-  for (let i = 1; i <= TARGET_COUNT; i++) {
-    // Đọc lại file liên tục ở mỗi vòng lặp để cập nhật kho bài viết mới nhất
-    const lines = fs.readFileSync(filePath, "utf-8").split(/\r?\n/).map(line => line.trim());
-    const validTopics = lines.filter(line => line.length > 0);
+  for (let i = 0; i < topicsToProcess.length; i++) {
+    const targetTopic = topicsToProcess[i];
+    console.log(`\n🔥 [Tiến độ bài viết: ${i + 1}/${topicsToProcess.length}]`);
+    console.log(`👉 Chủ đề: ${targetTopic.substring(0, 60)}...`);
 
-    if (validTopics.length === 0 || (i - 1) >= validTopics.length) {
-      console.log("🎉 Hết bài trong kho topics.txt để cấu hình lượt này.");
-      break;
-    }
+    // Gọi hàm cuốn chiếu
+    const result = await runTopicWithFallback(targetTopic, currentKeyPointer);
 
-    const targetTopic = validTopics[i - 1];
-    console.log(`\n🔥 [Tiến độ: ${i}/${TARGET_COUNT}] Khởi động lượt bằng Key số ${i}...`);
-
-    let exitCode: number | null = null;
-    await new Promise<void>((resolve) => {
-      // 🚀 GIẢI PHÁP THỰC CHIẾN BẤT TỬ TRÊN GITHUB ACTIONS:
-      // - Gọi trực tiếp lệnh "npx" dưới dạng một chương trình độc lập toàn cục của hệ thống (PATH)
-      // - Truyền "tsx" làm tham số nạp loader đầu tiên.
-      // - Khóa chặt "shell: false" để bảo vệ 100% các ký tự đặc biệt như "|", ",", "-" không bị Linux diễn giải thành câu lệnh điều hướng rác.
-      const child = spawn(
-        "npx", 
-        ["tsx", "scripts/generate.ts", String(i), targetTopic], 
-        { 
-          stdio: "inherit", 
-          shell: false 
-        }
-      );
-
-      child.on("close", (code) => {
-        exitCode = code;
-        resolve(); 
-      });
-    });
-
-    // Code 0: Thành công tạo mới | Code 2: Bị trùng lặp nhưng vẫn gọt dòng an toàn
-    if (exitCode === 0 || exitCode === 2) {
+    if (result.success) {
       successfulTopics.push(targetTopic);
+      currentKeyPointer = result.nextKeyIndex; // Cập nhật lại súng để bắn topic tiếp theo
+    } else {
+      console.error(`\n❌ CHÍNH THỨC SẬP: Chủ đề này đã thử cạn kiệt ${TARGET_COUNT} Keys nhưng đều báo lỗi.`);
+      console.error(`🛑 Tạm dừng toàn bộ mẻ chạy để bảo vệ hệ thống và chờ Google API phục hồi.`);
+      break; // Dừng luôn mẻ chạy vì nếu 24 key đều lỗi, chứng tỏ mạng hoặc API có vấn đề nghiêm trọng
     }
 
-    if (i < TARGET_COUNT && i < validTopics.length) {
+    // Nghỉ ngơi giữa các Topic để tránh nghẽn
+    if (i < topicsToProcess.length - 1) {
       await sleep(DELAY_MS);
     }
   }

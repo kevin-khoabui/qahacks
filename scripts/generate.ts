@@ -224,10 +224,9 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
   const fileName = `${coreSlug}.md`;
   const outputPath = path.join(outputDir, fileName);
 
-  if (fs.existsSync(outputPath)) {
-    console.log(`🛑 [BỎ QUA] File bài viết đã tồn tại: ${fileName}. Không tạo file mới, không thêm số.`);
-    // Trả về true để hệ thống tự động kích hoạt bộ lọc xóa dòng này ra khỏi topics.txt
-    return true;
+if (fs.existsSync(outputPath)) {
+    console.log(`🛑 [BỎ QUA] File bài viết đã tồn tại: ${fileName}. Không tạo file mới.`);
+    process.exit(2); // Trả về code 2 để run-all-keys.ts biết cần gọt bỏ dòng này
   }
 
   // ============================================================================
@@ -238,7 +237,10 @@ async function generateInterviewQuestion(topic: string, keyNumber: number) {
   const rolesString = JSON.stringify(targetRoles);
   const categoriesString = JSON.stringify(coreCategories);
 
-  console.log(`🏷️  [Nhận Diện Động] Nhóm: [${isAutomation ? "AUTOMATION" : "MANUAL"}] | Roles: ${rolesString} | Categories: ${categoriesString}`);
+  // console.log(`🏷️  [Nhận Diện Động] Nhóm: [${isAutomation ? "AUTOMATION" : "MANUAL"}] | Roles: ${rolesString} | Categories: ${categoriesString}`);
+  // Cập nhật dòng console.log hiện tại của bạn thành dòng này:
+  console.log(`🏷️  [Nhận Diện Động] Nhóm: [${isAI ? "AI" : (isAutomation ? "AUTOMATION" : "MANUAL")}] | Roles: ${rolesString} | Categories: ${categoriesString} | Difficulty: ${difficulty}`);
+
 
   const apiKey = getTargetApiKey(keyNumber);
   if (!apiKey) {
