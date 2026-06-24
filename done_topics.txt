@@ -1170,3 +1170,27 @@ QA_Lead | Strategic | Intermediate - How do you ensure compliance requirements a
 Manual_QA_Engineer | Leadership | Advanced - How do you handle high-level stakeholder expectations during a system failure?
 Automation_QA_Engineer | Technical | Junior - What is the difference between explicit and implicit waits?
 AI_Software_Engineer | Technical | Intermediate - How do you handle context window limitations in LLM applications?
+QA_Lead | Technical | Junior - How do you manage tool licensing and budget for a team?
+Manual_QA_Engineer | Strategic | Junior - When is exploratory testing most effective in the SDLC?
+Automation_QA_Engineer | Leadership | Junior - How do you train team members on new automation tools?
+AI_Software_Engineer | Strategic | Junior - What are the ethical considerations when deploying AI agents?
+QA_Lead | Strategic | Advanced - How do you align QA strategy with organizational business objectives?
+Manual_QA_Engineer | Technical | Advanced - How do you troubleshoot complex issues that are hard to reproduce?
+Automation_QA_Engineer | Technical | Advanced - Describe how you handle file uploads in Playwright.
+AI_Software_Engineer | Technical | Advanced - How do you optimize embedding models for specific domain retrieval?
+QA_Lead | Leadership | Intermediate - How do you lead a post-mortem session after a major production issue?
+Manual_QA_Engineer | Strategic | Intermediate - How do you manage test documentation in a fast-paced environment?
+Automation_QA_Engineer | Strategic | Junior - What metrics do you track to measure the success of an automation project?
+AI_Software_Engineer | Leadership | Junior - How do you organize prompt libraries for multi-user collaboration?
+QA_Lead | Technical | Advanced - What is your approach to handling massive scale test automation?
+Manual_QA_Engineer | Technical | Junior - How do you verify database changes after an application action?
+Automation_QA_Engineer | Technical | Intermediate - How do you share state between tests in Cypress?
+AI_Software_Engineer | Strategic | Intermediate - What is the process for monitoring production AI models for performance degradation?
+QA_Lead | Leadership | Advanced - How do you facilitate cross-departmental collaboration for quality assurance?
+Manual_QA_Engineer | Strategic | Advanced - How do you perform risk-based testing analysis?
+Automation_QA_Engineer | Leadership | Advanced - How do you handle team pushback against new automation standards?
+AI_Software_Engineer | Technical | Junior - How do you handle sensitive data in training prompts?
+QA_Lead | Technical | Intermediate - How do you integrate security scans into the CI pipeline?
+Manual_QA_Engineer | Technical | Intermediate - How do you document requirements discrepancies during testing?
+Automation_QA_Engineer | Technical | Junior - What is the advantage of using selectors like role or text in Playwright?
+AI_Software_Engineer | Strategic | Advanced - How do you define a strategy for evaluating AI agent autonomous behavior?
