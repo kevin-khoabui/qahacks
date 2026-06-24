@@ -1,5 +1,3 @@
-Automation_QA_Engineer | Technical | Advanced - Describe how to implement parallel execution in a Cypress test suite.
-AI_Software_Engineer | Strategic | Intermediate - How do you determine the appropriate evaluation metrics for a fine-tuned model?
 QA_Lead | Technical | Intermediate - What strategies do you use to optimize a CI/CD pipeline for rapid feedback?
 Manual_QA_Engineer | Technical | Advanced - Design a testing strategy for a legacy application without existing documentation.
 Automation_QA_Engineer | Strategic | Intermediate - How do you decide which test cases are best suited for automated versus manual testing?
