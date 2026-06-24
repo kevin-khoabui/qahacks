@@ -1136,3 +1136,26 @@ Automation_QA_Engineer | Strategic | Junior - Why is it important to keep automa
 AI_Software_Engineer | Technical | Intermediate - How do you evaluate the retrieval quality in a RAG application?
 QA_Lead | Strategic | Intermediate - How do you report quality metrics to upper management effectively?
 Manual_QA_Engineer | Leadership | Advanced - Describe your approach to building a diverse and effective testing team.
+Automation_QA_Engineer | Technical | Advanced - How do you deal with dynamic elements in modern web applications using Playwright?
+AI_Software_Engineer | Technical | Advanced - Describe the process of implementing Guardrails for LLM interactions.
+QA_Lead | Technical | Junior - What are the key performance indicators for a successful QA process?
+Manual_QA_Engineer | Technical | Junior - How do you conduct an effective smoke test?
+Automation_QA_Engineer | Leadership | Intermediate - How do you convince stakeholders to invest in test automation?
+AI_Software_Engineer | Strategic | Junior - What are the risks of prompt injection and how can they be prevented?
+QA_Lead | Strategic | Advanced - How do you integrate shift-left testing into an existing software development lifecycle?
+Manual_QA_Engineer | Strategic | Intermediate - How do you plan for regression testing in a continuous delivery environment?
+Automation_QA_Engineer | Technical | Intermediate - What is the role of continuous testing in a CI/CD pipeline?
+AI_Software_Engineer | Technical | Junior - What is a vector database and why is it used for AI applications?
+QA_Lead | Leadership | Advanced - How do you manage burnout in a high-pressure QA department?
+Manual_QA_Engineer | Technical | Advanced - Describe how you approach security testing for web forms.
+Automation_QA_Engineer | Strategic | Advanced - How do you maintain an automated test suite over several years?
+AI_Software_Engineer | Leadership | Intermediate - How do you document technical debt in AI model development?
+QA_Lead | Technical | Intermediate - How do you ensure consistency in testing environments across different teams?
+Manual_QA_Engineer | Leadership | Junior - How do you provide constructive feedback on code reviews?
+Automation_QA_Engineer | Technical | Junior - How do you handle cookies and local storage in Cypress tests?
+AI_Software_Engineer | Technical | Advanced - Explain how to perform systematic evaluation of LLM response relevance.
+QA_Lead | Strategic | Junior - What strategies do you use for efficient bug triage?
+Manual_QA_Engineer | Technical | Intermediate - How do you test mobile responsive design across different browsers?
+Automation_QA_Engineer | Leadership | Advanced - How do you lead a team migration from manual to automated testing?
+AI_Software_Engineer | Strategic | Advanced - How do you assess the ROI of implementing an AI-driven solution?
+QA_Lead | Leadership | Junior - How do you manage relationships with external QA vendors?
