@@ -27,7 +27,7 @@ export default function HomePage() {
       setFilterCategory(params.get("category"));
       setFilterTool(params.get("tool"));
       setFilterType(params.get("type"));
-      setCurrentPage(1); // 🚀 TỐI ƯU: Đảm bảo reset về trang 1 khi đổi bộ lọc
+      setCurrentPage(1);
     }
   }, []);
 
@@ -130,7 +130,7 @@ export default function HomePage() {
     // Tìm phần tử tiêu đề của danh sách bài viết
     const element = document.getElementById("main-hub");
     if (element) {
-      const offset = 90; // Khoảng cách bù trừ độ dày của thanh Navbar cố định
+      const offset = 90;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -161,7 +161,6 @@ export default function HomePage() {
 
       <section id="main-hub" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-20">
 
-        {/* Header Thanh trạng thái bộ lọc */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-900 pb-6 mb-8 gap-4">
           <div>
             <h1 className="text-xl font-black text-white flex items-center gap-2 tracking-tight">

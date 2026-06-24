@@ -108,6 +108,7 @@ export default function Navbar() {
                 <Link href="/tools/None" className="block px-2.5 py-1.5 text-xs rounded-lg text-slate-300 hover:bg-slate-800 transition-colors">Generic (No Tool)</Link>
                 <div className="h-px bg-slate-800 my-1"></div>
                 <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-2 py-1">Difficulty</div>
+<Link href="/difficulties/Junior" className="block px-2.5 py-1.5 text-xs rounded-lg text-emerald-400 hover:bg-slate-800 transition-colors">Junior</Link>
                 <Link href="/difficulties/Intermediate" className="block px-2.5 py-1.5 text-xs rounded-lg text-yellow-500 hover:bg-slate-800 transition-colors">Intermediate</Link>
                 <Link href="/difficulties/Advanced" className="block px-2.5 py-1.5 text-xs rounded-lg text-rose-500 hover:bg-slate-800 transition-colors">Advanced / Expert</Link>
               </div>
@@ -206,7 +207,9 @@ export default function Navbar() {
               <div className="grid grid-cols-2 gap-2 pl-2">
                 <Link href="/tools/Playwright" onClick={closeMenu} className="text-slate-400 text-xs py-1">Playwright</Link>
                 <Link href="/tools/Cypress" onClick={closeMenu} className="text-slate-400 text-xs py-1">Cypress</Link>
+                
                 <Link href="/tools/None" onClick={closeMenu} className="text-slate-400 text-xs py-1">Generic (No Tool)</Link>
+                <Link href="/difficulties/Junior" onClick={closeMenu} className="text-emerald-400 text-xs py-1">Junior</Link>
                 <Link href="/difficulties/Intermediate" onClick={closeMenu} className="text-yellow-500 text-xs py-1">Intermediate</Link>
                 <Link href="/difficulties/Advanced" onClick={closeMenu} className="text-rose-500 text-xs py-1">Advanced / Expert</Link>
               </div>
