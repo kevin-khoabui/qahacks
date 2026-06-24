@@ -1,11 +1,3 @@
-AI_Software_Engineer | Strategic | Advanced - Explain the trade-offs between RAG and full fine-tuning for specific domain tasks.
-QA_Lead | Technical | Advanced - How do you approach the selection and implementation of a test automation toolchain?
-Manual_QA_Engineer | Technical | Intermediate - How do you handle testing APIs that require complex authentication flows?
-Automation_QA_Engineer | Technical | Junior - How do you manage page objects in a Cypress project?
-AI_Software_Engineer | Leadership | Junior - How do you manage version control for datasets used in model training?
-QA_Lead | Leadership | Intermediate - How do you resolve conflicts between developers and testers regarding bug prioritization?
-Manual_QA_Engineer | Strategic | Junior - Explain the purpose of a test plan document.
-Automation_QA_Engineer | Strategic | Junior - Why is it important to keep automated tests decoupled from the application UI?
 AI_Software_Engineer | Technical | Intermediate - How do you evaluate the retrieval quality in a RAG application?
 QA_Lead | Strategic | Intermediate - How do you report quality metrics to upper management effectively?
 Manual_QA_Engineer | Leadership | Advanced - Describe your approach to building a diverse and effective testing team.
