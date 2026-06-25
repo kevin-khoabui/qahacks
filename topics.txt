@@ -1,5 +1,3 @@
-AI_Software_Engineer | Technical | Junior - What are embeddings and how do they represent semantic meaning?
-QA_Lead | Strategic | Junior - How do you manage shifting requirements during an active sprint?
 Manual_QA_Engineer | Strategic | Advanced - How do you define a recovery strategy for failed production deployments?
 Automation_QA_Engineer | Strategic | Advanced - How do you structure a scalable test framework for multiple microservices?
 AI_Software_Engineer | Strategic | Advanced - What are the security implications of exposing internal model weights?
