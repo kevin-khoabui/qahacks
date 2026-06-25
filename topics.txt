@@ -1,26 +1,3 @@
-Automation_QA_Engineer | Technical | Advanced - How do you manage cross-browser testing for headless execution?
-AI_Software_Engineer | Technical | Advanced - Explain the process of fine-tuning a model using PEFT methods.
-QA_Lead | Technical | Junior - What metrics do you use to evaluate team productivity?
-Manual_QA_Engineer | Technical | Junior - How do you write clear, concise bug reproduction steps?
-Automation_QA_Engineer | Leadership | Intermediate - How do you foster technical growth within an automation team?
-AI_Software_Engineer | Strategic | Junior - What are the legal risks associated with training on public datasets?
-QA_Lead | Strategic | Advanced - How do you architect a quality strategy for global product rollouts?
-Manual_QA_Engineer | Strategic | Intermediate - How do you prioritize non-functional testing tasks?
-Automation_QA_Engineer | Technical | Intermediate - What is the role of retry logic in robust automation?
-AI_Software_Engineer | Technical | Junior - What is the difference between supervised and unsupervised learning?
-QA_Lead | Leadership | Advanced - How do you handle internal resistance to automation initiatives?
-Manual_QA_Engineer | Technical | Advanced - How do you execute stress testing on a high-concurrency platform?
-Automation_QA_Engineer | Strategic | Advanced - How do you manage environment configuration across dev, staging, and prod?
-AI_Software_Engineer | Leadership | Intermediate - How do you lead technical research in emerging AI technologies?
-QA_Lead | Technical | Intermediate - How do you ensure test data privacy in non-production environments?
-Manual_QA_Engineer | Leadership | Junior - How do you organize knowledge sharing sessions for the team?
-Automation_QA_Engineer | Technical | Junior - How do you handle dynamic iframes in automation?
-AI_Software_Engineer | Technical | Advanced - How do you evaluate the hallucination rate of a RAG application?
-QA_Lead | Strategic | Junior - How do you define exit criteria for a release?
-Manual_QA_Engineer | Technical | Intermediate - How do you test accessibility standards like WCAG?
-Automation_QA_Engineer | Leadership | Advanced - How do you manage technical debt in an automation framework?
-AI_Software_Engineer | Strategic | Advanced - How do you build a strategy for ethical AI deployment?
-QA_Lead | Leadership | Junior - How do you build trust with stakeholders during a crisis?
 Manual_QA_Engineer | Strategic | Advanced - How do you conduct a gap analysis of the current testing process?
 Automation_QA_Engineer | Technical | Advanced - How do you test WebSocket connections?
 AI_Software_Engineer | Technical | Junior - What is the purpose of a vector store in AI?
@@ -811,7 +788,6 @@ QA_Lead | Leadership | Advanced - How do you handle internal resistance to new q
 Manual_QA_Engineer | Technical | Advanced - How do you execute stress testing on high-concurrency systems?
 Automation_QA_Engineer | Strategic | Advanced - How do you manage configuration consistency across dev, stage, and prod?
 AI_Software_Engineer | Leadership | Intermediate - How do you lead technical research in emerging AI fields?
-QA_Lead | Technical | Intermediate - How do you ensure test data privacy in non-production environments?
 Manual_QA_Engineer | Leadership | Junior - How do you organize effective knowledge-sharing for your testing team?
 Automation_QA_Engineer | Technical | Junior - How do you handle dynamic iframes in your automated tests?
 AI_Software_Engineer | Technical | Advanced - How do you measure the hallucination rate of a RAG-based application?
