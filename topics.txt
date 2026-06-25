@@ -1,10 +1,3 @@
-AI_Software_Engineer | Leadership | Junior - How do you document dataset dependencies for model reproducibility?
-QA_Lead | Leadership | Intermediate - How do you resolve disagreements in team architectural decisions?
-Manual_QA_Engineer | Strategic | Junior - What is the role of traceability matrices in testing?
-Automation_QA_Engineer | Strategic | Junior - How do you decide when to remove an obsolete automated test?
-AI_Software_Engineer | Technical | Intermediate - How do you implement a fallback strategy for failed retrieval?
-QA_Lead | Strategic | Intermediate - How do you optimize testing resources across multiple product teams?
-Manual_QA_Engineer | Leadership | Advanced - How do you build a roadmap for a QA department transformation?
 Automation_QA_Engineer | Technical | Advanced - How do you manage cross-browser testing for headless execution?
 AI_Software_Engineer | Technical | Advanced - Explain the process of fine-tuning a model using PEFT methods.
 QA_Lead | Technical | Junior - What metrics do you use to evaluate team productivity?
@@ -799,7 +792,6 @@ QA_Lead | Technical | Advanced - How do you design an automated performance test
 Manual_QA_Engineer | Technical | Intermediate - How do you validate API responses for expected data schema compliance?
 Automation_QA_Engineer | Technical | Junior - How do you effectively use locators in your automation scripts?
 AI_Software_Engineer | Leadership | Junior - How do you document dataset lineage for model training?
-QA_Lead | Leadership | Intermediate - How do you resolve disagreements in team architectural decisions?
 Manual_QA_Engineer | Strategic | Junior - Why is a traceability matrix important for testing consistency?
 Automation_QA_Engineer | Strategic | Junior - How do you decide when to refactor or remove an outdated test case?
 AI_Software_Engineer | Technical | Intermediate - How do you implement fallback logic for failed model retrievals?
