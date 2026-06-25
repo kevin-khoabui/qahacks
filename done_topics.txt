@@ -1218,3 +1218,6 @@ QA_Lead | Leadership | Junior - How do you onboard new team members to a complex
 Manual_QA_Engineer | Technical | Junior - What is the difference between a bug and a feature request?
 Automation_QA_Engineer | Technical | Intermediate - Explain the difference between fixture teardown and setup in Playwright.
 AI_Software_Engineer | Leadership | Advanced - How do you manage the lifecycle of a large-scale AI project?
+QA_Lead | Strategic | Advanced - How do you ensure high availability in testing environments?
+Manual_QA_Engineer | Leadership | Intermediate - How do you conduct an effective peer review of test cases?
+Automation_QA_Engineer | Technical | Advanced - How do you simulate network latency in your automated test environment?
