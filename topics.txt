@@ -1,14 +1,3 @@
-Manual_QA_Engineer | Strategic | Advanced - How do you conduct a gap analysis of the current testing process?
-Automation_QA_Engineer | Technical | Advanced - How do you test WebSocket connections?
-AI_Software_Engineer | Technical | Junior - What is the purpose of a vector store in AI?
-QA_Lead | Technical | Advanced - How do you design an automated performance testing framework?
-Manual_QA_Engineer | Technical | Junior - How do you report a blocked issue in a project?
-Automation_QA_Engineer | Strategic | Intermediate - How do you estimate effort for test automation development?
-AI_Software_Engineer | Leadership | Advanced - How do you align model development with business requirements?
-QA_Lead | Strategic | Intermediate - How do you report quality health to stakeholders?
-Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-intensity cycles?
-Automation_QA_Engineer | Technical | Junior - What is the difference between a test suite and a test case?
-AI_Software_Engineer | Technical | Intermediate - How do you optimize prompt tokens for costs?
 QA_Lead | Technical | Junior - How do you manage vendor relationships for testing tools?
 Manual_QA_Engineer | Strategic | Junior - When is static testing used in the development cycle?
 Automation_QA_Engineer | Leadership | Junior - How do you mentor manual testers moving into automation?
@@ -607,7 +596,6 @@ Automation_QA_Engineer | Strategic | Intermediate - How do you estimate resource
 AI_Software_Engineer | Leadership | Advanced - How do you bridge the gap between model development and product goals?
 QA_Lead | Strategic | Intermediate - How do you effectively report testing health to leadership?
 Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-pressure cycles?
-Automation_QA_Engineer | Technical | Junior - What is the difference between a test suite and a test case?
 AI_Software_Engineer | Technical | Intermediate - How do you optimize inference costs while maintaining high response quality?
 QA_Lead | Technical | Junior - How do you track tool and infrastructure costs for your QA team?
 Manual_QA_Engineer | Strategic | Junior - When is static testing considered most valuable in the SDLC?
@@ -799,12 +787,9 @@ QA_Lead | Leadership | Junior - How do you build trust with stakeholders during 
 Manual_QA_Engineer | Strategic | Advanced - How do you perform a gap analysis of your current QA process?
 Automation_QA_Engineer | Technical | Advanced - How do you test real-time WebSocket connections?
 AI_Software_Engineer | Technical | Junior - What is the purpose of context in AI prompt design?
-QA_Lead | Technical | Advanced - How do you design an automated performance testing framework?
 Manual_QA_Engineer | Technical | Junior - What is the procedure for reporting a blocked issue?
-Automation_QA_Engineer | Strategic | Intermediate - How do you estimate effort for test automation development?
 AI_Software_Engineer | Leadership | Advanced - How do you align model development with business goals?
 QA_Lead | Strategic | Intermediate - How do you track quality health for management reporting?
-Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-intensity cycles?
 Automation_QA_Engineer | Technical | Junior - What is the distinction between a test suite and a test case?
 AI_Software_Engineer | Technical | Intermediate - How do you optimize inference costs in production AI setups?
 QA_Lead | Technical | Junior - How do you manage vendor relationships for testing tools?
@@ -905,7 +890,6 @@ Automation_QA_Engineer | Strategic | Intermediate - How do you estimate resource
 AI_Software_Engineer | Leadership | Advanced - How do you bridge the gap between AI development and product goals?
 QA_Lead | Strategic | Intermediate - How do you effectively report testing health to leadership?
 Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-pressure release cycles?
-Automation_QA_Engineer | Technical | Junior - What is the difference between a test suite and a test case?
 AI_Software_Engineer | Technical | Intermediate - How do you optimize inference costs while maintaining high quality?
 QA_Lead | Technical | Junior - How do you track tool and infrastructure costs for your team?
 Manual_QA_Engineer | Strategic | Junior - When is static testing considered most valuable in the SDLC?
@@ -1105,7 +1089,6 @@ Automation_QA_Engineer | Strategic | Intermediate - How do you estimate resource
 AI_Software_Engineer | Leadership | Advanced - How do you bridge the gap between AI development and product goals?
 QA_Lead | Strategic | Intermediate - How do you effectively report testing health to leadership?
 Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-pressure release cycles?
-Automation_QA_Engineer | Technical | Junior - What is the difference between a test suite and a test case?
 AI_Software_Engineer | Technical | Intermediate - How do you optimize inference costs while maintaining high quality?
 QA_Lead | Technical | Junior - How do you track tool and infrastructure costs for your team?
 Manual_QA_Engineer | Strategic | Junior - When is static testing considered most valuable in the SDLC?
@@ -1205,7 +1188,6 @@ Automation_QA_Engineer | Strategic | Intermediate - How do you estimate resource
 AI_Software_Engineer | Leadership | Advanced - How do you bridge the gap between AI development and product goals?
 QA_Lead | Strategic | Intermediate - How do you effectively report testing health to leadership?
 Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-pressure release cycles?
-Automation_QA_Engineer | Technical | Junior - What is the difference between a test suite and a test case?
 AI_Software_Engineer | Technical | Intermediate - How do you optimize inference costs while maintaining high quality?
 QA_Lead | Technical | Junior - How do you track tool and infrastructure costs for your team?
 Manual_QA_Engineer | Strategic | Junior - When is static testing considered most valuable in the SDLC?

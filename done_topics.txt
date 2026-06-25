@@ -1259,3 +1259,14 @@ Manual_QA_Engineer | Technical | Intermediate - How do you test accessibility st
 Automation_QA_Engineer | Leadership | Advanced - How do you manage technical debt in an automation framework?
 AI_Software_Engineer | Strategic | Advanced - How do you build a strategy for ethical AI deployment?
 QA_Lead | Leadership | Junior - How do you build trust with stakeholders during a crisis?
+Manual_QA_Engineer | Strategic | Advanced - How do you conduct a gap analysis of the current testing process?
+Automation_QA_Engineer | Technical | Advanced - How do you test WebSocket connections?
+AI_Software_Engineer | Technical | Junior - What is the purpose of a vector store in AI?
+QA_Lead | Technical | Advanced - How do you design an automated performance testing framework?
+Manual_QA_Engineer | Technical | Junior - How do you report a blocked issue in a project?
+Automation_QA_Engineer | Strategic | Intermediate - How do you estimate effort for test automation development?
+AI_Software_Engineer | Leadership | Advanced - How do you align model development with business requirements?
+QA_Lead | Strategic | Intermediate - How do you report quality health to stakeholders?
+Manual_QA_Engineer | Leadership | Advanced - How do you manage team morale during high-intensity cycles?
+Automation_QA_Engineer | Technical | Junior - What is the difference between a test suite and a test case?
+AI_Software_Engineer | Technical | Intermediate - How do you optimize prompt tokens for costs?
