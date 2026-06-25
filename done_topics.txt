@@ -1223,3 +1223,9 @@ Manual_QA_Engineer | Leadership | Intermediate - How do you conduct an effective
 Automation_QA_Engineer | Technical | Advanced - How do you simulate network latency in your automated test environment?
 AI_Software_Engineer | Technical | Junior - What are embeddings and how do they represent semantic meaning?
 QA_Lead | Strategic | Junior - How do you manage shifting requirements during an active sprint?
+Manual_QA_Engineer | Strategic | Advanced - How do you define a recovery strategy for failed production deployments?
+Automation_QA_Engineer | Strategic | Advanced - How do you structure a scalable test framework for multiple microservices?
+AI_Software_Engineer | Strategic | Advanced - What are the security implications of exposing internal model weights?
+QA_Lead | Technical | Advanced - How do you benchmark automated testing performance over time?
+Manual_QA_Engineer | Technical | Intermediate - How do you validate API responses for expected schema compliance?
+Automation_QA_Engineer | Technical | Junior - How do you use locators effectively in automated scripts?

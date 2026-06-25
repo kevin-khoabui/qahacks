@@ -1,9 +1,3 @@
-Manual_QA_Engineer | Strategic | Advanced - How do you define a recovery strategy for failed production deployments?
-Automation_QA_Engineer | Strategic | Advanced - How do you structure a scalable test framework for multiple microservices?
-AI_Software_Engineer | Strategic | Advanced - What are the security implications of exposing internal model weights?
-QA_Lead | Technical | Advanced - How do you benchmark automated testing performance over time?
-Manual_QA_Engineer | Technical | Intermediate - How do you validate API responses for expected schema compliance?
-Automation_QA_Engineer | Technical | Junior - How do you use locators effectively in automated scripts?
 AI_Software_Engineer | Leadership | Junior - How do you document dataset dependencies for model reproducibility?
 QA_Lead | Leadership | Intermediate - How do you resolve disagreements in team architectural decisions?
 Manual_QA_Engineer | Strategic | Junior - What is the role of traceability matrices in testing?
