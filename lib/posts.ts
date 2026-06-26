@@ -1,5 +1,5 @@
 // lib/posts.ts
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 export interface PostData {
   excerpt?: string;
@@ -16,25 +16,30 @@ export interface PostData {
   date?: string;
 }
 
-function getDB(): D1Database {
-  return (getRequestContext().env as any).DB;
+async function getDB(): Promise<any> {
+  const { env } = await getCloudflareContext({ async: true });
+  const db = (env as any).DB as any | undefined;
+
+  if (!db) {
+    throw new Error("D1 binding DB is not available.");
+  }
+
+  return db;
 }
 
-/**
- * Hàm parseJSON an toàn cho dữ liệu đã chuẩn hóa trong DB
- * Dữ liệu hiện tại ở dạng: ["Value_With_Underscore"]
- */
-const parseJSON = (val: string): string[] => {
+const parseJSON = (val: string | null | undefined): string[] => {
   try {
-    return JSON.parse(val || '[]');
+    return JSON.parse(val || "[]");
   } catch {
-    return [val].filter(Boolean);
+    return [val || ""].filter(Boolean);
   }
 };
 
 export async function getPostData(slug: string): Promise<PostData | null> {
-  const db = getDB();
-  const { results } = await db.prepare("SELECT * FROM posts WHERE slug = ?")
+  const db = await getDB();
+
+  const { results } = await db
+    .prepare("SELECT * FROM posts WHERE slug = ?")
     .bind(slug)
     .all();
 
@@ -46,15 +51,30 @@ export async function getPostData(slug: string): Promise<PostData | null> {
     ...post,
     target_role: parseJSON(post.target_role),
     category: parseJSON(post.category),
-    tags: parseJSON(post.tags || '[]')
+    tags: parseJSON(post.tags || "[]"),
   };
 }
 
 export async function getAllPosts() {
-  const db = getDB();
-  const { results } = await db.prepare(
-    "SELECT slug, title, difficulty, target_role, category, sub_category, tool_stack, question_type, date FROM posts"
-  ).all();
+  const db = await getDB();
+
+  const { results } = await db
+    .prepare(
+      `
+      SELECT 
+        slug, 
+        title, 
+        difficulty, 
+        target_role, 
+        category, 
+        sub_category, 
+        tool_stack, 
+        question_type, 
+        date 
+      FROM posts
+      `
+    )
+    .all();
 
   return results.map((post: any) => ({
     ...post,
@@ -63,12 +83,23 @@ export async function getAllPosts() {
   }));
 }
 
-export async function getRelatedPosts(currentSlug: string, currentCategory: string, limit: number = 3) {
-  const db = getDB();
-  // Tìm kiếm theo Category đã chuẩn hóa
-  const { results } = await db.prepare(
-    "SELECT slug, title, difficulty, tool_stack, category FROM posts WHERE slug != ? AND category LIKE ? LIMIT ?"
-  )
+export async function getRelatedPosts(
+  currentSlug: string,
+  currentCategory: string,
+  limit: number = 3
+) {
+  const db = await getDB();
+
+  const { results } = await db
+    .prepare(
+      `
+      SELECT slug, title, difficulty, tool_stack, category 
+      FROM posts 
+      WHERE slug != ? 
+      AND category LIKE ? 
+      LIMIT ?
+      `
+    )
     .bind(currentSlug, `%${currentCategory}%`, limit)
     .all();
 
@@ -79,26 +110,39 @@ export async function getRelatedPosts(currentSlug: string, currentCategory: stri
 }
 
 export async function getNavbarData() {
-  const db = getDB();
-  const { results } = await db.prepare(
-    "SELECT DISTINCT category, target_role, tool_stack FROM posts"
-  ).all();
+  const db = await getDB();
 
-  // 1. Categories: Lấy danh sách duy nhất từ mảng JSON
-  const categories = Array.from(new Set(results.flatMap((r: any) => parseJSON(r.category))))
-    .filter(c => c && c !== "None") as string[];
-    
-  // 2. Roles: Chỉ lấy các role đã định nghĩa để đảm bảo Route luôn tồn tại
-  const ALLOWED_ROLES = ["Automation_QA_Engineer", "Manual_QA_Engineer", "QA_Leader", "Software_Engineer"];
-  const roles = Array.from(new Set(results.flatMap((r: any) => parseJSON(r.target_role))))
-    .filter(r => r && ALLOWED_ROLES.includes(r)) as string[];
-    
-  // 3. Tools: Chuẩn hóa tên công cụ
+  const { results } = await db
+    .prepare("SELECT DISTINCT category, target_role, tool_stack FROM posts")
+    .all();
+
+  const categories = Array.from(
+    new Set(results.flatMap((r: any) => parseJSON(r.category)))
+  ).filter((category) => category && category !== "None") as string[];
+
+  const ALLOWED_ROLES = [
+    "Automation_QA_Engineer",
+    "Manual_QA_Engineer",
+    "QA_Leader",
+    "Software_Engineer",
+  ];
+
+  const roles = Array.from(
+    new Set(results.flatMap((r: any) => parseJSON(r.target_role)))
+  ).filter(
+    (role): role is string => typeof role === "string" && ALLOWED_ROLES.includes(role)
+  );
+
   const ALLOWED_TOOLS = ["Cypress", "Playwright", "Postman", "DevTools"];
   const rawTools = results.map((r: any) => r.tool_stack);
-  const tools = Array.from(new Set(rawTools.map((t: string) => 
-    ALLOWED_TOOLS.includes(t) ? t : "Generic"
-  ))).filter(t => t !== null) as string[];
+
+  const tools = Array.from(
+    new Set(
+      rawTools.map((tool: string) =>
+        ALLOWED_TOOLS.includes(tool) ? tool : "Generic"
+      )
+    )
+  ).filter((tool) => tool !== null) as string[];
 
   return { categories, roles, tools };
 }

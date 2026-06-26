@@ -2,9 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "qahacks",
   "compatibility_date": "2026-06-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": ".open-next/worker.js",
   "assets": {
-    "directory": "./out",
-    "not_found_handling": "single-page-application"
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
   },
   "d1_databases": [
     {
@@ -13,7 +15,6 @@
       "database_id": "9fbb09e3-fe56-42a9-80a3-398debec1c6e"
     }
   ],
-  
   "observability": {
     "enabled": true
   }

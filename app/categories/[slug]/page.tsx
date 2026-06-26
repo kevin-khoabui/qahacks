@@ -1,9 +1,9 @@
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import CategoryPaginationClient from "../../../components/CategoryPaginationClient";
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug); 
-  const db = (getRequestContext().env as any).DB;
+  const db = (getCloudflareContext().env as any).DB;
 
   const { results } = await db.prepare(
     "SELECT * FROM posts WHERE LOWER(category) LIKE ?"

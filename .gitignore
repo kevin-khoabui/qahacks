@@ -44,3 +44,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+topics.json
+
+# Local env
+.env.local
+
+# Generated automation files
+topics.json
+generated-post.json
+gemini-raw-output.txt
+tmp-import-generated-post.sql
+
+# Cloudflare/OpenNext local state
+.wrangler/
+.open-next/

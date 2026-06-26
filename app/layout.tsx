@@ -7,9 +7,10 @@ import { getAllPosts, getNavbarData } from "@/lib/posts";
 import CommandPalette from "@/components/CommandPalette";
 import Navbar from "@/components/Navbar"; 
 import { GoogleAnalytics } from "@next/third-parties/google";
+export const dynamic = "force-dynamic";
 
 // BẮT BUỘC: Chạy trên Cloudflare Edge
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 const inter = Inter({ subsets: ["latin"] });
 
