@@ -33,7 +33,7 @@ export default function HeroBanner() {
         {/* 🚀 BANNER CTA BÁN PDF INTERVIEW PACK */}
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a 
-            href={SITE_CONFIG.links.gumroadProduct}
+            href={SITE_CONFIG.links.gumroadProduct50}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2 rounded-xl text-xs font-black text-slate-950 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 transition-all shadow-lg shadow-amber-500/10 cursor-pointer transform hover:-translate-y-0.5"

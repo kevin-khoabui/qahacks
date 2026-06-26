@@ -1,9 +1,12 @@
 name: Hourly Generate QAHacks Post
 
 on:
-  schedule:
-    - cron: "0 * * * *" # chạy mỗi tiếng
   workflow_dispatch:
+  # Tạm ngưng chạy tự động mỗi tiếng.
+  # Tuần sau muốn bật lại thì mở phần schedule bên dưới:
+  #
+  # schedule:
+  #   - cron: "0 * * * *"
 
 permissions:
   contents: read

@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import NavbarSearchButton from "./NavbarSearchButton";
-import { SITE_CONFIG } from "../lib/config";
 
 interface MenuData {
   categories: string[];
@@ -12,8 +10,6 @@ interface MenuData {
 }
 
 export default function Navbar({ menuData }: { menuData?: MenuData }) {
-  const GUMROAD_LINK = SITE_CONFIG.links.gumroadProduct;
-
   return (
     <header className="sticky top-0 z-50 border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -28,15 +24,23 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-400">
-          <Link href="/" className="hover:text-emerald-400 transition-colors">Dashboard</Link>
+          <Link href="/" className="hover:text-emerald-400 transition-colors">
+            Dashboard
+          </Link>
 
           {/* Categories */}
           <div className="relative group py-2">
-            <button className="hover:text-emerald-400 transition-colors">Categories</button>
+            <button className="hover:text-emerald-400 transition-colors">
+              Categories
+            </button>
             <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
               <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
                 {(menuData?.categories || []).map((cat) => (
-                  <Link key={cat} href={`/categories/${cat}`} className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400">
+                  <Link
+                    key={cat}
+                    href={`/categories/${cat}`}
+                    className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
+                  >
                     {cat.replace(/_/g, " ")}
                   </Link>
                 ))}
@@ -46,13 +50,15 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
 
           {/* Roles */}
           <div className="relative group py-2">
-            <button className="hover:text-emerald-400 transition-colors">Roles</button>
+            <button className="hover:text-emerald-400 transition-colors">
+              Roles
+            </button>
             <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
               <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
                 {(menuData?.roles || []).map((role) => (
-                  <Link 
-                    key={role} 
-                    href={`/roles/${role}`} 
+                  <Link
+                    key={role}
+                    href={`/roles/${role}`}
                     className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
                   >
                     {role.replace(/_/g, " ")}
@@ -64,11 +70,17 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
 
           {/* Tools */}
           <div className="relative group py-2">
-            <button className="hover:text-emerald-400 transition-colors flex items-center gap-1">Tools</button>
+            <button className="hover:text-emerald-400 transition-colors flex items-center gap-1">
+              Tools
+            </button>
             <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
               <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
                 {(menuData?.tools || []).map((tool) => (
-                  <Link key={tool} href={`/tools/${tool}`} className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400">
+                  <Link
+                    key={tool}
+                    href={`/tools/${tool}`}
+                    className="block px-3 py-2 text-xs rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400"
+                  >
                     {tool}
                   </Link>
                 ))}
@@ -76,7 +88,12 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
             </div>
           </div>
 
-          <a href={GUMROAD_LINK} target="_blank" className="px-3 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 rounded-lg hover:bg-amber-300 transition-all">Premium Pack 🔥</a>
+          <Link
+            href="/products"
+            className="px-3 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 rounded-lg hover:bg-amber-300 transition-all"
+          >
+            Premium Pack 🔥
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">

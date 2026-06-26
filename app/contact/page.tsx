@@ -1,53 +1,176 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact Us | QA Hacks",
-  description: "Get in touch with the QA Hacks team for feedback, support, or partnership inquiries.",
+  title: "Contact QA Hacks | Support & Business Inquiries",
+  description:
+    "Contact QA Hacks for product support, digital download questions, business inquiries, or feedback about our interview preparation PDF products.",
 };
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto space-y-8">
-        <div className="border-b border-slate-800 pb-6">
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Contact Us</h1>
-          <p className="mt-2 text-sm text-slate-400">Have a question or feedback? We&apos;d love to hear from you.</p>
-        </div>
+      <div className="max-w-4xl mx-auto space-y-10">
+        <section className="border-b border-slate-800 pb-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">
+            Contact QA Hacks
+          </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-300 text-sm">
-          <div className="bg-[#0B1121] p-6 rounded-2xl border border-slate-800 space-y-4">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <span className="w-2 h-2 bg-emerald-400 rounded-full"></span>
-              General Inquiries
-            </h2>
-            <p className="text-slate-400 text-xs">
-              For general questions regarding our content, practice guides, or technical troubleshooting:
+          <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Get in touch with QA Hacks.
+          </h1>
+
+          <p className="mt-5 max-w-3xl text-base text-slate-300 leading-relaxed">
+            Have a question about our interview preparation products, digital
+            downloads, website, or business inquiries? You can contact us using
+            the details below.
+          </p>
+        </section>
+
+        <section className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+            <div className="flex items-center gap-3">
+              <span className="h-3 w-3 rounded-full bg-emerald-400" />
+              <h2 className="text-xl font-bold text-white">Product Support</h2>
+            </div>
+
+            <p className="mt-4 text-sm leading-relaxed text-slate-400">
+              For questions about your purchase, digital download access, PDF
+              products, product content, or account-related support, please email
+              us directly.
             </p>
-            <p className="font-semibold text-emerald-400 select-all">contact@qahacks.com</p>
+
+            <a
+              href="mailto:contact@qahacks.com"
+              className="mt-5 inline-block font-semibold text-emerald-400 hover:underline"
+            >
+              contact@qahacks.com
+            </a>
+
+            <p className="mt-4 text-xs text-slate-500">
+              Please include your order email and product name if your question
+              is related to a purchase.
+            </p>
           </div>
 
-          <div className="bg-[#0B1121] p-6 rounded-2xl border border-slate-800 space-y-4">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <span className="w-2 h-2 bg-teal-400 rounded-full"></span>
-              Connect Privately
-            </h2>
-            <p className="text-slate-400 text-xs">
-              Follow our project updates or message the maintainers directly through professional network channels:
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+            <div className="flex items-center gap-3">
+              <span className="h-3 w-3 rounded-full bg-teal-400" />
+              <h2 className="text-xl font-bold text-white">Business Inquiries</h2>
+            </div>
+
+            <p className="mt-4 text-sm leading-relaxed text-slate-400">
+              For partnership inquiries, platform questions, review requests, or
+              general business communication, please contact us by email or
+              connect with us on LinkedIn.
             </p>
-            <div className="flex flex-col gap-1 text-xs">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-400 transition-colors">
-                🔗 LinkedIn Portfolio
+
+            <div className="mt-5 flex flex-col gap-3 text-sm">
+              <a
+                href="mailto:contact@qahacks.com"
+                className="font-semibold text-emerald-400 hover:underline"
+              >
+                contact@qahacks.com
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-emerald-400 transition-colors">
-                🐙 GitHub Repository
+
+              <a
+                href="https://www.linkedin.com/company/qahacks/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-emerald-400 hover:underline"
+              >
+                LinkedIn: QA Hacks
               </a>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="text-xs text-slate-500 text-center pt-8">
-          Note: To remain fully static and ultra-secure, we do not utilize any database-driven web contact forms. Please drop an explicit mail to the address above.
-        </div>
+        <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+          <h2 className="text-2xl font-bold text-white">
+            What We Can Help With
+          </h2>
+
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
+              <h3 className="font-semibold text-white">Purchase Questions</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Questions about product pricing, digital downloads, file access,
+                or order-related issues.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
+              <h3 className="font-semibold text-white">Product Information</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Questions about what is included in our interview preparation PDF
+                packs and digital guides.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
+              <h3 className="font-semibold text-white">Website Feedback</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Feedback about our website, content quality, product pages, or
+                user experience.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
+              <h3 className="font-semibold text-white">Business Review</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Information for payment processors, platform reviews, compliance
+                checks, or business verification.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-emerald-900/60 bg-emerald-950/20 p-6">
+          <h2 className="text-2xl font-bold text-white">
+            Important Product Notice
+          </h2>
+
+          <p className="mt-4 text-sm leading-relaxed text-slate-300">
+            QA Hacks sells premade digital interview preparation products only.
+            Our products are downloadable PDF guides and digital study materials
+            designed for self-study.
+          </p>
+
+          <p className="mt-4 text-sm leading-relaxed text-slate-300">
+            We do not currently offer consulting services, coaching calls,
+            personalised interview preparation, custom services, recruitment
+            services, certification programs, or job placement services.
+          </p>
+        </section>
+
+        <section className="border-t border-slate-800 pt-6 text-sm text-slate-400">
+          <p>
+            Before contacting us, you may also review our{" "}
+            <Link href="/terms" className="text-emerald-400 hover:underline">
+              Terms of Service
+            </Link>
+            ,{" "}
+            <Link
+              href="/privacy"
+              className="text-emerald-400 hover:underline"
+            >
+              Privacy Policy
+            </Link>
+            , and{" "}
+            <Link
+              href="/refund-policy"
+              className="text-emerald-400 hover:underline"
+            >
+              Refund Policy
+            </Link>
+            .
+          </p>
+
+          <p className="mt-4 text-xs text-slate-500">
+            To keep our website simple and secure, we currently do not use a
+            database-driven contact form. Please contact us directly by email.
+          </p>
+        </section>
       </div>
     </main>
   );
