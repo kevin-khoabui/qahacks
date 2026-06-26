@@ -6,6 +6,14 @@
     "directory": "./out",
     "not_found_handling": "single-page-application"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "qahacks-db",
+      "database_id": "9fbb09e3-fe56-42a9-80a3-398debec1c6e"
+    }
+  ],
+  
   "observability": {
     "enabled": true
   }

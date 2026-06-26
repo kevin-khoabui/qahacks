@@ -1,0 +1,16 @@
+[
+  {
+    "topic": "How to optimize Playwright test execution in CI/CD",
+    "roles": "Automation_QA_Engineer",
+    "categories": "Technical",
+    "difficulty": "Advanced",
+    "status": "pending"
+  },
+  {
+    "topic": "Managing regression testing strategy for microservices",
+    "roles": "QA_Lead",
+    "categories": "Leadership",
+    "difficulty": "Senior",
+    "status": "pending"
+  }
+]

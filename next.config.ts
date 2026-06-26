@@ -1,18 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
   images: {
     unoptimized: true,
   },
   trailingSlash: false,
-  
-  // THÊM ĐOẠN NÀY ĐỂ ĐIỆN THOẠI TRUY CẬP ĐƯỢC
-  // Lưu ý: allowedDevOrigins chỉ có tác dụng khi chạy 'npm run dev'
-  // Khi bạn đã chạy 'npm run build' để xuất ra 'out', nó không còn quan trọng nữa.
   typescript: {
-    ignoreBuildErrors: true, // Tiện lợi khi đang trong giai đoạn dev nhanh
+    ignoreBuildErrors: true, 
   },
 };
+
+// Sử dụng dynamic import hoặc require an toàn hơn
+if (process.env.NODE_ENV === 'development') {
+  const { setupDevPlatform } = require('@cloudflare/next-on-pages/next-dev');
+  setupDevPlatform({
+    d1Databases: ['DB'],
+    // Nếu bạn muốn dùng remote database khi chạy dev local:
+    remote: true
+  });
+}
 
 export default nextConfig;

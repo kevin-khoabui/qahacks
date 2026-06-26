@@ -1,79 +1,104 @@
-// 1. Import file JSON bình thường
-import generatedPosts from "@/public/content/posts.generated.json";
+// lib/posts.ts
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
-// ============================================================================
-// 🎯 ĐỊNH NGHĨA CẤU TRÚC DỮ LIỆU ĐA THẺ CHUẨN (INTERFACE)
-// ============================================================================
 export interface PostData {
+  excerpt?: string;
   slug: string;
   title: string;
   difficulty: string;
-  target_role: string[]; // ✅ Đổi thành mảng chuỗi
-  category: string[];    // ✅ Đổi thành mảng chuỗi
+  target_role: string[];
+  category: string[];
   sub_category: string;
-  question_type: string; 
+  question_type: string;
   tool_stack: string;
-  tags: string[];
-  content: string;
+  tags?: string[];
+  content?: string;
   date?: string;
 }
 
-// 2. ÉP KIỂU dữ liệu để TypeScript hiểu file JSON này chứa danh sách các bài viết PostData mảng
-const rawPosts = generatedPosts as any[];
+function getDB(): D1Database {
+  return (getRequestContext().env as any).DB;
+}
 
-// Chuẩn hóa dữ liệu an toàn để tuyệt đối không crash kể cả khi file JSON chứa chuỗi đơn cũ
-const posts: PostData[] = rawPosts.map((post) => ({
-  ...post,
-  title: post.title || "Untitled",
-  content: post.content || "",
-  difficulty: post.difficulty || "Advanced",
-  target_role: Array.isArray(post.target_role) 
-    ? post.target_role 
-    : [post.target_role || "Manual_QA_Engineer"],
-  category: Array.isArray(post.category) 
-    ? post.category 
-    : [post.category || "Leadership"],
-  sub_category: post.sub_category || "Strategy",
-  question_type: post.question_type || "Situational",
-  tool_stack: post.tool_stack || "None",
-  tags: post.tags || [],
-}));
+/**
+ * Hàm parseJSON an toàn cho dữ liệu đã chuẩn hóa trong DB
+ * Dữ liệu hiện tại ở dạng: ["Value_With_Underscore"]
+ */
+const parseJSON = (val: string): string[] => {
+  try {
+    return JSON.parse(val || '[]');
+  } catch {
+    return [val].filter(Boolean);
+  }
+};
 
-// ========================================================
-// 1. HÀM LẤY CHI TIẾT BÀI VIẾT (Bây giờ p.slug sẽ hết sạch lỗi)
-// ========================================================
 export async function getPostData(slug: string): Promise<PostData | null> {
-  const post = posts.find((p) => p.slug === slug);
-  if (!post) return null;
-  return post;
+  const db = getDB();
+  const { results } = await db.prepare("SELECT * FROM posts WHERE slug = ?")
+    .bind(slug)
+    .all();
+
+  if (!results || results.length === 0) return null;
+
+  const post = results[0] as any;
+
+  return {
+    ...post,
+    target_role: parseJSON(post.target_role),
+    category: parseJSON(post.category),
+    tags: parseJSON(post.tags || '[]')
+  };
 }
 
-// ========================================================
-// 2. HÀM LẤY TẤT CẢ BÀI VIẾT (Loại bỏ content để tối ưu RAM khi quét danh sách)
-// ========================================================
-export function getAllPosts() {
-  return posts.map(({ content, ...post }) => ({
-    ...post
+export async function getAllPosts() {
+  const db = getDB();
+  const { results } = await db.prepare(
+    "SELECT slug, title, difficulty, target_role, category, sub_category, tool_stack, question_type, date FROM posts"
+  ).all();
+
+  return results.map((post: any) => ({
+    ...post,
+    target_role: parseJSON(post.target_role),
+    category: parseJSON(post.category),
   }));
 }
 
-// ========================================================
-// 3. HÀM LẤY BÀI VIẾT LIÊN QUAN (Hỗ trợ quét theo mảng Category mới)
-// ========================================================
 export async function getRelatedPosts(currentSlug: string, currentCategory: string, limit: number = 3) {
-  const related = posts.filter((post) => {
-    // Nếu slug trùng bài hiện tại -> Bỏ qua
-    if (post.slug === currentSlug) return false;
+  const db = getDB();
+  // Tìm kiếm theo Category đã chuẩn hóa
+  const { results } = await db.prepare(
+    "SELECT slug, title, difficulty, tool_stack, category FROM posts WHERE slug != ? AND category LIKE ? LIMIT ?"
+  )
+    .bind(currentSlug, `%${currentCategory}%`, limit)
+    .all();
 
-    // Kiểm tra xem mảng category của bài viết có chứa danh mục hiện tại không
-    return post.category.includes(currentCategory);
-  });
-
-  return related.slice(0, limit).map(({ content, ...post }) => ({
-    slug: post.slug,
-    title: post.title,
-    category: post.category,
-    difficulty: post.difficulty,
-    tool_stack: post.tool_stack,
+  return results.map((post: any) => ({
+    ...post,
+    category: parseJSON(post.category),
   }));
+}
+
+export async function getNavbarData() {
+  const db = getDB();
+  const { results } = await db.prepare(
+    "SELECT DISTINCT category, target_role, tool_stack FROM posts"
+  ).all();
+
+  // 1. Categories: Lấy danh sách duy nhất từ mảng JSON
+  const categories = Array.from(new Set(results.flatMap((r: any) => parseJSON(r.category))))
+    .filter(c => c && c !== "None") as string[];
+    
+  // 2. Roles: Chỉ lấy các role đã định nghĩa để đảm bảo Route luôn tồn tại
+  const ALLOWED_ROLES = ["Automation_QA_Engineer", "Manual_QA_Engineer", "QA_Leader", "Software_Engineer"];
+  const roles = Array.from(new Set(results.flatMap((r: any) => parseJSON(r.target_role))))
+    .filter(r => r && ALLOWED_ROLES.includes(r)) as string[];
+    
+  // 3. Tools: Chuẩn hóa tên công cụ
+  const ALLOWED_TOOLS = ["Cypress", "Playwright", "Postman", "DevTools"];
+  const rawTools = results.map((r: any) => r.tool_stack);
+  const tools = Array.from(new Set(rawTools.map((t: string) => 
+    ALLOWED_TOOLS.includes(t) ? t : "Generic"
+  ))).filter(t => t !== null) as string[];
+
+  return { categories, roles, tools };
 }

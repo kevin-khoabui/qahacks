@@ -94,9 +94,9 @@ export default function TableOfContents() {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full lg:cursor-default flex items-center justify-between lg:justify-start gap-1.5 border-b border-slate-900 pb-2.5 text-left focus:outline-none group"
       >
-        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 whitespace-nowrap">
-          📍 On This Page
-        </h3>
+<h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2 whitespace-nowrap mb-2">
+  <span className="text-emerald-500">📍</span> On This Page
+</h3>
         <svg
           className={`w-4 h-4 text-slate-500 group-hover:text-slate-300 lg:hidden transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -141,8 +141,10 @@ export default function TableOfContents() {
                 if (window.innerWidth < 1024) setIsOpen(false);
               }}
               // 🚀 ĐỒNG BỘ: Chuyển hẳn từ màu Teal cũ sang màu Emerald chuẩn thương hiệu
-              className={`block transition-all duration-150 rounded-lg tracking-wide text-xs py-1.5 font-semibold break-words ${
-                item.level === 3 ? "pl-5 text-[11px] text-slate-500" : "pl-2 text-slate-400 hover:text-slate-200"
+             className={`block transition-all duration-150 rounded-md tracking-normal text-sm py-2 font-medium break-words leading-snug ${
+                item.level === 3 
+                  ? "pl-6 text-[13px] text-slate-500 hover:text-slate-300" 
+                  : "pl-3 text-slate-400 hover:text-slate-200"
               } ${
                 isActive
                   ? "text-emerald-400 font-bold bg-emerald-500/5 border-l-2 border-emerald-400 rounded-l-none!"

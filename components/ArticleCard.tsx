@@ -4,7 +4,7 @@ interface ArticleCardProps {
   title: string;
   category: string;
   difficulty: string;
-  targetRole: string | string[]; // Sửa thành union type đề phòng dữ liệu đa thẻ dạng mảng
+  targetRole: string | string[];
   toolStack: string;
   slug: string;
 }

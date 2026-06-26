@@ -3,10 +3,13 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
-import { getAllPosts } from "@/lib/posts";
+import { getAllPosts, getNavbarData } from "@/lib/posts";
 import CommandPalette from "@/components/CommandPalette";
-import Navbar from "@/components/Navbar"; // 🔥 IMPORT NAVBAR CLIENT COMPONENT MỚI
+import Navbar from "@/components/Navbar"; 
 import { GoogleAnalytics } from "@next/third-parties/google";
+
+// BẮT BUỘC: Chạy trên Cloudflare Edge
+export const runtime = 'edge';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://qahacks.com"),
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const allPosts = getAllPosts();
-
-  const searchData = allPosts.map(post => {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  
+  // 1. Fetch dữ liệu bài viết cho Search (CommandPalette)
+  const allPosts = await getAllPosts();
+  const searchData = Array.isArray(allPosts) ? allPosts.map(post => {
     const rawCategory = post.category;
     const cleanCategoryString = Array.isArray(rawCategory) ? (rawCategory[0] || "General") : (rawCategory || "General");
     return {
@@ -28,27 +32,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       category: cleanCategoryString.replace(/_/g, " "),
       tool: (post as any).tool_stack || "None"
     };
-  });
+  }) : [];
+
+  // 2. Fetch dữ liệu phân loại cho Navbar (Dynamic Data)
+  // Catch lỗi để nếu DB có vấn đề thì Navbar vẫn không bị crash
+  const menuData = await getNavbarData().catch(() => ({ 
+    categories: [], 
+    roles: [], 
+    tools: [] 
+  }));
 
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased`}>
 
-        {/* 🔥 GỌI COMPONENT NAVBAR ĐÃ TÍCH HỢP MOBILE MENU TẠI ĐÂY */}
-        <Navbar />
+        {/* Truyền dữ liệu menu động vào Navbar */}
+        <Navbar menuData={menuData} />
 
         <CommandPalette posts={searchData} />
+        
         {children}
 
-        {/* FOOTER ĐẦY ĐỦ LINK CHO GOOGLE ADSENSE */}
         <footer className="border-t border-slate-900 bg-slate-950 py-10 mt-20">
           <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-            {/* Bản quyền */}
             <div className="text-xs text-slate-500">
               <p>© {new Date().getFullYear()} QAHacks.com. All rights reserved.</p>
               <p className="text-[10px] text-slate-600 mt-1">High-Yield Software Testing Engineering Handbooks.</p>
             </div>
-            {/* Cây liên kết Điều khoản */}
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400">
               <Link href="/about" className="hover:text-emerald-400 transition-colors">About Us</Link>
               <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
