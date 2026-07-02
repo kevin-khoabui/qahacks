@@ -1,6 +1,8 @@
 import HomePageClient from "./HomePageClient";
 import { SITE_CONFIG } from "@/lib/config";
 
+export const runtime = 'edge';
+
 export const metadata = {
   title: "QA Hacks | Master Software Testing & Interview Guides",
   description: "Comprehensive QA interview questions, automation testing tutorials, and career blueprints for Manual, Automation, and QA Lead positions.",

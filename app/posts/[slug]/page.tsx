@@ -6,6 +6,8 @@ import "highlight.js/styles/github-dark.css";
 import TableOfContents from "@/components/TableOfContents";
 import MarkdownContent from "@/components/MarkdownContent";
 
+export const runtime = 'edge';
+
 // 1. IMPORT COMPONENT MỚI
 import PostNavigation from "@/components/PostNavigation";
 
