@@ -1,4 +1,3 @@
-// lib/posts.ts
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 export interface PostData {
@@ -17,15 +16,31 @@ export interface PostData {
   companies: string[];
 }
 
+// CƠ CHẾ MOCK DB: Giúp build thành công dù database chưa sẵn sàng tại thời điểm biên dịch
+const mockDb = {
+  prepare: () => ({
+    bind: () => ({ all: async () => ({ results: [] }) }),
+    all: async () => ({ results: [] }),
+  }),
+};
+
 export async function getDB(): Promise<any> {
-  const { env } = await getCloudflareContext({ async: true });
-  const db = (env as any).DB as any | undefined;
+  try {
+    const context = await getCloudflareContext({ async: true });
+    // Kiểm tra env và DB binding
+    const env = (context as any).env;
+    const db = env?.DB;
 
-  if (!db) {
-    throw new Error("D1 binding DB is not available.");
+    if (!db) {
+      console.warn("D1 binding DB is not available, using mock DB.");
+      return mockDb;
+    }
+
+    return db;
+  } catch (e) {
+    console.error("Error accessing Cloudflare context:", e);
+    return mockDb;
   }
-
-  return db;
 }
 
 const parseJSON = (val: string | null | undefined): string[] => {
@@ -113,11 +128,9 @@ export async function getRelatedPosts(
 export async function getNavbarData() {
   const db = await getDB();
   
-  // 1. ĐÃ FIX: Thêm cột tool_stack vào câu SQL
   const { results } = await db
     .prepare("SELECT DISTINCT category, target_role, interview_source, tool_stack FROM posts")
     .all();
-
 
   const categories = Array.from(
     new Set(results.flatMap((r: any) => parseJSON(r.category)))
@@ -151,6 +164,5 @@ export async function getNavbarData() {
     new Set(results.map((r: any) => r.interview_source))
   ).filter(Boolean) as string[];
 
-  // 2. ĐÃ FIX: Trả về đầy đủ cả tools
   return { categories, roles, tools, companies };
 }
