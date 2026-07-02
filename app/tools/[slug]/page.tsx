@@ -2,7 +2,7 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { notFound } from "next/navigation";
 import CategoryPaginationClient from "../../../components/CategoryPaginationClient";
 
-// export const runtime = 'edge';
+export const runtime = 'edge';
 
 interface Props {
   params: Promise<{ slug: string }>;

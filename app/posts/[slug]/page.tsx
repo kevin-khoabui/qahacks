@@ -10,7 +10,7 @@ import MarkdownContent from "@/components/MarkdownContent";
 import PostNavigation from "@/components/PostNavigation";
 
 // BẮT BUỘC: Thiết lập runtime edge để dùng Cloudflare D1 Binding
-// export const runtime = "edge";
+export const runtime = "edge";
 
 interface Props {
   params: Promise<{ slug: string }>;
