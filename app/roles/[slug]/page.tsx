@@ -3,8 +3,6 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import CategoryPaginationClient from "../../../components/CategoryPaginationClient";
 
-export const runtime = 'edge';
-
 interface Props {
   params: Promise<{ slug: string }>;
 }
