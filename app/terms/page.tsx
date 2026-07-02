@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: "Terms of Service | QA Hacks",

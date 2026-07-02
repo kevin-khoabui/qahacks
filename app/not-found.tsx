@@ -1,27 +1,14 @@
-"use client"; // Bắt buộc phải có vì chúng ta có xử lý logic chuyển hướng ở Client
+"use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+// Trang này là tĩnh hoàn toàn, không cần server logic
 export const dynamic = 'force-static';
 
 export default function NotFound() {
-  const router = useRouter();
-
-  useEffect(() => {
-    // Lớp phòng thủ Client-side: Nếu phát hiện URL kết thúc bằng .md, tự động bốc slug ra và đá về trang bài viết đẹp
-    const path = window.location.pathname;
-    if (path.endsWith(".md")) {
-      const cleanPath = path.replace("/content/posts/", "/posts/").replace(".md", "");
-      router.replace(cleanPath);
-    }
-  }, [router]);
-
   return (
     <main className="min-h-[70vh] bg-slate-950 flex flex-col items-center justify-center text-center px-4">
       <div className="space-y-5">
-        {/*Biểu tượng cảnh báo mang phong cách mã hóa.*/}
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 text-2xl font-bold animate-pulse">
           ⚠️
         </div>
