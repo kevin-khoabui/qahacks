@@ -19,6 +19,7 @@ type TopicRow = {
   slug: string;
   generated_at: string;
   error_message: string;
+  interview_source: string;
 };
 
 const SHEET_ID = process.env.GOOGLE_SHEET_ID;
@@ -76,6 +77,7 @@ async function main() {
         slug: getCell(row, headers, "slug"),
         generated_at: getCell(row, headers, "generated_at"),
         error_message: getCell(row, headers, "error_message"),
+        interview_source: getCell(row, headers, "interview_source"),
       };
     })
     .filter((item) => item.status.toLowerCase() === "pending" && item.topic);

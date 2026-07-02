@@ -5,8 +5,8 @@ on:
   # Tạm ngưng chạy tự động mỗi tiếng.
   # Tuần sau muốn bật lại thì mở phần schedule bên dưới:
   #
-  # schedule:
-  #   - cron: "0 * * * *"
+  schedule:
+    - cron: "0 * * * *"
 
 permissions:
   contents: read

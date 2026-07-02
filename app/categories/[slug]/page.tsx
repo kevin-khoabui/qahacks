@@ -62,7 +62,7 @@ export default async function CategoryPage({ params }: Props) {
             <span className="text-slate-600 font-normal ml-3">({posts.length} items)</span>
           </h1>
           {/* SEO Content: Thêm một đoạn text ngắn cho Google cào */}
-          <p className="mt-4 text-slate-400 max-w-2xl">
+          <p className="mt-4 text-slate-400">
             Browse our expert-curated collection of <strong>{decodedSlug.replace(/_/g, " ")}</strong> resources. 
             Designed for developers, software engineers, and QA leads to master testing methodologies.
           </p>

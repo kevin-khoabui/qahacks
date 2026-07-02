@@ -74,21 +74,24 @@ async function main() {
 
   /**
    * Google Sheet columns:
+   * kejiyume@gmail.com
    * A id
    * B topic
    * C roles
    * D categories
    * E difficulty
-   * F tool_stack
-   * G question_type
-   * H status
-   * I slug
-   * J generated_at
-   * K error_message
+   * F interview_source
+   * G tool_stack
+   * H question_type
+   * I status
+   * J slug
+   * L generated_at
+   * M error_message
    *
-   * So we update H:K only.
+   * So we update A:M only.
    */
-  const range = `${SHEET_TAB}!H${rowNumber}:K${rowNumber}`;
+
+const range = `${SHEET_TAB}!J${rowNumber}:M${rowNumber}`;
 
   await sheets.spreadsheets.values.update({
     spreadsheetId: SHEET_ID,

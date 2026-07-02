@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import { SITE_CONFIG } from "@/lib/config";
 
 import { getAllPosts, getNavbarData } from "@/lib/posts";
-import CommandPalette from "@/components/CommandPalette";
+import CommandPalette from "../components/CommandPalette";
 import Navbar from "@/components/Navbar"; 
 import { GoogleAnalytics } from "@next/third-parties/google";
 export const dynamic = "force-dynamic";
@@ -40,7 +41,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const menuData = await getNavbarData().catch(() => ({ 
     categories: [], 
     roles: [], 
-    tools: [] 
+    tools: [],
+    companies: []
   }));
 
   return (
@@ -60,7 +62,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <p>© {new Date().getFullYear()} QAHacks.com. All rights reserved.</p>
               <p className="text-[10px] text-slate-600 mt-1">High-Yield Software Testing Engineering Handbooks.</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400">
+              
+              {/* THÊM LINK NEWSLETTER VÀ LINKEDIN NỔI BẬT */}
+              <a href={SITE_CONFIG.links.substack} target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
+                Newsletter 📩
+              </a>
+              <a href={SITE_CONFIG.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-sky-400 font-bold hover:text-sky-300 transition-colors">
+                LinkedIn
+              </a>
+
+              {/* CÁC LINK THÔNG TIN */}
               <Link href="/about" className="hover:text-emerald-400 transition-colors">About Us</Link>
               <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link>

@@ -71,7 +71,7 @@ export default function HomePageClient() {
   };
 
   if (loading) {
-    return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-emerald-400">Đang tải bài viết...</div>;
+    return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-emerald-400">Loading article...</div>;
   }
 
   return (
@@ -117,7 +117,7 @@ export default function HomePageClient() {
                   <button
                     key={page}
                     onClick={() => handlePageChange(page)}
-                    className={`min-w-[36px] h-[36px] text-xs font-bold rounded-xl border cursor-pointer ${
+                    className={`min-w-9 h-9 text-xs font-bold rounded-xl border cursor-pointer ${
                       currentPage === page 
                         ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400" 
                         : "bg-slate-900/30 border-slate-900 text-slate-400 hover:text-slate-200"

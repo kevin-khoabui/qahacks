@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: [
         '/private/',
-        '/content/', // CẤM BOT quét vào thư mục chứa JSON và các tài nguyên thô
+        '/content/',
       ],
     },
     sitemap: 'https://qahacks.com/sitemap.xml',

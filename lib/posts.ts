@@ -14,9 +14,10 @@ export interface PostData {
   tags?: string[];
   content?: string;
   date?: string;
+  companies: string[];
 }
 
-async function getDB(): Promise<any> {
+export async function getDB(): Promise<any> {
   const { env } = await getCloudflareContext({ async: true });
   const db = (env as any).DB as any | undefined;
 
@@ -111,10 +112,12 @@ export async function getRelatedPosts(
 
 export async function getNavbarData() {
   const db = await getDB();
-
+  
+  // 1. ĐÃ FIX: Thêm cột tool_stack vào câu SQL
   const { results } = await db
-    .prepare("SELECT DISTINCT category, target_role, tool_stack FROM posts")
+    .prepare("SELECT DISTINCT category, target_role, interview_source, tool_stack FROM posts")
     .all();
+
 
   const categories = Array.from(
     new Set(results.flatMap((r: any) => parseJSON(r.category)))
@@ -142,7 +145,12 @@ export async function getNavbarData() {
         ALLOWED_TOOLS.includes(tool) ? tool : "Generic"
       )
     )
-  ).filter((tool) => tool !== null) as string[];
+  ).filter((tool) => tool !== null && tool !== undefined) as string[];
 
-  return { categories, roles, tools };
+  const companies = Array.from(
+    new Set(results.map((r: any) => r.interview_source))
+  ).filter(Boolean) as string[];
+
+  // 2. ĐÃ FIX: Trả về đầy đủ cả tools
+  return { categories, roles, tools, companies };
 }

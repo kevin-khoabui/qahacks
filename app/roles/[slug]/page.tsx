@@ -64,7 +64,7 @@ export default async function RolePage({ params }: Props) {
             <span className="text-slate-600 font-normal ml-3">({posts.length} items)</span>
           </h1>
           {/* SEO Content: Bổ sung thêm mô tả vai trò cho Google */}
-          <p className="mt-4 text-slate-400 max-w-2xl">
+          <p className="mt-4 text-slate-400">
             Access the ultimate interview preparation path for <strong>{decodedSlug}</strong>. 
             From fundamental testing concepts to advanced automation strategies required by senior developers and QA leads.
           </p>

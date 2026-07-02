@@ -35,7 +35,7 @@ export default function NotFound() {
         <div className="pt-4">
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-sm font-semibold text-slate-950 hover:opacity-90 transition-all shadow-lg shadow-emerald-500/10"
+            className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-linear-to-r from-emerald-500 to-teal-500 text-sm font-semibold text-slate-950 hover:opacity-90 transition-all shadow-lg shadow-emerald-500/10"
           >
             Back to Dashboard Hub
           </Link>

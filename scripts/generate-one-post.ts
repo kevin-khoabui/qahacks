@@ -19,6 +19,7 @@ type PendingTopic = {
   slug: string;
   generated_at: string;
   error_message: string;
+  interview_source: string;
 };
 
 type GeneratedPost = {
@@ -36,6 +37,7 @@ type GeneratedPost = {
   tool_stack: string | null;
   tags: string[];
   date: string;
+  interview_source: string | null;
 };
 
 const GEMINI_API_KEYS = process.env.GEMINI_API_KEYS;
@@ -161,10 +163,18 @@ function buildPrompt(topic: PendingTopic) {
   const subCategory =
     optionalMetadataText(topic.sub_category) || "Not specified";
 
+  const source = optionalMetadataText(topic.interview_source) || "General";
+
   return `
 You are a senior technical interview coach, engineering manager, and technical content writer.
+Interview Style Persona: ${source}
 
 Generate one high-quality QAHacks interview article for this topic.
+
+Important Persona Rule:
+- If Interview Style Persona is 'FAANG_DSA': Focus heavily on algorithmic optimality, Big O analysis, and clean, production-grade code.
+- If Interview Style Persona is 'Amazon_Microsoft': Focus on system reliability, practical engineering decisions, trade-offs, and customer obsession.
+- If Interview Style Persona is 'General': Focus on practical, real-world execution.
 
 SEO title:
 ${seoTitle}
@@ -491,6 +501,7 @@ async function main() {
     sub_category: optionalMetadataText(topic.sub_category),
     question_type: optionalMetadataText(topic.question_type),
     tool_stack: optionalMetadataText(topic.tool_stack),
+    interview_source: optionalMetadataText(topic.interview_source),
 
     tags: Array.isArray(generated.tags)
       ? generated.tags.map((tag: unknown) => cleanText(tag)).filter(Boolean)

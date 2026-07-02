@@ -7,5 +7,7 @@ export const SITE_CONFIG = {
     gumroadProduct30: "https://qahacks.gumroad.com/l/clvwl", 
     
     supportEmail: "support@qahacks.com",
+    substack: "https://qahacks.substack.com",
+    linkedin: "https://www.linkedin.com/company/qahacks/",
   }
 };

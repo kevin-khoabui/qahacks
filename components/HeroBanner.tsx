@@ -46,7 +46,7 @@ export default function HeroBanner() {
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 text-xs text-slate-400">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Trending:</span>
+          {/* <span className="text-[12px] font-bold uppercase tracking-widest text-slate-500">Trending:</span> */}
           
           <Link 
             href="/tools/Playwright" 
@@ -73,14 +73,17 @@ export default function HeroBanner() {
             Technical
           </Link>
 
-          <span className="text-slate-800 hidden sm:inline">•</span>
+          {/* <span className="text-slate-800 hidden sm:inline">•</span> */}
 
-          <Link 
+{/*           <Link 
             href="/types/Compilation" 
             className="text-amber-500 hover:text-amber-400 font-bold bg-amber-500/5 px-2 py-0.5 rounded border border-amber-500/10 hover:border-amber-500/20 text-[11px]"
           >
             Mega Compilations
           </Link>
+ */}
+
+          
         </div>
 
       </div>

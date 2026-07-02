@@ -46,7 +46,7 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
                   </span>
                 )}
               </div>
-              <h2 className="text-sm font-semibold text-slate-100 group-hover:text-emerald-400 transition-colors flex-grow leading-relaxed line-clamp-3">
+              <h2 className="text-sm font-semibold text-slate-100 group-hover:text-emerald-400 transition-colors grow leading-relaxed line-clamp-3">
                 {post.title}
               </h2>
               <div className="mt-6 pt-4 border-t border-slate-800/50 text-[11px] font-bold tracking-widest uppercase text-slate-500 group-hover:text-emerald-500/70 transition-colors">
@@ -57,54 +57,74 @@ export default function CategoryPaginationClient({ posts }: CategoryPaginationCl
         })}
       </div>
 
-      {/* THANH PHÂN TRANG NGẮN GỌN */}
-{totalPages > 1 && (
-  <div className="mt-16 flex items-center justify-center gap-1.5 border-t border-slate-900 pt-8">
-    
-    {/* Nút lùi trang */}
-    <button 
-      onClick={() => handlePageChange(currentPage - 1)} 
-      disabled={currentPage === 1} 
-      className="p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 hover:text-emerald-400 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
-    >
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7"/>
-      </svg>
-    </button>
-    
-    <div className="flex items-center gap-1">
-      {Array.from({ length: totalPages }, (_, i) => i + 1).filter(page => {
-        return page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1);
-      }).map((page, index, array) => {
-        const isEllipsis = index > 0 && page - array[index - 1] > 1;
+      {/* CTA BOX: PHỄU ĐIỀU HƯỚNG SANG SUBSTACK */}
+      <div className="mt-12 p-8 bg-linear-to-br from-slate-900 to-[#0B1121] rounded-3xl border border-emerald-500/20 text-center flex flex-col items-center justify-center relative overflow-hidden">
+        {/* Lớp nền mờ trang trí */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-full bg-emerald-500/5 blur-[100px] pointer-events-none"></div>
         
-        return (
-          <div key={page} className="flex items-center gap-1">
-            {isEllipsis && <span className="px-2 text-slate-600">...</span>}
-            <button 
-              onClick={() => handlePageChange(page)} 
-              // Đã thêm cursor-pointer tại đây
-              className={`min-w-[36px] h-[36px] text-xs font-bold rounded-xl border cursor-pointer ${currentPage === page ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400" : "bg-slate-900/30 border-slate-900 text-slate-400 hover:text-slate-200"}`}
-            >
-              {page}
-            </button>
-          </div>
-        );
-      })}
-    </div>
+        <h3 className="text-xl md:text-2xl font-black text-white mb-3 z-10">
+          Level up your QA Career with Premium Deep-Dives 🚀
+        </h3>
+        <p className="text-slate-400 max-w-2xl text-sm mb-6 leading-relaxed z-10">
+          Get weekly advanced test automation strategies, exclusive FAANG interview breakdowns, and real-world QA leadership case studies directly in your inbox.
+        </p>
+        <a 
+          href="https://qahacks.substack.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="z-10 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-black text-sm hover:bg-emerald-400 transition-colors shadow-[0_0_20px_rgba(52,211,153,0.3)]"
+        >
+          Subscribe to Newsletter 📩
+        </a>
+      </div>
 
-    {/* Nút tới trang */}
-    <button 
-      onClick={() => handlePageChange(currentPage + 1)} 
-      disabled={currentPage === totalPages} 
-      className="p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 hover:text-emerald-400 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
-    >
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/>
-      </svg>
-    </button>
-  </div>
-)}
+      {/* THANH PHÂN TRANG NGẮN GỌN */}
+      {totalPages > 1 && (
+        <div className="mt-12 flex items-center justify-center gap-1.5 border-t border-slate-900 pt-8">
+          
+          {/* Nút lùi trang */}
+          <button 
+            onClick={() => handlePageChange(currentPage - 1)} 
+            disabled={currentPage === 1} 
+            className="p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 hover:text-emerald-400 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          
+          <div className="flex items-center gap-1">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).filter(page => {
+              return page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1);
+            }).map((page, index, array) => {
+              const isEllipsis = index > 0 && page - array[index - 1] > 1;
+              
+              return (
+                <div key={page} className="flex items-center gap-1">
+                  {isEllipsis && <span className="px-2 text-slate-600">...</span>}
+                  <button 
+                    onClick={() => handlePageChange(page)} 
+                    className={`min-w-9 h-9 text-xs font-bold rounded-xl border cursor-pointer ${currentPage === page ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400" : "bg-slate-900/30 border-slate-900 text-slate-400 hover:text-slate-200"}`}
+                  >
+                    {page}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Nút tới trang */}
+          <button 
+            onClick={() => handlePageChange(currentPage + 1)} 
+            disabled={currentPage === totalPages} 
+            className="p-2 rounded-xl border border-slate-800 bg-slate-900/50 text-slate-400 hover:text-emerald-400 disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      )}
     </>
   );
 }

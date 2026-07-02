@@ -6,6 +6,9 @@ import "highlight.js/styles/github-dark.css";
 import TableOfContents from "@/components/TableOfContents";
 import MarkdownContent from "@/components/MarkdownContent";
 
+// 1. IMPORT COMPONENT MỚI
+import PostNavigation from "@/components/PostNavigation";
+
 // BẮT BUỘC: Thiết lập runtime edge để dùng Cloudflare D1 Binding
 // export const runtime = "edge";
 
@@ -91,6 +94,10 @@ export default async function PostPage({ params }: Props) {
     3
   );
 
+  // GIẢ LẬP DỮ LIỆU BÀI TRƯỚC/BÀI SAU (Bạn có thể thêm hàm SQL gọi DB thật sau này)
+  const prevPost = null; 
+  const nextPost = null; 
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -161,6 +168,9 @@ export default async function PostPage({ params }: Props) {
             <TableOfContents />
           </aside>
         </div>
+
+        {/* 2. CHÈN POST NAVIGATION & CTA VÀO ĐÂY (NGAY DƯỚI BÀI VIẾT) */}
+        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
 
         {/* RELATED POSTS */}
         {relatedPosts && relatedPosts.length > 0 && (

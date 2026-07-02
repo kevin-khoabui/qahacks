@@ -250,6 +250,39 @@ export default function ProductsPage() {
           </div>
         </section>
 
+        {/* THÊM MỚI: PHẦN UPSELL SUBSTACK */}
+        <section className="relative overflow-hidden rounded-3xl bg-linear-to-br from-emerald-900/20 to-slate-900 border border-emerald-500/30 p-8 sm:p-12 text-center mt-12">
+          {/* Background Glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-emerald-500/10 blur-[100px] pointer-events-none"></div>
+          
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 tracking-tight">
+              Prefer Weekly Updates & Deep-Dives? 🚀
+            </h2>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              While our PDF packs are great for immediate, focused preparation, our premium newsletter delivers ongoing value. Join Substack to get weekly automation frameworks, FAANG interview breakdowns, and real-world QA case studies directly in your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://qahacks.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-emerald-500 text-slate-950 font-black text-sm hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(52,211,153,0.3)]"
+              >
+                Subscribe to Substack 📩
+              </a>
+              <a
+                href="https://qahacks.substack.com/p/uat-says-yes-qa-says-no-who-wins"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-emerald-500/50 text-emerald-400 font-bold text-sm hover:bg-emerald-500/10 transition-all"
+              >
+                Read Free Samples
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section className="border-t border-slate-800 pt-6 text-sm text-slate-400">
           <p>
             Please review our{" "}

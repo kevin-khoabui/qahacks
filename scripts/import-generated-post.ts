@@ -17,6 +17,7 @@ type GeneratedPost = {
   tool_stack: string | null;
   tags?: string[];
   date: string;
+  interview_source: string | null;
 };
 
 const DATABASE_NAME = "qahacks-db";
@@ -109,7 +110,7 @@ function main() {
   const sql = `
 -- Import generated QAHacks post.
 -- Schema:
--- posts(id, slug, title, content, difficulty, category, target_role, created_at, tool_stack, question_type, sub_category, date)
+-- posts(id, slug, title, content, difficulty, category, target_role, created_at, tool_stack, question_type, sub_category, date, interview_source)
 
 INSERT OR IGNORE INTO posts (
   id,
@@ -122,7 +123,8 @@ INSERT OR IGNORE INTO posts (
   tool_stack,
   question_type,
   sub_category,
-  date
+  date,
+  interview_source
 ) VALUES (
   ${sqlValue(slug)},
   ${sqlValue(slug)},
@@ -134,7 +136,8 @@ INSERT OR IGNORE INTO posts (
   ${sqlValue(toolStack)},
   ${sqlValue(questionType)},
   ${sqlValue(subCategory)},
-  ${sqlValue(date)}
+  ${sqlValue(date)},
+  ${sqlValue(normalizeNullableText(post.interview_source))}
 );
 
 SELECT changes() AS rows_inserted;
@@ -170,6 +173,7 @@ WHERE slug = ${sqlValue(slug)};
     tool_stack: toolStack,
     question_type: questionType,
     sub_category: subCategory,
+    interview_source: post.interview_source,
   });
 
   try {
