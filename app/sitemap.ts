@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { D1Database } from "@cloudflare/workers-types";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 const baseUrl = "https://qahacks.com";
