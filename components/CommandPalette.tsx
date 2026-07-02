@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
-// Định nghĩa kiểu dữ liệu rút gọn để truyền từ Server xuống Client
 export type SearchPost = {
   slug: string;
   title: string;
