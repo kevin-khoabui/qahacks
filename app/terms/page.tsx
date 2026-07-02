@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-export const dynamic = 'force-static';
+// 🚀 THÊM 2 DÒNG NÀY ĐỂ FIX LỖI BUILD:
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Terms of Service | QA Hacks",
