@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/config";
-
-import { getAllPosts, getNavbarData } from "@/lib/posts";
+//import { getAllPosts, getNavbarData } from "@/lib/posts";
+import { getNavbarData } from "@/lib/posts";
 import CommandPalette from "../components/CommandPalette";
 import Navbar from "@/components/Navbar"; 
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   
   // 1. Fetch dữ liệu bài viết cho Search (CommandPalette)
-  const allPosts = await getAllPosts();
+/*   const allPosts = await getAllPosts();
   const searchData = Array.isArray(allPosts) ? allPosts.map(post => {
     const rawCategory = post.category;
     const cleanCategoryString = Array.isArray(rawCategory) ? (rawCategory[0] || "General") : (rawCategory || "General");
@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       category: cleanCategoryString.replace(/_/g, " "),
       tool: (post as any).tool_stack || "None"
     };
-  }) : [];
+  }) : []; */
 
   // 2. Fetch dữ liệu phân loại cho Navbar (Dynamic Data)
   // Catch lỗi để nếu DB có vấn đề thì Navbar vẫn không bị crash
@@ -52,7 +52,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* Truyền dữ liệu menu động vào Navbar */}
         <Navbar menuData={menuData} />
 
-        <CommandPalette posts={searchData} />
+   {/*      <CommandPalette posts={searchData} /> */}
+   <CommandPalette posts={[]} />
         
         {children}
 
