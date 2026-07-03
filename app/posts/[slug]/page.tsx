@@ -2,7 +2,7 @@ import { getPostData, getRelatedPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
-import "highlight.js/styles/github-dark.css";
+// import "highlight.js/styles/github-dark.css";
 import TableOfContents from "@/components/TableOfContents";
 import MarkdownContent from "@/components/MarkdownContent";
 
