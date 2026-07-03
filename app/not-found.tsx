@@ -3,8 +3,8 @@
 import Link from "next/link";
 
 // Trang này là tĩnh hoàn toàn, không cần server logic
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+// export const runtime = 'edge';
+// export const dynamic = 'force-dynamic';
 
 export default function NotFound() {
   return (

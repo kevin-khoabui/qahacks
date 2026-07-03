@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import TableOfContents from "@/components/TableOfContents";
 import MarkdownContent from "@/components/MarkdownContent";
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 // 1. IMPORT COMPONENT MỚI
 import PostNavigation from "@/components/PostNavigation";

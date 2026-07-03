@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 export const metadata: Metadata = {
   title: "Interview Preparation Products | QA Hacks",

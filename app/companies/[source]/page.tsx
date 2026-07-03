@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import CategoryPaginationClient from "@/components/CategoryPaginationClient";
 import { Metadata } from "next";
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 function formatLabel(value: string) {
   const labelMap: Record<string, string> = {

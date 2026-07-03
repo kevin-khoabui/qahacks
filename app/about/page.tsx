@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+// export const runtime = 'edge';
+// export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "About QA Hacks | Interview Preparation for QA & Software Engineering Roles",
