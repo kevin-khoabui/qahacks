@@ -1,24 +1,13 @@
 import type { MetadataRoute } from "next";
-import { getCloudflareContext } from "@opennextjs/cloudflare";
-import type { D1Database } from "@cloudflare/workers-types";
-
-export const runtime = "edge";
-// export const dynamic = "force-dynamic";
+import { getDB } from "@/lib/posts";
 
 const baseUrl = "https://qahacks.com";
 
 function safeDate(value: unknown): Date {
-  if (!value || typeof value !== "string") {
-    return new Date();
-  }
+  if (!value || typeof value !== "string") return new Date();
 
   const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return new Date();
-  }
-
-  return date;
+  return Number.isNaN(date.getTime()) ? new Date() : date;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -79,10 +68,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       segment: "tools",
       values: ["Playwright", "Cypress", "Postman", "DevTools", "Generic"],
     },
-    {
-      segment: "difficulties",
-      values: ["Junior", "Intermediate", "Advanced", "Senior", "Mid-Senior"],
-    },
   ];
 
   const categoryEntries: MetadataRoute.Sitemap = categoriesConfig.flatMap(
@@ -96,12 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   try {
-    const { env } = await getCloudflareContext({ async: true });
-    const db = (env as any).DB as D1Database | undefined;
-
-    if (!db) {
-      return [...staticEntries, ...categoryEntries];
-    }
+    const db = await getDB();
 
     const { results } = await db
       .prepare(
@@ -115,22 +95,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       )
       .all();
 
-    const postEntries: MetadataRoute.Sitemap = (results || []).map(
-      (post: any) => ({
-        url: `${baseUrl}/posts/${post.slug}`,
-        lastModified: safeDate(post.date),
-        changeFrequency: "weekly",
-        priority: 0.8,
-      })
-    );
+    const postEntries: MetadataRoute.Sitemap = (results || []).map((post: any) => ({
+      url: `${baseUrl}/posts/${post.slug}`,
+      lastModified: safeDate(post.date),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    }));
 
     return [...staticEntries, ...categoryEntries, ...postEntries];
   } catch (error) {
-    console.warn(
-      "Sitemap fallback used because D1 is not available during build.",
-      error
-    );
-
+    console.warn("Sitemap fallback used:", error);
     return [...staticEntries, ...categoryEntries];
   }
 }
