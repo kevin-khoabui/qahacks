@@ -14,12 +14,14 @@ import {
 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
 
-// export const runtime = 'edge';
-
+// 🚀 1. BỔ SUNG: Khai báo Canonical Tag vào Metadata
 export const metadata: Metadata = {
   title: "Interview Preparation Products | QA Hacks",
   description:
     "Explore QA Hacks premade digital interview preparation products, including QA Lead interview PDF packs with real-world questions, expert answers, bad answers, mistakes, and speaking blueprints.",
+  alternates: {
+    canonical: "https://qahacks.com/products",
+  },
 };
 
 const GUMROAD_LINK_50 = SITE_CONFIG.links.gumroadProduct50;
@@ -30,6 +32,8 @@ const products = [
     name: "QA Lead Interview Master Pack",
     subtitle: "50 Questions & Answers PDF",
     price: "$49",
+    // Chuyển đổi giá sang số để dùng cho Schema
+    numericPrice: "49.00",
     description:
       "A premium QA Lead interview preparation pack with 50 real-world questions, expert answers, bad answer examples, common mistakes, and speaking-style answer templates.",
     features: [
@@ -47,6 +51,8 @@ const products = [
     name: "QA Lead Interview Starter Pack",
     subtitle: "30 Questions & Answers PDF",
     price: "$39",
+    // Chuyển đổi giá sang số để dùng cho Schema
+    numericPrice: "39.00",
     description:
       "A focused QA Lead interview preparation pack with 30 practical scenario-based questions and structured answers for candidates preparing for QA leadership interviews.",
     features: [
@@ -63,8 +69,39 @@ const products = [
 ];
 
 export default function ProductsPage() {
+  
+  // 🚀 2. BỔ SUNG: Tạo Schema Product để Google hiểu đây là trang bán sản phẩm số
+  const productSchemas = products.map((product) => ({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description,
+    "category": "Digital Document",
+    "offers": {
+      "@type": "Offer",
+      "price": product.numericPrice,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": product.href,
+      "seller": {
+        "@type": "Organization",
+        "name": "QA Hacks"
+      }
+    }
+  }));
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+      
+      {/* Inject Product Schemas */}
+      {productSchemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+
       <div className="mx-auto max-w-6xl space-y-12">
         <section className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">

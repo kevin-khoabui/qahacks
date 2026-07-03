@@ -1,17 +1,15 @@
-export const dynamic = "force-static";
+import type { MetadataRoute } from "next";
 
-import { MetadataRoute } from 'next';
+export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: [
-        '/private/',
-        '/content/',
-      ],
+      userAgent: "*",
+      allow: "/",
+      // BỔ SUNG: Chặn Googlebot quét các URL chứa tham số (query parameters)
+      disallow: ["/*?*"], 
     },
-    sitemap: 'https://qahacks.com/sitemap.xml',
+    sitemap: "https://qahacks.com/sitemap.xml",
   };
 }

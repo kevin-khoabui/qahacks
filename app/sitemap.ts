@@ -18,6 +18,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily",
       priority: 1.0,
     },
+    // BỔ SUNG: Trang Products
+    {
+      url: `${baseUrl}/products`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
@@ -32,6 +39,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    // BỔ SUNG: Trang Refund Policy
+    {
+      url: `${baseUrl}/refund-policy`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.3,
@@ -67,6 +81,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       segment: "tools",
       values: ["Playwright", "Cypress", "Postman", "DevTools", "Generic"],
+    },
+    // BỔ SUNG: Danh mục Companies
+    {
+      segment: "companies",
+      values: ["FAANG_DSA", "Amazon_Microsoft", "Startup_General"],
     },
   ];
 

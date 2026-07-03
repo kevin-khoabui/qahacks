@@ -1,18 +1,34 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-// export const runtime = 'edge';
-// export const dynamic = 'force-dynamic';
-
+// 🚀 1. BỔ SUNG: Khai báo thẻ Canonical
 export const metadata: Metadata = {
   title: "Contact QA Hacks | Support & Business Inquiries",
   description:
     "Contact QA Hacks for product support, digital download questions, business inquiries, or feedback about our interview preparation PDF products.",
+  alternates: {
+    canonical: "https://qahacks.com/contact",
+  },
 };
 
 export default function ContactPage() {
+  // 🚀 2. BỔ SUNG: Khai báo Schema cho trang Contact
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact QA Hacks",
+    "url": "https://qahacks.com/contact",
+    "description": "Contact QA Hacks for product support, digital download questions, business inquiries, or feedback about our interview preparation PDF products."
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+      {/* Inject Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
       <div className="max-w-4xl mx-auto space-y-10">
         <section className="border-b border-slate-800 pb-8">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">

@@ -1,36 +1,37 @@
-"use client";
-
 import Link from "next/link";
-
-// Trang này là tĩnh hoàn toàn, không cần server logic
-// export const runtime = 'edge';
-// export const dynamic = 'force-dynamic';
 
 export default function NotFound() {
   return (
-    <main className="min-h-[70vh] bg-slate-950 flex flex-col items-center justify-center text-center px-4">
-      <div className="space-y-5">
-        <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 text-2xl font-bold animate-pulse">
-          ⚠️
+    <main className="min-h-[70vh] bg-slate-950 flex items-center justify-center px-4">
+      <section className="max-w-2xl text-center rounded-3xl border border-slate-800 bg-[#0B1121] px-6 py-12 sm:px-10 shadow-2xl">
+        <div className="inline-flex items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-6">
+          Page moved
         </div>
 
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-          404 - Page Not Found
+        <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-5">
+          This page is no longer available
         </h1>
 
-        <p className="text-slate-400 max-w-md mx-auto text-sm sm:text-base">
-          The interview handbook or automation tutorial you are looking for might have been moved, renamed, or is temporarily unavailable.
+        <p className="mx-auto max-w-lg text-sm sm:text-base leading-relaxed text-slate-400">
+          The guide you are looking for may have been updated, renamed, or moved to a better location in the QAHacks library.
         </p>
 
-        <div className="pt-4">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-linear-to-r from-emerald-500 to-teal-500 text-sm font-semibold text-slate-950 hover:opacity-90 transition-all shadow-lg shadow-emerald-500/10"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 text-sm font-black text-slate-950 hover:bg-emerald-400 transition-all"
           >
-            Back to Dashboard Hub
+            Explore QAHacks Library
+          </Link>
+
+          <Link
+            href="/products"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900 px-5 py-3 text-sm font-bold text-slate-200 hover:border-emerald-500/40 hover:text-emerald-400 transition-all"
+          >
+            View Premium Packs
           </Link>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

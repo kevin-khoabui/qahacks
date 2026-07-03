@@ -14,25 +14,23 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 18,
-          background: "linear-gradient(to bottom right, #34d399, #059669)",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "white",
+          background: "linear-gradient(135deg, #34d399, #059669)",
+          color: "#ffffff",
+          fontSize: 18,
           fontWeight: 900,
-          fontFamily: "sans-serif",
-          borderRadius: "125px",
+          fontFamily: "Arial, sans-serif",
+          borderRadius: "50%",
           lineHeight: 1,
         }}
       >
         QA
       </div>
     ),
-    {
-      ...size,
-    }
+    size
   );
 }

@@ -1,19 +1,34 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-// 🚀 THÊM 2 DÒNG NÀY ĐỂ FIX LỖI BUILD:
-// export const runtime = 'edge';
-// export const dynamic = 'force-dynamic';
-
+// 🚀 BỔ SUNG: Khai báo thẻ Canonical
 export const metadata: Metadata = {
   title: "Terms of Service | QA Hacks",
   description:
     "Read the QA Hacks Terms of Service for using our website and purchasing premade digital interview preparation products.",
+  alternates: {
+    canonical: "https://qahacks.com/terms",
+  },
 };
 
 export default function TermsPage() {
+  // 🚀 BỔ SUNG: Khai báo Schema cho trang Terms of Service
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms of Service | QA Hacks",
+    "url": "https://qahacks.com/terms",
+    "description": "Read the QA Hacks Terms of Service for using our website and purchasing premade digital interview preparation products."
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+      {/* Inject Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
       <article className="max-w-4xl mx-auto space-y-10">
         <section className="border-b border-slate-800 pb-8">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">

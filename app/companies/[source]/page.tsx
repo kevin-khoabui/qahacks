@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import CategoryPaginationClient from "@/components/CategoryPaginationClient";
 import { Metadata } from "next";
 
-// export const runtime = 'edge';
-
 function formatLabel(value: string) {
   const labelMap: Record<string, string> = {
     'FAANG_DSA': 'Google / Meta',
@@ -15,6 +13,10 @@ function formatLabel(value: string) {
   return labelMap[value] || value.replace(/_/g, " ");
 }
 
+interface Props {
+  params: Promise<{ source: string }>;
+}
+
 // 2. Metadata động cho SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { source } = await params;
@@ -22,11 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} Interview Questions | QA Hacks`,
     description: `Curated interview questions and preparation path for ${title}.`,
+    // BỔ SUNG: Khai báo Canonical tag để xử lý triệt để lỗi sinh tham số URL
+    alternates: {
+      canonical: `https://qahacks.com/companies/${source}`,
+    },
   };
-}
-
-interface Props {
-  params: Promise<{ source: string }>;
 }
 
 export default async function CompanyPage({ params }: Props) {
@@ -54,8 +56,20 @@ export default async function CompanyPage({ params }: Props) {
       : post.target_role
   }));
 
+  // BỔ SUNG: SEO SCHEMA cho trang danh sách công ty
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${formattedSource} Interview Questions`,
+    "description": `Curated interview questions and preparation path for ${formattedSource}.`,
+    "numberOfItems": posts.length
+  };
+
   return (
     <main className="min-h-screen bg-slate-950 py-10 px-4 sm:px-6 lg:px-8">
+      {/* Inject Schema */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="max-w-6xl mx-auto">
         <div id="category-hub-top" className="mb-12">
           <h1 className="text-3xl font-black text-white capitalize tracking-tight">
@@ -63,10 +77,7 @@ export default async function CompanyPage({ params }: Props) {
             <span className="text-slate-600 font-normal ml-3">({posts.length} items)</span>
           </h1>
           <p className="mt-4 text-slate-400">
-{/*            <p className="mt-4 text-slate-400 max-w-2xl">
- */}
             Explore curated interview content specifically for <strong>{formattedSource}</strong>. Master the technical challenges and engineering standards required.
-          
           </p>
         </div>
         

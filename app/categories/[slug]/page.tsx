@@ -3,8 +3,6 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import CategoryPaginationClient from "../../../components/CategoryPaginationClient";
 
-// export const runtime = 'edge';
-
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -18,6 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${decodedSlug} | QA Hacks Testing Resources`,
     description: `Explore our collection of ${decodedSlug} guides, interview questions, and automation tutorials for software engineers and QA professionals.`,
     keywords: [decodedSlug, "QA interview", "software testing", "developer guides", "QA Hacks", "automation engineering"],
+    // BỔ SUNG: Khai báo Canonical để nhóm tất cả các URL tham số phân trang/filter về URL gốc này
+    alternates: {
+      canonical: `https://qahacks.com/categories/${slug}`,
+    },
   };
 }
 

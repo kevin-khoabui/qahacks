@@ -2,11 +2,8 @@ import { getPostData, getRelatedPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
-// import "highlight.js/styles/github-dark.css";
 import TableOfContents from "@/components/TableOfContents";
 import MarkdownContent from "@/components/MarkdownContent";
-
-// export const runtime = 'edge';
 
 // 1. IMPORT COMPONENT MỚI
 import PostNavigation from "@/components/PostNavigation";
@@ -24,44 +21,100 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!post) {
     return {
-      title: "Article Not Found | QA Hacks",
+      title: "Article Not Found | QAHacks",
       description:
-        "The requested QA automation tutorial or interview guide does not exist.",
+        "The requested interview guide or automation tutorial could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  const rolesArray = Array.isArray(post.target_role)
+  const roles = Array.isArray(post.target_role)
     ? post.target_role
-    : [post.target_role || ""];
+    : [post.target_role || "QA Engineer"];
 
-  const categoriesArray = Array.isArray(post.category)
+  const categories = Array.isArray(post.category)
     ? post.category
-    : [post.category || ""];
+    : [post.category || "General"];
 
-  const displayRoles = rolesArray
-    .map((role) => role.replace(/_/g, " "))
+  const displayRoles = roles
+    .map((r) => r.replace(/_/g, " "))
     .join(", ");
 
-  const cleanTitle = `${post.title} | QA Hacks`;
-  const cleanDescription = `Master the QA Interview: ${post.title}. Blueprint for ${
-    displayRoles || "QA"
-  } positions.`;
+  const displayCategories = categories
+    .map((c) => c.replace(/_/g, " "))
+    .join(", ");
+
+  const title = `${post.title} | QAHacks`;
+
+  const description =
+    `${post.title}. Learn expert interview answers, detailed explanations, best practices, common mistakes, and real-world examples for ${displayRoles}.`;
+
+  const canonical = `https://qahacks.com/posts/${post.slug}`;
 
   return {
-    title: cleanTitle,
-    description: cleanDescription,
-    keywords: post.tags || [
-      "qa-interview",
-      "software-testing",
-      "qa-lead",
-      ...categoriesArray.map((category) => category.replace(/_/g, " ")),
+    title,
+    description,
+
+    alternates: {
+      canonical,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+
+    authors: [
+      {
+        name: "QAHacks",
+      },
     ],
+
+    publisher: "QAHacks",
+
+    keywords: [
+      post.title,
+      ...roles.map((r) => r.replace(/_/g, " ")),
+      ...categories.map((c) => c.replace(/_/g, " ")),
+      post.tool_stack ?? "",
+      post.question_type ?? "",
+      "QA Interview",
+      "Software Testing",
+      "Automation Testing",
+      "QA Engineer",
+      "Software Engineer Interview",
+      "Interview Questions",
+      "QAHacks",
+    ].filter(Boolean),
+
     openGraph: {
-      title: cleanTitle,
-      description: cleanDescription,
+      title,
+      description,
+      url: canonical,
+      siteName: "QAHacks",
       type: "article",
-      url: `https://qahacks.com/posts/${resolvedParams.slug}`,
-      siteName: "QA Hacks",
+
+      images: [
+        {
+          url: "https://qahacks.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+
+      images: [
+        "https://qahacks.com/og-image.png",
+      ],
     },
   };
 }
@@ -94,8 +147,8 @@ export default async function PostPage({ params }: Props) {
   );
 
   // GIẢ LẬP DỮ LIỆU BÀI TRƯỚC/BÀI SAU (Bạn có thể thêm hàm SQL gọi DB thật sau này)
-  const prevPost = null; 
-  const nextPost = null; 
+  const prevPost = null;
+  const nextPost = null;
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
@@ -121,6 +174,71 @@ export default async function PostPage({ params }: Props) {
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+
+          {/* Article Schema */}
+          <script
+            type="application/ld+json"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                mainEntityOfPage: `https://qahacks.com/posts/${post.slug}`,
+                headline: post.title,
+                description: `${post.title}. Learn expert interview answers and detailed explanations.`,
+                image: [
+                  "https://qahacks.com/og-image.png",
+                ],
+                datePublished: post.date,
+                dateModified: post.date,
+                author: {
+                  "@type": "Organization",
+                  name: "QAHacks",
+                },
+                publisher: {
+                  "@type": "Organization",
+                  name: "QAHacks",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://qahacks.com/logo-1024.png",
+                  },
+                },
+              }),
+            }}
+          />
+
+          {/* Breadcrumb Schema */}
+          <script
+            type="application/ld+json"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://qahacks.com",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: primaryCategory.replace(/_/g, " "),
+                    item: `https://qahacks.com/categories/${primaryCategory}`,
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: post.title,
+                    item: `https://qahacks.com/posts/${post.slug}`,
+                  },
+                ],
+              }),
+            }}
+          />
+
           <article className="lg:col-span-8 bg-[#0B1121] p-6 sm:p-10 rounded-2xl border border-slate-800">
             {/* METADATA TAGS */}
             <div className="flex flex-wrap items-center gap-2 mb-6 text-[11px] font-bold uppercase tracking-wider">

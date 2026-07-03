@@ -3,8 +3,6 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import CategoryPaginationClient from "../../../components/CategoryPaginationClient";
 
-// export const runtime = 'edge';
-
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -18,6 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${decodedSlug} | QA Hacks Role Blueprint`,
     description: `Comprehensive interview questions and testing guides for ${decodedSlug} positions. Master the skills required for software engineers, developers, and QA leads.`,
     keywords: [decodedSlug, "QA interview", "software testing", "software engineer", "developer", "QA Lead", "career blueprint"],
+    // BỔ SUNG: Khai báo Canonical tag để gộp các URL phân trang về URL gốc
+    alternates: {
+      canonical: `https://qahacks.com/roles/${slug}`,
+    },
   };
 }
 

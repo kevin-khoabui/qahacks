@@ -1,15 +1,18 @@
 import HomePageClient from "./HomePageClient";
 import { SITE_CONFIG } from "@/lib/config";
+import type { Metadata } from "next";
 
-// export const runtime = 'edge';
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "QA Hacks | Master Software Testing & Interview Guides",
   description: "Comprehensive QA interview questions, automation testing tutorials, and career blueprints for Manual, Automation, and QA Lead positions.",
   keywords: [
     "QA interview", "software testing", "automation testing", "Cypress", "Playwright", "QA Hacks",
     "software engineer", "developer testing", "QA Lead interview", "test automation engineer"
   ],
+  // BỔ SUNG: Khai báo Canonical cứng để dẹp bỏ lỗi trùng lặp nội dung do tham số
+  alternates: {
+    canonical: "https://qahacks.com/",
+  },
 };
 
 export default function Page() {
@@ -41,7 +44,7 @@ export default function Page() {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-400 mb-6 border border-emerald-500/20">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg> {/* ĐÃ THÊM THẺ ĐÓNG Ở ĐÂY */}
+              </svg>
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight">
