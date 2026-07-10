@@ -142,17 +142,13 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
               href={SITE_CONFIG.links.substack}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-all"
+              //className="px-3 py-1.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-all"
+              className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300"
+
             >
               Premium Pack 🔥
             </a>
 
-         {/*    <Link
-              href="/products"
-              className="px-3 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 rounded-lg hover:bg-amber-300 transition-all"
-            >
-              Premium Pack 🔥
-            </Link> */}
           </div>
         </nav>
 
@@ -200,10 +196,6 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
               >
                Premium Pack 🔥
               </a>
-
-              <Link href="/products" onClick={closeMobileMenu} className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300">
-                Premium Pack 🔥
-              </Link>
 
               {/* Topics Mobile */}
               <div className="rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
