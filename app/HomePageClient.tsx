@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import HeroBanner from "@/components/HeroBanner";
-import FeaturedCollections from "@/components/FeaturedCollections";
+// import FeaturedCollections from "@/components/FeaturedCollections";
 import { fetchAllPostsAction } from "@/lib/actions";
 
 interface Post {
@@ -98,7 +98,7 @@ export default function HomePageClient() {
       <div className="mx-auto max-w-7xl">
         <HeroBanner />
 
-        <FeaturedCollections />
+{/*         <FeaturedCollections /> */}
 
         <section ref={postsListRef} className="mt-14">
           <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
