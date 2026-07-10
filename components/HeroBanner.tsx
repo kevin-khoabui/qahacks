@@ -31,7 +31,7 @@ export default function HeroBanner() {
         </div>
 
         {/* 🚀 BANNER CTA BÁN PDF INTERVIEW PACK */}
-        <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+ {/*        <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
           <a 
             href={SITE_CONFIG.links.gumroadProduct50}
             target="_blank"
@@ -43,7 +43,7 @@ export default function HeroBanner() {
           <span className="text-[10px] text-slate-500 font-medium">
             50+ Real-World Scenarios & Answers PDF
           </span>
-        </div>
+        </div> */}
 
         <div className="mt-8 flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 text-xs text-slate-400">
           {/* <span className="text-[12px] font-bold uppercase tracking-widest text-slate-500">Trending:</span> */}
