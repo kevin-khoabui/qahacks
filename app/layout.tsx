@@ -52,9 +52,11 @@ export default async function RootLayout({
                 href={SITE_CONFIG.links.substack}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
+                //className="text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
+                              className="px-3 py-1.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-all"
+
               >
-                Newsletter 📩
+                Premium Pack 🔥
               </a>
 
               <a

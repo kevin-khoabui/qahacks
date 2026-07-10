@@ -55,14 +55,10 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
             Dashboard
           </Link>
 
-<Link href="/collections" className="hover:text-emerald-400 transition-colors">
-  Collections
-</Link>
-
           {/* Categories */}
           <div className="relative group py-2">
             <button className="hover:text-emerald-400 transition-colors">
-              Categories
+              Collections
             </button>
             <div className="absolute left-0 top-full pt-2 w-48 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all">
               <div className="bg-slate-900 border border-slate-800 rounded-xl p-1.5 shadow-2xl">
@@ -148,15 +144,15 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
               rel="noopener noreferrer"
               className="px-3 py-1.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-all"
             >
-              Newsletter 📩
+              Premium Pack 🔥
             </a>
 
-            <Link
+         {/*    <Link
               href="/products"
               className="px-3 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 rounded-lg hover:bg-amber-300 transition-all"
             >
               Premium Pack 🔥
-            </Link>
+            </Link> */}
           </div>
         </nav>
 
@@ -194,23 +190,15 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
                 Dashboard
               </Link>
 
-<Link
-  href="/collections"
-  onClick={closeMobileMenu}
-  className="block rounded-xl border border-slate-800 bg-slate-900/40 px-4 py-3 text-sm font-bold text-slate-200 hover:border-emerald-500/40 hover:text-emerald-400"
->
-  Collections
-</Link>
-
               {/* Nút Newsletter Mobile */}
               <a
                 href="https://qahacks.substack.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}
-                className="block rounded-xl border border-emerald-500/30 bg-emerald-500/5 px-4 py-3 text-sm font-bold text-emerald-400 hover:bg-emerald-500/10"
+               className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300"
               >
-                Newsletter 📩
+               Premium Pack 🔥
               </a>
 
               <Link href="/products" onClick={closeMobileMenu} className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300">

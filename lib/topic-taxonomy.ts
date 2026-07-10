@@ -1,0 +1,40 @@
+export const QA_TOPICS = {
+  qa_lead: [
+    "quality_strategy",
+    "release_readiness",
+    "risk_management",
+    "quality_metrics",
+    "stakeholder_management",
+    "team_leadership",
+    "process_improvement",
+    "production_issues",
+    "automation_strategy",
+    "testing_maturity",
+  ],
+
+  manual_qa: [
+    "bug_reporting",
+    "test_case_design",
+    "regression_testing",
+    "exploratory_testing",
+    "requirements_analysis",
+    "production_investigation",
+    "api_testing",
+    "mobile_testing",
+    "edge_cases",
+    "test_planning",
+  ],
+
+  automation_qa: [
+    "framework_design",
+    "playwright",
+    "cypress",
+    "ci_cd",
+    "flaky_tests",
+    "test_data",
+    "api_automation",
+    "mocking",
+    "permissions_testing",
+    "maintenance",
+  ],
+} as const;
