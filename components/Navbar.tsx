@@ -55,6 +55,10 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
             Dashboard
           </Link>
 
+<Link href="/collections" className="hover:text-emerald-400 transition-colors">
+  Collections
+</Link>
+
           {/* Categories */}
           <div className="relative group py-2">
             <button className="hover:text-emerald-400 transition-colors">
@@ -138,7 +142,7 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
           <div className="flex items-center gap-3 ml-2">
             {/* Nút Newsletter dẫn sang Substack */}
             <a
-              
+
               href={SITE_CONFIG.links.substack}
               target="_blank"
               rel="noopener noreferrer"
@@ -158,7 +162,7 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
 
         <div className="flex items-center gap-3">
           <NavbarSearchButton />
-          
+
           {/* Mobile Menu Button */}
           <button
             type="button"
@@ -190,12 +194,20 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
                 Dashboard
               </Link>
 
+<Link
+  href="/collections"
+  onClick={closeMobileMenu}
+  className="block rounded-xl border border-slate-800 bg-slate-900/40 px-4 py-3 text-sm font-bold text-slate-200 hover:border-emerald-500/40 hover:text-emerald-400"
+>
+  Collections
+</Link>
+
               {/* Nút Newsletter Mobile */}
-              <a 
-                href="https://qahacks.substack.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                onClick={closeMobileMenu} 
+              <a
+                href="https://qahacks.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobileMenu}
                 className="block rounded-xl border border-emerald-500/30 bg-emerald-500/5 px-4 py-3 text-sm font-bold text-emerald-400 hover:bg-emerald-500/10"
               >
                 Newsletter 📩
