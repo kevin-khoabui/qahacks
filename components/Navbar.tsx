@@ -142,8 +142,8 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
               href={SITE_CONFIG.links.substack}
               target="_blank"
               rel="noopener noreferrer"
-              //className="px-3 py-1.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-all"
-              className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300"
+              className="px-3 py-1.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 rounded-lg hover:bg-emerald-500/10 transition-all"
+            // className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300"
 
             >
               Premium Pack 🔥
@@ -192,9 +192,9 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}
-               className="block rounded-xl bg-amber-400 px-4 py-3 text-sm font-black text-slate-950 hover:bg-amber-300"
+                className="block rounded-lg border border-emerald-500/30 px-4 py-3 text-sm font-bold text-emerald-400 transition-all duration-200 hover:bg-emerald-500/10"
               >
-               Premium Pack 🔥
+                Premium Pack 🔥
               </a>
 
               {/* Topics Mobile */}
