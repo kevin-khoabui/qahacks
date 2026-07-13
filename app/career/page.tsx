@@ -87,7 +87,7 @@ export default function CareerPage() {
 
     <p className="mt-5 text-sm leading-relaxed text-slate-400 sm:text-base">
       After submitting your CV, selected candidates may receive a short set of
-      real-world QA scenario questions. You will have 48 hours to complete and
+      real-world QA scenario questions. You will have at least 72 hours to complete and
       submit your answers.
     </p>
 
