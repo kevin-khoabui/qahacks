@@ -119,7 +119,7 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
           </div>
 
           {/* Companies */}
-{/*           <div className="relative group py-2">
+          <div className="relative group py-2">
             <button className="hover:text-emerald-400 transition-colors flex items-center gap-1">
               Companies
             </button>
@@ -136,11 +136,11 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
                 ))}
               </div>
             </div>
-          </div> */}
+          </div>
 
-         {/*  <div className="flex items-center gap-3 ml-2">
+          <div className="flex items-center gap-3 ml-2">
             {/* Nút Newsletter dẫn sang Substack */}
-           {/*  <a
+            <a
 
               href={SITE_CONFIG.links.substack}
               target="_blank"
@@ -150,9 +150,9 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
 
             >
               Premium Pack 🔥
-            </a> */}
+            </a>
 
-          {/* </div>  */}
+          </div>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -190,15 +190,15 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
               </Link>
 
               {/* Nút Newsletter Mobile */}
-    {/*           <a
+              <a
                 href="https://qahacks.substack.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}
                 className="block rounded-lg border border-emerald-500/30 px-4 py-3 text-sm font-bold text-emerald-400 transition-all duration-200 hover:bg-emerald-500/10"
               >
-                Newsletter 🔥
-              </a> */}
+                Premium Pack 🔥
+              </a>
 
               {/* Topics Mobile */}
               <div className="rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
@@ -252,7 +252,7 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
               </div>
 
               {/* Companies Mobile */}
-{/*               <div className="rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
+              <div className="rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
                 <button type="button" onClick={() => toggleMobileSection("companies")} className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-bold text-slate-200 hover:text-emerald-400">
                   <span>Companies</span>
                   <span className={`transition-transform ${openMobileSection === "companies" ? "rotate-180" : ""}`}>▼</span>
@@ -266,7 +266,7 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
                     ))}
                   </div>
                 )}
-              </div> */}
+              </div>
 
             </div>
           </nav>

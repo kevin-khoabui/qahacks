@@ -48,7 +48,7 @@ export default async function RootLayout({
             </div>
 
             <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400">
-              {/* <a
+              <a
                 href={SITE_CONFIG.links.substack}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -57,7 +57,7 @@ export default async function RootLayout({
 
               >
                 Premium Pack 🔥
-              </a> */}
+              </a>
 
               <a
                 href={SITE_CONFIG.links.linkedin}
