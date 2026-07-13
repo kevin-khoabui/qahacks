@@ -71,12 +71,19 @@ export default async function RootLayout({
               <Link href="/about" className="hover:text-emerald-400 transition-colors">
                 About Us
               </Link>
+
+              <Link href="/career" className="text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
+                Career
+              </Link>
+
               <Link href="/privacy" className="hover:text-emerald-400 transition-colors">
                 Privacy Policy
               </Link>
+
               <Link href="/terms" className="hover:text-emerald-400 transition-colors">
                 Terms of Service
               </Link>
+
               <Link href="/contact" className="hover:text-emerald-400 transition-colors">
                 Contact
               </Link>
