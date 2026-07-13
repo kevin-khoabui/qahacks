@@ -22,7 +22,7 @@ function main() {
   const generatedPostPath = path.join(process.cwd(), "generated-post.json");
   const rawGeminiOutputPath = path.join(process.cwd(), "gemini-raw-output.txt");
 
-  console.log("Starting QAHacks one-post generation flow...");
+  console.log("Starting QA Hacks one-post generation flow...");
 
   // 1. Fetch pending topics from Google Sheet
   run("npm", ["run", "fetch:pending"]);

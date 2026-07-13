@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!post) {
     return {
-      title: "Article Not Found | QAHacks",
+      title: "Article Not Found | QA Hacks",
       description:
         "The requested interview guide or automation tutorial could not be found.",
       robots: {
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .map((c) => c.replace(/_/g, " "))
     .join(", ");
 
-  const title = `${post.title} | QAHacks`;
+  const title = `${post.title} | QA Hacks`;
 
   const description =
     `${post.title}. Learn expert interview answers, detailed explanations, best practices, common mistakes, and real-world examples for ${displayRoles}.`;
@@ -69,11 +69,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     authors: [
       {
-        name: "QAHacks",
+        name: "QA Hacks",
       },
     ],
 
-    publisher: "QAHacks",
+    publisher: "QA Hacks",
 
     keywords: [
       post.title,
@@ -87,14 +87,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "QA Engineer",
       "Software Engineer Interview",
       "Interview Questions",
-      "QAHacks",
+      "QA Hacks",
     ].filter(Boolean),
 
     openGraph: {
       title,
       description,
       url: canonical,
-      siteName: "QAHacks",
+      siteName: "QA Hacks",
       type: "article",
 
       images: [
@@ -193,11 +193,11 @@ export default async function PostPage({ params }: Props) {
                 dateModified: post.date,
                 author: {
                   "@type": "Organization",
-                  name: "QAHacks",
+                  name: "QA Hacks",
                 },
                 publisher: {
                   "@type": "Organization",
-                  name: "QAHacks",
+                  name: "QA Hacks",
                   logo: {
                     "@type": "ImageObject",
                     url: "https://qahacks.com/logo-1024.png",

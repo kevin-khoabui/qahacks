@@ -21,7 +21,7 @@ export default function NotFound() {
             href="/"
             className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 text-sm font-black text-slate-950 hover:bg-emerald-400 transition-all"
           >
-            Explore QAHacks Library
+            Explore QA Hacks Library
           </Link>
 
           <Link

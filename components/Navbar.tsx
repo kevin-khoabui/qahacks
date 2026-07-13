@@ -41,12 +41,15 @@ export default function Navbar({ menuData }: { menuData?: MenuData }) {
     <header className="sticky top-0 z-50 border-b border-slate-900 bg-slate-950/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-800 bg-emerald-500/10 text-emerald-400 font-black text-sm group-hover:border-emerald-500/50 transition-colors">
-            QA
+
+          <div className="flex items-center gap-1.5">
+
+
+            <div className="flex h-9 items-center rounded-xl border border-slate-800 bg-slate-900 px-3 font-black tracking-tight transition-colors group-hover:border-emerald-500/50">
+              <span className="text-emerald-400">QA</span>
+              <span className="ml-1 text-white">Hacks</span>
+            </div>
           </div>
-          <span className="text-lg font-black tracking-tight bg-linear-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-            QA<span className="text-white">Hacks</span>
-          </span>
         </Link>
 
         {/* Desktop Nav */}

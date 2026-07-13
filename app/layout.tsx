@@ -11,7 +11,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "QAHacks | Ultimate QA Interview Hub & Automation Handbook",
+  title: "QA Hacks | Ultimate QA Interview Hub & Automation Handbook",
   description:
     "Master software automation testing with production-grade QA interview questions, advanced code challenges, framework best practices, and mega compilations.",
   metadataBase: new URL("https://qahacks.com"),
@@ -41,7 +41,7 @@ export default async function RootLayout({
         <footer className="border-t border-slate-900 bg-slate-950 py-10 mt-20">
           <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <div className="text-xs text-slate-500">
-              <p>© {new Date().getFullYear()} QAHacks.com. All rights reserved.</p>
+              <p>© {new Date().getFullYear()} qahacks.com. All rights reserved.</p>
               <p className="text-[10px] text-slate-600 mt-1">
                 High-Yield Software Testing Engineering Handbooks.
               </p>

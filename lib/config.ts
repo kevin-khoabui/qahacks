@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  name: "QAHacks",
+  name: "QA Hacks",
   description: "Master QA Automation. Crack the Interview.",
   links: {
     // Dán link sản phẩm Gumroad thật của bạn vào đây
