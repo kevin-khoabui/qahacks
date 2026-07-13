@@ -34,8 +34,8 @@ export default function AssignmentPage() {
                 <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3">
                     {[
                         [
-                            "5 Calendar Days",
-                            "Submit your assignment within 5 calendar days after receiving the questions.",
+                            "48 Hours",
+                            "Submit your assignment within 48 hours after receiving the questions.",
                         ],
                         [
                             "No AI Answers",
