@@ -17,7 +17,11 @@
     "generate:one": "tsx scripts/generate-one-post.ts",
     "import:post": "tsx scripts/import-generated-post.ts",
     "update:sheet": "tsx scripts/update-generated-topic.ts",
-    "auto:one": "tsx scripts/generate-publish-one.ts"
+    "auto:one": "tsx scripts/generate-publish-one.ts",
+    "audit:content": "tsx scripts/audit-d1-posts.ts",
+    "audit:content:remote": "tsx scripts/audit-d1-posts.ts --remote",
+    "migrate:quality:local": "wrangler d1 execute qahacks-db --local --file migrations/0005_content_quality.sql",
+    "migrate:quality:remote": "wrangler d1 execute qahacks-db --remote --file migrations/0005_content_quality.sql"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
